@@ -1,0 +1,223 @@
+body {
+    font: .9em/150% Arial, Helvetica, sans-serif;
+    color: #666;
+}
+a {
+    text-decoration: none;
+    color: #39C;
+}
+h1, h2 {
+    line-height: 100%;
+    margin: 0;
+    color: #000;
+}
+header {
+    content: ""; 
+    display: table;
+    width: 100%; 
+}
+
+#content {
+    display:flex; 
+    clear: both;
+    border-top: solid 1px #ccc;
+    margin: 0; 
+    padding: 0;
+    border: 0;
+}
+
+#menu-icon {
+    float: left;
+    background: black;
+    height: 28px;
+    padding: 6px 4px 4px 4px;
+}
+    
+#nenu-new-detachment { width: 90px; }
+
+#submenu-new-detachment { width:100%}
+    
+#nenu-new-detachment {
+    font: .9em/80% Arial, Helvetica, sans-serif;
+    color: #000;
+	height: 30px;
+	background: black;
+    color: white;
+	padding: 8px 10px 0 8px;
+	cursor: pointer;
+	display: block; /* show menu icon */
+    list-style: none;
+    float: left;
+    text-align: center;
+}
+	
+#nenu-new-detachment.inactive {
+	background-color: black;
+}
+   
+#nenu-new-detachment.active {
+	background-color: #bbb;
+}
+    
+#dialog {
+    display: none;
+}
+    
+#detachment_list, #minion_list, #army_list {           /* Normalisierung */
+    list-style: none; 
+    margin: 0; 
+    padding: 0;
+    border: 0;
+}    
+#detachment_list ul, #minion_list ul, #army_list ul{
+    width: 10em;
+    margin: 0; 
+    padding: 0;
+    border: 1px solid black;
+}
+#detachment_list li, #minion_list li, #army_list li {
+    margin: 4px; 
+    padding: 4px;
+    border: 1px solid black;
+    color: black;
+    }
+#army_list li    { background-color: #60dcff; }
+#army_list li.active{ background-color: #4599b1; }
+#detachment_list li { background-color: #fecb09; }
+#detachment_list li.active { background-color: #bfb693; }
+#detachment_list li.error  { background-color:#fe6c09; }
+#detachment_list li.minion_member { background-color: #fedb7e; }
+#detachment_list li.minion_member.active { background-color: #bfb693; }
+#detachment_list li.leader_card_member { background-color: #F0B27A; }
+#detachment_list li.leader_card_member.active { background-color: #CA6F1E; }
+#detachment_list li.plot_card_member { background-color: #CC99FF; }
+#detachment_list li.plot_card_member.active { background-color: #A64DFF; }
+#detachment_list li.agenda_card_member { background-color: #9999FF; }
+#detachment_list li.agenda_card_member.active { background-color: #4D4DFF; }
+
+#hit_point,  #action_point,  #power_up,  #fatigue_point  { margin: 2px;	background-color:#cdcdcd; width:20px; height:20px; }
+#hit_points, #action_points, #power_ups, #fatigue_points { display:flex; }
+    
+.main-menu { display:flex; background:black; padding: 5px; border-left: 1px white; border-right: 1px white; margin-left: 1px; margin-right: 1px}
+.menu-icon { display:flex; }
+.menu-items { display:flex; justify-content:flex-end; align-items:center; width:100%; }
+.menu-item { color: white; padding-left: 5px;padding-right: 5px ; border-left: 1px dotted white; }
+.menu-item.active { background:#5f5e5e; }
+.info-item { width: 70px; flex-shrink: 0; background:#2f2f2f; color: white; padding-left: 5px;padding-right: 5px}
+    
+    .detachment { display:flex; justify-content:space-between;}
+    .minion { display:flex; justify-content:space-between;}
+    .card { display:flex; justify-content:space-between;}
+    
+    .seperator {border-left: 1px dotted white; }
+    
+    .faction, .detachment, .minion, .card { background:#D0D0D0; color:black; padding-top: 5px; padding-bottom: 5px; padding-right: 10px; padding-left: 10px; border: 1px dotted white; }
+    
+    .list-item {
+        display: flex; /* or inline-flex */
+        align-items: stretch;
+    }
+    
+    .list-item-removeicon{
+        display: flex;
+        align-items: center;                          
+    }
+    
+    .list-item-desc {
+        display: flex; /* or inline-flex */
+        align-items: stretch;
+        flex-direction: column;
+    }
+    
+    .list-item-body {
+        display: flex; /* or inline-flex */
+        align-items: flex-end;
+        justify-content: space-between;
+        width: 100%;
+        padding-left: 5px;
+    }
+    
+    .list-item-cost {
+        display: flex; /* or inline-flex */
+        align-items: baseline;
+    }
+    
+    .cost-number {
+       padding-left: 5px;
+       font-size: 200%;
+    }
+    
+    
+    .army-game_sate {
+       margin: 2px 0 2px 0; 
+       padding: 0 4px 0 4px;
+       background-color: #2f2f2f;
+       color: white;
+    }
+    
+    .army-overview {
+       display: flex; /* or inline-flex */
+       align-items: stretch;
+       margin: 2px 0 2px 0; 
+       padding: 0 4px 0 4px;
+       background-color: #2f2f2f;
+       color: white;
+    }
+    
+    .army_overview-icon {
+        display: flex;
+        align-items: center; 
+    }
+    
+    .army-overview-body {
+       display: flex; /* or inline-flex */
+       align-items: flex-end;
+       justify-content: space-between;
+       width: 100%;
+       padding-left: 5px
+    }
+    
+    .army-overview-cost, .army-overview-applus {
+        display: flex; /* or inline-flex */
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    
+/************************************************************************************
+MOBILE
+*************************************************************************************/
+
+
+@media screen and (max-width: 600px) {
+    html,body{
+    overflow:scroll;
+    }
+
+    .page {
+        position: absolute;
+        width: 100%;
+    
+    }
+ 
+    .page.left {
+        left: -100%;
+    }
+
+    .page.center {
+        left: 0;
+    }
+
+    .page.right {
+        left: 100%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .page {
+       width: 30%;
+       min-width: 300px;
+    }
+    
+    #submenu-new-detachment {width:100%}    
+}
+

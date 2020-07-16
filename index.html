@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="alasql/alasql.min.js"></script>
+        <script src="InitDB.js"></script>
+        <script src="base.js"></script>
+        
+        <script type="text/javascript">
+            jQuery(document).ready(function($){
+                $("#nenuitem-new-army").on("click", function(){
+                    $("#submenu-new-army").slideToggle();
+                    $("#nenuitem-new-army").toggleClass("active");
+                });
+                
+                $("#nenuitem-new-detachment").on("click", function(){
+                    $("#submenu-new-detachment").slideToggle();
+                    $("#nenuitem-new-detachment").toggleClass("active");
+                });
+                
+                $("#back-icon-army").on("click", function(){ switchToMainView(); });
+            });
+        </script>
+        
+    </head>
+    <body>
+        <div id="main">
+                <header>
+                        <div id="dialog" title="Basic dialog">
+                                 <p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+                        </div>
+                </header>
+                <div id="content">
+                         <div id="main_page" class="page center">
+                            <div class="main-menu">
+                                <div class="menu-icon" id="game-logo"><img src="gamelogo.jpg" width="25" height="25" alt="" border="0"/></div>
+                                <div class="menu-items">
+                                    <div class="menu-item" id="nenuitem-new-army">New Army23</div>
+                                </div>
+                            </div>
+                            <div><div id="submenu-new-army"></div></div>
+                            <ul id="army_list"></ul>
+                        </div>
+                        <div id="army_page" class="page left">
+                            <div class="main-menu">
+                                <div class="menu-icon" id="back-icon-army"><img src="backicon.png" width="25" height="25" alt="" border="0"/></div>
+                                <div class="menu-items">
+                                    <div class="menu-item" id="nenuitem-new-platoon">Add Platoon</div>
+                                    <div class="menu-item" id="nenuitem-new-unit">Add Unit</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="submenu-new-detachment"></div>
+                                <div id="submenu-new-detachment_faction"></div>
+                            </div>
+                            <div class="army-overview" id="army-overview" title="Army Overview"></div>
+                            <ul id="detachment_list"></ul>
+                        </div>
+                        <div id="detachment_page" class="page left">
+                            <div class="main-menu">
+                                <div class="menu-icon" id="back-icon-detachment"><img src="backicon.png" width="25" height="25" alt="" border="0"/></div>
+                                <div class="menu-items">
+                                    <div class="menu-item" id="nenuitem-add-datasheet">Add Datasheet</div>
+                                </div>
+                            </div>
+                            <div class="datasheet" id="datasheet" title="Game Stae">
+                            </div>
+                        </div>
+                </div>
+        </div>
+    </body>
+</html>
