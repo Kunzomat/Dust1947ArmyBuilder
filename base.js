@@ -15,25 +15,27 @@ function updateFactionMenu() {
     $(".faction").on("click", function(){
 	$("#submenu-new-army").slideUp();
 	$("#nenuitem-new-army").removeClass("active");
-        current_army = generateUUID();
-    	alasql("INSERT INTO gamesystem_db.armys VALUES ('"+current_army+"', '', '"+jQuery(this).attr("id")+"')");
+      current_army = generateUUID();
+      var faction = alasql("SELECT * FROM factions WHERE id='"+jQuery(this).attr("id")+"'");
+      var army_name = faction[0].name;
+    	alasql("INSERT INTO gamesystem_db.armys VALUES ('"+current_army+"', '"+army_name+"', '"+faction[0].block_id+"','"+faction[0].id+"')");
     	updateArmyList();
     	//switchToArmyView(current_army);
     });
 }
 
-function updateDetachmentMenu() {
-    $('#submenu-new-detachment').empty();
-    var detachments = alasql("SELECT * FROM detachments ORDER BY name DESC");
-    for (var detachment of detachments) { $('#submenu-new-detachment').prepend('<div id="'+detachment.id+'" class="detachment">'+detachment.name+'</div>'); }
-    $(".detachment").on("click", function(){
-        $("#submenu-new-detachment").slideUp();
-        $("#nenuitem-new-detachment").removeClass("active");
-        current_detachment = generateUUID();
-        var res = alasql("SELECT * FROM gamesystem_db.armys WHERE id='"+current_army+"'");
-        var army = getArmy(res[0]);
-        alasql("INSERT INTO gamesystem_db.army_detachments VALUES ('"+current_detachment+"', '"+current_army+"', '"+jQuery(this).attr("id")+"', '"+army.faction_id+"')");
-        updateDetachmentList();
+function updateUnitMenu() {
+    $('#submenu-new-unit').empty();
+    var army = getArmy(current_army);
+    var units = alasql("SELECT * FROM units WHERE faction_id='"+army.faction_id+"' ORDER BY name DESC");
+    for (var unit of units) { $('#submenu-new-unit').prepend('<div id="'+unit.id+'" class="unit">'+unit.name+'</div>'); }
+    $(".unit").on("click", function(){
+        $("#submenu-new-unit").slideUp();
+        $("#nenuitem-new-unit").removeClass("active");
+        current_unit = generateUUID();
+        var army = getArmy(current_army);
+        alasql("INSERT INTO gamesystem_db.army_units VALUES ('"+current_unit+"',  '"+jQuery(this).attr("id")+"', '"+current_army+"','PLATOON')");
+        updateUnitList();
         //switchToArmyView(current_army);
     });
 }
@@ -42,8 +44,8 @@ function updateArmyList() {
     $('#army_list').empty();
     var res = alasql("SELECT * FROM gamesystem_db.armys ORDER BY name");
     for (var item of res) {
-        var army = getArmy(item);
-        $('#army_list').prepend('<li id="army_'+army.id+'"><div class="list-item"><div class="list-item-removeicon"><img class="removeicon" id="'+army.id+'" src="removeicon.png" width="36" height="36" alt="" border="0"></div><div class="list-item-body" id="open_army_'+army.id+'"><div class="list-item-desc"><div><b>'+army.name+'['+army.faction_name+']</b></div><div></div></div><div class="list-item-cost"><div>Points</div><div class="cost-number">'+army.cost+'</div></div></div></div></li>');
+        var army = getArmy(item.id);
+        $('#army_list').prepend('<li id="army_'+army.id+'"><div class="list-item"><div class="list-item-removeicon"><img class="removeicon" id="'+army.id+'" src="removeicon.png" width="36" height="36" alt="" border="0"></div><div class="list-item-body" id="open_army_'+army.id+'"><div class="list-item-desc"><div><b>'+army.name+'</b></div><div>'+army.faction_name+'</div></div><div class="list-item-cost"><div>Points</div><div class="cost-number">'+army.cost+'</div></div></div></div></li>');
         $(".removeicon#"+item.id).on("click", function() { removeArmy(jQuery(this).attr("id"));	});
         var item =$("#army_"+item.id);
         item.on("click", function() {
@@ -56,16 +58,17 @@ function updateArmyList() {
     $("#army_"+current_army).toggleClass("active");
 }
 
-function updateDetachmentList() {
-    $('#detachment_list').empty();
-    var res = alasql("SELECT * FROM gamesystem_db.army_detachments WHERE army_id='"+current_army+"' ORDER BY id");
+function updateUnitList() {
+    $('#unit_list').empty();
+    console.table(alasql("SELECT * FROM gamesystem_db.army_units"));
+    var res = alasql("SELECT * FROM gamesystem_db.army_units WHERE army_id='"+current_army+"' ORDER BY id");
     for (var item of res) {
-        var detachment = getDetachment(item);
-        $('#detachment_list').prepend('<li id="detachment_'+detachment.id+'"><div class="list-item"><div class="list-item-removeicon"><img class="removeicon" id="'+detachment.id+'" src="removeicon.png" width="36" height="36" alt="" border="0"></div><div class="list-item-body" id="open_detachment_'+detachment.id+'"><div class="list-item-desc"><div><b>'+detachment.name+' ['+detachment.faction_name+']</b></div><div></div></div><div class="list-item-cost"><div>Points</div><div class="cost-number">'+detachment.cost+'</div></div></div></div></li>');
+        var unit = getUnit(item);
+        $('#unit_list').prepend('<li id="unit_'+unit.id+'"><div class="list-item"><div class="list-item-removeicon"><img class="removeicon" id="'+unit.id+'" src="removeicon.png" width="36" height="36" alt="" border="0"></div><div class="list-item-body" id="open_unit_'+unit.id+'"><div class="list-item-desc"><div><b>'+unit.name+'</b></div><div></div></div><div class="list-item-cost"><div>Points</div><div class="cost-number">'+unit.cost+'</div></div></div></div></li>');
         $(".removeicon#"+item.id).on("click", function() { removeArmy(jQuery(this).attr("id"));	});
-        var item =$("#detachment_"+item.id);
+        var item =$("#unit_"+item.id);
         item.on("click", function() {
-            var detachment_id = jQuery(this).attr("id").replace("detachment_","");
+            var unit_id = jQuery(this).attr("id").replace("unit_","");
             switchToArmyView(current_army);
             $("#army_list li").removeClass("active");
             $("#army_"+army_id).toggleClass("active");
@@ -74,37 +77,50 @@ function updateDetachmentList() {
     $("#army_"+current_army).toggleClass("active");
 }
 
-function getArmy(item) {
+function getArmy(army_id) {
+    var res = alasql("SELECT * FROM gamesystem_db.armys WHERE id='"+army_id+"'");
+    var item = res[0];
     var faction = alasql("SELECT * FROM factions WHERE id='"+item.faction_id+"'");
-    if (faction.length > 0) { item.faction_name = faction[0].name; }
-    item.cost = 0;
-    
+    if (faction.length > 0) {
+      item.faction_name = faction[0].name;
+      item.faction_id = faction[0].id;
+    }
+    var units = alasql("SELECT * FROM gamesystem_db.army_units WHERE army_id='"+army_id+"' ORDER BY id");
+    var cost = 0;
+    for (var unit of units) {
+      getUnit(unit);
+      cost += unit.cost;
+    }
+    item.cost = cost;
+
     return item;
 }
 
-function getDetachment(item) {
-    var detachment = alasql("SELECT * FROM detachments WHERE id='"+item.detachment_id+"'");
-    if (detachment.length > 0) { item.name = detachment[0].name; }
+function getUnit(item) {
+    var unit = alasql("SELECT * FROM units WHERE id='"+item.unit_id+"'");
+    if (unit.length > 0) {
+      item.name = unit[0].name;
+      item.cost = unit[0].ap_cost;
+    }
     var faction = alasql("SELECT * FROM factions WHERE id='"+item.faction_id+"'");
     if (faction.length > 0) { item.faction_name = faction[0].name; }
-    item.cost = 0;
-    
+
     return item;
 }
 
 function removeArmy(army_id){
     alasql("DELETE FROM gamesystem_db.army_datasheets WHERE army_id='"+army_id+"'");
-    alasql("DELETE FROM gamesystem_db.armys WHERE id='"+army_id+"'"); 
+    alasql("DELETE FROM gamesystem_db.armys WHERE id='"+army_id+"'");
     $("#army_"+army_id).remove();
 }
 
 function switchToArmyView(army_id) {
     current_army = army_id;
-    $('#nenuitem-new-detachment').show();
-    $('#submenu-new-detachment').hide();
-    $('#detachment_list').show();
-    updateDetachmentMenu();
-    updateDetachmentList();
+    $('#nenuitem-new-unit').show();
+    $('#submenu-new-unit').hide();
+    $('#unit_list').show();
+    updateUnitMenu();
+    updateUnitList();
     if (!$('#team_page').hasClass("center")) {
             $('#army_page').switchClass("left", "right", 0);
             $('#main_page').switchClass("center", "left", 1000, "easeOutExpo");
@@ -118,7 +134,7 @@ function switchToMainView() {
     $('#submenu-new-army').hide();
     $('#army_list').show();
     $('#army-overview').show();
-    updateArmyList();	
+    updateArmyList();
     if (!$('#main_page').hasClass("center")) {
 	//$('#main_page').switchClass("left", "right", 0);
 	$('#army_page').switchClass("center", "right", 1000, "easeOutExpo", function() {$('#army_page').switchClass("right", "left", 0); } );

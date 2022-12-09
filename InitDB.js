@@ -1,10 +1,18 @@
 alasql('CREATE localStorage DATABASE IF NOT EXISTS gamesystem_db');
 alasql('ATTACH localStorage DATABASE gamesystem_db');
 
-alasql("CREATE TABLE IF NOT EXISTS gamesystem_db.armys (id string, name string, block_data_id string, faction_data_id string)");
-alasql("CREATE TABLE IF NOT EXISTS gamesystem_db.army_platoons (id string, army_id string, platoon_data_id string)");
-alasql("CREATE TABLE IF NOT EXISTS gamesystem_db.army_units (id string, unit_data_id string, army_id string, platoon_id string)");
+//alasql("DROP TABLE gamesystem_db.armys;  ");
+//alasql("DROP TABLE gamesystem_db.army_platoons;  ");
+//alasql("DROP TABLE gamesystem_db.army_units;  ");
+alasql("CREATE TABLE IF NOT EXISTS gamesystem_db.armys (id string, name string, block_id string, faction_id string)");
+alasql("CREATE TABLE IF NOT EXISTS gamesystem_db.army_platoons (id string, army_id string, platoon_id string)");
+alasql("CREATE TABLE IF NOT EXISTS gamesystem_db.army_units (id string, unit_id string, army_id string, platoon_id string)");
 
+//alasql("DROP TABLE blocks;  ");
+//alasql("DROP TABLE factions;  ");
+//alasql("DROP TABLE platoons;  ");
+//alasql("DROP TABLE units;  ");
+//alasql("DROP TABLE platoon_units;  ");
 alasql('CREATE TABLE blocks (id string, name string)');
 alasql('CREATE TABLE factions (id string, name string, block_id string)');
 alasql('CREATE TABLE platoons (id string, name string, block_id string)');
@@ -24,8 +32,8 @@ alasql.promise([
     console.table(alasql("SELECT * FROM platoons"));
     console.table(alasql("SELECT * FROM units"));
     console.table(alasql("SELECT * FROM platoon_units"));
-    updateFactionMenu();    
+    updateFactionMenu();
     switchToMainView();
 }).catch(function(reason){
     console.log('type:',reason)
-}); 
+});
