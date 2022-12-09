@@ -17,7 +17,7 @@ alasql('CREATE TABLE blocks (id string, name string)');
 alasql('CREATE TABLE factions (id string, name string, block_id string)');
 alasql('CREATE TABLE platoons (id string, name string, block_id string)');
 alasql('CREATE TABLE units (id string, name string, description string, type string, ap_cost string, block_id string, faction_id string)');
-alasql('CREATE TABLE platoon_units (id string, unit_id string, platoon_id string, type string)');
+alasql('CREATE TABLE platoon_units (id string, platoon_id string, unit_id string, type string)');
 
 alasql.promise([
     'SELECT * INTO blocks FROM CSV("data/blocks.csv")',

@@ -25,6 +25,11 @@
                     $("#nenuitem-new-unit").toggleClass("active");
                 });
 
+                $("#nenuitem-new-platoon").on("click", function(){
+                    $("#submenu-new-platoon").slideToggle();
+                    $("#nenuitem-new-platoon").toggleClass("active");
+                });
+
                 $("#back-icon-army").on("click", function(){ switchToMainView(); });
             });
         </script>
@@ -58,9 +63,11 @@
                             </div>
                             <div>
                                 <div id="submenu-new-unit"></div>
+                                <div id="submenu-new-platoon"></div>
                                 <div id="submenu-new-unit_faction"></div>
                             </div>
                             <div class="army-overview" id="army-overview" title="Army Overview"></div>
+                            <ul id="platoon_list"></ul>
                             <ul id="unit_list"></ul>
                         </div>
                         <div id="unit_page" class="page left">

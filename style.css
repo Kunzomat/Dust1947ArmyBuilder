@@ -63,19 +63,19 @@ header {
     display: none;
 }
 
-#unit_list, #minion_list, #army_list {           /* Normalisierung */
+#unit_list, #platoon_list, #army_list {           /* Normalisierung */
     list-style: none;
     margin: 0;
     padding: 0;
     border: 0;
 }
-#unit_list ul, #minion_list ul, #army_list ul{
+#unit_list ul, #platoon_list ul, #army_list ul{
     width: 10em;
     margin: 0;
     padding: 0;
     border: 1px solid black;
 }
-#unit_list li, #minion_list li, #army_list li {
+#unit_list li, #platoon_list li, #army_list li {
     margin: 4px;
     padding: 4px;
     border: 1px solid black;
@@ -86,6 +86,8 @@ header {
 #unit_list li { background-color: #fecb09; }
 #unit_list li.active { background-color: #bfb693; }
 #unit_list li.error  { background-color:#fe6c09; }
+#unit_list li.platoon { background-color: #fedb7e; }
+
 #unit_list li.minion_member { background-color: #fedb7e; }
 #unit_list li.minion_member.active { background-color: #bfb693; }
 #unit_list li.leader_card_member { background-color: #F0B27A; }
@@ -106,12 +108,12 @@ header {
 .info-item { width: 70px; flex-shrink: 0; background:#2f2f2f; color: white; padding-left: 5px;padding-right: 5px}
 
     .unit { display:flex; justify-content:space-between;}
-    .minion { display:flex; justify-content:space-between;}
+    .platoon { display:flex; justify-content:space-between;}
     .card { display:flex; justify-content:space-between;}
 
     .seperator {border-left: 1px dotted white; }
 
-    .faction, .unit, .minion, .card { background:#D0D0D0; color:black; padding-top: 5px; padding-bottom: 5px; padding-right: 10px; padding-left: 10px; border: 1px dotted white; }
+    .faction, .unit, .platoon, .card { background:#D0D0D0; color:black; padding-top: 5px; padding-bottom: 5px; padding-right: 10px; padding-left: 10px; border: 1px dotted white; }
 
     .list-item {
         display: flex; /* or inline-flex */
@@ -218,5 +220,5 @@ MOBILE
        min-width: 300px;
     }
 
-    #submenu-new-unit {width:100%}    
+    #submenu-new-unit {width:100%}
 }

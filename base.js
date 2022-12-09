@@ -19,7 +19,11 @@ function updateFactionMenu() {
       var faction = alasql("SELECT * FROM factions WHERE id='"+jQuery(this).attr("id")+"'");
       var army_name = faction[0].name;
     	alasql("INSERT INTO gamesystem_db.armys VALUES ('"+current_army+"', '"+army_name+"', '"+faction[0].block_id+"','"+faction[0].id+"')");
+      current_platoon = generateUUID();
+      alasql("INSERT INTO gamesystem_db.army_platoons VALUES ('"+current_platoon+"', '"+current_army+"', 'STANDARD')");
     	updateArmyList();
+      updateUnitList();
+      updatePlatoonList();
     	//switchToArmyView(current_army);
     });
 }
@@ -38,6 +42,22 @@ function updateUnitMenu() {
         updateUnitList();
         //switchToArmyView(current_army);
     });
+}
+
+function updatePlatoonMenu() {
+  $('#submenu-new-platoon').empty();
+  var army = getArmy(current_army);
+  var platoons = alasql("SELECT * FROM platoons WHERE block_id='"+army.block_id+"' ORDER BY name DESC");
+  for (var platoon of platoons) { $('#submenu-new-platoon').prepend('<div id="'+platoon.id+'" class="platoon">'+platoon.name+'</div>'); }
+  $(".platoon").on("click", function(){
+      $("#submenu-new-platoon").slideUp();
+      $("#nenuitem-new-platoon").removeClass("active");
+      current_platoon = generateUUID();
+      var army = getArmy(current_army);
+      alasql("INSERT INTO gamesystem_db.army_platoons VALUES ('"+current_platoon+"', '"+current_army+"', '"+jQuery(this).attr("id")+"')");
+      updatePlatoonList();
+      //switchToArmyView(current_army);
+  });
 }
 
 function updateArmyList() {
@@ -60,7 +80,20 @@ function updateArmyList() {
 
 function updateUnitList() {
     $('#unit_list').empty();
-    console.table(alasql("SELECT * FROM gamesystem_db.army_units"));
+    var res = alasql("SELECT * FROM gamesystem_db.army_platoons WHERE army_id='"+current_army+"' ORDER BY id");
+    for (var item of res) {
+      var platoon = getPlatoon(item);
+      $('#unit_list').prepend('<li id="platoon_'+platoon.id+'" class="platoon"><div class="list-item"><div class="list-item-removeicon"><img class="removeicon" id="'+platoon.id+'" src="removeicon.png" width="36" height="36" alt="" border="0"></div><div class="list-item-body" id="open_unit_'+platoon.id+'"><div class="list-item-desc"><div><b>'+platoon.name+'</b></div><div>add unit</div></div><div class="list-item-cost"><div>Points</div><div class="cost-number">'+platoon.cost+'</div></div></div></div></li>');
+      $(".removeicon#"+item.id).on("click", function() { removeArmy(jQuery(this).attr("id"));	});
+      var item =$("#platoon_"+item.id);
+      item.on("click", function() {
+          var platoon_id = jQuery(this).attr("id").replace("platoon_","");
+          switchToArmyView(current_army);
+          $("#army_list li").removeClass("active");
+          $("#army_"+army_id).toggleClass("active");
+      });
+    }
+
     var res = alasql("SELECT * FROM gamesystem_db.army_units WHERE army_id='"+current_army+"' ORDER BY id");
     for (var item of res) {
         var unit = getUnit(item);
@@ -108,6 +141,17 @@ function getUnit(item) {
     return item;
 }
 
+function getPlatoon(item) {
+    var platoon = alasql("SELECT * FROM platoons WHERE id='"+item.platoon_id+"'");
+    if (platoon.length > 0) {
+      item.name = platoon[0].name;
+    }
+    //var faction = alasql("SELECT * FROM factions WHERE id='"+item.faction_id+"'");
+    //if (faction.length > 0) { item.faction_name = faction[0].name; }
+
+    return item;
+}
+
 function removeArmy(army_id){
     alasql("DELETE FROM gamesystem_db.army_datasheets WHERE army_id='"+army_id+"'");
     alasql("DELETE FROM gamesystem_db.armys WHERE id='"+army_id+"'");
@@ -121,6 +165,8 @@ function switchToArmyView(army_id) {
     $('#unit_list').show();
     updateUnitMenu();
     updateUnitList();
+    updatePlatoonMenu();
+    updatePlatoonList();
     if (!$('#team_page').hasClass("center")) {
             $('#army_page').switchClass("left", "right", 0);
             $('#main_page').switchClass("center", "left", 1000, "easeOutExpo");
