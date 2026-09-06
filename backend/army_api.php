@@ -1,0 +1,646 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once __DIR__ . "/auth.php";
+require_once __DIR__ . '/unit_rating.php';
+require_once __DIR__ . '/db_connection.php';
+
+// $conn ist jetzt durch db_connection.php verfügbar
+
+function jsonBody(): array {
+    $raw = file_get_contents("php://input");
+    if (!$raw) return [];
+    $data = json_decode($raw, true);
+    return is_array($data) ? $data : [];
+}
+
+function ok($data, int $code = 200): void {
+    http_response_code($code);
+    echo json_encode($data);
+    exit;
+}
+
+function fail(string $msg, int $code = 400, $extra = null): void {
+    http_response_code($code);
+    $out = ["error" => $msg];
+    if ($extra !== null) $out["details"] = $extra;
+    echo json_encode($out);
+    exit;
+}
+
+function requireInt($value, string $name): int {
+    if ($value === null || $value === '' || !is_numeric($value)) {
+        fail("Missing/invalid parameter: $name", 400);
+    }
+    return (int)$value;
+}
+
+function requireString($value, string $name): string {
+    $s = trim((string)$value);
+    if ($s === '') fail("Missing/invalid parameter: $name", 400);
+    return $s;
+}
+
+$action = $_GET['action'] ?? '';
+
+/**
+ * =========================================================
+ * Armies
+ * =========================================================
+ * GET  ?action=armies.list
+ * GET  ?action=armies.get&id=1
+ * POST ?action=armies.create  {name,bloc_id,points_limit}
+ * PUT  ?action=armies.update&id=1 {name?points_limit?}
+ * POST ?action=armies.delete&id=1
+ */
+ 
+if ($action === 'unit.list') {
+    $blocId = isset($_GET['bloc_id']) ? (int)$_GET['bloc_id'] : null;
+
+    if ($blocId !== null) {
+        $stmt = $conn->prepare("
+            SELECT u.*, f.bloc_id AS bloc_id, f.name AS faction_name
+            FROM units u
+            JOIN factions f ON f.id = u.faction_id
+            WHERE f.bloc_id = ?
+               OR u.is_mercenary = 1
+        ");
+        $stmt->bind_param("i", $blocId);
+    } else {
+        $stmt = $conn->prepare("
+            SELECT u.*, f.bloc_id AS bloc_id, f.name AS faction_name
+            FROM units u
+            JOIN factions f ON f.id = u.faction_id
+        ");
+    }
+
+    $stmt->execute();
+    $res = $stmt->get_result();
+
+    ok([
+        "units" => $res->fetch_all(MYSQLI_ASSOC)
+    ]);
+}
+
+if ($action === 'unit.list') {
+	$sql = "SELECT id, name, type, points, faction_id, image_url FROM units";
+	$res = $conn->query($sql);
+	ok(["units" => $res->fetch_all(MYSQLI_ASSOC)]);
+}
+
+if ($action === 'unit.get') {
+	$id = requireInt($_GET['id'] ?? null, 'id');
+
+    // 1️⃣ Einheit + Fraktion laden
+    $sql = "
+		SELECT 
+			u.id AS unit_id,
+			u.name AS unit_name,
+			u.notes,
+			u.type,
+			u.level,
+			u.speed,
+			u.march_speed,
+			u.points,
+			u.image_url,
+			u.health,
+			u.faction_id AS faction_id,
+			f.name AS faction_name,
+			f.symbol_url AS faction_symbol_url,
+			ur.id AS special_rule_id,
+			ur.name AS special_rule_name,
+			uur.note AS special_rule_note,
+			ur.short_text AS special_rule_desc,
+			ur.full_text AS special_rule_text,
+			uw.id AS unit_weapon_id,
+			uw.number AS weapon_number,
+			uw.firing_arc AS weapon_firing_arc,
+			w.id AS weapon_id,
+			w.name AS weapon_name,
+			w.range AS weapon_range,
+			w.disposable as weapon_disposable,
+			wr.id AS weapon_rule_id,
+			wr.name AS weapon_rule_name,
+			wr.short_text AS weapon_rule_desc,
+			wr.full_text AS weapon_rule_text,
+			ws.id AS weapon_stat_id,
+			ws.target_type AS weapon_target_type,
+			ws.target_level AS weapon_target_level,
+			ws.dice AS weapon_dice,
+			ws.damage AS weapon_damage
+		FROM units u
+		LEFT JOIN factions f ON u.faction_id = f.id
+		LEFT JOIN unit_rules uur ON u.id = uur.unit_id
+		LEFT JOIN rules ur ON uur.unit_rule_id = ur.id
+		LEFT JOIN unit_weapons uw ON u.id = uw.unit_id
+		LEFT JOIN weapons w ON uw.weapon_id = w.id
+		LEFT JOIN weapon_stats ws ON w.id = ws.weapon_id
+		LEFT JOIN weapon_rules wwr ON w.id = wwr.weapon_id
+		LEFT JOIN rules wr ON wwr.rule_id = wr.id
+		WHERE u.id = ?
+		ORDER BY u.id, w.id, wr.id
+		";
+
+		$stmt = $conn->prepare($sql);
+		$stmt->bind_param("s", $id); // "s" für String
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		$units = [];
+		
+		while ($row = $result->fetch_assoc()) {
+			$unitId = $row['unit_id'];
+			$weaponId = $row['weapon_id'];
+			$unitWeaponId = $row['unit_weapon_id'];
+
+			if (!isset($units[$unitId])) {
+				$units[$unitId] = [
+					'id' => $unitId,
+					'name' => $row['unit_name'],
+					'type' => $row['type'],
+					'level' => $row['level'],
+					'notes' => $row['notes'],
+					'speed' => $row['speed'],
+					'march_speed' => $row['march_speed'],
+					'faction' => $row['faction_name'],
+					'faction_symbol_url' => $row['faction_symbol_url'],
+					'points' => $row['points'],
+					'image_url' => $row['image_url'],
+					'health' => $row['health'],
+					'faction_id' => $row['faction_id'],
+					'special_rules' => [],
+					'weapons' => []
+				];
+			}
+
+			if (!empty($row['special_rule_id'])) {
+				$units[$unitId]['special_rules'][$row['special_rule_id']] = [
+					'id' => $row['special_rule_id'],
+					'name' => $row['special_rule_name'],
+					'note' => $row['special_rule_note'],
+					'desc' => $row['special_rule_desc'],
+					'text' => $row['special_rule_text']
+				];
+			}
+
+			if (!empty($weaponId)) {
+				if (!isset($units[$unitId]['weapons'][$unitWeaponId])) {
+					$units[$unitId]['weapons'][$unitWeaponId] = [
+						'id' => $weaponId,
+						'name' => $row['weapon_name'],
+						'range' => $row['weapon_range'],
+						'disposable' => $row['weapon_disposable'],
+						'number' => $row['weapon_number'],
+						'arc' => $row['weapon_firing_arc'],
+						'rules' => []
+					];
+				}
+				if (!empty($row['weapon_rule_id'])) {
+					 $units[$unitId]['weapons'][$unitWeaponId]['rules'][$row['weapon_rule_id']] = [
+						'id' => $row['weapon_rule_id'],
+						'name' => $row['weapon_rule_name'],
+						'desc' => $row['weapon_rule_desc'],
+						'text' => $row['weapon_rule_text']
+					];
+				}
+				if (!empty($row['weapon_stat_id'])) {
+					$units[$unitId]['weapons'][$unitWeaponId]['stats'][$row['weapon_stat_id']] = [
+						'type' => $row['weapon_target_type'],
+						'level' => $row['weapon_target_level'],
+						'dice' => $row['weapon_dice'],
+						'damage' => $row['weapon_damage']
+					];
+				}
+			}
+		}
+
+		foreach ($units as &$unit) {
+			$unit['theoretical_points'] = compute_theoretical_points($unit);
+			$unit['special_rules'] = array_values($unit['special_rules']);
+			$unit['weapons'] = array_values($unit['weapons']);
+			foreach ($unit['weapons'] as &$weapon) {
+				$weapon['rules'] = array_values($weapon['rules']);
+			}
+		}
+
+		ok(["unit" => reset($units)]);
+    exit;
+}
+
+if ($action === 'armies.list') {
+	$sql = "SELECT apv.army_id AS id,
+				apv.army_name AS name,
+				apv.bloc_id,
+				b.name AS bloc_name,
+				apv.points_limit,
+				apv.points_current
+			FROM v_army_points apv
+			JOIN blocs b ON b.id = apv.bloc_id
+            ORDER BY apv.army_name DESC";
+    $res = $conn->query($sql);
+    ok(["armies" => $res->fetch_all(MYSQLI_ASSOC)]);
+}
+
+if ($action === 'armies.get') {
+    $id = requireInt($_GET['id'] ?? null, 'id');
+	
+	$stmt = $conn->prepare("
+		SELECT
+			apv.army_id AS id,
+			apv.army_name AS name,
+			apv.bloc_id,
+			b.name AS bloc_name,
+			apv.points_limit,
+			apv.points_current
+		FROM v_army_points apv
+		JOIN blocs b ON b.id = apv.bloc_id
+		WHERE apv.army_id = ?
+	");
+	$stmt->bind_param("i", $id);
+	$stmt->execute();
+	$army = $stmt->get_result()->fetch_assoc();
+
+	if (!$army) fail("Army not found", 404);
+
+    // Platoons in army
+    $stmt = $conn->prepare("
+        SELECT ap.id AS army_platoon_id, p.id AS platoon_id, p.name, p.rule_id, p.faction_id
+        FROM army_platoons ap
+        JOIN platoons p ON p.id = ap.platoon_id
+        WHERE ap.army_id = ?
+        ORDER BY ap.id ASC
+    ");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $platoons = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    // Units in army (with slot info if inside platoon_unit_id)
+    $stmt = $conn->prepare("
+        SELECT
+            au.id AS army_unit_id,
+            au.army_id,
+			au.army_platoon_id,
+            au.platoon_unit_id,
+            pu.slot AS platoon_slot,
+            au.unit_id,
+            u.name AS unit_name,
+            u.points AS unit_points,
+            au.quantity,
+			f.name as faction_name
+        FROM army_units au
+        JOIN units u ON u.id = au.unit_id
+        LEFT JOIN platoon_units pu ON pu.id = au.platoon_unit_id
+		LEFT JOIN factions f ON u.faction_id = f.id
+        WHERE au.army_id = ?
+        ORDER BY au.id ASC
+    ");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $units = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    // current points sum (simple: unit_points * quantity)
+    $sum = 0;
+    foreach ($units as $row) {
+        $sum += ((int)$row['unit_points']) * ((int)$row['quantity']);
+    }
+
+    ok([
+        "army" => $army,
+        "platoons" => $platoons,
+        "units" => $units,
+        "points_used" => $sum,
+        "points_remaining" => ((int)$army["points_limit"]) - $sum
+    ]);
+}
+
+if ($action === 'armies.create') {
+    $body = jsonBody();
+    $name = requireString($body['name'] ?? null, 'name');
+    $blocId = requireInt($body['bloc_id'] ?? null, 'bloc_id');
+    $limit = isset($body['points_limit']) ? (int)$body['points_limit'] : 100;
+
+    $stmt = $conn->prepare("INSERT INTO armies (name, bloc_id, points_limit) VALUES (?, ?, ?)");
+    $stmt->bind_param("sii", $name, $blocId, $limit);
+    $stmt->execute();
+
+    ok(["id" => $conn->insert_id], 201);
+}
+
+if ($action === 'armies.update') {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        fail("Use POST", 405);
+    }
+
+    $body = jsonBody();
+
+    $id = requireInt($body['id'] ?? null, 'id');
+    $name = requireString($body['name'] ?? null, 'name');
+    $pointsLimit = requireInt($body['points_limit'] ?? null, 'points_limit');
+
+    $stmt = $conn->prepare("
+        UPDATE armies
+        SET name = ?, points_limit = ?
+        WHERE id = ?
+    ");
+    $stmt->bind_param("sii", $name, $pointsLimit, $id);
+    $stmt->execute();
+
+    ok(["ok" => true]);
+}
+
+if ($action === 'armies.delete') {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        fail("Use POST", 405);
+    }
+
+    $body = jsonBody();
+    $id = requireInt($body['id'] ?? null, 'id');
+
+    $stmt = $conn->prepare("DELETE FROM armies WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    ok(["ok" => true]);
+}
+
+if ($action === 'factions.list') {
+	if ($_SERVER['REQUEST_METHOD'] !== 'GET') fail("Use GET", 405);
+    $sql = "SELECT id, name, symbol_url FROM factions ORDER BY name";
+    $res = $conn->query($sql);
+    if (!$res) fail("Database error", 500);
+
+    ok(["factions" => $res->fetch_all(MYSQLI_ASSOC)]);
+}
+
+if ($action === 'blocs.list') {
+	if ($_SERVER['REQUEST_METHOD'] !== 'GET') fail("Use GET", 405);
+    $sql = "SELECT id, name FROM blocs ORDER BY name";
+    $res = $conn->query($sql);
+    if (!$res) fail("Database error", 500);
+
+    ok(["blocs" => $res->fetch_all(MYSQLI_ASSOC)]);
+}
+
+
+/**
+ * =========================================================
+ * Platoons
+ * =========================================================
+ * GET  ?action=platoons.list&bloc_id=3
+ * POST ?action=army.platoons.add  {army_id, platoon_id}
+ * POST ?action=army.platoons.remove&id=ARMY_PLATOON_ID
+ */
+
+if ($action === 'platoons.list') {
+    $blocId = requireInt($_GET['bloc_id'] ?? null, 'bloc_id');
+
+    $stmt = $conn->prepare("
+        SELECT p.id, p.name, p.rule_id, p.faction_id
+        FROM platoons p
+        JOIN factions f ON f.id = p.faction_id
+        WHERE f.bloc_id = ?
+        ORDER BY p.id ASC
+    ");
+    $stmt->bind_param("i", $blocId);
+    $stmt->execute();
+
+    ok([
+        "platoons" => $stmt->get_result()->fetch_all(MYSQLI_ASSOC)
+    ]);
+}
+
+if ($action === 'army.platoons.add') {
+    $body = jsonBody();
+    $armyId = requireInt($body['army_id'] ?? null, 'army_id');
+    $platoonId = requireInt($body['platoon_id'] ?? null, 'platoon_id');
+
+    $stmt = $conn->prepare("INSERT INTO army_platoons (army_id, platoon_id) VALUES (?, ?)");
+    $stmt->bind_param("ii", $armyId, $platoonId);
+    $stmt->execute();
+
+    ok(["id" => $conn->insert_id], 201);
+}
+
+if ($action === 'army.platoons.remove') {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') fail("Use POST", 405);
+	$body = jsonBody();
+    $id = requireInt($body['id'] ?? null, 'id');
+
+    $stmt = $conn->prepare("DELETE FROM army_platoons WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    ok(["ok" => true]);
+}
+
+/**
+ * =========================================================
+ * Army Units
+ * =========================================================
+ * POST   ?action=army.units.add
+ *        {
+ *          army_id,
+ *          unit_id,
+ *          quantity,
+ *          platoon_id (optional: null or omitted for "free unit"),
+ *          platoon_unit_id (optional)
+ *        }
+ *
+ * PUT    ?action=army.units.update&id=ARMY_UNIT_ID  {quantity}
+ * POST   ?action=army.units.delete&id=ARMY_UNIT_ID
+ */
+
+if ($action === 'army.units.add') {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        fail("Use POST", 405);
+    }
+
+    $body = jsonBody();
+
+    $armyId = requireInt($body['army_id'] ?? null, 'army_id');
+    $unitId = requireInt($body['unit_id'] ?? null, 'unit_id');
+    $qty    = isset($body['quantity']) ? max(1, (int)$body['quantity']) : 1;
+
+	$armyPlatoonId = $body['army_platoon_id'] ?? null;
+	$platoonUnitId = $body['platoon_unit_id'] ?? null;
+
+	if ($armyPlatoonId !== null) {
+		$armyPlatoonId = requireInt($armyPlatoonId, 'army_platoon_id');
+
+		// Slot-Einheit?
+		if ($platoonUnitId !== null) {
+			$platoonUnitId = requireInt($platoonUnitId, 'platoon_unit_id');
+
+			// 🔒 Slot darf nur einmal belegt sein
+			$stmt = $conn->prepare("
+				SELECT 1
+				FROM army_units
+				WHERE army_platoon_id = ?
+				  AND platoon_unit_id = ?
+				LIMIT 1
+			");
+			$stmt->bind_param("ii", $armyPlatoonId, $platoonUnitId);
+			$stmt->execute();
+
+			if ($stmt->get_result()->num_rows > 0) {
+				fail("Slot already occupied in this platoon", 409);
+			}
+		}
+
+		// ✅ Platoon-Unit ODER Support-Unit
+		$stmt = $conn->prepare("
+			INSERT INTO army_units
+			  (army_id, unit_id, quantity, army_platoon_id, platoon_unit_id)
+			VALUES (?, ?, ?, ?, ?)
+		");
+		$stmt->bind_param(
+			"iiiii",
+			$armyId,
+			$unitId,
+			$qty,
+			$armyPlatoonId,
+			$platoonUnitId // NULL erlaubt → Support
+		);
+		$stmt->execute();
+
+		ok(["id" => $conn->insert_id], 201);
+	}
+
+    // 🔹 Freie Einheit (kein Platoon)
+    $stmt = $conn->prepare("
+        INSERT INTO army_units
+          (army_id, unit_id, quantity, army_platoon_id, platoon_unit_id)
+        VALUES (?, ?, ?, NULL, NULL)
+    ");
+    $stmt->bind_param("iii", $armyId, $unitId, $qty);
+    $stmt->execute();
+
+    ok(["id" => $conn->insert_id], 201);
+}
+
+if ($action === 'army.units.update') {
+    if ($_SERVER['REQUEST_METHOD'] !== 'PUT') fail("Use PUT", 405);
+    $id = requireInt($_GET['id'] ?? null, 'id');
+    $body = jsonBody();
+    $qty = isset($body['quantity']) ? max(1, (int)$body['quantity']) : null;
+    if ($qty === null) fail("Missing quantity", 400);
+
+    $stmt = $conn->prepare("UPDATE army_units SET quantity = ? WHERE id = ?");
+    $stmt->bind_param("ii", $qty, $id);
+    $stmt->execute();
+
+    ok(["ok" => true]);
+}
+
+if ($action === 'army.units.delete') {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') fail("Use POST", 405);
+	$body = jsonBody();
+	$id = requireInt($body['id'] ?? null, 'id');
+
+    $stmt = $conn->prepare("DELETE FROM army_units WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    ok(["ok" => true]);
+}
+
+/**
+ * =========================================================
+ * Platoon Unit Templates
+ * (Welche Units sind in einem Platoon-Slot erlaubt?)
+ * =========================================================
+ * GET ?action=platoon.units.list&platoon_id=2
+ */
+if ($action === 'platoon.units.list') {
+    $platoonId = requireInt($_GET['platoon_id'] ?? null, 'platoon_id');
+
+    $stmt = $conn->prepare("
+        SELECT pu.id, pu.platoon_id, pu.slot, pu.unit_id, u.name AS unit_name, u.points AS unit_points, f.name AS faction_name
+        FROM platoon_units pu
+        JOIN units u ON u.id = pu.unit_id
+		LEFT JOIN factions f ON u.faction_id = f.id
+        WHERE pu.platoon_id = ?
+        ORDER BY pu.id ASC
+    ");
+    $stmt->bind_param("i", $platoonId);
+    $stmt->execute();
+    ok(["platoon_units" => $stmt->get_result()->fetch_all(MYSQLI_ASSOC)]);
+}
+
+if ($action === 'army.analyze') {
+    $armyId = requireInt($_GET['id'] ?? null, 'id');
+
+    // Alle Units der Armee inkl. Fraktion + Bloc + Rules
+    $stmt = $conn->prepare("
+        SELECT
+            au.id AS army_unit_id,
+            u.id AS unit_id,
+            u.points,
+            f.id AS faction_id,
+            f.name AS faction_name,
+            f.bloc_id,
+            EXISTS (
+                SELECT 1
+                FROM unit_rules ur
+                WHERE ur.unit_id = u.id
+                  AND ur.unit_rule_id = 52
+            ) AS is_mercenary
+        FROM army_units au
+        JOIN units u ON u.id = au.unit_id
+        JOIN factions f ON f.id = u.faction_id
+        WHERE au.army_id = ?
+    ");
+    $stmt->bind_param("i", $armyId);
+    $stmt->execute();
+    $units = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    // Armeedaten
+    $stmt = $conn->prepare("SELECT bloc_id FROM armies WHERE id = ?");
+    $stmt->bind_param("i", $armyId);
+    $stmt->execute();
+    $army = $stmt->get_result()->fetch_assoc();
+
+    $totalPoints = 0;
+    $factionPoints = [];
+    $blocValid = true;
+
+    foreach ($units as $u) {
+        $totalPoints += $u['points'];
+
+        if (!$u['is_mercenary']) {
+            // Bloc-Check
+            if ((int)$u['bloc_id'] !== (int)$army['bloc_id']) {
+                $blocValid = false;
+            }
+
+            // Fraktionspunkte sammeln
+            $fid = $u['faction_id'];
+            $factionPoints[$fid] = ($factionPoints[$fid] ?? 0) + $u['points'];
+        }
+    }
+
+    arsort($factionPoints);
+    $dominantFactionPoints = reset($factionPoints);
+    $dominantFactionId = key($factionPoints);
+
+    $factionCount = count(array_filter($factionPoints, fn($p) => $p > 0));
+    $factionBonus = false;
+
+    if ($factionCount === 1 && $dominantFactionPoints / $totalPoints >= 0.75) {
+        $factionBonus = true;
+    }
+
+    ok([
+        "bloc_valid" => $blocValid,
+        "faction_bonus" => [
+            "eligible" => $factionBonus,
+            "dominant_faction_id" => $dominantFactionId,
+            "percent" => round(($dominantFactionPoints / $totalPoints) * 100, 2)
+        ],
+        "total_points" => $totalPoints
+    ]);
+}
+
+
+fail("Unknown action", 404, ["action" => $action]);

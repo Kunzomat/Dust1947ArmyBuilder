@@ -1,0 +1,33 @@
+# Backend
+/backend/config.local.php
+/backend/.env
+
+# Frontend
+/dust1947-frontend/.env.local
+/dust1947-frontend/.env.development.local
+/dust1947-frontend/.env.test.local
+/dust1947-frontend/.env.production.local
+
+# Dependencies
+/dust1947-frontend/node_modules
+/dust1947-frontend/build
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+
+# Local database configuration
+/.db-config.json
