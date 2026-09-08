@@ -5,21 +5,23 @@ Full-Stack-Anwendung zum Erstellen von Armeen für Dust 1947.
 ## 🚀 Quick Start - Lokale Entwicklung
 
 ### Voraussetzungen
-- Node.js (v14+)
-- PHP 7.4+ oder XAMPP
-- MySQL/MariaDB
+- Node.js (v18+ empfohlen)
+- Rancher Desktop (mit `kubectl`)
+- Laufende Kubernetes-Ressourcen im Namespace `dust1947` (`apache`, `mysql`)
 
-### Setup in 3 Schritten:
+### Setup in 4 Schritten:
 
-1. **XAMPP installieren & MySQL starten**
-   - Download: https://www.apachefriends.org/
-   - Starte MySQL im XAMPP Control Panel
-
-2. **Datenbank erstellen**
+1. **Backend/DB in Rancher Desktop starten**
    ```bash
-   # In phpMyAdmin (http://localhost/phpmyadmin):
-   # - Neue Datenbank: dust1947
-   # - SQL-Tab: Inhalt von backend/database/schema.sql einfügen
+   kubectl get pods -n dust1947
+   ```
+   Erwartet: Pods `apache` und `mysql` sind `Running`.
+
+2. **Datenbank initialisieren (falls leer)**
+   ```bash
+   # Schema-Datei liegt hier:
+   # backend/database/schema.sql
+   # Import z. B. per MySQL-Client in den laufenden mysql-Pod.
    ```
 
 3. **Lokale Frontend-Umgebung erstellen**
@@ -31,14 +33,14 @@ Full-Stack-Anwendung zum Erstellen von Armeen für Dust 1947.
 
 4. **Development Server starten**
    ```bash
-   # Doppelklick auf:
-   start-dev.bat
+   cd dust1947-frontend
+   npm start
    ```
 
 Das war's! 🎉
 
 - **Frontend:** http://localhost:3000
-- **Backend:** http://localhost:8000
+- **Backend (Apache/PHP Service):** http://localhost:8180
 
 ---
 
@@ -58,7 +60,9 @@ dust1947/
 │   │   ├── App.js
 │   │   └── apiClient.js       # API-Client
 │   └── .env.local             # Lokale Umgebung (git-ignored)
-└── start-dev.bat              # Dev-Server starten
+├── docs/                      # Projekt-Dokumentation
+├── scripts/                   # Hilfs-/Migrationsskripte
+└── README.md
 ```
 
 ---
@@ -67,8 +71,8 @@ dust1947/
 
 ### Lokal entwickeln
 ```bash
-# Backend (PHP Built-in Server)
-php -S localhost:8000
+# Backend/DB Status (Rancher Desktop)
+kubectl get pods -n dust1947
 
 # Frontend
 cd dust1947-frontend
@@ -93,7 +97,7 @@ npm run build
 
 ## 🛠 Manuelle Installation
 
-Siehe **SETUP_LOCAL.md** für detaillierte Anleitung.
+Siehe `docs/setup/SETUP_LOCAL.md` für detaillierte Anleitung.
 
 ---
 
@@ -130,15 +134,24 @@ Alle API-Requests benötigen einen `X-API-Key` Header.
 ## 🐛 Troubleshooting
 
 ### "Connection refused"
-✅ MySQL in XAMPP gestartet?
+✅ Pods laufen im Namespace `dust1947`?
+
+```bash
+curl -H "X-API-Key: local-dev-key-12345" "http://localhost:8180/army_api.php?action=blocs.list"
+```
+
+✅ API erreichbar auf Port `8180`?
+
+```bash
+curl -H "X-API-Key: local-dev-key-12345" "http://localhost:8180/army_api.php?action=blocs.list"
+```
 
 ### "Access denied"
-✅ Passwort in `config.local.php` korrekt?
-   - XAMPP Standard: User=`root`, Passwort=leer
+✅ Datenbank-Zugangsdaten in `backend/config.local.php` passen zum MySQL-Pod/Secret?
 
 ### CORS-Fehler
-✅ Backend läuft auf Port 8000?
-✅ `.env.local` zeigt auf `http://localhost:8000`?
+✅ Backend läuft auf Port `8180`?
+✅ `dust1947-frontend/.env.local` zeigt auf `http://localhost:8180/army_api.php`?
 
 ### Leere Datenbank
 ✅ Schema importiert? (`backend/database/schema.sql`)
@@ -148,13 +161,13 @@ Alle API-Requests benötigen einen `X-API-Key` Header.
 ## 📦 Dependencies
 
 ### Backend
-- PHP 7.4+
-- MySQL 5.7+ / MariaDB 10.3+
-- Extensions: mysqli, json
+- Container-Image: `php:8.2-apache`
+- Extensions: `mysqli`, `pdo`, `pdo_mysql`
+- MySQL: `mysql:8.4`
 
 ### Frontend
-- React 18
-- Node.js 14+
+- React 19
+- Node.js 18+
 
 ---
 
@@ -165,8 +178,11 @@ Alle API-Requests benötigen einen `X-API-Key` Header.
 cd dust1947-frontend
 npm install
 
-# Backend Server
-php -S localhost:8000
+# Backend/DB Status (Rancher Desktop)
+kubectl get pods -n dust1947
+
+# Optional: Logs vom Apache/PHP Pod
+kubectl logs -n dust1947 deploy/apache --tail=100
 
 # Frontend Dev Server
 npm start

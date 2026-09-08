@@ -18,7 +18,7 @@ taskkill /F /IM node.exe 2>nul
 
 echo.
 echo Starting React with environment debug...
-set REACT_APP_API_BASE=http://localhost:8000/backend/army_api.php
+set REACT_APP_API_BASE=http://localhost:8180/army_api.php
 set REACT_APP_API_KEY=local-dev-key-12345
 
 echo.
