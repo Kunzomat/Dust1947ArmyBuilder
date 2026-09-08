@@ -1,25 +1,43 @@
 # Scripts Index
 
-## dev
-- `scripts/dev/start-dev.bat` (legacy XAMPP flow)
-- `scripts/dev/check-system.bat` (legacy XAMPP checks)
+Aktive Skripte fuer das aktuelle Rancher-Desktop-Setup:
 
-## db
-- `scripts/db/setup-database.bat` (legacy XAMPP mysql.exe)
-- `scripts/db/backup-database.bat` (legacy XAMPP mysqldump.exe)
-- `scripts/db/run-migration.bat` (mysql CLI)
-- `scripts/db/run-migration.ps1` (mysql CLI)
-- `scripts/db/quick-migration.bat` (mixed manual migration flow)
-- `scripts/db/execute-migration.bat`
-- `scripts/db/open-phpmyadmin.bat`
+- `scripts/init-project-config.ps1`
+  - Erstellt `project.config.json` aus `project.config.example.json`.
+  - Erzeugt daraus auch `backend/config.local.php` und `dust1947-frontend/.env.local`.
+  - Lokale Runtime-Konfiguration (nicht im Git).
 
-## recovery
-- `scripts/recovery/repair-mysql.bat` (legacy XAMPP)
-- `scripts/recovery/rebuild-mysql-from-scratch.bat` (legacy XAMPP)
-- `scripts/recovery/fix-and-start-mysql.bat` (legacy XAMPP)
-- `scripts/recovery/emergency-mysql-rescue.bat` (legacy XAMPP)
-- `scripts/recovery/disable-recovery-mode.bat` (legacy XAMPP)
+- `scripts/db/export-db-dump.ps1`
+  - Exportiert einen SQL-Dump aus dem laufenden MySQL-Pod.
+  - Liest das Root-Passwort aus dem Kubernetes Secret `mysql-secret`.
 
-## Note
-For the current Rancher Desktop setup, prefer Kubernetes commands (`kubectl`) and the API endpoint `http://localhost:8180/army_api.php`.
+- `scripts/db/import-db-dump.ps1`
+  - Importiert einen SQL-Dump in den laufenden MySQL-Pod.
+  - Liest ebenfalls das Root-Passwort aus `mysql-secret`.
+
+Hinweis: Legacy-XAMPP- und Recovery-Skripte wurden entfernt.
+
+## Konfiguration (ein zentrales File)
+
+Single Source of Truth im Projekt-Root:
+- `project.config.example.json` (im Git)
+- `project.config.json` (lokal, aus Example erzeugt, nicht im Git)
+
+Erzeugen:
+`powershell -ExecutionPolicy Bypass -File scripts/init-project-config.ps1`
+
+Prioritaet pro Wert:
+1) CLI-Parameter
+2) Umgebungsvariablen
+3) `project.config.json` (lokal)
+4) sinnvolle Fallbacks (z. B. aktueller kube namespace / `root`)
+
+
+Unterstuetzte Umgebungsvariablen:
+- `DUST_DB_NAMESPACE`
+- `DUST_DB_NAME`
+- `DUST_DB_USER`
+- `DUST_DB_LABEL`
+- `DUST_DB_SECRET`
+- `DUST_DB_SECRET_KEY`
 

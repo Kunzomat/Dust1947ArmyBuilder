@@ -1,0 +1,25 @@
+{
+  "environment": "local",
+  "kubernetes": {
+    "namespace": "dust1947",
+    "mysqlLabel": "app=mysql",
+    "mysqlSecretName": "mysql-secret",
+    "mysqlSecretKey": "mysql-root-password"
+  },
+  "database": {
+    "host": "mysql",
+    "name": "dust1947",
+    "user": "root",
+    "password": "dust1947"
+  },
+  "api": {
+    "baseUrl": "http://localhost:8180/army_api.php",
+    "apiKey": "local-dev-key-12345"
+  },
+  "frontend": {
+    "port": 3000
+  }
+}
+
+
+

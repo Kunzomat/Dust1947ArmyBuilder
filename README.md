@@ -24,12 +24,11 @@ Full-Stack-Anwendung zum Erstellen von Armeen für Dust 1947.
    # Import z. B. per MySQL-Client in den laufenden mysql-Pod.
    ```
 
-3. **Lokale Frontend-Umgebung erstellen**
+3. **Zentrale Projektkonfiguration erzeugen**
    ```bash
-   cd dust1947-frontend
-   copy .env.local.example .env.local
+   powershell -ExecutionPolicy Bypass -File scripts/init-project-config.ps1
    ```
-   Danach bei Bedarf `.env.local` pro Rechner anpassen (wird nicht in Git gespeichert).
+   Danach `project.config.json` pro Rechner anpassen und Script erneut ausfuehren.
 
 4. **Development Server starten**
    ```bash
@@ -80,8 +79,8 @@ npm start
 ```
 
 **Nutzt automatisch:**
-- `.env.local` für Frontend
-- `config.local.php` für Backend
+- `project.config.json` als zentrale Quelle
+- daraus generiert: `dust1947-frontend/.env.local` und `backend/config.local.php`
 
 ### Production Build
 ```bash
