@@ -71,7 +71,14 @@ php -S localhost:8000
 
 ## 6. Frontend konfigurieren
 
-Die `.env.local` Datei wurde bereits erstellt!
+Erstelle deine lokale Datei aus dem Template (wird nicht in Git versioniert):
+
+```bash
+cd dust1947-frontend
+copy .env.local.example .env.local
+```
+
+Passe danach die Werte in `.env.local` an deine Maschine an (Port, URL, API-Key).
 
 **Starten Sie das Frontend neu:**
 ```bash

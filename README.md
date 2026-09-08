@@ -22,7 +22,14 @@ Full-Stack-Anwendung zum Erstellen von Armeen für Dust 1947.
    # - SQL-Tab: Inhalt von backend/database/schema.sql einfügen
    ```
 
-3. **Development Server starten**
+3. **Lokale Frontend-Umgebung erstellen**
+   ```bash
+   cd dust1947-frontend
+   copy .env.local.example .env.local
+   ```
+   Danach bei Bedarf `.env.local` pro Rechner anpassen (wird nicht in Git gespeichert).
+
+4. **Development Server starten**
    ```bash
    # Doppelklick auf:
    start-dev.bat
