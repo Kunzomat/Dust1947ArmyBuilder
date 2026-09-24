@@ -1,5 +1,5 @@
 // src/apiClient.js
-const API_BASE = process.env.REACT_APP_API_BASE || "http://kunzomat.de/dust1947/backend/army_api.php";
+const API_BASE = process.env.REACT_APP_API_BASE || "/backend/army_api.php";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 // 🔍 Debug: Zeige welche API verwendet wird

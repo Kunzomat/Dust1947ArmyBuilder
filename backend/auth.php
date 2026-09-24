@@ -3,11 +3,15 @@
 $allowedOrigins = [
     "https://kunzomat.de",
     "http://localhost:3000",     // React Dev Server
-    "http://localhost:8000"      // PHP Built-in Server
+    "http://localhost:3001",     // Local frontend alternate port
+    "http://localhost:8000",     // PHP Built-in Server
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:3001",
+    "http://127.0.0.1:8000"
 ];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? "";
 
-if (in_array($origin, $allowedOrigins)) {
+if ($origin !== "" && (in_array($origin, $allowedOrigins, true) || preg_match('#^https?://(localhost|127\.0\.0\.1)(:\d+)?$#', $origin) === 1)) {
     header("Access-Control-Allow-Origin: $origin");
     header("Vary: Origin");
 }

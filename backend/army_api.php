@@ -42,6 +42,81 @@ function requireString($value, string $name): string {
     return $s;
 }
 
+function splitRuleNames(?string $value): array {
+    if ($value === null || $value === '') return [];
+    return array_values(array_filter(array_map('trim', explode('||', $value)), fn($name) => $name !== ''));
+}
+
+function extractArmorValueFromRuleNames(array $ruleNames): ?int {
+    foreach ($ruleNames as $ruleName) {
+        if (preg_match('/^ARMOR\s+(\d+)$/i', trim((string)$ruleName), $matches)) {
+            return (int)$matches[1];
+        }
+    }
+    return null;
+}
+
+function loadUnitDefinitions(mysqli $conn, array $unitIds): array {
+    $unitIds = array_values(array_unique(array_map('intval', array_filter($unitIds, fn($id) => (int)$id > 0))));
+    if (empty($unitIds)) return [];
+
+    $idList = implode(',', $unitIds);
+    $sql = "
+        SELECT
+            u.id AS unit_id,
+            u.name AS unit_name,
+            u.faction_id,
+            f.bloc_id,
+            f.name AS faction_name,
+            u.type,
+            u.points,
+            u.level,
+            u.health,
+            GROUP_CONCAT(DISTINCT r.name ORDER BY r.name SEPARATOR '||') AS rule_names
+        FROM units u
+        JOIN factions f ON f.id = u.faction_id
+        LEFT JOIN unit_rules ur ON ur.unit_id = u.id
+        LEFT JOIN rules r ON r.id = ur.unit_rule_id
+        WHERE u.id IN ($idList)
+        GROUP BY u.id, u.name, u.faction_id, f.bloc_id, f.name, u.type, u.points, u.level, u.health
+    ";
+
+    $result = $conn->query($sql);
+    $definitions = [];
+
+    while ($row = $result->fetch_assoc()) {
+        $ruleNames = splitRuleNames($row['rule_names'] ?? null);
+        $normalizedRules = array_map(static fn($name) => strtoupper(trim((string)$name)), $ruleNames);
+        $definitions[(int)$row['unit_id']] = [
+            'unit_id' => (int)$row['unit_id'],
+            'unit_name' => $row['unit_name'],
+            'faction_id' => (int)$row['faction_id'],
+            'bloc_id' => (int)$row['bloc_id'],
+            'faction_name' => $row['faction_name'],
+            'type' => $row['type'],
+            'points' => (int)$row['points'],
+            'level' => $row['level'] !== null ? (int)$row['level'] : null,
+            'health' => $row['health'] !== null ? (int)$row['health'] : null,
+            'rule_names' => $ruleNames,
+            'is_mercenary' => in_array('MERCENARY', $normalizedRules, true) ? 1 : 0,
+            'is_commissar' => in_array('COMMISSAR', $normalizedRules, true) ? 1 : 0,
+            'has_pilot_skill' => in_array('PILOT', $normalizedRules, true) ? 1 : 0,
+            'has_ace_pilot_skill' => in_array('ACE PILOT', $normalizedRules, true) ? 1 : 0,
+            'has_siblings_rule' => in_array('SIBLINGS', $normalizedRules, true) ? 1 : 0,
+            'armor_value' => extractArmorValueFromRuleNames($ruleNames),
+        ];
+    }
+
+    return $definitions;
+}
+
+function mergeUnitDefinition(array $row, array $definition): array {
+    return array_merge($row, $definition, [
+        'unit_id' => $row['unit_id'] ?? $definition['unit_id'] ?? null,
+        'unit_name' => $row['unit_name'] ?? $definition['unit_name'] ?? null,
+    ]);
+}
+
 $action = $_GET['action'] ?? '';
 
 /**
@@ -57,16 +132,51 @@ $action = $_GET['action'] ?? '';
  
 if ($action === 'unit.list') {
     $blocId = isset($_GET['bloc_id']) ? (int)$_GET['bloc_id'] : null;
+    $selectedSystemId = null;
 
     if ($blocId !== null) {
-        $stmt = $conn->prepare("
-            SELECT u.*, f.bloc_id AS bloc_id, f.name AS faction_name
-            FROM units u
-            JOIN factions f ON f.id = u.faction_id
-            WHERE f.bloc_id = ?
-               OR u.is_mercenary = 1
-        ");
-        $stmt->bind_param("i", $blocId);
+        $stmtSystem = $conn->prepare("SELECT sytem_id FROM blocs WHERE id = ?");
+        $stmtSystem->bind_param("i", $blocId);
+        $stmtSystem->execute();
+        $blocRow = $stmtSystem->get_result()->fetch_assoc();
+        $selectedSystemId = $blocRow ? ($blocRow['sytem_id'] !== null ? (int)$blocRow['sytem_id'] : null) : null;
+    }
+
+    if ($blocId !== null) {
+        if ($selectedSystemId !== null) {
+            $stmt = $conn->prepare("
+                SELECT u.*, f.bloc_id AS bloc_id, f.name AS faction_name
+                FROM units u
+                JOIN factions f ON f.id = u.faction_id
+                WHERE (
+                    f.bloc_id = ?
+                    OR EXISTS (
+                        SELECT 1
+                        FROM unit_rules ur2
+                        JOIN rules r2 ON r2.id = ur2.unit_rule_id
+                        WHERE ur2.unit_id = u.id
+                          AND UPPER(r2.name) = 'MERCENARY'
+                    )
+                )
+                  AND (u.game_system_id IS NULL OR u.game_system_id = ?)
+            ");
+            $stmt->bind_param("ii", $blocId, $selectedSystemId);
+        } else {
+            $stmt = $conn->prepare("
+                SELECT u.*, f.bloc_id AS bloc_id, f.name AS faction_name
+                FROM units u
+                JOIN factions f ON f.id = u.faction_id
+                WHERE f.bloc_id = ?
+                   OR EXISTS (
+                        SELECT 1
+                        FROM unit_rules ur2
+                        JOIN rules r2 ON r2.id = ur2.unit_rule_id
+                        WHERE ur2.unit_id = u.id
+                          AND UPPER(r2.name) = 'MERCENARY'
+                    )
+            ");
+            $stmt->bind_param("i", $blocId);
+        }
     } else {
         $stmt = $conn->prepare("
             SELECT u.*, f.bloc_id AS bloc_id, f.name AS faction_name
@@ -77,70 +187,86 @@ if ($action === 'unit.list') {
 
     $stmt->execute();
     $res = $stmt->get_result();
+    $units = $res->fetch_all(MYSQLI_ASSOC);
+    $definitions = loadUnitDefinitions($conn, array_column($units, 'id'));
+
+    foreach ($units as &$unitRow) {
+        $definition = $definitions[(int)$unitRow['id']] ?? null;
+        if ($definition) {
+            $unitRow['rule_names'] = $definition['rule_names'];
+            $unitRow['is_mercenary'] = $definition['is_mercenary'];
+            $unitRow['armor_value'] = $definition['armor_value'];
+        }
+    }
 
     ok([
-        "units" => $res->fetch_all(MYSQLI_ASSOC)
+        "units" => $units
     ]);
 }
 
 if ($action === 'unit.list') {
-	$sql = "SELECT id, name, type, points, faction_id, image_url FROM units";
-	$res = $conn->query($sql);
-	ok(["units" => $res->fetch_all(MYSQLI_ASSOC)]);
+  $sql = "SELECT id, name, type, points, faction_id, image_url FROM units";
+  $res = $conn->query($sql);
+  ok(["units" => $res->fetch_all(MYSQLI_ASSOC)]);
 }
 
 if ($action === 'unit.get') {
-	$id = requireInt($_GET['id'] ?? null, 'id');
+  $id = requireInt($_GET['id'] ?? null, 'id');
 
     // 1️⃣ Einheit + Fraktion laden
     $sql = "
-		SELECT 
-			u.id AS unit_id,
-			u.name AS unit_name,
-			u.notes,
-			u.type,
-			u.level,
-			u.speed,
-			u.march_speed,
-			u.points,
-			u.image_url,
-			u.health,
-			u.faction_id AS faction_id,
-			f.name AS faction_name,
-			f.symbol_url AS faction_symbol_url,
-			ur.id AS special_rule_id,
-			ur.name AS special_rule_name,
-			uur.note AS special_rule_note,
-			ur.short_text AS special_rule_desc,
-			ur.full_text AS special_rule_text,
-			uw.id AS unit_weapon_id,
-			uw.number AS weapon_number,
-			uw.firing_arc AS weapon_firing_arc,
-			w.id AS weapon_id,
-			w.name AS weapon_name,
-			w.range AS weapon_range,
-			w.disposable as weapon_disposable,
-			wr.id AS weapon_rule_id,
-			wr.name AS weapon_rule_name,
-			wr.short_text AS weapon_rule_desc,
-			wr.full_text AS weapon_rule_text,
-			ws.id AS weapon_stat_id,
-			ws.target_type AS weapon_target_type,
-			ws.target_level AS weapon_target_level,
-			ws.dice AS weapon_dice,
-			ws.damage AS weapon_damage
-		FROM units u
-		LEFT JOIN factions f ON u.faction_id = f.id
-		LEFT JOIN unit_rules uur ON u.id = uur.unit_id
-		LEFT JOIN rules ur ON uur.unit_rule_id = ur.id
-		LEFT JOIN unit_weapons uw ON u.id = uw.unit_id
-		LEFT JOIN weapons w ON uw.weapon_id = w.id
-		LEFT JOIN weapon_stats ws ON w.id = ws.weapon_id
-		LEFT JOIN weapon_rules wwr ON w.id = wwr.weapon_id
-		LEFT JOIN rules wr ON wwr.rule_id = wr.id
-		WHERE u.id = ?
-		ORDER BY u.id, w.id, wr.id
-		";
+    SELECT 
+      u.id AS unit_id,
+      u.name AS unit_name,
+      u.notes,
+      u.type,
+      u.level,
+      u.speed,
+      u.march_speed,
+      u.points,
+      u.image_url,
+      u.health,
+      u.faction_id AS faction_id,
+      f.name AS faction_name,
+      f.symbol_url AS faction_symbol_url,
+      b.name AS bloc_name,
+      b.image_url AS bloc_symbol_url,
+      ur.id AS special_rule_id,
+      ur.name AS special_rule_name,
+      uur.note AS special_rule_note,
+      ur.bonus_factor AS special_rule_bonus_factor,
+      ur.short_text AS special_rule_desc,
+      ur.full_text AS special_rule_text,
+      uw.id AS unit_weapon_id,
+      uw.number AS weapon_number,
+      uw.firing_arc AS weapon_firing_arc,
+      w.id AS weapon_id,
+      w.name AS weapon_name,
+      w.range AS weapon_range,
+      w.disposable as weapon_disposable,
+      wr.id AS weapon_rule_id,
+      wr.name AS weapon_rule_name,
+      wr.bonus_factor AS weapon_rule_bonus_factor,
+      wr.short_text AS weapon_rule_desc,
+      wr.full_text AS weapon_rule_text,
+      ws.id AS weapon_stat_id,
+      ws.target_type AS weapon_target_type,
+      ws.target_level AS weapon_target_level,
+      ws.dice AS weapon_dice,
+      ws.damage AS weapon_damage
+    FROM units u
+    LEFT JOIN factions f ON u.faction_id = f.id
+    LEFT JOIN blocs b ON f.bloc_id = b.id
+    LEFT JOIN unit_rules uur ON u.id = uur.unit_id
+    LEFT JOIN rules ur ON uur.unit_rule_id = ur.id
+    LEFT JOIN unit_weapons uw ON u.id = uw.unit_id
+    LEFT JOIN weapons w ON uw.weapon_id = w.id
+    LEFT JOIN weapon_stats ws ON w.id = ws.weapon_id
+    LEFT JOIN weapon_rules wwr ON w.id = wwr.weapon_id
+    LEFT JOIN rules wr ON wwr.rule_id = wr.id
+    WHERE u.id = ?
+    ORDER BY u.id, w.id, wr.id
+    ";
 
 		$stmt = $conn->prepare($sql);
 		$stmt->bind_param("s", $id); // "s" für String
@@ -165,6 +291,8 @@ if ($action === 'unit.get') {
 					'march_speed' => $row['march_speed'],
 					'faction' => $row['faction_name'],
 					'faction_symbol_url' => $row['faction_symbol_url'],
+          'bloc_name' => $row['bloc_name'],
+          'bloc_symbol_url' => $row['bloc_symbol_url'],
 					'points' => $row['points'],
 					'image_url' => $row['image_url'],
 					'health' => $row['health'],
@@ -179,6 +307,7 @@ if ($action === 'unit.get') {
 					'id' => $row['special_rule_id'],
 					'name' => $row['special_rule_name'],
 					'note' => $row['special_rule_note'],
+          'bonus_factor' => isset($row['special_rule_bonus_factor']) ? (float)$row['special_rule_bonus_factor'] : 0.5,
 					'desc' => $row['special_rule_desc'],
 					'text' => $row['special_rule_text']
 				];
@@ -200,6 +329,7 @@ if ($action === 'unit.get') {
 					 $units[$unitId]['weapons'][$unitWeaponId]['rules'][$row['weapon_rule_id']] = [
 						'id' => $row['weapon_rule_id'],
 						'name' => $row['weapon_rule_name'],
+            'bonus_factor' => isset($row['weapon_rule_bonus_factor']) ? (float)$row['weapon_rule_bonus_factor'] : 0.5,
 						'desc' => $row['weapon_rule_desc'],
 						'text' => $row['weapon_rule_text']
 					];
@@ -229,15 +359,19 @@ if ($action === 'unit.get') {
 }
 
 if ($action === 'armies.list') {
-	$sql = "SELECT apv.army_id AS id,
-				apv.army_name AS name,
-				apv.bloc_id,
-				b.name AS bloc_name,
-				apv.points_limit,
-				apv.points_current
-			FROM v_army_points apv
-			JOIN blocs b ON b.id = apv.bloc_id
-            ORDER BY apv.army_name DESC";
+  $sql = "SELECT
+        a.id,
+        a.name,
+        a.bloc_id,
+        b.name AS bloc_name,
+        a.points_limit,
+        COALESCE(SUM(COALESCE(u.points, 0) * COALESCE(au.quantity, 1)), 0) AS points_current
+      FROM armies a
+      JOIN blocs b ON b.id = a.bloc_id
+      LEFT JOIN army_units au ON au.army_id = a.id
+      LEFT JOIN units u ON u.id = au.unit_id
+      GROUP BY a.id, a.name, a.bloc_id, b.name, a.points_limit
+            ORDER BY a.name DESC";
     $res = $conn->query($sql);
     ok(["armies" => $res->fetch_all(MYSQLI_ASSOC)]);
 }
@@ -247,15 +381,18 @@ if ($action === 'armies.get') {
 	
 	$stmt = $conn->prepare("
 		SELECT
-			apv.army_id AS id,
-			apv.army_name AS name,
-			apv.bloc_id,
+      a.id,
+      a.name,
+      a.bloc_id,
 			b.name AS bloc_name,
-			apv.points_limit,
-			apv.points_current
-		FROM v_army_points apv
-		JOIN blocs b ON b.id = apv.bloc_id
-		WHERE apv.army_id = ?
+      a.points_limit,
+      COALESCE(SUM(COALESCE(u.points, 0) * COALESCE(au.quantity, 1)), 0) AS points_current
+    FROM armies a
+    JOIN blocs b ON b.id = a.bloc_id
+    LEFT JOIN army_units au ON au.army_id = a.id
+    LEFT JOIN units u ON u.id = au.unit_id
+    WHERE a.id = ?
+    GROUP BY a.id, a.name, a.bloc_id, b.name, a.points_limit
 	");
 	$stmt->bind_param("i", $id);
 	$stmt->execute();
@@ -299,6 +436,39 @@ if ($action === 'armies.get') {
     $stmt->execute();
     $units = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
+    $unitDefinitions = loadUnitDefinitions($conn, array_column($units, 'unit_id'));
+    foreach ($units as &$unitRow) {
+        $definition = $unitDefinitions[(int)$unitRow['unit_id']] ?? null;
+        if ($definition) {
+            $unitRow = mergeUnitDefinition($unitRow, $definition);
+        }
+    }
+
+    $stmt = $conn->prepare("
+        SELECT
+            ap.id AS army_platoon_id,
+            ap.platoon_id,
+            pu.id AS platoon_unit_id,
+            pu.unit_id,
+            pu.slot
+        FROM army_platoons ap
+        JOIN platoon_units pu ON pu.platoon_id = ap.platoon_id
+        WHERE ap.army_id = ?
+        ORDER BY ap.id ASC, pu.slot ASC, pu.id ASC
+    ");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $platoonTemplates = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    $templateDefinitions = loadUnitDefinitions($conn, array_column($platoonTemplates, 'unit_id'));
+    foreach ($platoonTemplates as &$templateRow) {
+        $templateUnitId = isset($templateRow['unit_id']) ? (int)$templateRow['unit_id'] : null;
+        $definition = $templateUnitId !== null ? ($templateDefinitions[$templateUnitId] ?? null) : null;
+        if ($definition) {
+            $templateRow = mergeUnitDefinition($templateRow, $definition);
+        }
+    }
+
     // current points sum (simple: unit_points * quantity)
     $sum = 0;
     foreach ($units as $row) {
@@ -308,6 +478,7 @@ if ($action === 'armies.get') {
     ok([
         "army" => $army,
         "platoons" => $platoons,
+        "platoon_templates" => $platoonTemplates,
         "units" => $units,
         "points_used" => $sum,
         "points_remaining" => ((int)$army["points_limit"]) - $sum
@@ -394,15 +565,35 @@ if ($action === 'blocs.list') {
 
 if ($action === 'platoons.list') {
     $blocId = requireInt($_GET['bloc_id'] ?? null, 'bloc_id');
+    $selectedSystemId = null;
 
-    $stmt = $conn->prepare("
-        SELECT p.id, p.name, p.rule_id, p.faction_id
-        FROM platoons p
-        JOIN factions f ON f.id = p.faction_id
-        WHERE f.bloc_id = ?
-        ORDER BY p.id ASC
-    ");
-    $stmt->bind_param("i", $blocId);
+    $stmtSystem = $conn->prepare("SELECT sytem_id FROM blocs WHERE id = ?");
+    $stmtSystem->bind_param("i", $blocId);
+    $stmtSystem->execute();
+    $blocRow = $stmtSystem->get_result()->fetch_assoc();
+    $selectedSystemId = $blocRow ? ($blocRow['sytem_id'] !== null ? (int)$blocRow['sytem_id'] : null) : null;
+
+    if ($selectedSystemId !== null) {
+        $stmt = $conn->prepare("
+            SELECT p.id, p.name, p.rule_id, p.faction_id
+            FROM platoons p
+            JOIN factions f ON f.id = p.faction_id
+            WHERE f.bloc_id = ?
+              AND (p.game_system_id IS NULL OR p.game_system_id = ?)
+            ORDER BY p.id ASC
+        ");
+        $stmt->bind_param("ii", $blocId, $selectedSystemId);
+    } else {
+        $stmt = $conn->prepare("
+            SELECT p.id, p.name, p.rule_id, p.faction_id
+            FROM platoons p
+            JOIN factions f ON f.id = p.faction_id
+            WHERE f.bloc_id = ?
+            ORDER BY p.id ASC
+        ");
+        $stmt->bind_param("i", $blocId);
+    }
+
     $stmt->execute();
 
     ok([
@@ -577,6 +768,7 @@ if ($action === 'army.analyze') {
             au.id AS army_unit_id,
             u.id AS unit_id,
             u.points,
+            au.quantity,
             f.id AS faction_id,
             f.name AS faction_name,
             f.bloc_id,
@@ -606,7 +798,8 @@ if ($action === 'army.analyze') {
     $blocValid = true;
 
     foreach ($units as $u) {
-        $totalPoints += $u['points'];
+        $unitTotalPoints = ((int)$u['points']) * max(1, (int)$u['quantity']);
+        $totalPoints += $unitTotalPoints;
 
         if (!$u['is_mercenary']) {
             // Bloc-Check
@@ -616,7 +809,7 @@ if ($action === 'army.analyze') {
 
             // Fraktionspunkte sammeln
             $fid = $u['faction_id'];
-            $factionPoints[$fid] = ($factionPoints[$fid] ?? 0) + $u['points'];
+            $factionPoints[$fid] = ($factionPoints[$fid] ?? 0) + $unitTotalPoints;
         }
     }
 
@@ -627,7 +820,7 @@ if ($action === 'army.analyze') {
     $factionCount = count(array_filter($factionPoints, fn($p) => $p > 0));
     $factionBonus = false;
 
-    if ($factionCount === 1 && $dominantFactionPoints / $totalPoints >= 0.75) {
+    if ($totalPoints > 0 && $factionCount === 1 && $dominantFactionPoints / $totalPoints >= 0.75) {
         $factionBonus = true;
     }
 
@@ -636,7 +829,7 @@ if ($action === 'army.analyze') {
         "faction_bonus" => [
             "eligible" => $factionBonus,
             "dominant_faction_id" => $dominantFactionId,
-            "percent" => round(($dominantFactionPoints / $totalPoints) * 100, 2)
+            "percent" => $totalPoints > 0 ? round(($dominantFactionPoints / $totalPoints) * 100, 2) : 0
         ],
         "total_points" => $totalPoints
     ]);

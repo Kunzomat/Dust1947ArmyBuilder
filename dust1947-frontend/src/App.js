@@ -28,6 +28,7 @@ import AddUnitDialog from "./components/AddUnitDialog";
 import UnitCard from "./components/UnitCard";
 import AdminPanel from "./components/AdminPanel";
 import { getImageUrl, getPlaceholderImage } from "./imageHelper";
+import { validateArmyComposition } from "./armyValidation";
 
 function ColumnPaper({ title, children, sx }) {
   return (
@@ -144,6 +145,11 @@ export default function App() {
       setLoadingArmy(false);
     }
   }
+
+  async function refreshSelectedArmy(id = selectedArmyId) {
+    if (!id) return;
+    await Promise.all([loadArmy(id), loadArmies()]);
+  }
   
   async function loadFactions() {
 	try {
@@ -177,7 +183,9 @@ export default function App() {
 		const data = await apiCall("unit.list");
 		const bloc_id = armyDetail?.army?.bloc_id;
 
-		return (data.units || []).filter((u) => Number(u.bloc_id) === Number(bloc_id));
+    return (data.units || []).filter(
+      (u) => Number(u.bloc_id) === Number(bloc_id) || Boolean(Number(u.is_mercenary ?? 0))
+    );
 	}
   
   async function loadPlatoonSlotUnits(platoonId) {
@@ -240,7 +248,7 @@ export default function App() {
         "POST"
       );
       setAddPlatoonOpen(false);
-      await loadArmy(selectedArmyId);
+      await refreshSelectedArmy();
     } catch (e) {
       setError(String(e.message || e));
     }
@@ -253,7 +261,7 @@ export default function App() {
         { id: armyPlatoonId },
         "POST"
       );
-      await loadArmy(selectedArmyId);
+      await refreshSelectedArmy();
     } catch (e) {
       setError(String(e.message || e));
     }
@@ -305,7 +313,7 @@ export default function App() {
 
 	  setAddUnitOpen(false);
 	  setAddUnitContext(null);
-	  await loadArmy(selectedArmyId);
+    await refreshSelectedArmy();
 	}
 
 	function isSlotUsed(platoonId, platoonUnitId) {
@@ -352,15 +360,20 @@ function groupSlots(platoonUnits) {
 	}, [armyDetail]);
 
 	const grouped = useMemo(() => groupByPlatoon(rosterUnits), [rosterUnits]);
-	const freeUnits = useMemo(() => {
+  const freeUnits = useMemo(() => {
 		if (!armyDetail) return [];
 		return armyDetail.units.filter(
 			(u) => u.army_platoon_id === null
 		);
 	}, [armyDetail]);
+
+  const armyValidation = useMemo(() => {
+    if (!armyDetail) return null;
+    return validateArmyComposition(armyDetail);
+  }, [armyDetail]);
 	
-	const pointsUsed = armyDetail?.army?.points_current ?? 0;
-	const pointsLimit = armyDetail?.army?.points_limit ?? 0;
+  const pointsUsed = armyValidation?.pointsUsed ?? armyDetail?.points_used ?? armyDetail?.army?.points_current ?? 0;
+  const pointsLimit = armyValidation?.effectivePointsLimit ?? armyDetail?.army?.points_limit ?? 0;
 
   return (
     <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
@@ -462,6 +475,29 @@ function groupSlots(platoonUnits) {
 			  Platoons
 			</Typography>
 
+      {armyValidation && (
+        <Stack spacing={1} sx={{ mt: 2, mb: 2 }}>
+        <Alert severity={armyValidation.isValid ? "success" : "error"}>
+          <strong>{armyValidation.forceType}</strong>
+          {` • ${armyValidation.pointsUsed}/${armyValidation.effectivePointsLimit} AP`}
+          {armyValidation.bonusApAvailable > 0 &&
+          ` • Bonus: ${armyValidation.bonusApUsed}/${armyValidation.bonusApAvailable} AP`}
+        </Alert>
+
+        {armyValidation.violations.map((entry, index) => (
+          <Alert key={`violation-${entry.rule}-${index}`} severity="error" variant="outlined">
+          Regel {entry.rule}: {entry.message}
+          </Alert>
+        ))}
+
+        {armyValidation.warnings.map((entry, index) => (
+          <Alert key={`warning-${entry.rule}-${index}`} severity="warning" variant="outlined">
+          Regel {entry.rule}: {entry.message}
+          </Alert>
+        ))}
+        </Stack>
+      )}
+
 			{armyDetail?.platoons?.map((p) => {
 			  
 			  const rawSlots = platoonSlots[p.platoon_id] || [];
@@ -533,7 +569,7 @@ function groupSlots(platoonUnits) {
               { id: assignedUnit.army_unit_id },
               "POST"
             );
-            await loadArmy(selectedArmyId);
+            await refreshSelectedArmy();
 
             if (selectedArmyUnitId === assignedUnit.army_unit_id) {
               setSelectedArmyUnitId(null);
@@ -605,7 +641,7 @@ function groupSlots(platoonUnits) {
                 { id: u.army_unit_id },
                 "POST"
               );
-              await loadArmy(selectedArmyId);
+              await refreshSelectedArmy();
 
               if (selected) {
                 setSelectedArmyUnitId(null);
@@ -666,7 +702,7 @@ function groupSlots(platoonUnits) {
                   { id: u.army_unit_id },
                   "POST"
                 );
-                await loadArmy(selectedArmyId);
+                await refreshSelectedArmy();
 
                 if (selected) {
                   setSelectedArmyUnitId(null);

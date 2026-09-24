@@ -16,12 +16,13 @@ import {
   DialogActions,
   TextField,
   Typography,
+  TableSortLabel,
   Alert,
   CircularProgress
 } from '@mui/material';
 import { Edit, Delete, Add } from '@mui/icons-material';
 
-const API_BASE = (process.env.REACT_APP_API_BASE || "http://localhost:8000/backend/army_api.php")
+const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
   .replace('/army_api.php', '');
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -47,6 +48,8 @@ async function adminApiCall(url, options = {}) {
 
 export default function GameSystemManager() {
   const [gameSystems, setGameSystems] = useState([]);
+  const [sortBy, setSortBy] = useState('name');
+  const [sortDirection, setSortDirection] = useState('asc');
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingSystem, setEditingSystem] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -132,6 +135,26 @@ export default function GameSystemManager() {
     }
   };
 
+  const handleSort = (column) => {
+    if (sortBy === column) {
+      setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'));
+      return;
+    }
+    setSortBy(column);
+    setSortDirection('asc');
+  };
+
+  const sortedGameSystems = [...gameSystems].sort((a, b) => {
+    const direction = sortDirection === 'asc' ? 1 : -1;
+    if (sortBy === 'id') {
+      return (((Number(a.id) || 0) - (Number(b.id) || 0)) * direction);
+    }
+
+    const left = String(a?.[sortBy] ?? '').toLocaleLowerCase();
+    const right = String(b?.[sortBy] ?? '').toLocaleLowerCase();
+    return left.localeCompare(right, 'de', { numeric: true, sensitivity: 'base' }) * direction;
+  });
+
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
@@ -161,14 +184,38 @@ export default function GameSystemManager() {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Beschreibung</TableCell>
+                <TableCell sortDirection={sortBy === 'id' ? sortDirection : false}>
+                  <TableSortLabel
+                    active={sortBy === 'id'}
+                    direction={sortBy === 'id' ? sortDirection : 'asc'}
+                    onClick={() => handleSort('id')}
+                  >
+                    ID
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell sortDirection={sortBy === 'name' ? sortDirection : false}>
+                  <TableSortLabel
+                    active={sortBy === 'name'}
+                    direction={sortBy === 'name' ? sortDirection : 'asc'}
+                    onClick={() => handleSort('name')}
+                  >
+                    Name
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell sortDirection={sortBy === 'description' ? sortDirection : false}>
+                  <TableSortLabel
+                    active={sortBy === 'description'}
+                    direction={sortBy === 'description' ? sortDirection : 'asc'}
+                    onClick={() => handleSort('description')}
+                  >
+                    Beschreibung
+                  </TableSortLabel>
+                </TableCell>
                 <TableCell align="right">Aktionen</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {gameSystems.length === 0 ? (
+              {sortedGameSystems.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={4} align="center">
                     <Typography color="text.secondary" sx={{ py: 2 }}>
@@ -177,7 +224,7 @@ export default function GameSystemManager() {
                   </TableCell>
                 </TableRow>
               ) : (
-                gameSystems.map((system) => (
+                sortedGameSystems.map((system) => (
                   <TableRow key={system.id}>
                     <TableCell>{system.id}</TableCell>
                     <TableCell><strong>{system.name}</strong></TableCell>

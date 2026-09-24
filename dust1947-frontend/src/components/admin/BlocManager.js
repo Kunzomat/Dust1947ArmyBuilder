@@ -19,14 +19,16 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  TableSortLabel,
   Typography,
   Alert,
   CircularProgress
 } from '@mui/material';
 import { Edit, Delete, Add } from '@mui/icons-material';
+import { getImageUrl } from '../../imageHelper';
 
 // Admin API uses different base URL than army_api
-const API_BASE = (process.env.REACT_APP_API_BASE || "http://localhost:8000/backend/army_api.php")
+const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
   .replace('/army_api.php', ''); // Remove army_api.php to get base path
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -51,16 +53,72 @@ async function adminApiCall(url, options = {}) {
   return response.json();
 }
 
+const readFileAsDataUrl = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ''));
+    reader.onerror = () => reject(new Error('Datei konnte nicht gelesen werden.'));
+    reader.readAsDataURL(file);
+  });
+
+const loadImageElement = (src) =>
+  new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error('Bild konnte nicht verarbeitet werden.'));
+    image.src = src;
+  });
+
+async function optimizeImageForUpload(file) {
+  const originalDataUrl = await readFileAsDataUrl(file);
+  const mimeType = file.type || 'image/png';
+
+  if (mimeType === 'image/svg+xml') {
+    return originalDataUrl;
+  }
+
+  const image = await loadImageElement(originalDataUrl);
+  const maxDimension = 1600;
+  const scale = Math.min(1, maxDimension / Math.max(image.width, image.height));
+  const width = Math.max(1, Math.round(image.width * scale));
+  const height = Math.max(1, Math.round(image.height * scale));
+
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+
+  const context = canvas.getContext('2d');
+  if (!context) {
+    return originalDataUrl;
+  }
+
+  context.drawImage(image, 0, 0, width, height);
+
+  const exportType = ['image/jpeg', 'image/webp', 'image/png'].includes(mimeType)
+    ? mimeType
+    : 'image/jpeg';
+
+  return canvas.toDataURL(exportType, 0.85);
+}
+
 export default function BlocManager() {
   const [blocs, setBlocs] = useState([]);
+  const [sortBy, setSortBy] = useState('name');
+  const [sortDirection, setSortDirection] = useState('asc');
   const [gameSystems, setGameSystems] = useState([]);
+  const [selectedGameSystemId, setSelectedGameSystemId] = useState('');
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingBloc, setEditingBloc] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [imageOptions, setImageOptions] = useState([]);
+  const [imagePreviewSrc, setImagePreviewSrc] = useState('');
+  const [uploadedImageName, setUploadedImageName] = useState('');
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     description: '',
+    image_url: '',
     game_system_id: ''
   });
 
@@ -68,13 +126,20 @@ export default function BlocManager() {
     loadBlocs();
   }, []);
 
+  useEffect(() => () => {
+    if (imagePreviewSrc && imagePreviewSrc.startsWith('blob:')) {
+      URL.revokeObjectURL(imagePreviewSrc);
+    }
+  }, [imagePreviewSrc]);
+
   const loadBlocs = async () => {
     setLoading(true);
     setError(null);
     try {
       const [blocsData, systemsData] = await Promise.all([
         adminApiCall('admin_api.php?action=blocs.list'),
-        adminApiCall('admin_api.php?action=game_systems.list')
+        adminApiCall('admin_api.php?action=game_systems.list'),
+        loadImageOptions()
       ]);
       console.log('Blocs API Response:', blocsData);
       // Ensure blocsData is always an array
@@ -96,24 +161,80 @@ export default function BlocManager() {
     }
   };
 
+  const loadImageOptions = async () => {
+    try {
+      const data = await adminApiCall('admin_api.php?action=images.list');
+      setImageOptions(Array.isArray(data) ? data : []);
+    } catch (imageError) {
+      console.error('Error loading image options:', imageError);
+      setImageOptions([]);
+    }
+  };
+
+  const resetImagePreview = () => {
+    setImagePreviewSrc((prev) => {
+      if (prev && prev.startsWith('blob:')) {
+        URL.revokeObjectURL(prev);
+      }
+      return '';
+    });
+  };
+
+  const handleImageFile = async (file) => {
+    if (!file) return;
+
+    resetImagePreview();
+    setImagePreviewSrc(URL.createObjectURL(file));
+    setUploadedImageName(file.name || 'Hochgeladenes Bild');
+
+    try {
+      setIsUploadingImage(true);
+      const optimizedImageData = await optimizeImageForUpload(file);
+      const response = await adminApiCall('admin_api.php?action=images.upload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          imageData: optimizedImageData,
+          originalName: file.name || 'image.png',
+        }),
+      });
+
+      setFormData((prev) => ({ ...prev, image_url: response.filename || '' }));
+      await loadImageOptions();
+    } catch (uploadError) {
+      console.error('Error uploading bloc image:', uploadError);
+      setUploadedImageName('');
+      setFormData((prev) => ({ ...prev, image_url: '' }));
+      resetImagePreview();
+      alert('Fehler beim Hochladen des Bildes: ' + uploadError.message);
+    } finally {
+      setIsUploadingImage(false);
+    }
+  };
+
   const handleOpenDialog = (bloc = null) => {
     if (bloc) {
       setEditingBloc(bloc);
       setFormData({
         name: bloc.name,
         description: bloc.description || '',
+        image_url: bloc.image_url || '',
         game_system_id: bloc.game_system_id || ''
       });
     } else {
       setEditingBloc(null);
-      setFormData({ name: '', description: '', game_system_id: '' });
+      setFormData({ name: '', description: '', image_url: '', game_system_id: '' });
     }
+    setUploadedImageName('');
+    resetImagePreview();
     setDialogOpen(true);
   };
 
   const handleCloseDialog = () => {
     setDialogOpen(false);
     setEditingBloc(null);
+    setUploadedImageName('');
+    resetImagePreview();
   };
 
   const handleSave = async () => {
@@ -155,18 +276,63 @@ export default function BlocManager() {
     }
   };
 
+  const handleSort = (column) => {
+    if (sortBy === column) {
+      setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'));
+      return;
+    }
+    setSortBy(column);
+    setSortDirection('asc');
+  };
+
+  const filteredBlocs = blocs.filter((bloc) => {
+    if (!selectedGameSystemId) return true;
+    return String(bloc.game_system_id ?? '') === String(selectedGameSystemId);
+  });
+
+  const sortedBlocs = [...filteredBlocs].sort((a, b) => {
+    const direction = sortDirection === 'asc' ? 1 : -1;
+    if (sortBy === 'id') {
+      return (((Number(a.id) || 0) - (Number(b.id) || 0)) * direction);
+    }
+    const left = String(a?.[sortBy] ?? '').toLocaleLowerCase();
+    const right = String(b?.[sortBy] ?? '').toLocaleLowerCase();
+    return left.localeCompare(right, 'de', { numeric: true, sensitivity: 'base' }) * direction;
+  });
+
+  const resolvedPreview = imagePreviewSrc || (formData.image_url ? getImageUrl(formData.image_url) : null);
+  const imageLabel = uploadedImageName || formData.image_url || 'Kein Bild ausgewählt';
+
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-        <Typography variant="h6">Blocs ({blocs.length})</Typography>
-        <Button
-          variant="contained"
-          startIcon={<Add />}
-          onClick={() => handleOpenDialog()}
-          disabled={loading}
-        >
-          Neuer Bloc
-        </Button>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 2, mb: 2 }}>
+        <Typography variant="h6">Blocs ({filteredBlocs.length}/{blocs.length})</Typography>
+        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+          <FormControl size="small" sx={{ minWidth: 240 }}>
+            <InputLabel id="bloc-game-system-filter-label">Game System</InputLabel>
+            <Select
+              labelId="bloc-game-system-filter-label"
+              value={selectedGameSystemId}
+              label="Game System"
+              onChange={(e) => setSelectedGameSystemId(e.target.value)}
+            >
+              <MenuItem value="">Alle</MenuItem>
+              {gameSystems.map((system) => (
+                <MenuItem key={system.id} value={String(system.id)}>
+                  {system.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <Button
+            variant="contained"
+            startIcon={<Add />}
+            onClick={() => handleOpenDialog()}
+            disabled={loading}
+          >
+            Neuer Bloc
+          </Button>
+        </Box>
       </Box>
 
       {error && (
@@ -184,28 +350,70 @@ export default function BlocManager() {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Game System</TableCell>
-                <TableCell>Beschreibung</TableCell>
+                <TableCell sortDirection={sortBy === 'id' ? sortDirection : false}>
+                  <TableSortLabel
+                    active={sortBy === 'id'}
+                    direction={sortBy === 'id' ? sortDirection : 'asc'}
+                    onClick={() => handleSort('id')}
+                  >
+                    ID
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell sortDirection={sortBy === 'name' ? sortDirection : false}>
+                  <TableSortLabel
+                    active={sortBy === 'name'}
+                    direction={sortBy === 'name' ? sortDirection : 'asc'}
+                    onClick={() => handleSort('name')}
+                  >
+                    Name
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell sortDirection={sortBy === 'game_system_name' ? sortDirection : false}>
+                  <TableSortLabel
+                    active={sortBy === 'game_system_name'}
+                    direction={sortBy === 'game_system_name' ? sortDirection : 'asc'}
+                    onClick={() => handleSort('game_system_name')}
+                  >
+                    Game System
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell sortDirection={sortBy === 'image_url' ? sortDirection : false}>
+                  <TableSortLabel
+                    active={sortBy === 'image_url'}
+                    direction={sortBy === 'image_url' ? sortDirection : 'asc'}
+                    onClick={() => handleSort('image_url')}
+                  >
+                    Bild
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell sortDirection={sortBy === 'description' ? sortDirection : false}>
+                  <TableSortLabel
+                    active={sortBy === 'description'}
+                    direction={sortBy === 'description' ? sortDirection : 'asc'}
+                    onClick={() => handleSort('description')}
+                  >
+                    Beschreibung
+                  </TableSortLabel>
+                </TableCell>
                 <TableCell align="right">Aktionen</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {blocs.length === 0 ? (
+              {sortedBlocs.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={5} align="center">
+                  <TableCell colSpan={6} align="center">
                     <Typography color="text.secondary" sx={{ py: 2 }}>
                       Keine Blocs vorhanden. Erstelle einen neuen Bloc.
                     </Typography>
                   </TableCell>
                 </TableRow>
               ) : (
-                blocs.map((bloc) => (
+                sortedBlocs.map((bloc) => (
                   <TableRow key={bloc.id}>
                     <TableCell>{bloc.id}</TableCell>
                     <TableCell><strong>{bloc.name}</strong></TableCell>
                     <TableCell>{bloc.game_system_name || '-'}</TableCell>
+                    <TableCell>{bloc.image_url || '-'}</TableCell>
                     <TableCell>{bloc.description || '-'}</TableCell>
                     <TableCell align="right">
                       <IconButton
@@ -266,11 +474,100 @@ export default function BlocManager() {
             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
             multiline
             rows={3}
+            sx={{ mb: 2 }}
           />
+
+          <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, alignItems: 'start', mb: 2 }}>
+            <TextField
+              fullWidth
+              select
+              label="Bild aus dem Verzeichnis"
+              value={imageOptions.includes(formData.image_url) ? formData.image_url : ''}
+              onChange={(e) => {
+                setUploadedImageName('');
+                resetImagePreview();
+                setFormData({ ...formData, image_url: e.target.value });
+              }}
+              helperText="Ein vorhandenes Bild aus `backend/images` auswählen"
+            >
+              <MenuItem value="">Keins auswählen</MenuItem>
+              {imageOptions.map((image) => (
+                <MenuItem key={image} value={image}>
+                  {image}
+                </MenuItem>
+              ))}
+            </TextField>
+
+            <Button variant="outlined" component="label" sx={{ height: 56, alignSelf: 'center' }} disabled={isUploadingImage}>
+              {isUploadingImage ? 'Bild wird hochgeladen…' : 'Bild hochladen'}
+              <input
+                hidden
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  handleImageFile(e.target.files?.[0]);
+                  e.target.value = '';
+                }}
+              />
+            </Button>
+          </Box>
+
+          <Box
+            sx={{
+              border: '1px solid',
+              borderColor: 'divider',
+              borderRadius: 1,
+              p: 1.5,
+              display: 'flex',
+              gap: 2,
+              alignItems: 'center',
+              minHeight: 128,
+            }}
+          >
+            {resolvedPreview ? (
+              <Box
+                component="img"
+                src={resolvedPreview}
+                alt="Vorschau"
+                sx={{ width: 96, height: 96, objectFit: 'cover', borderRadius: 1, border: '1px solid', borderColor: 'divider' }}
+              />
+            ) : (
+              <Box
+                sx={{
+                  width: 96,
+                  height: 96,
+                  borderRadius: 1,
+                  bgcolor: 'grey.100',
+                  border: '1px dashed',
+                  borderColor: 'divider',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'text.secondary',
+                  fontSize: 12,
+                  textAlign: 'center',
+                  px: 1,
+                }}
+              >
+                Keine Vorschau
+              </Box>
+            )}
+            <Box sx={{ flex: 1 }}>
+              <Typography variant="subtitle2">Aktuelles Bild</Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ wordBreak: 'break-word' }}>
+                {imageLabel}
+              </Typography>
+            </Box>
+          </Box>
+          {isUploadingImage && (
+            <Typography variant="caption" color="warning.main" sx={{ mt: 1, display: 'block' }}>
+              Bild wird gerade hochgeladen. Bitte kurz warten, bevor du speicherst.
+            </Typography>
+          )}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>Abbrechen</Button>
-          <Button onClick={handleSave} variant="contained">
+          <Button onClick={handleSave} variant="contained" disabled={isUploadingImage}>
             Speichern
           </Button>
         </DialogActions>

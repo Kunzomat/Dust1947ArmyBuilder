@@ -1,5 +1,5 @@
 // Image URL Helper
-const API_BASE = process.env.REACT_APP_API_BASE || "http://kunzomat.de/dust1947/backend/army_api.php";
+const API_BASE = process.env.REACT_APP_API_BASE || "/backend/army_api.php";
 const IMAGE_BASE = API_BASE.replace('/army_api.php', '/image.php');
 
 /**
@@ -10,8 +10,29 @@ const IMAGE_BASE = API_BASE.replace('/army_api.php', '/image.php');
 export function getImageUrl(imageName) {
   if (!imageName) return null;
 
-  // If already a full URL, return as-is
+  // Legacy DB entries may store absolute backend image URLs from other hosts.
+  // Normalize those to the current environment's image endpoint.
   if (imageName.startsWith('http://') || imageName.startsWith('https://')) {
+    try {
+      const parsed = new URL(imageName);
+      if (parsed.pathname.includes('/backend/images/')) {
+        const fileName = decodeURIComponent(parsed.pathname.split('/').pop() || '');
+        if (fileName) {
+          return `${IMAGE_BASE}?name=${encodeURIComponent(fileName)}`;
+        }
+      }
+    } catch {
+      return imageName;
+    }
+
+    return imageName;
+  }
+
+  // If already a full URL, return as-is
+  if (
+    imageName.startsWith('data:') ||
+    imageName.startsWith('blob:')
+  ) {
     return imageName;
   }
 
@@ -48,9 +69,11 @@ export function checkImageExists(url) {
   });
 }
 
-export default {
+const imageHelper = {
   getImageUrl,
   getPlaceholderImage,
   checkImageExists,
 };
+
+export default imageHelper;
 

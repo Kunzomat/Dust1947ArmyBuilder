@@ -6,6 +6,27 @@ function CardFront({ details = {}, bgColor }) {
   const factionInitial = details.faction
     ? details.faction.charAt(0).toUpperCase()
     : "S";
+  const symbolUrl = details.faction_symbol_url || details.bloc_symbol_url;
+  const symbolAlt = details.faction || details.bloc_name || "Faction";
+
+  const sortedSpecialRules = [...(details.special_rules || [])].sort((a, b) =>
+    String(a?.name || "").localeCompare(String(b?.name || ""), "de", {
+      sensitivity: "base",
+    })
+  );
+
+  const sortedWeaponRules = [...(details.weapons || [])]
+    .flatMap((w) =>
+      (w?.rules || []).map((rule) => ({
+        weaponName: w?.name || "",
+        rule,
+      }))
+    )
+    .sort((a, b) =>
+      String(a?.rule?.name || "").localeCompare(String(b?.rule?.name || ""), "de", {
+        sensitivity: "base",
+      })
+    );
 
   return (
     <Box
@@ -103,12 +124,12 @@ function CardFront({ details = {}, bgColor }) {
             justifyContent: "center",
             zIndex: 10, // 🟢 im Vordergrund
           }}
-          title={details.faction || "Faction"}
+          title={symbolAlt}
         >
-		{details.faction_symbol_url ? (
+		{symbolUrl ? (
           <SmartImage
-            src={details.faction_symbol_url}
-            alt={details.faction}
+            src={symbolUrl}
+            alt={symbolAlt}
             type="faction"
             sx={{
               width: "100%",
@@ -183,47 +204,39 @@ function CardFront({ details = {}, bgColor }) {
 		  background: "#d4dbe2",
         }}
       >
-        {details.special_rules?.length > 0 &&
-          details.special_rules.map((r) => (
+        {sortedSpecialRules.length > 0 &&
+          sortedSpecialRules.map((r) => (
             <Typography key={r.id} variant="body2" sx={{ mb: 0.75 }}>
               <strong style={{ fontWeight: 800 }}>{r.name} {r.note && <> ({r.note})</>} :</strong> {r.desc}
             </Typography>
           ))}
 		
 		{/* Waffen-Regeln (Duplikate gefiltert) */}
-		{(() => {
-		  const rendered = [];
-		  const seen = new Set();
+    {(() => {
+      const rendered = [];
+      const seen = new Set();
 
-		  details.weapons?.forEach((w) => {
-			if (!w.rules) return;
+      sortedWeaponRules.forEach(({ weaponName, rule }) => {
+      const key = rule.id || `${weaponName || ""}-${rule.name || ""}-${rule.desc || ""}`;
+      if (seen.has(key)) return;
+      seen.add(key);
 
-			w.rules.forEach((rule) => {
-			  const key =
-				rule.id || `${w.id || ""}-${rule.name || ""}-${rule.desc || ""}`;
+      rendered.push(
+        <Typography
+        key={rule.id || `${weaponName}-${rule.name}`}
+        variant="body2"
+        sx={{ mb: 0.75 }}
+        >
+        <strong style={{ fontWeight: 800 }}>
+          {rule.name}:
+        </strong>
+        {rule.desc && <> {rule.desc}</>}
+        </Typography>
+      );
+      });
 
-			  if (seen.has(key)) return; // schon gerendert → überspringen
-			  seen.add(key);
-
-			  rendered.push(
-				<Typography
-				  key={rule.id || `${w.id}-${rule.name}`}
-				  variant="body2"
-				  sx={{ mb: 0.75 }}
-				>
-				  {/* Überschrift: Waffenname + Regelname */}
-				  <strong style={{ fontWeight: 800 }}>
-					{rule.name}:
-				  </strong>
-				  {/* Optional: Beschreibung, falls vorhanden */}
-				  {rule.desc && <> {rule.desc}</>}
-				</Typography>
-			  );
-			});
-		  });
-
-		  return rendered;
-		})()}
+      return rendered;
+    })()}
       </Box>
     </Box>
   );

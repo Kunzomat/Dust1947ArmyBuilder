@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Box,
   Button,
@@ -15,12 +15,17 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Typography
+  MenuItem,
+  Typography,
+  FormControl,
+  InputLabel,
+  Select,
+  TableSortLabel
 } from '@mui/material';
 import { Edit, Delete, Add } from '@mui/icons-material';
 
 // Admin API uses different base URL than army_api
-const API_BASE = (process.env.REACT_APP_API_BASE || "http://localhost:8000/backend/army_api.php")
+const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
   .replace('/army_api.php', '');
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -46,17 +51,77 @@ async function adminApiCall(url, options = {}) {
 
 export default function RuleManager() {
   const [rules, setRules] = useState([]);
+  const [gameSystems, setGameSystems] = useState([]);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingRule, setEditingRule] = useState(null);
+  const [filterGameSystemId, setFilterGameSystemId] = useState('');
+  const [sortBy, setSortBy] = useState('id');
+  const [sortDirection, setSortDirection] = useState('asc');
   const [formData, setFormData] = useState({
     name: '',
     short_text: '',
-    full_text: ''
+    full_text: '',
+    game_system_id: ''
   });
 
   useEffect(() => {
     loadRules();
+    loadGameSystems();
   }, []);
+
+  const getSortValue = (rule, column) => {
+    switch (column) {
+      case 'id':
+        return Number(rule.id) || 0;
+      case 'name':
+        return String(rule.name || '').toLowerCase();
+      case 'game_system_name':
+        return String(rule.game_system_name || '').toLowerCase();
+      case 'short_text':
+        return String(rule.short_text || '').toLowerCase();
+      case 'full_text':
+        return String(rule.full_text || '').toLowerCase();
+      default:
+        return '';
+    }
+  };
+
+  const filteredAndSortedRules = useMemo(() => {
+    const filtered = rules.filter((rule) => {
+      if (!filterGameSystemId) return true;
+      return String(rule.game_system_id || '') === String(filterGameSystemId);
+    });
+
+    const sorted = [...filtered].sort((a, b) => {
+      const aValue = getSortValue(a, sortBy);
+      const bValue = getSortValue(b, sortBy);
+
+      if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
+      if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
+
+    return sorted;
+  }, [rules, filterGameSystemId, sortBy, sortDirection]);
+
+  const handleSort = (column) => {
+    if (sortBy === column) {
+      setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'));
+      return;
+    }
+    setSortBy(column);
+    setSortDirection('asc');
+  };
+
+  const loadGameSystems = async () => {
+    try {
+      const data = await adminApiCall('admin_api.php?action=game_systems.list');
+      setGameSystems(Array.isArray(data) ? data : []);
+    } catch (error) {
+      console.error('Error loading game systems:', error);
+      setGameSystems([]);
+    }
+  };
 
   const loadRules = async () => {
     try {
@@ -80,11 +145,12 @@ export default function RuleManager() {
       setFormData({
         name: rule.name || '',
         short_text: rule.short_text || '',
-        full_text: rule.full_text || ''
+        full_text: rule.full_text || '',
+        game_system_id: rule.game_system_id || ''
       });
     } else {
       setEditingRule(null);
-      setFormData({ name: '', short_text: '', full_text: '' });
+      setFormData({ name: '', short_text: '', full_text: '', game_system_id: '' });
     }
     setDialogOpen(true);
   };
@@ -97,7 +163,10 @@ export default function RuleManager() {
   const handleSave = async () => {
     try {
       const action = editingRule ? 'rules.update' : 'rules.create';
-      const payload = editingRule ? { ...formData, id: editingRule.id } : formData;
+      const payload = {
+        ...(editingRule ? { ...formData, id: editingRule.id } : formData),
+        game_system_id: formData.game_system_id ? parseInt(formData.game_system_id, 10) : null
+      };
 
       await adminApiCall(`admin_api.php?action=${action}`, {
         method: 'POST',
@@ -129,33 +198,73 @@ export default function RuleManager() {
 
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-        <Typography variant="h6">Rules ({rules.length})</Typography>
-        <Button
-          variant="contained"
-          startIcon={<Add />}
-          onClick={() => handleOpenDialog()}
-        >
-          Neue Regel
-        </Button>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, gap: 2, flexWrap: 'wrap' }}>
+        <Typography variant="h6">Rules ({filteredAndSortedRules.length})</Typography>
+        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', flexWrap: 'wrap' }}>
+          <FormControl size="small" sx={{ minWidth: 220 }}>
+            <InputLabel id="rules-game-system-filter-label">Game System</InputLabel>
+            <Select
+              labelId="rules-game-system-filter-label"
+              value={filterGameSystemId}
+              label="Game System"
+              onChange={(e) => setFilterGameSystemId(e.target.value)}
+            >
+              <MenuItem value="">Alle Systeme</MenuItem>
+              {gameSystems.map((system) => (
+                <MenuItem key={system.id} value={String(system.id)}>
+                  {system.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <Button
+            variant="contained"
+            startIcon={<Add />}
+            onClick={() => handleOpenDialog()}
+          >
+            Neue Regel
+          </Button>
+        </Box>
       </Box>
 
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Kurzbeschreibung</TableCell>
-              <TableCell>Volltext</TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'id'} direction={sortBy === 'id' ? sortDirection : 'asc'} onClick={() => handleSort('id')}>
+                  ID
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'name'} direction={sortBy === 'name' ? sortDirection : 'asc'} onClick={() => handleSort('name')}>
+                  Name
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'game_system_name'} direction={sortBy === 'game_system_name' ? sortDirection : 'asc'} onClick={() => handleSort('game_system_name')}>
+                  Game System
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'short_text'} direction={sortBy === 'short_text' ? sortDirection : 'asc'} onClick={() => handleSort('short_text')}>
+                  Kurzbeschreibung
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'full_text'} direction={sortBy === 'full_text' ? sortDirection : 'asc'} onClick={() => handleSort('full_text')}>
+                  Volltext
+                </TableSortLabel>
+              </TableCell>
               <TableCell align="right">Aktionen</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rules.map((rule) => (
+            {filteredAndSortedRules.map((rule) => (
               <TableRow key={rule.id}>
                 <TableCell>{rule.id}</TableCell>
                 <TableCell><strong>{rule.name}</strong></TableCell>
+                <TableCell>{rule.game_system_name || 'Alle'}</TableCell>
                 <TableCell sx={{ maxWidth: 200, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                   {rule.short_text || '-'}
                 </TableCell>
@@ -196,6 +305,22 @@ export default function RuleManager() {
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             sx={{ mt: 2, mb: 2 }}
           />
+          <TextField
+            fullWidth
+            select
+            label="Game System (optional)"
+            value={formData.game_system_id || ''}
+            onChange={(e) => setFormData({ ...formData, game_system_id: e.target.value })}
+            sx={{ mb: 2 }}
+          >
+            <MenuItem value="">Alle Systeme</MenuItem>
+            {gameSystems.map((system) => (
+              <MenuItem key={system.id} value={system.id}>
+                {system.name}
+              </MenuItem>
+            ))}
+          </TextField>
+
           <TextField
             fullWidth
             label="Kurzbeschreibung"

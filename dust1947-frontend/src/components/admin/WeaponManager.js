@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Box,
   Button,
@@ -18,21 +18,21 @@ import {
   Typography,
   Checkbox,
   FormControlLabel,
-  Grid,
   Select,
   MenuItem,
   Chip,
   FormControl,
   InputLabel,
-  OutlinedInput,
   Tabs,
   Tab,
-  Stack
+  Stack,
+  TableSortLabel,
+  Tooltip
 } from '@mui/material';
-import { Edit, Delete, Add, Link as LinkIcon } from '@mui/icons-material';
+import { Edit, Delete, Add, Link as LinkIcon, ContentCopy } from '@mui/icons-material';
 
 // Admin API uses different base URL than army_api
-const API_BASE = (process.env.REACT_APP_API_BASE || "http://localhost:8000/backend/army_api.php")
+const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
   .replace('/army_api.php', '');
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -66,16 +66,89 @@ export default function WeaponManager() {
   const [formData, setFormData] = useState({
     name: '',
     range: '',
-    disposable: false
+    disposable: false,
+    game_system_id: ''
   });
   const [weaponStats, setWeaponStats] = useState({});
   const [weaponRules, setWeaponRules] = useState([]);
   const [availableRules, setAvailableRules] = useState([]);
+  const [gameSystems, setGameSystems] = useState([]);
+  const [filterGameSystemId, setFilterGameSystemId] = useState('');
+  const [nameFilter, setNameFilter] = useState('');
+  const [sortBy, setSortBy] = useState('id');
+  const [sortDirection, setSortDirection] = useState('asc');
+  const [weaponUnitsById, setWeaponUnitsById] = useState({});
+  const [weaponUnitsLoadingById, setWeaponUnitsLoadingById] = useState({});
+  const [weaponUnitsErrorById, setWeaponUnitsErrorById] = useState({});
 
   useEffect(() => {
     loadWeapons();
     loadRules();
+    loadGameSystems();
   }, []);
+
+  const getSortValue = (weapon, column) => {
+    switch (column) {
+      case 'id':
+        return Number(weapon.id) || 0;
+      case 'name':
+        return String(weapon.name || '').toLowerCase();
+      case 'game_system_name':
+        return String(weapon.game_system_name || '').toLowerCase();
+      case 'range':
+        return String(weapon.range || '').toLowerCase();
+      case 'disposable':
+        return weapon.disposable === 1 || weapon.disposable === '1' || weapon.disposable === true ? 1 : 0;
+      default:
+        return '';
+    }
+  };
+
+  const filteredAndSortedWeapons = useMemo(() => {
+    const normalizedNameFilter = String(nameFilter || '').trim().toLowerCase();
+
+    const filtered = weapons.filter((weapon) => {
+      const gameSystemMatch = !filterGameSystemId || String(weapon.game_system_id || '') === String(filterGameSystemId);
+      if (!gameSystemMatch) return false;
+
+      if (!normalizedNameFilter) return true;
+      return String(weapon.name || '').toLowerCase().includes(normalizedNameFilter);
+    });
+
+    const sorted = [...filtered].sort((a, b) => {
+      const aValue = getSortValue(a, sortBy);
+      const bValue = getSortValue(b, sortBy);
+
+      if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
+      if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
+
+    return sorted;
+  }, [weapons, filterGameSystemId, nameFilter, sortBy, sortDirection]);
+
+  const handleSort = (column) => {
+    if (sortBy === column) {
+      setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'));
+      return;
+    }
+    setSortBy(column);
+    setSortDirection('asc');
+  };
+
+  const loadGameSystems = async () => {
+    try {
+      const data = await adminApiCall('admin_api.php?action=game_systems.list');
+      if (Array.isArray(data)) {
+        setGameSystems(data);
+      } else {
+        setGameSystems([]);
+      }
+    } catch (error) {
+      console.error('Error loading game systems:', error);
+      setGameSystems([]);
+    }
+  };
 
   const loadRules = async () => {
     try {
@@ -116,11 +189,12 @@ export default function WeaponManager() {
       setFormData({
         name: weapon.name || '',
         range: weapon.range || '',
-        disposable: disposableValue
+        disposable: disposableValue,
+        game_system_id: weapon.game_system_id || ''
       });
     } else {
       setEditingWeapon(null);
-      setFormData({ name: '', range: '', disposable: false });
+      setFormData({ name: '', range: '', disposable: false, game_system_id: '' });
     }
     setDialogOpen(true);
   };
@@ -167,7 +241,8 @@ export default function WeaponManager() {
 
       const payload = {
         ...formData,
-        disposable: disposableValue
+        disposable: disposableValue,
+        game_system_id: formData.game_system_id ? parseInt(formData.game_system_id, 10) : null
       };
       
       if (editingWeapon) {
@@ -273,6 +348,82 @@ export default function WeaponManager() {
     }
   };
 
+  const loadWeaponAssignedUnits = async (weaponId) => {
+    const key = String(weaponId);
+    if (!weaponId || weaponUnitsById[key] || weaponUnitsLoadingById[key]) return;
+
+    try {
+      setWeaponUnitsLoadingById((prev) => ({ ...prev, [key]: true }));
+      setWeaponUnitsErrorById((prev) => ({ ...prev, [key]: '' }));
+      const rows = await adminApiCall(`admin_api.php?action=weapon_units.list&weapon_id=${weaponId}`);
+      setWeaponUnitsById((prev) => ({ ...prev, [key]: Array.isArray(rows) ? rows : [] }));
+    } catch (error) {
+      setWeaponUnitsErrorById((prev) => ({ ...prev, [key]: error.message || 'Fehler beim Laden' }));
+    } finally {
+      setWeaponUnitsLoadingById((prev) => ({ ...prev, [key]: false }));
+    }
+  };
+
+  const getArcLabel = (arcCodeRaw) => {
+    const arcCode = String(arcCodeRaw || '').toUpperCase();
+    const arcLabelMap = { L: 'Left', R: 'Right', F: 'Front', T: 'Turret', REAR: 'Rear' };
+    return arcLabelMap[arcCode] || (arcCode || '-');
+  };
+
+  const renderWeaponUnitsTooltip = (weaponId) => {
+    const key = String(weaponId);
+    const isLoading = Boolean(weaponUnitsLoadingById[key]);
+    const error = weaponUnitsErrorById[key];
+    const rows = weaponUnitsById[key] || [];
+
+    if (isLoading) {
+      return <Typography variant="caption">Lade Einheiten...</Typography>;
+    }
+
+    if (error) {
+      return <Typography variant="caption">Fehler: {error}</Typography>;
+    }
+
+    if (rows.length === 0) {
+      return <Typography variant="caption">Diese Waffe ist keiner Einheit zugewiesen.</Typography>;
+    }
+
+    return (
+      <Box>
+        <Typography variant="caption" sx={{ fontWeight: 700, display: 'block', mb: 0.5 }}>
+          Zugewiesene Einheiten ({rows.length})
+        </Typography>
+        {rows.map((row) => {
+          const amount = Math.max(1, Number(row.quantity ?? row.number ?? 1) || 1);
+          const arcLabel = getArcLabel(row.firing_arc);
+          const rowKey = row.unit_weapon_id || `${row.unit_id}-${row.weapon_id}-${amount}-${arcLabel}`;
+          return (
+            <Typography key={rowKey} variant="caption" sx={{ display: 'block', lineHeight: 1.35 }}>
+              - {row.unit_name} ({amount}x, Arc: {arcLabel})
+            </Typography>
+          );
+        })}
+      </Box>
+    );
+  };
+
+  const handleClone = async (weapon) => {
+    if (!weapon?.id) return;
+
+    try {
+      await adminApiCall('admin_api.php?action=weapons.clone', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: weapon.id })
+      });
+
+      await loadWeapons();
+    } catch (error) {
+      console.error('Error cloning weapon:', error);
+      alert('Fehler beim Klonen: ' + error.message);
+    }
+  };
+
   function TabPanel({ children, value, index }) {
     return (
       <div role="tabpanel" hidden={value !== index}>
@@ -283,35 +434,93 @@ export default function WeaponManager() {
 
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-        <Typography variant="h6">Weapons ({weapons.length})</Typography>
-        <Button
-          variant="contained"
-          startIcon={<Add />}
-          onClick={() => handleOpenDialog()}
-        >
-          Neue Waffe
-        </Button>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, gap: 2, flexWrap: 'wrap' }}>
+        <Typography variant="h6">Weapons ({filteredAndSortedWeapons.length})</Typography>
+        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', flexWrap: 'wrap' }}>
+          <TextField
+            size="small"
+            label="Waffe suchen"
+            value={nameFilter}
+            onChange={(e) => setNameFilter(e.target.value)}
+            placeholder="Contains (ab 1 Zeichen)"
+            sx={{ minWidth: 220 }}
+          />
+          <FormControl size="small" sx={{ minWidth: 220 }}>
+            <InputLabel id="weapons-game-system-filter-label">Game System</InputLabel>
+            <Select
+              labelId="weapons-game-system-filter-label"
+              value={filterGameSystemId}
+              label="Game System"
+              onChange={(e) => setFilterGameSystemId(e.target.value)}
+            >
+              <MenuItem value="">Alle Systeme</MenuItem>
+              {gameSystems.map((system) => (
+                <MenuItem key={system.id} value={String(system.id)}>
+                  {system.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <Button
+            variant="contained"
+            startIcon={<Add />}
+            onClick={() => handleOpenDialog()}
+          >
+            Neue Waffe
+          </Button>
+        </Box>
       </Box>
 
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Reichweite</TableCell>
-              <TableCell>Einmalwaffe</TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'id'} direction={sortBy === 'id' ? sortDirection : 'asc'} onClick={() => handleSort('id')}>
+                  ID
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'name'} direction={sortBy === 'name' ? sortDirection : 'asc'} onClick={() => handleSort('name')}>
+                  Name
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'game_system_name'} direction={sortBy === 'game_system_name' ? sortDirection : 'asc'} onClick={() => handleSort('game_system_name')}>
+                  Game System
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'range'} direction={sortBy === 'range' ? sortDirection : 'asc'} onClick={() => handleSort('range')}>
+                  Reichweite
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'disposable'} direction={sortBy === 'disposable' ? sortDirection : 'asc'} onClick={() => handleSort('disposable')}>
+                  Einmalwaffe
+                </TableSortLabel>
+              </TableCell>
               <TableCell align="right">Aktionen</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {weapons.map((weapon) => {
+            {filteredAndSortedWeapons.map((weapon) => {
               const isDisposable = weapon.disposable === 1 || weapon.disposable === '1' || weapon.disposable === true;
               return (
                 <TableRow key={weapon.id}>
                   <TableCell>{weapon.id}</TableCell>
-                  <TableCell><strong>{weapon.name}</strong></TableCell>
+                  <TableCell>
+                    <Tooltip title={renderWeaponUnitsTooltip(weapon.id)} placement="top-start" arrow>
+                      <Box
+                        component="span"
+                        onMouseEnter={() => loadWeaponAssignedUnits(weapon.id)}
+                        sx={{ cursor: 'help', display: 'inline-block' }}
+                      >
+                        <strong>{weapon.name}</strong>
+                      </Box>
+                    </Tooltip>
+                  </TableCell>
+                  <TableCell>{weapon.game_system_name || 'Alle'}</TableCell>
                   <TableCell>{weapon.range || '-'}</TableCell>
                   <TableCell>
                     {isDisposable ? (
@@ -332,13 +541,22 @@ export default function WeaponManager() {
                     <IconButton
                       size="small"
                       onClick={() => handleOpenDialog(weapon)}
+                      title="Waffe bearbeiten"
                     >
                       <Edit />
                     </IconButton>
                     <IconButton
                       size="small"
+                      onClick={() => handleClone(weapon)}
+                      title="Waffe klonen"
+                    >
+                      <ContentCopy fontSize="small" />
+                    </IconButton>
+                    <IconButton
+                      size="small"
                       color="error"
                       onClick={() => handleDelete(weapon.id)}
+                      title="Waffe löschen"
                     >
                       <Delete />
                     </IconButton>
@@ -364,6 +582,21 @@ export default function WeaponManager() {
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               helperText="z.B. 'Laser Grenade Launcher', 'Panzerfaust'"
             />
+
+            <TextField
+              fullWidth
+              select
+              label="Game System (optional)"
+              value={formData.game_system_id || ''}
+              onChange={(e) => setFormData({ ...formData, game_system_id: e.target.value })}
+            >
+              <MenuItem value="">Alle Systeme</MenuItem>
+              {gameSystems.map((system) => (
+                <MenuItem key={system.id} value={system.id}>
+                  {system.name}
+                </MenuItem>
+              ))}
+            </TextField>
 
             <TextField
               fullWidth

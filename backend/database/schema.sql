@@ -7,10 +7,22 @@ COLLATE utf8mb4_unicode_ci;
 
 USE dust1947;
 
+-- Game Systems
+CREATE TABLE IF NOT EXISTS game_systems (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Blocs (Allianzen)
 CREATE TABLE IF NOT EXISTS blocs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
+    description TEXT,
+    image_url VARCHAR(255),
+    sytem_id INT UNSIGNED NULL,
+    FOREIGN KEY (sytem_id) REFERENCES game_systems(id) ON DELETE SET NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -31,6 +43,8 @@ CREATE TABLE IF NOT EXISTS rules (
     name VARCHAR(100) NOT NULL,
     short_text TEXT,
     full_text TEXT,
+    game_system_id INT UNSIGNED NULL,
+    FOREIGN KEY (game_system_id) REFERENCES game_systems(id) ON DELETE SET NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -47,8 +61,10 @@ CREATE TABLE IF NOT EXISTS units (
     notes TEXT,
     image_url VARCHAR(255),
     faction_id INT NOT NULL,
+    game_system_id INT UNSIGNED NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (faction_id) REFERENCES factions(id) ON DELETE CASCADE
+    FOREIGN KEY (faction_id) REFERENCES factions(id) ON DELETE CASCADE,
+    FOREIGN KEY (game_system_id) REFERENCES game_systems(id) ON DELETE SET NULL
 );
 
 -- Unit Rules (Spezialregeln von Einheiten)
@@ -67,6 +83,8 @@ CREATE TABLE IF NOT EXISTS weapons (
     name VARCHAR(100) NOT NULL,
     `range` VARCHAR(20),
     disposable BOOLEAN DEFAULT FALSE,
+    game_system_id INT UNSIGNED NULL,
+    FOREIGN KEY (game_system_id) REFERENCES game_systems(id) ON DELETE SET NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -106,10 +124,12 @@ CREATE TABLE IF NOT EXISTS platoons (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     faction_id INT NOT NULL,
-    rule_id INT,
+    rule_id INT NULL,
+    game_system_id INT UNSIGNED NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (faction_id) REFERENCES factions(id) ON DELETE CASCADE,
-    FOREIGN KEY (rule_id) REFERENCES rules(id) ON DELETE SET NULL
+    FOREIGN KEY (rule_id) REFERENCES rules(id) ON DELETE SET NULL,
+    FOREIGN KEY (game_system_id) REFERENCES game_systems(id) ON DELETE SET NULL
 );
 
 -- Platoon Units (Slots in einem Platoon)

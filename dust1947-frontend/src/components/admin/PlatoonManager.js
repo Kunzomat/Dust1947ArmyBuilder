@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Box,
   Button,
@@ -21,12 +21,16 @@ import {
   ListItem,
   ListItemText,
   Chip,
-  Divider
+  Divider,
+  FormControl,
+  InputLabel,
+  Select,
+  TableSortLabel
 } from '@mui/material';
 import { Edit, Delete, Add, Link as LinkIcon } from '@mui/icons-material';
 
 // Admin API uses different base URL than army_api
-const API_BASE = (process.env.REACT_APP_API_BASE || "http://localhost:8000/backend/army_api.php")
+const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
   .replace('/army_api.php', '');
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -55,12 +59,14 @@ export default function PlatoonManager() {
   const [factions, setFactions] = useState([]);
   const [rules, setRules] = useState([]);
   const [units, setUnits] = useState([]);
+  const [gameSystems, setGameSystems] = useState([]);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingPlatoon, setEditingPlatoon] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     faction_id: '',
-    rule_id: null
+    rule_id: null,
+    game_system_id: ''
   });
 
   // Slot management
@@ -73,13 +79,85 @@ export default function PlatoonManager() {
     slot: '',
     unit_id: ''
   });
+  const [filterGameSystemId, setFilterGameSystemId] = useState('');
+  const [sortBy, setSortBy] = useState('id');
+  const [sortDirection, setSortDirection] = useState('asc');
 
   useEffect(() => {
     loadPlatoons();
     loadFactions();
     loadRules();
     loadUnits();
+    loadGameSystems();
   }, []);
+
+  const getSortValue = (platoon, column) => {
+    switch (column) {
+      case 'id':
+        return Number(platoon.id) || 0;
+      case 'name':
+        return String(platoon.name || '').toLowerCase();
+      case 'faction_name':
+        return String(platoon.faction_name || '').toLowerCase();
+      case 'game_system_name':
+        return String(platoon.game_system_name || '').toLowerCase();
+      case 'rule_name':
+        return String(platoon.rule_name || '').toLowerCase();
+      case 'slot_count':
+        return Number(platoon.slot_count) || 0;
+      default:
+        return '';
+    }
+  };
+
+  const filteredAndSortedPlatoons = useMemo(() => {
+    const filtered = platoons.filter((platoon) => {
+      if (!filterGameSystemId) return true;
+      return String(platoon.game_system_id || '') === String(filterGameSystemId);
+    });
+
+    return [...filtered].sort((a, b) => {
+      const aValue = getSortValue(a, sortBy);
+      const bValue = getSortValue(b, sortBy);
+
+      if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
+      if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
+  }, [platoons, filterGameSystemId, sortBy, sortDirection]);
+
+  const availableFactionsForForm = useMemo(() => {
+    if (!formData.game_system_id) {
+      return factions;
+    }
+
+    return factions.filter(
+      (faction) => String(faction.game_system_id || '') === String(formData.game_system_id)
+    );
+  }, [factions, formData.game_system_id]);
+
+  const handleSort = (column) => {
+    if (sortBy === column) {
+      setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'));
+      return;
+    }
+    setSortBy(column);
+    setSortDirection('asc');
+  };
+
+  const loadGameSystems = async () => {
+    try {
+      const data = await adminApiCall('admin_api.php?action=game_systems.list');
+      if (Array.isArray(data)) {
+        setGameSystems(data);
+      } else {
+        setGameSystems([]);
+      }
+    } catch (error) {
+      console.error('Error loading game systems:', error);
+      setGameSystems([]);
+    }
+  };
 
   const loadPlatoons = async () => {
     try {
@@ -145,11 +223,12 @@ export default function PlatoonManager() {
       setFormData({
         name: platoon.name,
         faction_id: platoon.faction_id,
-        rule_id: platoon.rule_id || null
+        rule_id: platoon.rule_id || null,
+        game_system_id: platoon.game_system_id || ''
       });
     } else {
       setEditingPlatoon(null);
-      setFormData({ name: '', faction_id: '', rule_id: null });
+      setFormData({ name: '', faction_id: '', rule_id: null, game_system_id: '' });
     }
     setDialogOpen(true);
   };
@@ -162,7 +241,10 @@ export default function PlatoonManager() {
   const handleSave = async () => {
     try {
       const action = editingPlatoon ? 'platoons.update' : 'platoons.create';
-      const payload = editingPlatoon ? { ...formData, id: editingPlatoon.id } : formData;
+      const payload = {
+        ...(editingPlatoon ? { ...formData, id: editingPlatoon.id } : formData),
+        game_system_id: formData.game_system_id ? parseInt(formData.game_system_id, 10) : null
+      };
 
       await adminApiCall(`admin_api.php?action=${action}`, {
         method: 'POST',
@@ -230,6 +312,22 @@ export default function PlatoonManager() {
     setSlotFormOpen(true);
   };
 
+  const availableUnitsForPlatoonSlot = useMemo(() => {
+    if (!selectedPlatoon) {
+      return units;
+    }
+
+    return units.filter((unit) => {
+      const sameFaction = String(unit.faction_id ?? '') === String(selectedPlatoon.faction_id ?? '');
+      const sameGameSystem =
+        !selectedPlatoon.game_system_id ||
+        unit.game_system_id == null ||
+        String(unit.game_system_id) === String(selectedPlatoon.game_system_id);
+
+      return sameFaction && sameGameSystem;
+    });
+  }, [units, selectedPlatoon]);
+
   const handleSaveSlot = async () => {
     try {
       if (editingSlot) {
@@ -277,35 +375,80 @@ export default function PlatoonManager() {
 
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-        <Typography variant="h6">Platoons ({platoons.length})</Typography>
-        <Button
-          variant="contained"
-          startIcon={<Add />}
-          onClick={() => handleOpenDialog()}
-        >
-          Neues Platoon
-        </Button>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, gap: 2, flexWrap: 'wrap' }}>
+        <Typography variant="h6">Platoons ({filteredAndSortedPlatoons.length})</Typography>
+        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', flexWrap: 'wrap' }}>
+          <FormControl size="small" sx={{ minWidth: 220 }}>
+            <InputLabel id="platoons-game-system-filter-label">Game System</InputLabel>
+            <Select
+              labelId="platoons-game-system-filter-label"
+              value={filterGameSystemId}
+              label="Game System"
+              variant="outlined"
+              onChange={(e) => setFilterGameSystemId(e.target.value)}
+            >
+              <MenuItem value="">Alle Systeme</MenuItem>
+              {gameSystems.map((system) => (
+                <MenuItem key={system.id} value={String(system.id)}>
+                  {system.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <Button
+            variant="contained"
+            startIcon={<Add />}
+            onClick={() => handleOpenDialog()}
+          >
+            Neues Platoon
+          </Button>
+        </Box>
       </Box>
 
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Fraktion</TableCell>
-              <TableCell>Regel</TableCell>
-              <TableCell>Slots</TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'id'} direction={sortBy === 'id' ? sortDirection : 'asc'} onClick={() => handleSort('id')}>
+                  ID
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'name'} direction={sortBy === 'name' ? sortDirection : 'asc'} onClick={() => handleSort('name')}>
+                  Name
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'faction_name'} direction={sortBy === 'faction_name' ? sortDirection : 'asc'} onClick={() => handleSort('faction_name')}>
+                  Fraktion
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'game_system_name'} direction={sortBy === 'game_system_name' ? sortDirection : 'asc'} onClick={() => handleSort('game_system_name')}>
+                  Game System
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'rule_name'} direction={sortBy === 'rule_name' ? sortDirection : 'asc'} onClick={() => handleSort('rule_name')}>
+                  Regel
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>
+                <TableSortLabel active={sortBy === 'slot_count'} direction={sortBy === 'slot_count' ? sortDirection : 'asc'} onClick={() => handleSort('slot_count')}>
+                  Slots
+                </TableSortLabel>
+              </TableCell>
               <TableCell align="right">Aktionen</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {platoons.map((platoon) => (
+            {filteredAndSortedPlatoons.map((platoon) => (
               <TableRow key={platoon.id}>
                 <TableCell>{platoon.id}</TableCell>
                 <TableCell><strong>{platoon.name}</strong></TableCell>
                 <TableCell>{platoon.faction_name}</TableCell>
+                <TableCell>{platoon.game_system_name || 'Alle'}</TableCell>
                 <TableCell>{platoon.rule_name || '-'}</TableCell>
                 <TableCell>
                   <Chip
@@ -361,15 +504,37 @@ export default function PlatoonManager() {
             select
             label="Fraktion"
             value={formData.faction_id}
+            disabled={Boolean(formData.game_system_id) && availableFactionsForForm.length === 0}
             onChange={(e) => setFormData({ ...formData, faction_id: e.target.value })}
             sx={{ mb: 2 }}
           >
-            {factions.map((faction) => (
+            {availableFactionsForForm.length === 0 && (
+              <MenuItem value="" disabled>
+                Keine Fraktionen für dieses Game System
+              </MenuItem>
+            )}
+            {availableFactionsForForm.map((faction) => (
               <MenuItem key={faction.id} value={faction.id}>
                 {faction.name}
               </MenuItem>
             ))}
           </TextField>
+          <TextField
+            fullWidth
+            select
+            label="Game System (optional)"
+            value={formData.game_system_id || ''}
+            onChange={(e) => setFormData({ ...formData, game_system_id: e.target.value, faction_id: '' })}
+            sx={{ mb: 2 }}
+          >
+            <MenuItem value="">Alle Systeme</MenuItem>
+            {gameSystems.map((system) => (
+              <MenuItem key={system.id} value={system.id}>
+                {system.name}
+              </MenuItem>
+            ))}
+          </TextField>
+
           <TextField
             fullWidth
             select
@@ -486,13 +651,13 @@ export default function PlatoonManager() {
               onChange={(e) => setSlotFormData({ ...slotFormData, slot: e.target.value })}
               helperText="Typ des Slots im Platoon"
             >
-              <MenuItem value="Command">Command</MenuItem>
-              <MenuItem value="Combat 1">Combat 1</MenuItem>
-              <MenuItem value="Combat 2">Combat 2</MenuItem>
-              <MenuItem value="Combat 3">Combat 3</MenuItem>
-              <MenuItem value="Combat 4">Combat 4</MenuItem>
-              <MenuItem value="Combat 5">Combat 5</MenuItem>
-              <MenuItem value="Combat 6">Combat 6</MenuItem>
+              <MenuItem value="COMMAND_1">Command</MenuItem>
+              <MenuItem value="COMBAT_1">Combat 1</MenuItem>
+              <MenuItem value="COMBAT_2">Combat 2</MenuItem>
+              <MenuItem value="COMBAT_3">Combat 3</MenuItem>
+              <MenuItem value="COMBAT_4">Combat 4</MenuItem>
+              <MenuItem value="COMBAT_5">Combat 5</MenuItem>
+              <MenuItem value="COMBAT_6">Combat 6</MenuItem>
             </TextField>
             <TextField
               fullWidth
@@ -501,11 +666,17 @@ export default function PlatoonManager() {
               value={slotFormData.unit_id}
               onChange={(e) => setSlotFormData({ ...slotFormData, unit_id: e.target.value })}
             >
-              {units.map((unit) => (
-                <MenuItem key={unit.id} value={unit.id}>
-                  {unit.name} ({unit.faction_name}) - {unit.points} Pkt
+              {availableUnitsForPlatoonSlot.length === 0 ? (
+                <MenuItem value="" disabled>
+                  Keine passenden Einheiten für dieses Platoon gefunden
                 </MenuItem>
-              ))}
+              ) : (
+                availableUnitsForPlatoonSlot.map((unit) => (
+                  <MenuItem key={unit.id} value={unit.id}>
+                    {unit.name} ({unit.faction_name}) - {unit.points} Pkt
+                  </MenuItem>
+                ))
+              )}
             </TextField>
           </Box>
         </DialogContent>

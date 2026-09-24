@@ -327,7 +327,7 @@ function CardBack({
           {paddedWeapons.map((w, rowIndex) => {
             const isRealWeapon = Boolean(w.id);
 			const hasDisposable = isRealWeapon && (w.disposable || 0) > 0;
-			const arcMap = { L: "Left", R: "Right", F: "Front", T: "Turret",};
+      const arcMap = { L: "Left", R: "Right", F: "Front", REAR: "Rear", T: "Turret",};
             const cells = isRealWeapon
               ? [
                   `${w.number || 1}x ${w.name || ""}`,
