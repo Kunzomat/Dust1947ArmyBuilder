@@ -1,0 +1,261 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading [level=6] [ref=e116]: Dust 1947 – Army Builder
+        - group [ref=e7]:
+          - button [pressed] [ref=e117] [cursor=pointer]: Army Builder
+          - button [ref=e118] [cursor=pointer]: Admin
+        - generic [ref=e43]: 43/110 Punkte
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - heading [level=6] [ref=e119]: Armeen
+        - separator [ref=e19]
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - button [ref=e120] [cursor=pointer]: Aktualisieren
+            - button [ref=e121] [cursor=pointer]: Neue Armee
+            - button [ref=e122] [cursor=pointer]: Löschen
+          - list [ref=e46]:
+            - button [ref=e123] [cursor=pointer]:
+              - generic [ref=e48]:
+                - generic [ref=e49]: Star Wars Droiden Armee
+                - paragraph [ref=e50]: 43/100 Punkte • Konföderation unabhängiger Systeme
+            - button [ref=e124] [cursor=pointer]:
+              - generic [ref=e52]:
+                - generic [ref=e53]: Star Wars Clone Army
+                - paragraph [ref=e54]: 52/100 Punkte • Star Wars Republik
+            - button [ref=e125] [cursor=pointer]:
+              - generic [ref=e56]:
+                - generic [ref=e57]: Dust SSU
+                - paragraph [ref=e58]: 41/100 Punkte • SSU
+      - generic [ref=e27]:
+        - heading [level=6] [ref=e126]: "Armee: Star Wars Droiden Armee (Konföderation unabhängiger Systeme)"
+        - separator [ref=e30]
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - button [ref=e127] [cursor=pointer]: Bearbeiten
+            - button [ref=e128] [cursor=pointer]: Platoon hinzufügen
+            - button [ref=e129] [cursor=pointer]: Einheit hinzufügen
+          - paragraph [ref=e36]: Platoons
+          - alert [ref=e61]:
+            - generic [ref=e65]:
+              - strong [ref=e66]: Faction Force
+              - text: "• 43/110 AP • Bonus: 0/10 AP"
+          - generic [ref=e67]:
+            - paragraph [ref=e68]: Freie Einheiten
+            - list [ref=e69]:
+              - listitem [ref=e70]:
+                - button [ref=e130] [cursor=pointer]:
+                  - generic [ref=e72]:
+                    - generic [ref=e73]: Droideka
+                    - paragraph [ref=e74]: 13 Punkte
+                - button [ref=e131] [cursor=pointer]: Entfernen
+              - listitem [ref=e77]:
+                - button [ref=e132] [cursor=pointer]:
+                  - generic [ref=e79]:
+                    - generic [ref=e80]: Droideka
+                    - paragraph [ref=e81]: 13 Punkte
+                - button [ref=e133] [cursor=pointer]: Entfernen
+              - listitem [ref=e84]:
+                - button [ref=e134] [cursor=pointer]:
+                  - generic [ref=e86]:
+                    - generic [ref=e87]: Droideka
+                    - paragraph [ref=e88]: 13 Punkte
+                - button [ref=e135] [cursor=pointer]: Entfernen
+              - listitem [ref=e91]:
+                - button [ref=e136] [cursor=pointer]:
+                  - generic [ref=e93]:
+                    - generic [ref=e94]: B1 Battle Droid Combat Squad
+                    - paragraph [ref=e95]: 4 Punkte
+                - button [ref=e137] [cursor=pointer]: Entfernen
+      - generic [ref=e37]:
+        - heading [level=6] [ref=e138]: Details
+        - separator [ref=e40]
+        - generic [ref=e98]:
+          - button [ref=e139] [cursor=pointer]: Rückseite anzeigen
+          - generic [ref=e103]:
+            - generic [ref=e104]:
+              - generic [ref=e141]:
+                - paragraph [ref=e107]: AP
+                - paragraph [ref=e108]: "13"
+              - paragraph [ref=e112]: Droideka
+            - paragraph [ref=e114]:
+              - strong [ref=e115]: "DAMAGE RESILIENT :"
+              - text: Roll one die for each point of Damage the Unit Takes, negating one point for each [symbol] rolled. Does not apply to Units Joined.
+  - dialog [ref=e146]:
+    - heading "Einheit hinzufügen" [level=2] [ref=e147]
+    - generic [ref=e148]:
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - generic: Faction
+          - generic [ref=e151]:
+            - combobox "Faction" [ref=e152] [cursor=pointer]
+            - textbox [aria-hidden]
+            - group [aria-hidden]:
+              - generic: Faction
+        - generic [ref=e153]:
+          - generic: Einheitstyp
+          - generic [ref=e154]:
+            - combobox "Einheitstyp" [ref=e155] [cursor=pointer]
+            - textbox [aria-hidden]
+            - group [aria-hidden]:
+              - generic: Einheitstyp
+      - list [ref=e156]:
+        - button "Militzsquad(Free Sector Forces ) I - Infantry • 5 Punkte" [ref=e157] [cursor=pointer]:
+          - generic [ref=e158]:
+            - generic [ref=e159]:
+              - text: Militzsquad
+              - generic [ref=e160]: (Free Sector Forces )
+            - paragraph [ref=e161]: I - Infantry • 5 Punkte
+        - button "B1 Battle Droid Battle Squad(Droid Army) I - Infantry • 7 Punkte" [ref=e162] [cursor=pointer]:
+          - generic [ref=e163]:
+            - generic [ref=e164]:
+              - text: B1 Battle Droid Battle Squad
+              - generic [ref=e165]: (Droid Army)
+            - paragraph [ref=e166]: I - Infantry • 7 Punkte
+        - button "B2 Super Battle Droid(Droid Army) I - Infantry • 7 Punkte" [ref=e167] [cursor=pointer]:
+          - generic [ref=e168]:
+            - generic [ref=e169]:
+              - text: B2 Super Battle Droid
+              - generic [ref=e170]: (Droid Army)
+            - paragraph [ref=e171]: I - Infantry • 7 Punkte
+        - button "IG-100 MagnaGuard(Droid Army) I - Infantry • 10 Punkte" [ref=e172] [cursor=pointer]:
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - text: IG-100 MagnaGuard
+              - generic [ref=e175]: (Droid Army)
+            - paragraph [ref=e176]: I - Infantry • 10 Punkte
+        - button "Droideka(Droid Army) I - Infantry • 13 Punkte" [ref=e177] [cursor=pointer]:
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - text: Droideka
+              - generic [ref=e180]: (Droid Army)
+            - paragraph [ref=e181]: I - Infantry • 13 Punkte
+        - button "Emma(Neutral Medical Corps) H - Hero • 0 Punkte" [ref=e182] [cursor=pointer]:
+          - generic [ref=e183]:
+            - generic [ref=e184]:
+              - text: Emma
+              - generic [ref=e185]: (Neutral Medical Corps)
+            - paragraph [ref=e186]: H - Hero • 0 Punkte
+        - button "Justine & Co(Mercenaries) I - Infantry • 0 Punkte" [ref=e187] [cursor=pointer]:
+          - generic [ref=e188]:
+            - generic [ref=e189]:
+              - text: Justine & Co
+              - generic [ref=e190]: (Mercenaries)
+            - paragraph [ref=e191]: I - Infantry • 0 Punkte
+        - button "Luisa(Mercenaries) H - Hero • 0 Punkte" [ref=e192] [cursor=pointer]:
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - text: Luisa
+              - generic [ref=e195]: (Mercenaries)
+            - paragraph [ref=e196]: H - Hero • 0 Punkte
+        - button "Mercenary Cleaning Team(Mercenaries) I - Infantry • 0 Punkte" [ref=e197] [cursor=pointer]:
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - text: Mercenary Cleaning Team
+              - generic [ref=e200]: (Mercenaries)
+            - paragraph [ref=e201]: I - Infantry • 0 Punkte
+        - button "Mercenary Heavy Machine Gun Squad(Mercenaries) V - Vehicle • 0 Punkte" [ref=e202] [cursor=pointer]:
+          - generic [ref=e203]:
+            - generic [ref=e204]:
+              - text: Mercenary Heavy Machine Gun Squad
+              - generic [ref=e205]: (Mercenaries)
+            - paragraph [ref=e206]: V - Vehicle • 0 Punkte
+        - button "Tanya(Mercenaries) H - Hero • 0 Punkte" [ref=e207] [cursor=pointer]:
+          - generic [ref=e208]:
+            - generic [ref=e209]:
+              - text: Tanya
+              - generic [ref=e210]: (Mercenaries)
+            - paragraph [ref=e211]: H - Hero • 0 Punkte
+        - button "Wrecker(Mercenaries) V - Vehicle • 0 Punkte" [ref=e212] [cursor=pointer]:
+          - generic [ref=e213]:
+            - generic [ref=e214]:
+              - text: Wrecker
+              - generic [ref=e215]: (Mercenaries)
+            - paragraph [ref=e216]: V - Vehicle • 0 Punkte
+        - button "Silence(Mercenaries) H - Hero • 0 Punkte" [ref=e217] [cursor=pointer]:
+          - generic [ref=e218]:
+            - generic [ref=e219]:
+              - text: Silence
+              - generic [ref=e220]: (Mercenaries)
+            - paragraph [ref=e221]: H - Hero • 0 Punkte
+        - button "Mercenary Heavy Machine Gun Squad II(Mercenaries) V - Vehicle • 0 Punkte" [ref=e222] [cursor=pointer]:
+          - generic [ref=e223]:
+            - generic [ref=e224]:
+              - text: Mercenary Heavy Machine Gun Squad II
+              - generic [ref=e225]: (Mercenaries)
+            - paragraph [ref=e226]: V - Vehicle • 0 Punkte
+        - button "Meatgrinder(Mercenaries) V - Vehicle • 0 Punkte" [ref=e227] [cursor=pointer]:
+          - generic [ref=e228]:
+            - generic [ref=e229]:
+              - text: Meatgrinder
+              - generic [ref=e230]: (Mercenaries)
+            - paragraph [ref=e231]: V - Vehicle • 0 Punkte
+        - button "Pulverizer(Mercenaries) V - Vehicle • 0 Punkte" [ref=e232] [cursor=pointer]:
+          - generic [ref=e233]:
+            - generic [ref=e234]:
+              - text: Pulverizer
+              - generic [ref=e235]: (Mercenaries)
+            - paragraph [ref=e236]: V - Vehicle • 0 Punkte
+        - button "B1 Battle Droid Anti Tank Squad(Droid Army) I - Infantry • 7 Punkte" [ref=e237] [cursor=pointer]:
+          - generic [ref=e238]:
+            - generic [ref=e239]:
+              - text: B1 Battle Droid Anti Tank Squad
+              - generic [ref=e240]: (Droid Army)
+            - paragraph [ref=e241]: I - Infantry • 7 Punkte
+        - button "B1 Battle Droid Combat Squad(Droid Army) I - Infantry • 4 Punkte" [ref=e242] [cursor=pointer]:
+          - generic [ref=e243]:
+            - generic [ref=e244]:
+              - text: B1 Battle Droid Combat Squad
+              - generic [ref=e245]: (Droid Army)
+            - paragraph [ref=e246]: I - Infantry • 4 Punkte
+        - button "IG-100 MagnaGuard Anti Tank Squad(Droid Army) I - Infantry • 10 Punkte" [ref=e247] [cursor=pointer]:
+          - generic [ref=e248]:
+            - generic [ref=e249]:
+              - text: IG-100 MagnaGuard Anti Tank Squad
+              - generic [ref=e250]: (Droid Army)
+            - paragraph [ref=e251]: I - Infantry • 10 Punkte
+        - button "Tactical Droid(Droid Army) H - Hero • 4 Punkte" [ref=e252] [cursor=pointer]:
+          - generic [ref=e253]:
+            - generic [ref=e254]:
+              - text: Tactical Droid
+              - generic [ref=e255]: (Droid Army)
+            - paragraph [ref=e256]: H - Hero • 4 Punkte
+        - button "B1 Commander(Droid Army) H - Hero • 4 Punkte" [ref=e257] [cursor=pointer]:
+          - generic [ref=e258]:
+            - generic [ref=e259]:
+              - text: B1 Commander
+              - generic [ref=e260]: (Droid Army)
+            - paragraph [ref=e261]: H - Hero • 4 Punkte
+        - button "General Grievous(Droid Army) H - Hero • 18 Punkte" [ref=e262] [cursor=pointer]:
+          - generic [ref=e263]:
+            - generic [ref=e264]:
+              - text: General Grievous
+              - generic [ref=e265]: (Droid Army)
+            - paragraph [ref=e266]: H - Hero • 18 Punkte
+        - button "Super Tactical Droid(Droid Army) H - Hero • 10 Punkte" [ref=e267] [cursor=pointer]:
+          - generic [ref=e268]:
+            - generic [ref=e269]:
+              - text: Super Tactical Droid
+              - generic [ref=e270]: (Droid Army)
+            - paragraph [ref=e271]: H - Hero • 10 Punkte
+        - button "AAT – Armored Assault Tank(Droid Army) V - Vehicle • 16 Punkte" [ref=e272] [cursor=pointer]:
+          - generic [ref=e273]:
+            - generic [ref=e274]:
+              - text: AAT – Armored Assault Tank
+              - generic [ref=e275]: (Droid Army)
+            - paragraph [ref=e276]: V - Vehicle • 16 Punkte
+        - button "DSD1 Dwarf Spider Droids(Droid Army) V - Vehicle • 5 Punkte" [ref=e277] [cursor=pointer]:
+          - generic [ref=e278]:
+            - generic [ref=e279]:
+              - text: DSD1 Dwarf Spider Droids
+              - generic [ref=e280]: (Droid Army)
+            - paragraph [ref=e281]: V - Vehicle • 5 Punkte
+        - button "IG-227 Hailfire-class Droid Tank(Droid Army) V - Vehicle • 12 Punkte" [ref=e282] [cursor=pointer]:
+          - generic [ref=e283]:
+            - generic [ref=e284]:
+              - text: IG-227 Hailfire-class Droid Tank
+              - generic [ref=e285]: (Droid Army)
+            - paragraph [ref=e286]: V - Vehicle • 12 Punkte
+    - button "Abbrechen" [ref=e287] [cursor=pointer]

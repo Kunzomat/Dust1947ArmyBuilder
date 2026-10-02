@@ -1,0 +1,110 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading [level=6] [ref=e398]: Dust 1947 – Army Builder
+        - group [ref=e7]:
+          - button [pressed] [ref=e399] [cursor=pointer]: Army Builder
+          - button [ref=e400] [cursor=pointer]: Admin
+        - generic [ref=e43]: 43/110 Punkte
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - heading [level=6] [ref=e401]: Armeen
+        - separator [ref=e19]
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - button [ref=e402] [cursor=pointer]: Aktualisieren
+            - button [ref=e403] [cursor=pointer]: Neue Armee
+            - button [ref=e404] [cursor=pointer]: Löschen
+          - list [ref=e46]:
+            - button [ref=e405] [cursor=pointer]:
+              - generic [ref=e48]:
+                - generic [ref=e49]: Star Wars Droiden Armee
+                - paragraph [ref=e50]: 43/100 Punkte • Konföderation unabhängiger Systeme
+            - button [ref=e406] [cursor=pointer]:
+              - generic [ref=e52]:
+                - generic [ref=e53]: Star Wars Clone Army
+                - paragraph [ref=e54]: 52/100 Punkte • Star Wars Republik
+            - button [ref=e407] [cursor=pointer]:
+              - generic [ref=e56]:
+                - generic [ref=e57]: Dust SSU
+                - paragraph [ref=e58]: 41/100 Punkte • SSU
+      - generic [ref=e27]:
+        - heading [level=6] [ref=e408]: "Armee: Star Wars Droiden Armee (Konföderation unabhängiger Systeme)"
+        - separator [ref=e30]
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - button [ref=e409] [cursor=pointer]: Bearbeiten
+            - button [ref=e410] [cursor=pointer]: Platoon hinzufügen
+            - button [ref=e411] [cursor=pointer]: Einheit hinzufügen
+          - paragraph [ref=e36]: Platoons
+          - alert [ref=e61]:
+            - generic [ref=e65]:
+              - strong [ref=e66]: Faction Force
+              - text: "• 43/110 AP • Bonus: 0/10 AP"
+          - generic [ref=e67]:
+            - paragraph [ref=e68]: Freie Einheiten
+            - list [ref=e69]:
+              - listitem [ref=e70]:
+                - button [ref=e412] [cursor=pointer]:
+                  - generic [ref=e72]:
+                    - generic [ref=e73]: Droideka
+                    - paragraph [ref=e74]: 13 Punkte
+                - button [ref=e413] [cursor=pointer]: Entfernen
+              - listitem [ref=e77]:
+                - button [ref=e414] [cursor=pointer]:
+                  - generic [ref=e79]:
+                    - generic [ref=e80]: Droideka
+                    - paragraph [ref=e81]: 13 Punkte
+                - button [ref=e415] [cursor=pointer]: Entfernen
+              - listitem [ref=e84]:
+                - button [ref=e416] [cursor=pointer]:
+                  - generic [ref=e86]:
+                    - generic [ref=e87]: Droideka
+                    - paragraph [ref=e88]: 13 Punkte
+                - button [ref=e417] [cursor=pointer]: Entfernen
+              - listitem [ref=e91]:
+                - button [ref=e418] [cursor=pointer]:
+                  - generic [ref=e93]:
+                    - generic [ref=e94]: B1 Battle Droid Combat Squad
+                    - paragraph [ref=e95]: 4 Punkte
+                - button [ref=e419] [cursor=pointer]: Entfernen
+      - generic [ref=e37]:
+        - heading [level=6] [ref=e420]: Details
+        - separator [ref=e40]
+        - generic [ref=e98]:
+          - button [ref=e421] [cursor=pointer]: Rückseite anzeigen
+          - generic [ref=e103]:
+            - generic [ref=e104]:
+              - generic [ref=e423]:
+                - paragraph [ref=e107]: AP
+                - paragraph [ref=e108]: "13"
+              - paragraph [ref=e112]: Droideka
+            - paragraph [ref=e114]:
+              - strong [ref=e115]: "DAMAGE RESILIENT :"
+              - text: Roll one die for each point of Damage the Unit Takes, negating one point for each [symbol] rolled. Does not apply to Units Joined.
+  - dialog [ref=e428]:
+    - heading "Neue Armee erstellen" [level=2] [ref=e429]
+    - generic [ref=e431]:
+      - generic [ref=e432]:
+        - generic: Name der Armee
+        - generic [ref=e433]:
+          - textbox "Name der Armee" [ref=e434]
+          - group [aria-hidden]:
+            - generic: Name der Armee
+      - generic [ref=e435]:
+        - generic: Bloc
+        - generic [ref=e436]:
+          - combobox "Bloc" [ref=e437] [cursor=pointer]
+          - textbox [aria-hidden]
+          - group [aria-hidden]:
+            - generic: Bloc
+      - generic [ref=e438]:
+        - generic [ref=e439]: Punktelimit
+        - generic [ref=e440]:
+          - spinbutton "Punktelimit" [ref=e441]: "100"
+          - group [aria-hidden]:
+            - generic: Punktelimit
+    - generic [ref=e442]:
+      - button "Abbrechen" [ref=e443] [cursor=pointer]
+      - button "Erstellen" [disabled]

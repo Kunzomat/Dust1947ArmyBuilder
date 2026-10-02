@@ -1,0 +1,96 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e522]
+      - group [ref=e7]:
+        - button "Army Builder" [ref=e523] [cursor=pointer]
+        - button "Admin" [pressed] [ref=e524] [cursor=pointer]
+  - generic [ref=e551]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=e552]
+    - paragraph [ref=e553]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+    - tablist [ref=e557]:
+      - tab "🎮 Game Systems" [ref=e558] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=e559] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=e560] [cursor=pointer]
+      - tab "⚔️ Units" [ref=e561] [cursor=pointer]
+      - tab "🔫 Weapons" [ref=e562] [cursor=pointer]
+      - tab "📜 Rules" [ref=e563] [cursor=pointer]
+      - tab "🪖 Platoons" [active] [selected] [ref=e564] [cursor=pointer]
+    - tabpanel [ref=e11416]:
+      - generic [ref=e11418]:
+        - generic [ref=e11419]:
+          - heading "Platoons (4)" [level=6] [ref=e11420]
+          - generic [ref=e11421]:
+            - generic [ref=e11422]:
+              - generic: Game System
+              - generic [ref=e11423]:
+                - combobox "Game System" [ref=e11424] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - button [ref=e11425] [cursor=pointer]
+        - table [ref=e11430]:
+          - rowgroup [ref=e11431]:
+            - row [ref=e11432]:
+              - columnheader [ref=e11433]:
+                - button "ID" [ref=e11434] [cursor=pointer]
+              - columnheader [ref=e11437]:
+                - button "Name" [ref=e11438] [cursor=pointer]
+              - columnheader [ref=e11441]:
+                - button "Fraktion" [ref=e11442] [cursor=pointer]
+              - columnheader [ref=e11445]:
+                - button "Game System" [ref=e11446] [cursor=pointer]
+              - columnheader [ref=e11449]:
+                - button "Regel" [ref=e11450] [cursor=pointer]
+              - columnheader [ref=e11453]:
+                - button "Slots" [ref=e11454] [cursor=pointer]
+              - columnheader "Aktionen" [ref=e11457]
+          - rowgroup [ref=e11458]:
+            - row [ref=e11459]:
+              - cell "1" [ref=e11460]
+              - cell [ref=e11461]:
+                - strong [ref=e11462]: Tactical Platoon
+              - cell "Space Marines" [ref=e11463]
+              - cell "Alle" [ref=e11464]
+              - cell "ARMOR 3" [ref=e11465]
+              - cell "5 Slots" [ref=e11466]
+              - cell [ref=e11469]:
+                - button "Slots verwalten" [ref=e11470] [cursor=pointer]
+                - button [ref=e11473] [cursor=pointer]
+                - button [ref=e11476] [cursor=pointer]
+            - row [ref=e11479]:
+              - cell "2" [ref=e11480]
+              - cell [ref=e11481]:
+                - strong [ref=e11482]: Infantry Platoon
+              - cell "Steel Legion" [ref=e11483]
+              - cell "Alle" [ref=e11484]
+              - cell "ARMOR 3" [ref=e11485]
+              - cell "7 Slots" [ref=e11486]
+              - cell [ref=e11489]:
+                - button "Slots verwalten" [ref=e11490] [cursor=pointer]
+                - button [ref=e11493] [cursor=pointer]
+                - button [ref=e11496] [cursor=pointer]
+            - row [ref=e11499]:
+              - cell "3" [ref=e11500]
+              - cell [ref=e11501]:
+                - strong [ref=e11502]: Guardian Platoon
+              - cell "Aeldari" [ref=e11503]
+              - cell "Alle" [ref=e11504]
+              - cell "ARMOR 3" [ref=e11505]
+              - cell "10 Slots" [ref=e11506]
+              - cell [ref=e11509]:
+                - button "Slots verwalten" [ref=e11510] [cursor=pointer]
+                - button [ref=e11513] [cursor=pointer]
+                - button [ref=e11516] [cursor=pointer]
+            - row [ref=e11519]:
+              - cell "4" [ref=e11520]
+              - cell [ref=e11521]:
+                - strong [ref=e11522]: Clone Trooper Platoon
+              - cell "Clone Army" [ref=e11523]
+              - cell "Star Wars" [ref=e11524]
+              - cell "-" [ref=e11525]
+              - cell "14 Slots" [ref=e11526]
+              - cell [ref=e11529]:
+                - button "Slots verwalten" [ref=e11530] [cursor=pointer]
+                - button [ref=e11533] [cursor=pointer]
+                - button [ref=e11536] [cursor=pointer]
