@@ -2,6 +2,8 @@
 // Einfacher Query-Endpoint für direkte DB-Zugriffe
 // WICHTIG: Nur für lokale Entwicklung! Nicht in Produktion!
 
+require_once __DIR__ . '/dev_tools_guard.php';
+
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS');

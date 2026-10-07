@@ -1,5 +1,6 @@
 <?php
 // Migration Runner für Game Systems & Blocs
+require_once __DIR__ . '/dev_tools_guard.php';
 require_once 'db_connection.php';
 
 echo "<pre>";

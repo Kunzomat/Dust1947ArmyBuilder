@@ -3,6 +3,8 @@
  * Dust 1947 SQL Import Runner
  */
 
+require_once __DIR__ . '/dev_tools_guard.php';
+
 require_once __DIR__ . '/backend/db_connection.php';
 
 $sqlFile = __DIR__ . '/dust1947_import.sql';

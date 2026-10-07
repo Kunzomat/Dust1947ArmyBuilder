@@ -110,6 +110,21 @@ export default function App() {
     return (armyDetail.army || armyDetail).bloc_name || "";
   }, [armyDetail]);
 
+  // Lookup of bloc_id -> game system name, used to explain why armies from
+  // different game systems (Dust 1947, Warhammer 40k, Star Wars, ...) can
+  // all exist side by side in this builder.
+  const blocGameSystemById = useMemo(() => {
+    const map = {};
+    (blocs || []).forEach((b) => { map[b.id] = b.game_system_name; });
+    return map;
+  }, [blocs]);
+
+  const gameSystemName = useMemo(() => {
+    if (!armyDetail) return "";
+    const army = armyDetail.army || armyDetail;
+    return blocGameSystemById[army.bloc_id] || "";
+  }, [armyDetail, blocGameSystemById]);
+
   const armyName = useMemo(() => {
     if (!armyDetail) return "";
     return (armyDetail.army || armyDetail).name || "";
@@ -205,7 +220,10 @@ export default function App() {
       await apiCall("armies.update", data, "POST");
       await loadArmy(data.id);
     } else {
-      await apiCall("armies.create", data, "POST");
+      const created = await apiCall("armies.create", data, "POST");
+      // Immediately select the newly created army instead of leaving the
+      // user on the previous selection / no selection.
+      setSelectedArmyId(created.id);
     }
 
     setArmyFormOpen(false);
@@ -291,11 +309,11 @@ export default function App() {
 	}
 
 
-	async function handleAddUnit(unit) {
+	async function handleAddUnit(unit, quantity = 1) {
 	  const payload = {
 		army_id: selectedArmyId,
 		unit_id: unit.unit_id || unit.id,
-		quantity: 1,
+		quantity: Math.max(1, Number(quantity) || 1),
 	  };
 
 	  if (addUnitContext?.army_platoon_id) {
@@ -369,6 +387,11 @@ function groupSlots(platoonUnits) {
 
   const armyValidation = useMemo(() => {
     if (!armyDetail) return null;
+    // Authoritative validation now runs server-side (see army_validation.php)
+    // and is returned as part of armies.get. The client-side rule engine in
+    // armyValidation.js is kept only as a fallback for older/offline API
+    // responses that don't include a "validation" key yet.
+    if (armyDetail.validation) return armyDetail.validation;
     return validateArmyComposition(armyDetail);
   }, [armyDetail]);
 	
@@ -417,6 +440,11 @@ function groupSlots(platoonUnits) {
         <>
           <Box sx={{ p: 1 }}>
             {error && <Alert severity="error">{error}</Alert>}
+            <Alert severity="info" variant="outlined" sx={{ mb: 1 }}>
+              Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k,
+              Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau
+              einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+            </Alert>
 
         <Box
           sx={{
@@ -442,23 +470,32 @@ function groupSlots(platoonUnits) {
               <CircularProgress />
             ) : (
               <List dense>
-                {armies.map((a) => (
-                  <ListItemButton
-                    key={a.id}
-                    selected={String(a.id) === String(selectedArmyId)}
-                    onClick={() => setSelectedArmyId(a.id)}
-                  >
-                    <ListItemText
-                      primary={a.name}					  
-                      secondary={`${a.points_current}/${a.points_limit} Punkte • ${a.bloc_name}`}
-                    />
-                  </ListItemButton>
-                ))}
+                {armies.map((a) => {
+                  const isSelected = String(a.id) === String(selectedArmyId);
+                  // For the currently selected army, show the same effective
+                  // (bonus-inclusive) limit as the header/alerts instead of
+                  // the raw base limit, so the numbers never disagree.
+                  const secondaryLimit = isSelected && armyValidation
+                    ? `${armyValidation.pointsUsed}/${armyValidation.effectivePointsLimit}`
+                    : `${a.points_current}/${a.points_limit}`;
+                  return (
+                    <ListItemButton
+                      key={a.id}
+                      selected={isSelected}
+                      onClick={() => setSelectedArmyId(a.id)}
+                    >
+                      <ListItemText
+                        primary={a.name}
+                        secondary={`${secondaryLimit} Punkte • ${a.bloc_name}${blocGameSystemById[a.bloc_id] ? ` (${blocGameSystemById[a.bloc_id]})` : ""}`}
+                      />
+                    </ListItemButton>
+                  );
+                })}
               </List>
             )}
           </ColumnPaper>
 
-          <ColumnPaper title={`Armee: ${armyName} (${blocName})`}>
+          <ColumnPaper title={`Armee: ${armyName} (${blocName}${gameSystemName ? ` • ${gameSystemName}` : ""})`}>
             <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
 			  <Button size="small" variant="outlined" onClick={() => { setArmyFormArmy(armyDetail?.army || armyDetail); setArmyFormOpen(true); }}>
 				Bearbeiten

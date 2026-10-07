@@ -1111,7 +1111,7 @@ try {
     elseif ($action === 'units.calculate_points') {
         require_once 'unit_rating.php';
 
-        $unit_id = $_GET['id'] ?? 0;
+        $unit_id = (int)($_GET['id'] ?? 0);
 
         // Get unit data with relations
         $query = "
@@ -1222,6 +1222,144 @@ try {
             'theoretical_points' => $components['theoreticalPoints'],
             'details' => $components
         ]);
+    }
+
+    // ============================================
+    // THEORETICAL POINTS CALCULATION (BULK)
+    // Replaces the previous pattern of calling units.calculate_points once
+    // per unit (hundreds of sequential requests in the Admin Units list).
+    // Uses the same grouped-query approach as unit_points.php: load all
+    // units/weapons/stats/rules in a handful of queries, then compute
+    // theoretical points per unit in-memory.
+    // ============================================
+    elseif ($action === 'units.calculate_points_bulk') {
+        require_once 'unit_rating.php';
+
+        $sqlUnits = "SELECT id, name, points, health, speed, march_speed, level FROM units ORDER BY id ASC";
+        $resultUnits = $conn->query($sqlUnits);
+        if (!$resultUnits) {
+            respondJson(['error' => 'Query units failed: ' . $conn->error], 500);
+            exit();
+        }
+
+        $units = [];
+        $unitsById = [];
+        while ($row = $resultUnits->fetch_assoc()) {
+            $row['special_rules'] = [];
+            $unitsById[(int)$row['id']] = count($units);
+            $units[] = $row;
+        }
+
+        if (empty($units)) {
+            respondJson(['results' => []]);
+            exit();
+        }
+
+        // Unit special rules
+        $resultUR = $conn->query("
+            SELECT ur.unit_id, r.id, r.name, r.full_text, r.bonus_factor
+            FROM unit_rules ur
+            LEFT JOIN rules r ON r.id = ur.unit_rule_id
+        ");
+        if ($resultUR) {
+            while ($r = $resultUR->fetch_assoc()) {
+                $unitId = (int)$r['unit_id'];
+                if (!isset($unitsById[$unitId])) continue;
+                $units[$unitsById[$unitId]]['special_rules'][] = [
+                    'id' => $r['id'],
+                    'name' => $r['name'],
+                    'text' => $r['full_text'],
+                    'bonus_factor' => isset($r['bonus_factor']) ? (float)$r['bonus_factor'] : 0.5
+                ];
+            }
+        }
+
+        // Weapons per unit
+        $resultWeapons = $conn->query("
+            SELECT uw.unit_id, uw.id AS unit_weapon_id, w.id AS weapon_id, w.name, w.range, w.disposable,
+                   uw.number, uw.firing_arc
+            FROM unit_weapons uw
+            LEFT JOIN weapons w ON uw.weapon_id = w.id
+        ");
+        $weaponsByUnit = [];
+        if ($resultWeapons) {
+            while ($w = $resultWeapons->fetch_assoc()) {
+                $weaponsByUnit[(int)$w['unit_id']][] = $w;
+            }
+        }
+
+        // Weapon stat lines
+        $resultStats = $conn->query("SELECT weapon_id, target_type, target_level, dice, damage FROM weapon_stats");
+        $statsByWeapon = [];
+        if ($resultStats) {
+            while ($s = $resultStats->fetch_assoc()) {
+                $statsByWeapon[(int)$s['weapon_id']][] = [
+                    'type' => $s['target_type'],
+                    'level' => $s['target_level'],
+                    'dice' => $s['dice'],
+                    'damage' => $s['damage']
+                ];
+            }
+        }
+
+        // Weapon rules
+        $resultWR = $conn->query("
+            SELECT wr.weapon_id, r.id, r.name, r.full_text, r.bonus_factor
+            FROM weapon_rules wr
+            LEFT JOIN rules r ON wr.rule_id = r.id
+        ");
+        $rulesByWeapon = [];
+        if ($resultWR) {
+            while ($r = $resultWR->fetch_assoc()) {
+                $rulesByWeapon[(int)$r['weapon_id']][] = [
+                    'id' => $r['id'],
+                    'name' => $r['name'],
+                    'text' => $r['full_text'],
+                    'bonus_factor' => isset($r['bonus_factor']) ? (float)$r['bonus_factor'] : 0.5
+                ];
+            }
+        }
+
+        $results = [];
+        foreach ($units as $unit) {
+            $unitId = (int)$unit['id'];
+
+            $unitWeapons = [];
+            foreach ($weaponsByUnit[$unitId] ?? [] as $w) {
+                $weaponId = (int)$w['weapon_id'];
+                $unitWeapons[] = [
+                    'id' => $weaponId,
+                    'name' => $w['name'],
+                    'range' => $w['range'],
+                    'disposable' => (int)$w['disposable'],
+                    'number' => (int)$w['number'],
+                    'arc' => $w['firing_arc'],
+                    'stats' => $statsByWeapon[$weaponId] ?? [],
+                    'rules' => $rulesByWeapon[$weaponId] ?? []
+                ];
+            }
+
+            $unitForRating = [
+                'health' => (float)$unit['health'],
+                'models' => isset($unit['models']) ? (int)$unit['models'] : 1,
+                'speed' => (float)$unit['speed'],
+                'march_speed' => (float)$unit['march_speed'],
+                'level' => (float)$unit['level'],
+                'special_rules' => $unit['special_rules'],
+                'weapons' => $unitWeapons
+            ];
+
+            $components = compute_theoretical_points_components($unitForRating);
+
+            $results[$unitId] = [
+                'id' => $unitId,
+                'name' => $unit['name'],
+                'fixed_points' => (int)$unit['points'],
+                'theoretical_points' => $components['theoreticalPoints']
+            ];
+        }
+
+        respondJson(['results' => $results]);
     } else {
         http_response_code(400);
         echo json_encode(['error' => 'Invalid action']);

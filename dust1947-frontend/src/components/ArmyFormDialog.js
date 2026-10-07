@@ -57,11 +57,14 @@ export default function ArmyFormDialog({
 			  disabled={isEdit}
 			  helperText={isEdit ? "Der Bloc kann nach dem Erstellen nicht mehr geändert werden" : ""}
 			>
-			  {blocs.map((b) => (
+			  {blocs.map((b) => {
+				const isDuplicateName = blocs.filter((x) => x.name === b.name).length > 1;
+				return (
 				<MenuItem key={b.id} value={b.id}>
-				  {b.name}
+				  {isDuplicateName && b.game_system_name ? `${b.name} (${b.game_system_name})` : b.name}
 				</MenuItem>
-			  ))}
+				);
+			  })}
 			</TextField>
           <TextField
             label="Punktelimit"

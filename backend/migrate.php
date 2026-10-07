@@ -2,6 +2,7 @@
 // Direct Migration Runner - wird direkt ausgeführt
 // Database Migration für Game Systems & Blocs
 
+require_once __DIR__ . '/dev_tools_guard.php';
 require_once __DIR__ . '/db_connection.php';
 
 echo "\n";

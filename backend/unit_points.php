@@ -2,21 +2,10 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
+require_once __DIR__ . '/dev_tools_guard.php';
 require_once __DIR__ . '/unit_rating.php';
-
-// DB-Verbindung
-$host = "localhost";
-$db   = "dust1947";
-$user = "root";
-$pass = "";
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    http_response_code(500);
-    echo json_encode(array("error" => "DB connection failed: " . $conn->connect_error));
-    exit;
-}
-
+require_once __DIR__ . '/db_connection.php';
+// $conn is provided by db_connection.php (uses config.local.php locally).
 $conn->set_charset("utf8mb4");
 
 // 1) Einheiten laden (Basisdaten)

@@ -1,13 +1,7 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$pass = 'dust1947';
-$db = 'dust1947';
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
-}
+require_once __DIR__ . '/dev_tools_guard.php';
+require_once __DIR__ . '/db_connection.php';
+// $conn is provided by db_connection.php (uses config.local.php locally).
 
 echo "=== TABLES IN DATABASE ===\n";
 $result = $conn->query('SHOW TABLES');

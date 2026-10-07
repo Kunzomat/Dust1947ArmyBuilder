@@ -4,7 +4,7 @@ import {
   DialogTitle,
   DialogContent,
   List,
-  ListItemButton,
+  ListItem,
   ListItemText,
   Button,
   Box,
@@ -14,7 +14,11 @@ import {
   Select,
   MenuItem,
   Typography,
+  IconButton,
+  TextField,
 } from "@mui/material";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
 
 const TYPE_LABELS = {
   I: "Infantry",
@@ -31,12 +35,23 @@ export default function AddUnitDialog({
 }) {
   const [selectedFaction, setSelectedFaction] = useState("");
   const [selectedType, setSelectedType] = useState("");
+  const [quantities, setQuantities] = useState({});
 
   useEffect(() => {
     if (!open) return;
     setSelectedFaction("");
     setSelectedType("");
+    setQuantities({});
   }, [open]);
+
+  function getQuantity(key) {
+    return quantities[key] ?? 1;
+  }
+
+  function setQuantity(key, value) {
+    const qty = Math.max(1, Number(value) || 1);
+    setQuantities((prev) => ({ ...prev, [key]: qty }));
+  }
 
   const factionOptions = useMemo(
     () =>
@@ -115,9 +130,48 @@ export default function AddUnitDialog({
               ? `${unitType}${TYPE_LABELS[unitType] ? ` - ${TYPE_LABELS[unitType]}` : ""}`
               : "Kein Typ";
             const points = u.points ?? u.unit_points;
+            const key = u.id || u.unit_id;
+            const quantity = getQuantity(key);
 
             return (
-              <ListItemButton key={u.id || u.unit_id} onClick={() => onAdd(u)}>
+              <ListItem
+                key={key}
+                divider
+                secondaryAction={
+                  <Stack direction="row" spacing={0.5} alignItems="center">
+                    <IconButton
+                      size="small"
+                      aria-label="Menge verringern"
+                      onClick={() => setQuantity(key, quantity - 1)}
+                      disabled={quantity <= 1}
+                    >
+                      <RemoveIcon fontSize="small" />
+                    </IconButton>
+                    <TextField
+                      size="small"
+                      type="number"
+                      value={quantity}
+                      onChange={(e) => setQuantity(key, e.target.value)}
+                      inputProps={{ min: 1, style: { width: 36, textAlign: "center" } }}
+                    />
+                    <IconButton
+                      size="small"
+                      aria-label="Menge erhöhen"
+                      onClick={() => setQuantity(key, quantity + 1)}
+                    >
+                      <AddIcon fontSize="small" />
+                    </IconButton>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      sx={{ ml: 1 }}
+                      onClick={() => onAdd(u, quantity)}
+                    >
+                      Hinzufügen
+                    </Button>
+                  </Stack>
+                }
+              >
                 <ListItemText
                   primary={
                     <>
@@ -130,8 +184,9 @@ export default function AddUnitDialog({
                     </>
                   }
                   secondary={`${typeLabel} • ${points ?? "undefined"} Punkte`}
+                  sx={{ pr: 20 }}
                 />
-              </ListItemButton>
+              </ListItem>
             );
           })}
         </List>

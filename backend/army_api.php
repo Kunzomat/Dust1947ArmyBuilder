@@ -5,6 +5,7 @@ ini_set('display_errors', 1);
 require_once __DIR__ . "/auth.php";
 require_once __DIR__ . '/unit_rating.php';
 require_once __DIR__ . '/db_connection.php';
+require_once __DIR__ . '/army_validation.php';
 
 // $conn ist jetzt durch db_connection.php verfügbar
 
@@ -117,6 +118,110 @@ function mergeUnitDefinition(array $row, array $definition): array {
     ]);
 }
 
+/**
+ * Loads an army plus its platoons/units/platoon-templates in the shape
+ * needed both by `armies.get` (API response) and `army.analyze` (validation
+ * only), so the two actions share one query/assembly implementation instead
+ * of diverging copies.
+ *
+ * @return array{0: array, 1: array, 2: array, 3: array}|null [army, platoons, units, platoonTemplates], or null if army not found
+ */
+function loadArmyDetailArrays(mysqli $conn, int $id): ?array {
+    $stmt = $conn->prepare("
+        SELECT
+            a.id,
+            a.name,
+            a.bloc_id,
+            b.name AS bloc_name,
+            a.points_limit,
+            COALESCE(SUM(COALESCE(u.points, 0) * COALESCE(au.quantity, 1)), 0) AS points_current
+        FROM armies a
+        JOIN blocs b ON b.id = a.bloc_id
+        LEFT JOIN army_units au ON au.army_id = a.id
+        LEFT JOIN units u ON u.id = au.unit_id
+        WHERE a.id = ?
+        GROUP BY a.id, a.name, a.bloc_id, b.name, a.points_limit
+    ");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $army = $stmt->get_result()->fetch_assoc();
+
+    if (!$army) return null;
+
+    // Platoons in army
+    $stmt = $conn->prepare("
+        SELECT ap.id AS army_platoon_id, p.id AS platoon_id, p.name, p.rule_id, p.faction_id
+        FROM army_platoons ap
+        JOIN platoons p ON p.id = ap.platoon_id
+        WHERE ap.army_id = ?
+        ORDER BY ap.id ASC
+    ");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $platoons = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    // Units in army (with slot info if inside platoon_unit_id)
+    $stmt = $conn->prepare("
+        SELECT
+            au.id AS army_unit_id,
+            au.army_id,
+            au.army_platoon_id,
+            au.platoon_unit_id,
+            pu.slot AS platoon_slot,
+            au.unit_id,
+            u.name AS unit_name,
+            u.points AS unit_points,
+            au.quantity,
+            f.name as faction_name
+        FROM army_units au
+        JOIN units u ON u.id = au.unit_id
+        LEFT JOIN platoon_units pu ON pu.id = au.platoon_unit_id
+        LEFT JOIN factions f ON u.faction_id = f.id
+        WHERE au.army_id = ?
+        ORDER BY au.id ASC
+    ");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $units = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    $unitDefinitions = loadUnitDefinitions($conn, array_column($units, 'unit_id'));
+    foreach ($units as &$unitRow) {
+        $definition = $unitDefinitions[(int)$unitRow['unit_id']] ?? null;
+        if ($definition) {
+            $unitRow = mergeUnitDefinition($unitRow, $definition);
+        }
+    }
+    unset($unitRow);
+
+    $stmt = $conn->prepare("
+        SELECT
+            ap.id AS army_platoon_id,
+            ap.platoon_id,
+            pu.id AS platoon_unit_id,
+            pu.unit_id,
+            pu.slot
+        FROM army_platoons ap
+        JOIN platoon_units pu ON pu.platoon_id = ap.platoon_id
+        WHERE ap.army_id = ?
+        ORDER BY ap.id ASC, pu.slot ASC, pu.id ASC
+    ");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $platoonTemplates = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+    $templateDefinitions = loadUnitDefinitions($conn, array_column($platoonTemplates, 'unit_id'));
+    foreach ($platoonTemplates as &$templateRow) {
+        $templateUnitId = isset($templateRow['unit_id']) ? (int)$templateRow['unit_id'] : null;
+        $definition = $templateUnitId !== null ? ($templateDefinitions[$templateUnitId] ?? null) : null;
+        if ($definition) {
+            $templateRow = mergeUnitDefinition($templateRow, $definition);
+        }
+    }
+    unset($templateRow);
+
+    return [$army, $platoons, $units, $platoonTemplates];
+}
+
 $action = $_GET['action'] ?? '';
 
 /**
@@ -202,12 +307,6 @@ if ($action === 'unit.list') {
     ok([
         "units" => $units
     ]);
-}
-
-if ($action === 'unit.list') {
-  $sql = "SELECT id, name, type, points, faction_id, image_url FROM units";
-  $res = $conn->query($sql);
-  ok(["units" => $res->fetch_all(MYSQLI_ASSOC)]);
 }
 
 if ($action === 'unit.get') {
@@ -378,96 +477,10 @@ if ($action === 'armies.list') {
 
 if ($action === 'armies.get') {
     $id = requireInt($_GET['id'] ?? null, 'id');
-	
-	$stmt = $conn->prepare("
-		SELECT
-      a.id,
-      a.name,
-      a.bloc_id,
-			b.name AS bloc_name,
-      a.points_limit,
-      COALESCE(SUM(COALESCE(u.points, 0) * COALESCE(au.quantity, 1)), 0) AS points_current
-    FROM armies a
-    JOIN blocs b ON b.id = a.bloc_id
-    LEFT JOIN army_units au ON au.army_id = a.id
-    LEFT JOIN units u ON u.id = au.unit_id
-    WHERE a.id = ?
-    GROUP BY a.id, a.name, a.bloc_id, b.name, a.points_limit
-	");
-	$stmt->bind_param("i", $id);
-	$stmt->execute();
-	$army = $stmt->get_result()->fetch_assoc();
 
-	if (!$army) fail("Army not found", 404);
-
-    // Platoons in army
-    $stmt = $conn->prepare("
-        SELECT ap.id AS army_platoon_id, p.id AS platoon_id, p.name, p.rule_id, p.faction_id
-        FROM army_platoons ap
-        JOIN platoons p ON p.id = ap.platoon_id
-        WHERE ap.army_id = ?
-        ORDER BY ap.id ASC
-    ");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $platoons = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
-    // Units in army (with slot info if inside platoon_unit_id)
-    $stmt = $conn->prepare("
-        SELECT
-            au.id AS army_unit_id,
-            au.army_id,
-			au.army_platoon_id,
-            au.platoon_unit_id,
-            pu.slot AS platoon_slot,
-            au.unit_id,
-            u.name AS unit_name,
-            u.points AS unit_points,
-            au.quantity,
-			f.name as faction_name
-        FROM army_units au
-        JOIN units u ON u.id = au.unit_id
-        LEFT JOIN platoon_units pu ON pu.id = au.platoon_unit_id
-		LEFT JOIN factions f ON u.faction_id = f.id
-        WHERE au.army_id = ?
-        ORDER BY au.id ASC
-    ");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $units = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
-    $unitDefinitions = loadUnitDefinitions($conn, array_column($units, 'unit_id'));
-    foreach ($units as &$unitRow) {
-        $definition = $unitDefinitions[(int)$unitRow['unit_id']] ?? null;
-        if ($definition) {
-            $unitRow = mergeUnitDefinition($unitRow, $definition);
-        }
-    }
-
-    $stmt = $conn->prepare("
-        SELECT
-            ap.id AS army_platoon_id,
-            ap.platoon_id,
-            pu.id AS platoon_unit_id,
-            pu.unit_id,
-            pu.slot
-        FROM army_platoons ap
-        JOIN platoon_units pu ON pu.platoon_id = ap.platoon_id
-        WHERE ap.army_id = ?
-        ORDER BY ap.id ASC, pu.slot ASC, pu.id ASC
-    ");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $platoonTemplates = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
-    $templateDefinitions = loadUnitDefinitions($conn, array_column($platoonTemplates, 'unit_id'));
-    foreach ($platoonTemplates as &$templateRow) {
-        $templateUnitId = isset($templateRow['unit_id']) ? (int)$templateRow['unit_id'] : null;
-        $definition = $templateUnitId !== null ? ($templateDefinitions[$templateUnitId] ?? null) : null;
-        if ($definition) {
-            $templateRow = mergeUnitDefinition($templateRow, $definition);
-        }
-    }
+    $loaded = loadArmyDetailArrays($conn, $id);
+    if ($loaded === null) fail("Army not found", 404);
+    [$army, $platoons, $units, $platoonTemplates] = $loaded;
 
     // current points sum (simple: unit_points * quantity)
     $sum = 0;
@@ -475,13 +488,19 @@ if ($action === 'armies.get') {
         $sum += ((int)$row['unit_points']) * ((int)$row['quantity']);
     }
 
+    // Authoritative server-side rule validation (faction bonus, points limit,
+    // bloc/mercenary checks, platoon TO&E, etc.) - see army_validation.php.
+    // The frontend uses this result directly instead of recomputing it.
+    $validation = dust1947_validate_army_composition($army, $units, $platoons, $platoonTemplates);
+
     ok([
         "army" => $army,
         "platoons" => $platoons,
         "platoon_templates" => $platoonTemplates,
         "units" => $units,
         "points_used" => $sum,
-        "points_remaining" => ((int)$army["points_limit"]) - $sum
+        "points_remaining" => ((int)$army["points_limit"]) - $sum,
+        "validation" => $validation
     ]);
 }
 
@@ -546,7 +565,10 @@ if ($action === 'factions.list') {
 
 if ($action === 'blocs.list') {
 	if ($_SERVER['REQUEST_METHOD'] !== 'GET') fail("Use GET", 405);
-    $sql = "SELECT id, name FROM blocs ORDER BY name";
+    $sql = "SELECT b.id, b.name, b.sytem_id AS game_system_id, gs.name AS game_system_name
+            FROM blocs b
+            LEFT JOIN game_systems gs ON gs.id = b.sytem_id
+            ORDER BY b.name";
     $res = $conn->query($sql);
     if (!$res) fail("Database error", 500);
 
@@ -760,78 +782,43 @@ if ($action === 'platoon.units.list') {
 }
 
 if ($action === 'army.analyze') {
+    // This used to be a separate, partial re-implementation of the
+    // bloc/faction-bonus rules (fixed unit_rule_id=52 for "mercenary",
+    // simplified 75% check, no points-limit/platoon/hero checks at all).
+    // It now shares the same data loading and the same rule engine as
+    // `armies.get` (see army_validation.php), so there is a single
+    // authoritative implementation of the rules. The response keeps its
+    // original field names for backward compatibility, derived from the
+    // unified validation result, and additionally exposes the full
+    // validation payload under "validation".
     $armyId = requireInt($_GET['id'] ?? null, 'id');
 
-    // Alle Units der Armee inkl. Fraktion + Bloc + Rules
-    $stmt = $conn->prepare("
-        SELECT
-            au.id AS army_unit_id,
-            u.id AS unit_id,
-            u.points,
-            au.quantity,
-            f.id AS faction_id,
-            f.name AS faction_name,
-            f.bloc_id,
-            EXISTS (
-                SELECT 1
-                FROM unit_rules ur
-                WHERE ur.unit_id = u.id
-                  AND ur.unit_rule_id = 52
-            ) AS is_mercenary
-        FROM army_units au
-        JOIN units u ON u.id = au.unit_id
-        JOIN factions f ON f.id = u.faction_id
-        WHERE au.army_id = ?
-    ");
-    $stmt->bind_param("i", $armyId);
-    $stmt->execute();
-    $units = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    $loaded = loadArmyDetailArrays($conn, $armyId);
+    if ($loaded === null) fail("Army not found", 404);
+    [$army, $platoons, $units, $platoonTemplates] = $loaded;
 
-    // Armeedaten
-    $stmt = $conn->prepare("SELECT bloc_id FROM armies WHERE id = ?");
-    $stmt->bind_param("i", $armyId);
-    $stmt->execute();
-    $army = $stmt->get_result()->fetch_assoc();
+    $validation = dust1947_validate_army_composition($army, $units, $platoons, $platoonTemplates);
 
-    $totalPoints = 0;
-    $factionPoints = [];
+    $armyBlocId = dust1947_to_int($army['bloc_id'] ?? null, null);
     $blocValid = true;
-
-    foreach ($units as $u) {
-        $unitTotalPoints = ((int)$u['points']) * max(1, (int)$u['quantity']);
-        $totalPoints += $unitTotalPoints;
-
-        if (!$u['is_mercenary']) {
-            // Bloc-Check
-            if ((int)$u['bloc_id'] !== (int)$army['bloc_id']) {
-                $blocValid = false;
-            }
-
-            // Fraktionspunkte sammeln
-            $fid = $u['faction_id'];
-            $factionPoints[$fid] = ($factionPoints[$fid] ?? 0) + $unitTotalPoints;
+    foreach ($units as $unit) {
+        if (dust1947_is_mercenary($unit) || dust1947_is_captured($unit)) continue;
+        $unitBlocId = dust1947_get_unit_bloc_id($unit);
+        if ($unitBlocId !== null && $unitBlocId !== $armyBlocId) {
+            $blocValid = false;
+            break;
         }
-    }
-
-    arsort($factionPoints);
-    $dominantFactionPoints = reset($factionPoints);
-    $dominantFactionId = key($factionPoints);
-
-    $factionCount = count(array_filter($factionPoints, fn($p) => $p > 0));
-    $factionBonus = false;
-
-    if ($totalPoints > 0 && $factionCount === 1 && $dominantFactionPoints / $totalPoints >= 0.75) {
-        $factionBonus = true;
     }
 
     ok([
         "bloc_valid" => $blocValid,
         "faction_bonus" => [
-            "eligible" => $factionBonus,
-            "dominant_faction_id" => $dominantFactionId,
-            "percent" => $totalPoints > 0 ? round(($dominantFactionPoints / $totalPoints) * 100, 2) : 0
+            "eligible" => !$validation['pureMercenaryForce'] && $validation['forceType'] === 'Faction Force',
+            "dominant_faction_id" => $validation['selectedFactionId'],
+            "percent" => round(($validation['factionShare'] ?? 0) * 100, 2)
         ],
-        "total_points" => $totalPoints
+        "total_points" => $validation['pointsUsed'],
+        "validation" => $validation
     ]);
 }
 

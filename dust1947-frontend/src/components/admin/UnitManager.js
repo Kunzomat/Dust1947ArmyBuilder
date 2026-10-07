@@ -241,25 +241,22 @@ export default function UnitManager() {
      loadImageOptions();
    }, []);
 
-   // Load calculated points for all units when units change
+   // Load calculated points for all units in a single bulk request instead
+   // of one request per unit (previously up to ~400+ sequential calls).
    useEffect(() => {
      const loadAllCalculatedPoints = async () => {
-       console.log('Starting to load calculated points for', units.length, 'units');
-       const newCache = {};
-       for (const unit of units) {
-         try {
-           console.log(`Fetching calculated points for unit ${unit.id}`);
-           const data = await adminApiCall(`admin_api.php?action=units.calculate_points&id=${unit.id}`);
-           console.log(`Received points for unit ${unit.id}:`, data.theoretical_points);
-           newCache[unit.id] = data.theoretical_points;
-         } catch (error) {
-           console.error(`Error calculating points for unit ${unit.id}:`, error);
+       try {
+         const data = await adminApiCall(`admin_api.php?action=units.calculate_points_bulk`);
+         const newCache = {};
+         for (const [id, info] of Object.entries(data.results || {})) {
+           newCache[id] = info.theoretical_points;
          }
+         setCalculatedPointsCache((prev) => ({ ...prev, ...newCache }));
+       } catch (error) {
+         console.error('Error loading bulk calculated points:', error);
        }
-       console.log('New cache:', newCache);
-       setCalculatedPointsCache((prev) => ({ ...prev, ...newCache }));
      };
-     
+
      if (units.length > 0) {
        loadAllCalculatedPoints();
      }

@@ -1,5 +1,6 @@
 <?php
 // Test der reparierten API
+require_once __DIR__ . '/dev_tools_guard.php';
 require_once 'db_connection.php';
 
 // Finde eine Unit mit Waffen
