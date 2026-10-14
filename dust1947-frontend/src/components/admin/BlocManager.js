@@ -498,7 +498,7 @@ export default function BlocManager() {
               ))}
             </TextField>
 
-            <Button variant="outlined" component="label" sx={{ height: 56, alignSelf: 'center' }} disabled={isUploadingImage}>
+            <Button variant="outlined" component="label" sx={{ height: 56, alignSelf: 'flex-start' }} disabled={isUploadingImage}>
               {isUploadingImage ? 'Bild wird hochgeladen…' : 'Bild hochladen'}
               <input
                 hidden

@@ -31,6 +31,14 @@ import {
 } from '@mui/material';
 import { Edit, Delete, Add, Link as LinkIcon, ContentCopy } from '@mui/icons-material';
 
+function TabPanel({ children, value, index }) {
+  return (
+    <div role="tabpanel" hidden={value !== index}>
+      {value === index && <Box sx={{ pt: 2 }}>{children}</Box>}
+    </div>
+  );
+}
+
 // Admin API uses different base URL than army_api
 const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
   .replace('/army_api.php', '');
@@ -423,14 +431,6 @@ export default function WeaponManager() {
       alert('Fehler beim Klonen: ' + error.message);
     }
   };
-
-  function TabPanel({ children, value, index }) {
-    return (
-      <div role="tabpanel" hidden={value !== index}>
-        {value === index && <Box sx={{ pt: 2 }}>{children}</Box>}
-      </div>
-    );
-  }
 
   return (
     <Box>

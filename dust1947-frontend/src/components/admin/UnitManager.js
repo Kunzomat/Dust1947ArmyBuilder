@@ -179,6 +179,407 @@ async function optimizeImageForUpload(file) {
   return canvas.toDataURL(exportType, 0.85);
 }
 
+const getUnitFormData = (unit) => ({
+  name: unit?.name || '',
+  faction_id: unit?.faction_id || '',
+  game_system_id: unit?.game_system_id || '',
+  type: unit?.type || '',
+  level: toFormValue(unit?.level),
+  points: toFormValue(unit?.points),
+  speed: toFormValue(unit?.speed),
+  march_speed: toFormValue(unit?.march_speed),
+  health: toFormValue(unit?.health),
+  image_url: unit?.image_url || '',
+  notes: unit?.notes || ''
+});
+
+// Extracted so that typing in Name/Notes (or any other field) only re-renders
+// this dialog's subtree instead of the whole UnitManager (including the full
+// units table, which can contain hundreds of rows and was previously
+// re-rendered on every keystroke, causing multi-second input lag).
+function UnitEditDialog({ open, editingUnit, cloneSourceUnit, factions, gameSystems, onClose, onSaved }) {
+  const [formData, setFormData] = useState(() => getUnitFormData(null));
+  const [uploadedImageName, setUploadedImageName] = useState('');
+  const [imageOptions, setImageOptions] = useState([]);
+  const [imagePreviewSrc, setImagePreviewSrc] = useState('');
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
+
+  useEffect(() => {
+    const loadImageOptions = async () => {
+      try {
+        const data = await adminApiCall('admin_api.php?action=images.list');
+        setImageOptions(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error('Error loading image options:', error);
+        setImageOptions([]);
+      }
+    };
+
+    loadImageOptions();
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    if (editingUnit) {
+      setFormData(getUnitFormData(editingUnit));
+    } else if (cloneSourceUnit) {
+      setFormData({
+        ...getUnitFormData(cloneSourceUnit),
+        name: `${cloneSourceUnit.name} (Kopie)`
+      });
+    } else {
+      setFormData(getUnitFormData(null));
+    }
+
+    setUploadedImageName('');
+    setImagePreviewSrc((prev) => {
+      if (prev && prev.startsWith('blob:')) {
+        URL.revokeObjectURL(prev);
+      }
+      return '';
+    });
+  }, [open, editingUnit, cloneSourceUnit]);
+
+  const availableFactionsForForm = useMemo(() => {
+    if (!formData.game_system_id) {
+      return factions;
+    }
+
+    return factions.filter(
+      (faction) => String(faction.game_system_id || '') === String(formData.game_system_id)
+    );
+  }, [factions, formData.game_system_id]);
+
+  const allowedLevels = LEVEL_OPTIONS_BY_TYPE[formData.type] || [];
+  const resolvedImagePreviewSrc = imagePreviewSrc || (formData.image_url ? getImageUrl(formData.image_url) : null);
+  const isUploadedImage = Boolean(uploadedImageName);
+  const imageDisplayLabel = !formData.image_url
+    ? 'Kein Bild ausgewählt'
+    : isUploadedImage
+      ? uploadedImageName || 'Hochgeladenes Bild'
+      : formData.image_url;
+
+  const handleNumericChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value.replace(/[^0-9]/g, '') }));
+  };
+
+  const resetImagePreview = () => {
+    setImagePreviewSrc((prev) => {
+      if (prev && prev.startsWith('blob:')) {
+        URL.revokeObjectURL(prev);
+      }
+      return '';
+    });
+  };
+
+  const loadImageOptions = async () => {
+    try {
+      const data = await adminApiCall('admin_api.php?action=images.list');
+      setImageOptions(Array.isArray(data) ? data : []);
+    } catch (error) {
+      console.error('Error loading image options:', error);
+      setImageOptions([]);
+    }
+  };
+
+  const handleImageFile = async (file) => {
+    if (!file) return;
+
+    resetImagePreview();
+    const localPreviewUrl = URL.createObjectURL(file);
+    setImagePreviewSrc(localPreviewUrl);
+    setUploadedImageName(file.name || 'Hochgeladenes Bild');
+
+    try {
+      setIsUploadingImage(true);
+      const optimizedImageData = await optimizeImageForUpload(file);
+      const response = await adminApiCall('admin_api.php?action=images.upload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          imageData: optimizedImageData,
+          originalName: file.name || 'image.png',
+        }),
+      });
+
+      setFormData((prev) => ({ ...prev, image_url: response.filename || '' }));
+      await loadImageOptions();
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      setUploadedImageName('');
+      setFormData((prev) => ({ ...prev, image_url: '' }));
+      resetImagePreview();
+      alert('Fehler beim Hochladen des Bildes: ' + error.message);
+    } finally {
+      setIsUploadingImage(false);
+    }
+  };
+
+  const handleSave = async () => {
+    try {
+      const isClone = !editingUnit && Boolean(cloneSourceUnit?.id);
+      const action = editingUnit ? 'units.update' : (isClone ? 'units.clone' : 'units.create');
+      const payload = {
+        ...(editingUnit ? { ...formData, id: editingUnit.id } : formData),
+        ...(isClone ? { id: cloneSourceUnit.id } : {}),
+        faction_id: formData.faction_id ? parseInt(formData.faction_id, 10) : null,
+        game_system_id: formData.game_system_id ? parseInt(formData.game_system_id, 10) : null,
+        points: formData.points === '' ? 0 : parseInt(formData.points, 10) || 0,
+        speed: formData.speed === '' ? 0 : parseInt(formData.speed, 10) || 0,
+        march_speed: formData.march_speed === '' ? 0 : parseInt(formData.march_speed, 10) || 0,
+        health: formData.health === '' ? 0 : parseInt(formData.health, 10) || 0,
+      };
+
+      await adminApiCall(`admin_api.php?action=${action}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      onSaved();
+    } catch (error) {
+      console.error('Error saving unit:', error);
+      alert('Fehler beim Speichern: ' + error.message);
+    }
+  };
+
+  return (
+    <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
+      <DialogTitle>
+        {editingUnit ? 'Unit bearbeiten' : (cloneSourceUnit ? 'Unit klonen' : 'Neue Unit')}
+      </DialogTitle>
+      <DialogContent>
+        <Box sx={{ display: 'grid', gap: 2, mt: 2 }}>
+          <TextField
+            fullWidth
+            label="Name"
+            value={formData.name || ''}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          />
+
+          <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 2 }}>
+            <TextField
+              select
+              label="Faction"
+              value={formData.faction_id || ''}
+              disabled={Boolean(formData.game_system_id) && availableFactionsForForm.length === 0}
+              onChange={(e) => setFormData({ ...formData, faction_id: e.target.value })}
+            >
+              {availableFactionsForForm.length === 0 && (
+                <MenuItem value="" disabled>
+                  Keine Fraktionen für dieses Game System
+                </MenuItem>
+              )}
+              {availableFactionsForForm.map((faction) => (
+                <MenuItem key={faction.id} value={faction.id}>
+                  {faction.name}
+                </MenuItem>
+              ))}
+            </TextField>
+
+            <TextField
+              select
+              label="Game System (optional)"
+              value={formData.game_system_id || ''}
+              onChange={(e) => setFormData({ ...formData, game_system_id: e.target.value, faction_id: '' })}
+            >
+              <MenuItem value="">Alle Systeme</MenuItem>
+              {gameSystems.map((system) => (
+                <MenuItem key={system.id} value={system.id}>
+                  {system.name}
+                </MenuItem>
+              ))}
+            </TextField>
+
+            <TextField
+              select
+              label="Type"
+              value={formData.type || ''}
+              onChange={(e) => setFormData({ ...formData, type: e.target.value, level: '' })}
+            >
+              <MenuItem value="I">I - Infantry</MenuItem>
+              <MenuItem value="V">V - Vehicle</MenuItem>
+              <MenuItem value="A">A - Aircraft</MenuItem>
+              <MenuItem value="H">H - Hero</MenuItem>
+            </TextField>
+
+            <TextField
+              select
+              label="Level"
+              value={formData.level || ''}
+              disabled={!formData.type}
+              onChange={(e) => setFormData({ ...formData, level: e.target.value })}
+              helperText={formData.type ? 'Nur erlaubte Werte für den gewählten Typ' : 'Bitte zuerst einen Typ wählen'}
+            >
+              {allowedLevels.map((level) => (
+                <MenuItem key={level} value={level}>
+                  {level}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Box>
+
+          <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
+            <TextField
+              type="text"
+              label="Punkte"
+              value={formData.points}
+              onChange={(e) => handleNumericChange('points', e.target.value)}
+              onBlur={(e) => setFormData({ ...formData, points: normalizeIntegerString(e.target.value) })}
+              inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+            />
+            <TextField
+              type="text"
+              label="Health"
+              value={formData.health}
+              onChange={(e) => handleNumericChange('health', e.target.value)}
+              onBlur={(e) => setFormData({ ...formData, health: normalizeIntegerString(e.target.value) })}
+              inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+              helperText="Lebenspunkte"
+            />
+            <TextField
+              type="text"
+              label="Speed"
+              value={formData.speed}
+              onChange={(e) => handleNumericChange('speed', e.target.value)}
+              onBlur={(e) => setFormData({ ...formData, speed: normalizeIntegerString(e.target.value) })}
+              inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+              helperText="Bewegung"
+            />
+            <TextField
+              type="text"
+              label="March Speed"
+              value={formData.march_speed}
+              onChange={(e) => handleNumericChange('march_speed', e.target.value)}
+              onBlur={(e) => setFormData({ ...formData, march_speed: normalizeIntegerString(e.target.value) })}
+              inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+              helperText="Marsch"
+            />
+          </Box>
+
+          <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, alignItems: 'start' }}>
+            <TextField
+              fullWidth
+              select
+              label="Bild aus dem Verzeichnis"
+              value={imageOptions.includes(formData.image_url) ? formData.image_url : ''}
+              onChange={(e) => {
+                setUploadedImageName('');
+                resetImagePreview();
+                setFormData({ ...formData, image_url: e.target.value });
+              }}
+              helperText="Ein vorhandenes Bild aus `backend/images` auswählen"
+            >
+              <MenuItem value="">Keins auswählen</MenuItem>
+              {imageOptions.map((image) => (
+                <MenuItem key={image} value={image}>
+                  {image}
+                </MenuItem>
+              ))}
+            </TextField>
+
+            <Button variant="outlined" component="label" sx={{ height: 56, alignSelf: 'flex-start' }} disabled={isUploadingImage}>
+              {isUploadingImage ? 'Bild wird hochgeladen…' : 'Bild hochladen'}
+              <input
+                hidden
+                type="file"
+                accept="image/*"
+                onChange={(e) => {
+                  handleImageFile(e.target.files?.[0]);
+                  e.target.value = '';
+                }}
+              />
+            </Button>
+          </Box>
+
+          <Box
+            sx={{
+              border: '1px solid',
+              borderColor: 'divider',
+              borderRadius: 1,
+              p: 1.5,
+              display: 'flex',
+              gap: 2,
+              alignItems: 'center',
+              minHeight: 128,
+            }}
+          >
+            {resolvedImagePreviewSrc ? (
+              <Box
+                component="img"
+                src={resolvedImagePreviewSrc}
+                alt="Vorschau"
+                sx={{
+                  width: 96,
+                  height: 96,
+                  objectFit: 'cover',
+                  borderRadius: 1,
+                  bgcolor: 'grey.100',
+                  border: '1px solid',
+                  borderColor: 'divider',
+                }}
+              />
+            ) : (
+              <Box
+                sx={{
+                  width: 96,
+                  height: 96,
+                  borderRadius: 1,
+                  bgcolor: 'grey.100',
+                  border: '1px dashed',
+                  borderColor: 'divider',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'text.secondary',
+                  fontSize: 12,
+                  textAlign: 'center',
+                  px: 1,
+                }}
+              >
+                Keine Vorschau
+              </Box>
+            )}
+            <Box sx={{ flex: 1 }}>
+              <Typography variant="subtitle2">Aktuelles Bild</Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ wordBreak: 'break-word' }}>
+                {imageDisplayLabel}
+              </Typography>
+              {isUploadedImage && (
+                <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 0.5 }}>
+                  Lokale Vorschau aus dem gewählten Upload
+                </Typography>
+              )}
+            </Box>
+          </Box>
+
+          <TextField
+            fullWidth
+            label="Notes"
+            value={formData.notes || ''}
+            onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+            multiline
+            rows={3}
+            placeholder="Besondere Hinweise zur Einheit"
+          />
+          {isUploadingImage && (
+            <Typography variant="caption" color="warning.main">
+              Bild wird gerade hochgeladen. Bitte kurz warten, bevor du speicherst.
+            </Typography>
+          )}
+        </Box>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose}>Abbrechen</Button>
+        <Button onClick={handleSave} variant="contained" disabled={isUploadingImage}>
+          Speichern
+        </Button>
+      </DialogActions>
+    </Dialog>
+  );
+}
+
 export default function UnitManager() {
   const [units, setUnits] = useState([]);
   const [factions, setFactions] = useState([]);
@@ -200,25 +601,7 @@ export default function UnitManager() {
   const [filterType, setFilterType] = useState('');
   const [sortBy, setSortBy] = useState('id');
   const [sortDirection, setSortDirection] = useState('asc');
-   const [uploadedImageName, setUploadedImageName] = useState('');
-   const [imageOptions, setImageOptions] = useState([]);
-   const [imagePreviewSrc, setImagePreviewSrc] = useState('');
-   const [isUploadingImage, setIsUploadingImage] = useState(false);
    const [calculatedPointsCache, setCalculatedPointsCache] = useState({});
-
-  const [formData, setFormData] = useState({
-    name: '',
-    faction_id: '',
-    type: '',
-    level: '',
-    points: '',
-    speed: '',
-    march_speed: '',
-    health: '',
-    image_url: '',
-    notes: '',
-    game_system_id: ''
-  });
 
    const [currentWeaponForm, setCurrentWeaponForm] = useState({
      weapon_id: '',
@@ -238,7 +621,6 @@ export default function UnitManager() {
      loadWeapons();
      loadRules();
      loadGameSystems();
-     loadImageOptions();
    }, []);
 
    // Load calculated points for all units in a single bulk request instead
@@ -317,16 +699,6 @@ export default function UnitManager() {
     );
   }, [factions, filterGameSystemId]);
 
-  const availableFactionsForForm = useMemo(() => {
-    if (!formData.game_system_id) {
-      return factions;
-    }
-
-    return factions.filter(
-      (faction) => String(faction.game_system_id || '') === String(formData.game_system_id)
-    );
-  }, [factions, formData.game_system_id]);
-
   const availableWeaponFactions = useMemo(() => {
     if (!weaponFilterGameSystemId) {
       return factions;
@@ -345,15 +717,6 @@ export default function UnitManager() {
     setSortBy(column);
     setSortDirection('asc');
   };
-
-  const allowedLevels = LEVEL_OPTIONS_BY_TYPE[formData.type] || [];
-  const resolvedImagePreviewSrc = imagePreviewSrc || (formData.image_url ? getImageUrl(formData.image_url) : null);
-  const isUploadedImage = Boolean(uploadedImageName);
-  const imageDisplayLabel = !formData.image_url
-    ? 'Kein Bild ausgewählt'
-    : isUploadedImage
-      ? uploadedImageName || 'Hochgeladenes Bild'
-      : formData.image_url;
 
   const selectedWeaponForPreview = useMemo(
     () => weapons.find((weapon) => String(weapon.id) === String(currentWeaponForm.weapon_id)) || null,
@@ -394,62 +757,6 @@ export default function UnitManager() {
     () => weapons.find((weapon) => String(weapon.id) === String(editingAssignedWeapon?.weaponId)) || null,
     [weapons, editingAssignedWeapon?.weaponId]
   );
-
-  const handleNumericChange = (field, value) => {
-    setFormData({ ...formData, [field]: value.replace(/[^0-9]/g, '') });
-  };
-
-  const loadImageOptions = async () => {
-    try {
-      const data = await adminApiCall('admin_api.php?action=images.list');
-      setImageOptions(Array.isArray(data) ? data : []);
-    } catch (error) {
-      console.error('Error loading image options:', error);
-      setImageOptions([]);
-    }
-  };
-
-  const resetImagePreview = () => {
-    setImagePreviewSrc((prev) => {
-      if (prev && prev.startsWith('blob:')) {
-        URL.revokeObjectURL(prev);
-      }
-      return '';
-    });
-  };
-
-  const handleImageFile = async (file) => {
-    if (!file) return;
-
-    resetImagePreview();
-    const localPreviewUrl = URL.createObjectURL(file);
-    setImagePreviewSrc(localPreviewUrl);
-    setUploadedImageName(file.name || 'Hochgeladenes Bild');
-
-    try {
-      setIsUploadingImage(true);
-      const optimizedImageData = await optimizeImageForUpload(file);
-      const response = await adminApiCall('admin_api.php?action=images.upload', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          imageData: optimizedImageData,
-          originalName: file.name || 'image.png',
-        }),
-      });
-
-      setFormData((prev) => ({ ...prev, image_url: response.filename || '' }));
-      await loadImageOptions();
-    } catch (error) {
-      console.error('Error uploading image:', error);
-      setUploadedImageName('');
-      setFormData((prev) => ({ ...prev, image_url: '' }));
-      resetImagePreview();
-      alert('Fehler beim Hochladen des Bildes: ' + error.message);
-    } finally {
-      setIsUploadingImage(false);
-    }
-  };
 
   const loadGameSystems = async () => {
     try {
@@ -496,27 +803,26 @@ export default function UnitManager() {
     try {
       const data = await adminApiCall('admin_api.php?action=weapons.list');
       if (Array.isArray(data)) {
-        const enrichedWeapons = await Promise.all(
-          data.map(async (weapon) => {
-            try {
-              const stats = await adminApiCall(`admin_api.php?action=weapon_stats.list&weapon_id=${weapon.id}`);
-              return {
-                ...weapon,
-                faction_ids_list: toIdList(weapon.faction_ids),
-                stats: Array.isArray(stats) ? stats : [],
-                stat_line: formatWeaponStatLine(Array.isArray(stats) ? stats : []),
-              };
-            } catch (error) {
-              console.error(`Error loading stats for weapon ${weapon.id}:`, error);
-              return {
-                ...weapon,
-                faction_ids_list: toIdList(weapon.faction_ids),
-                stats: [],
-                stat_line: 'Keine Stat-Line vorhanden',
-              };
-            }
-          })
-        );
+        // Load stats for ALL weapons in a single bulk request instead of one
+        // request per weapon (previously up to ~500 sequential calls when
+        // opening the Units tab).
+        let statsByWeapon = {};
+        try {
+          const bulkStats = await adminApiCall('admin_api.php?action=weapon_stats.list_bulk');
+          statsByWeapon = bulkStats?.results || {};
+        } catch (error) {
+          console.error('Error loading bulk weapon stats:', error);
+        }
+
+        const enrichedWeapons = data.map((weapon) => {
+          const stats = Array.isArray(statsByWeapon[weapon.id]) ? statsByWeapon[weapon.id] : [];
+          return {
+            ...weapon,
+            faction_ids_list: toIdList(weapon.faction_ids),
+            stats,
+            stat_line: formatWeaponStatLine(stats),
+          };
+        });
 
         setWeapons(enrichedWeapons);
       } else {
@@ -557,38 +863,17 @@ export default function UnitManager() {
     }
   };
 
-  const getUnitFormData = (unit) => ({
-    name: unit?.name || '',
-    faction_id: unit?.faction_id || '',
-    game_system_id: unit?.game_system_id || '',
-    type: unit?.type || '',
-    level: toFormValue(unit?.level),
-    points: toFormValue(unit?.points),
-    speed: toFormValue(unit?.speed),
-    march_speed: toFormValue(unit?.march_speed),
-    health: toFormValue(unit?.health),
-    image_url: unit?.image_url || '',
-    notes: unit?.notes || ''
-  });
-
   const handleOpenDialog = (unit = null, options = {}) => {
     const { clone = false } = options;
 
     if (unit) {
       setEditingUnit(clone ? null : unit);
       setCloneSourceUnit(clone ? unit : null);
-      setFormData({
-        ...getUnitFormData(unit),
-        name: clone ? `${unit.name} (Kopie)` : unit.name || ''
-      });
     } else {
       setEditingUnit(null);
       setCloneSourceUnit(null);
-      setFormData(getUnitFormData(null));
     }
 
-    setUploadedImageName('');
-    resetImagePreview();
     setDialogOpen(true);
   };
 
@@ -596,37 +881,11 @@ export default function UnitManager() {
     setDialogOpen(false);
     setEditingUnit(null);
     setCloneSourceUnit(null);
-    setUploadedImageName('');
-    resetImagePreview();
   };
 
-  const handleSave = async () => {
-    try {
-      const isClone = !editingUnit && Boolean(cloneSourceUnit?.id);
-      const action = editingUnit ? 'units.update' : (isClone ? 'units.clone' : 'units.create');
-      const payload = {
-        ...(editingUnit ? { ...formData, id: editingUnit.id } : formData),
-        ...(isClone ? { id: cloneSourceUnit.id } : {}),
-        faction_id: formData.faction_id ? parseInt(formData.faction_id, 10) : null,
-        game_system_id: formData.game_system_id ? parseInt(formData.game_system_id, 10) : null,
-        points: formData.points === '' ? 0 : parseInt(formData.points, 10) || 0,
-        speed: formData.speed === '' ? 0 : parseInt(formData.speed, 10) || 0,
-        march_speed: formData.march_speed === '' ? 0 : parseInt(formData.march_speed, 10) || 0,
-        health: formData.health === '' ? 0 : parseInt(formData.health, 10) || 0,
-      };
-      
-      await adminApiCall(`admin_api.php?action=${action}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      
-      handleCloseDialog();
-      loadUnits();
-    } catch (error) {
-      console.error('Error saving unit:', error);
-      alert('Fehler beim Speichern: ' + error.message);
-    }
+  const handleUnitSaved = () => {
+    handleCloseDialog();
+    loadUnits();
   };
 
   const handleDelete = async (id) => {
@@ -818,6 +1077,77 @@ export default function UnitManager() {
      }
    };
 
+  // Memoized so that unrelated state changes (e.g. opening the edit dialog,
+  // which only touches editingUnit/dialogOpen) don't force React to
+  // reconcile the entire units table (can be hundreds of rows).
+  const unitRows = useMemo(() => filteredAndSortedUnits.map((unit) => (
+    <TableRow key={unit.id}>
+      <TableCell>{unit.id}</TableCell>
+      <TableCell><strong>{unit.name}</strong></TableCell>
+      <TableCell>{unit.faction_name}</TableCell>
+      <TableCell>{unit.game_system_name || 'Alle'}</TableCell>
+      <TableCell>{unit.type || '-'}</TableCell>
+      <TableCell>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Typography variant="body2">{unit.points}</Typography>
+          {calculatedPointsCache[unit.id] !== undefined && calculatedPointsCache[unit.id] !== unit.points && (
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+              <Typography variant="caption" sx={{ color: 'warning.main', fontWeight: 'bold' }}>
+                {calculatedPointsCache[unit.id]}
+              </Typography>
+              <IconButton
+                size="small"
+                color="success"
+                onClick={() => handleApplyCalculatedPoints(unit)}
+                title="Berechnete Punkte übernehmen"
+                sx={{ p: 0.25 }}
+              >
+                <CheckCircle fontSize="small" />
+              </IconButton>
+            </Box>
+          )}
+        </Box>
+      </TableCell>
+      <TableCell>
+        <Typography variant="caption" component="div">
+          Lvl {unit.level || '-'} | 💚{unit.health || 0} | 🏃{unit.speed || 0} | 🚶{unit.march_speed || 0}
+        </Typography>
+      </TableCell>
+      <TableCell align="right">
+        <IconButton
+          size="small"
+          color="primary"
+          onClick={() => handleOpenRelationDialog(unit)}
+          title="Waffen & Regeln verwalten"
+        >
+          <LinkIcon />
+        </IconButton>
+        <IconButton
+          size="small"
+          color="secondary"
+          onClick={() => handleOpenDialog(unit, { clone: true })}
+          title="Unit klonen"
+        >
+          <ContentCopy />
+        </IconButton>
+        <IconButton
+          size="small"
+          onClick={() => handleOpenDialog(unit)}
+        >
+          <Edit />
+        </IconButton>
+        <IconButton
+          size="small"
+          color="error"
+          onClick={() => handleDelete(unit.id)}
+        >
+          <Delete />
+        </IconButton>
+      </TableCell>
+    </TableRow>
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  )), [filteredAndSortedUnits, calculatedPointsCache]);
+
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, gap: 2, flexWrap: 'wrap' }}>
@@ -922,309 +1252,21 @@ export default function UnitManager() {
              </TableRow>
            </TableHead>
            <TableBody>
-             {filteredAndSortedUnits.map((unit) => (
-               <TableRow key={unit.id}>
-                 <TableCell>{unit.id}</TableCell>
-                 <TableCell><strong>{unit.name}</strong></TableCell>
-                 <TableCell>{unit.faction_name}</TableCell>
-                 <TableCell>{unit.game_system_name || 'Alle'}</TableCell>
-                 <TableCell>{unit.type || '-'}</TableCell>
-                 <TableCell>
-                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                     <Typography variant="body2">{unit.points}</Typography>
-                     {calculatedPointsCache[unit.id] !== undefined && calculatedPointsCache[unit.id] !== unit.points && (
-                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                         <Typography variant="caption" sx={{ color: 'warning.main', fontWeight: 'bold' }}>
-                           {calculatedPointsCache[unit.id]}
-                         </Typography>
-                         <IconButton
-                           size="small"
-                           color="success"
-                           onClick={() => handleApplyCalculatedPoints(unit)}
-                           title="Berechnete Punkte übernehmen"
-                           sx={{ p: 0.25 }}
-                         >
-                           <CheckCircle fontSize="small" />
-                         </IconButton>
-                       </Box>
-                     )}
-                   </Box>
-                 </TableCell>
-                 <TableCell>
-                   <Typography variant="caption" component="div">
-                     Lvl {unit.level || '-'} | 💚{unit.health || 0} | 🏃{unit.speed || 0} | 🚶{unit.march_speed || 0}
-                   </Typography>
-                 </TableCell>
-                 <TableCell align="right">
-                   <IconButton
-                     size="small"
-                     color="primary"
-                     onClick={() => handleOpenRelationDialog(unit)}
-                     title="Waffen & Regeln verwalten"
-                   >
-                     <LinkIcon />
-                   </IconButton>
-                   <IconButton
-                     size="small"
-                     color="secondary"
-                      onClick={() => handleOpenDialog(unit, { clone: true })}
-                     title="Unit klonen"
-                   >
-                     <ContentCopy />
-                   </IconButton>
-                   <IconButton
-                     size="small"
-                     onClick={() => handleOpenDialog(unit)}
-                   >
-                     <Edit />
-                   </IconButton>
-                   <IconButton
-                     size="small"
-                     color="error"
-                     onClick={() => handleDelete(unit.id)}
-                   >
-                     <Delete />
-                   </IconButton>
-                 </TableCell>
-               </TableRow>
-             ))}
+             {unitRows}
            </TableBody>
          </Table>
        </TableContainer>
 
       {/* Create/Edit Dialog */}
-      <Dialog open={dialogOpen} onClose={handleCloseDialog} maxWidth="md" fullWidth>
-        <DialogTitle>
-          {editingUnit ? 'Unit bearbeiten' : (cloneSourceUnit ? 'Unit klonen' : 'Neue Unit')}
-        </DialogTitle>
-        <DialogContent>
-          <Box sx={{ display: 'grid', gap: 2, mt: 2 }}>
-            <TextField
-              fullWidth
-              label="Name"
-              value={formData.name || ''}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            />
-
-            <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 2 }}>
-              <TextField
-                select
-                label="Faction"
-                value={formData.faction_id || ''}
-                disabled={Boolean(formData.game_system_id) && availableFactionsForForm.length === 0}
-                onChange={(e) => setFormData({ ...formData, faction_id: e.target.value })}
-              >
-                {availableFactionsForForm.length === 0 && (
-                  <MenuItem value="" disabled>
-                    Keine Fraktionen für dieses Game System
-                  </MenuItem>
-                )}
-                {availableFactionsForForm.map((faction) => (
-                  <MenuItem key={faction.id} value={faction.id}>
-                    {faction.name}
-                  </MenuItem>
-                ))}
-              </TextField>
-
-              <TextField
-                select
-                label="Game System (optional)"
-                value={formData.game_system_id || ''}
-                onChange={(e) => setFormData({ ...formData, game_system_id: e.target.value, faction_id: '' })}
-              >
-                <MenuItem value="">Alle Systeme</MenuItem>
-                {gameSystems.map((system) => (
-                  <MenuItem key={system.id} value={system.id}>
-                    {system.name}
-                  </MenuItem>
-                ))}
-              </TextField>
-
-              <TextField
-                select
-                label="Type"
-                value={formData.type || ''}
-                onChange={(e) => setFormData({ ...formData, type: e.target.value, level: '' })}
-              >
-                <MenuItem value="I">I - Infantry</MenuItem>
-                <MenuItem value="V">V - Vehicle</MenuItem>
-                <MenuItem value="A">A - Aircraft</MenuItem>
-                <MenuItem value="H">H - Hero</MenuItem>
-              </TextField>
-
-              <TextField
-                select
-                label="Level"
-                value={formData.level || ''}
-                disabled={!formData.type}
-                onChange={(e) => setFormData({ ...formData, level: e.target.value })}
-                helperText={formData.type ? 'Nur erlaubte Werte für den gewählten Typ' : 'Bitte zuerst einen Typ wählen'}
-              >
-                {allowedLevels.map((level) => (
-                  <MenuItem key={level} value={level}>
-                    {level}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </Box>
-
-            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
-              <TextField
-                type="text"
-                label="Punkte"
-                value={formData.points}
-                onChange={(e) => handleNumericChange('points', e.target.value)}
-                onBlur={(e) => setFormData({ ...formData, points: normalizeIntegerString(e.target.value) })}
-                inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-              />
-              <TextField
-                type="text"
-                label="Health"
-                value={formData.health}
-                onChange={(e) => handleNumericChange('health', e.target.value)}
-                onBlur={(e) => setFormData({ ...formData, health: normalizeIntegerString(e.target.value) })}
-                inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                helperText="Lebenspunkte"
-              />
-              <TextField
-                type="text"
-                label="Speed"
-                value={formData.speed}
-                onChange={(e) => handleNumericChange('speed', e.target.value)}
-                onBlur={(e) => setFormData({ ...formData, speed: normalizeIntegerString(e.target.value) })}
-                inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                helperText="Bewegung"
-              />
-              <TextField
-                type="text"
-                label="March Speed"
-                value={formData.march_speed}
-                onChange={(e) => handleNumericChange('march_speed', e.target.value)}
-                onBlur={(e) => setFormData({ ...formData, march_speed: normalizeIntegerString(e.target.value) })}
-                inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                helperText="Marsch"
-              />
-            </Box>
-
-            <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, alignItems: 'start' }}>
-              <TextField
-                fullWidth
-                select
-                label="Bild aus dem Verzeichnis"
-                value={imageOptions.includes(formData.image_url) ? formData.image_url : ''}
-                onChange={(e) => {
-                  setUploadedImageName('');
-                  resetImagePreview();
-                  setFormData({ ...formData, image_url: e.target.value });
-                }}
-                helperText="Ein vorhandenes Bild aus `backend/images` auswählen"
-              >
-                <MenuItem value="">Keins auswählen</MenuItem>
-                {imageOptions.map((image) => (
-                  <MenuItem key={image} value={image}>
-                    {image}
-                  </MenuItem>
-                ))}
-              </TextField>
-
-              <Button variant="outlined" component="label" sx={{ height: 56, alignSelf: 'center' }} disabled={isUploadingImage}>
-                {isUploadingImage ? 'Bild wird hochgeladen…' : 'Bild hochladen'}
-                <input
-                  hidden
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => {
-                    handleImageFile(e.target.files?.[0]);
-                    e.target.value = '';
-                  }}
-                />
-              </Button>
-            </Box>
-
-            <Box
-              sx={{
-                border: '1px solid',
-                borderColor: 'divider',
-                borderRadius: 1,
-                p: 1.5,
-                display: 'flex',
-                gap: 2,
-                alignItems: 'center',
-                minHeight: 128,
-              }}
-            >
-              {resolvedImagePreviewSrc ? (
-                <Box
-                  component="img"
-                  src={resolvedImagePreviewSrc}
-                  alt="Vorschau"
-                  sx={{
-                    width: 96,
-                    height: 96,
-                    objectFit: 'cover',
-                    borderRadius: 1,
-                    bgcolor: 'grey.100',
-                    border: '1px solid',
-                    borderColor: 'divider',
-                  }}
-                />
-              ) : (
-                <Box
-                  sx={{
-                    width: 96,
-                    height: 96,
-                    borderRadius: 1,
-                    bgcolor: 'grey.100',
-                    border: '1px dashed',
-                    borderColor: 'divider',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'text.secondary',
-                    fontSize: 12,
-                    textAlign: 'center',
-                    px: 1,
-                  }}
-                >
-                  Keine Vorschau
-                </Box>
-              )}
-              <Box sx={{ flex: 1 }}>
-                <Typography variant="subtitle2">Aktuelles Bild</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ wordBreak: 'break-word' }}>
-                  {imageDisplayLabel}
-                </Typography>
-                {isUploadedImage && (
-                  <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 0.5 }}>
-                    Lokale Vorschau aus dem gewählten Upload
-                  </Typography>
-                )}
-              </Box>
-            </Box>
-
-            <TextField
-              fullWidth
-              label="Notes"
-              value={formData.notes || ''}
-              onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-              multiline
-              rows={3}
-              placeholder="Besondere Hinweise zur Einheit"
-            />
-            {isUploadingImage && (
-              <Typography variant="caption" color="warning.main">
-                Bild wird gerade hochgeladen. Bitte kurz warten, bevor du speicherst.
-              </Typography>
-            )}
-          </Box>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog}>Abbrechen</Button>
-          <Button onClick={handleSave} variant="contained" disabled={isUploadingImage}>
-            Speichern
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <UnitEditDialog
+        open={dialogOpen}
+        editingUnit={editingUnit}
+        cloneSourceUnit={cloneSourceUnit}
+        factions={factions}
+        gameSystems={gameSystems}
+        onClose={handleCloseDialog}
+        onSaved={handleUnitSaved}
+      />
 
       {/* Relations Dialog (Weapons & Rules) */}
       <Dialog

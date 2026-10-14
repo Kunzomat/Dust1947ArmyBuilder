@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Tabs,
@@ -23,8 +23,18 @@ function TabPanel({ children, value, index }) {
   );
 }
 
+const ADMIN_TAB_COUNT = 7;
+
 export default function AdminPanel() {
-  const [currentTab, setCurrentTab] = useState(0);
+  // Restore last visited Admin tab after a reload (e.g. F5 on Admin -> Units stays on Units).
+  const [currentTab, setCurrentTab] = useState(() => {
+    const saved = parseInt(sessionStorage.getItem('dust1947_admin_tab'), 10);
+    return Number.isInteger(saved) && saved >= 0 && saved < ADMIN_TAB_COUNT ? saved : 0;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('dust1947_admin_tab', String(currentTab));
+  }, [currentTab]);
 
   return (
     <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>

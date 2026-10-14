@@ -1060,6 +1060,19 @@ try {
         $weapon_id = $_GET['weapon_id'] ?? 0;
         $result = $conn->query("SELECT * FROM weapon_stats WHERE weapon_id = $weapon_id ORDER BY target_type, target_level");
         echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+    } elseif ($action === 'weapon_stats.list_bulk') {
+        // Replaces the previous pattern of calling weapon_stats.list once per
+        // weapon (hundreds of sequential requests in the Admin Units list).
+        // Loads all weapon stats in a single query and groups them by
+        // weapon_id, mirroring units.calculate_points_bulk above.
+        $result = $conn->query("SELECT * FROM weapon_stats ORDER BY weapon_id, target_type, target_level");
+        $statsByWeapon = [];
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $statsByWeapon[(int)$row['weapon_id']][] = $row;
+            }
+        }
+        echo json_encode(['results' => $statsByWeapon]);
     } elseif ($action === 'weapon_stats.save') {
         $data = json_decode(file_get_contents('php://input'), true);
         $weapon_id = $data['weapon_id'];

@@ -73,7 +73,15 @@ export default function App() {
   );
 
   // Mode: 'builder' or 'admin'
-  const [mode, setMode] = useState('builder');
+  // Restore last mode after a reload (e.g. F5 while in Admin Panel stays in Admin Panel).
+  const [mode, setMode] = useState(() => {
+    const saved = sessionStorage.getItem('dust1947_mode');
+    return saved === 'admin' ? 'admin' : 'builder';
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('dust1947_mode', mode);
+  }, [mode]);
   //const [activePane, setActivePane] = useState("armies");
 
 	const [armies, setArmies] = useState([]);
