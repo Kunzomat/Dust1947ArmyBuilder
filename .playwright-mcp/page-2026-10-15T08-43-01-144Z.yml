@@ -1,0 +1,1730 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e3]:
+    - banner [ref=f1e4]:
+      - generic [ref=f1e5]:
+        - heading [level=6] [ref=f1e2620]: Dust 1947 – Army Builder
+        - group [ref=f1e7]:
+          - button [ref=f1e2621] [cursor=pointer]: Army Builder
+          - button [pressed] [ref=f1e2622] [cursor=pointer]: Admin
+    - generic [ref=f1e15]:
+      - heading [level=4] [ref=f1e2623]: ⚙️ Admin Panel - Daten Verwaltung
+      - paragraph [ref=f1e17]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+      - tablist [ref=f1e21]:
+        - tab [ref=f1e2624] [cursor=pointer]: 🎮 Game Systems
+        - tab [ref=f1e2625] [cursor=pointer]: 🏴 Blocs
+        - tab [ref=f1e2626] [cursor=pointer]: 🎖️ Factions
+        - tab [ref=f1e2627] [cursor=pointer]: ⚔️ Units
+        - tab [ref=f1e2628] [cursor=pointer]: 🔫 Weapons
+        - tab [selected] [ref=f1e2629] [cursor=pointer]: 📜 Rules
+        - tab [ref=f1e2630] [cursor=pointer]: 🪖 Platoons
+      - tabpanel [ref=f1e30]:
+        - generic [ref=f1e32]:
+          - generic [ref=f1e33]:
+            - heading [level=6] [ref=f1e2631]: Rules (150)
+            - generic [ref=f1e35]:
+              - generic [ref=f1e36]:
+                - generic: Game System
+                - generic [ref=f1e37]:
+                  - combobox [ref=f1e2632] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Game System
+              - button [ref=f1e2633] [cursor=pointer]: Neue Regel
+          - table [ref=f1e44]:
+            - rowgroup [ref=f1e45]:
+              - row [ref=f1e2634]:
+                - columnheader [ref=f1e2635]:
+                  - button [ref=f1e2636] [cursor=pointer]: ID
+                - columnheader [ref=f1e2637]:
+                  - button [ref=f1e2638] [cursor=pointer]: Name
+                - columnheader [ref=f1e2639]:
+                  - button [ref=f1e2640] [cursor=pointer]: Game System
+                - columnheader [ref=f1e2641]:
+                  - button [ref=f1e2642] [cursor=pointer]: Kurzbeschreibung
+                - columnheader [ref=f1e2643]:
+                  - button [ref=f1e2644] [cursor=pointer]: Volltext
+                - columnheader [ref=f1e2645]: Aktionen
+            - rowgroup [ref=f1e69]:
+              - row [ref=f1e2646]:
+                - cell [ref=f1e2647]: "1"
+                - cell [ref=f1e2648]:
+                  - strong [ref=f1e73]: ARMOR 3
+                - cell [ref=f1e2649]: Alle
+                - cell [ref=f1e2650]: Reduziert Schaden
+                - cell [ref=f1e2651]: Diese Einheit ignoriert x Schaden von Angriffen.
+                - cell [ref=f1e77]:
+                  - button [ref=f1e78] [cursor=pointer]
+                  - button [ref=f1e2652] [cursor=pointer]
+                  - button [ref=f1e84] [cursor=pointer]
+              - row [ref=f1e2653]:
+                - cell [ref=f1e2654]: "2"
+                - cell [ref=f1e2655]:
+                  - strong [ref=f1e90]: FAST
+                - cell [ref=f1e2656]: Alle
+                - cell [ref=f1e2657]: Zusätzliche Bewegung
+                - cell [ref=f1e2658]: Diese Einheit darf sich zusätzliche Felder bewegen.
+                - cell [ref=f1e94]:
+                  - button [ref=f1e95] [cursor=pointer]
+                  - button [ref=f1e2659] [cursor=pointer]
+                  - button [ref=f1e101] [cursor=pointer]
+              - row [ref=f1e2660]:
+                - cell [ref=f1e2661]: "3"
+                - cell [ref=f1e2662]:
+                  - strong [ref=f1e107]: AIR TRAFFIC CONTROL
+                - cell [ref=f1e2663]: Alle
+                - cell [ref=f1e2664]: Re-activate aircraft
+                - cell [ref=f1e2665]: This unit may take an AIR TRAFFIC CONTROL special action by selecting a friendly aircraft that has already activated this turn. Roll a die, on that aircraft ends their activation and immediately activates again. A unit may only be reactivated once per turn.
+                - cell [ref=f1e111]:
+                  - button [ref=f1e112] [cursor=pointer]
+                  - button [ref=f1e2666] [cursor=pointer]
+                  - button [ref=f1e118] [cursor=pointer]
+              - row [ref=f1e2667]:
+                - cell [ref=f1e2668]: "4"
+                - cell [ref=f1e2669]:
+                  - strong [ref=f1e124]: AMMO REPLENISH
+                - cell [ref=f1e2670]: Alle
+                - cell [ref=f1e2671]: Replenish ammo
+                - cell [ref=f1e2672]: An infantry unit within LOS and range 1 of scenery with this skill can execute an AMMO REPLENISH special action to replenish all limited ammo weapons. A vehicle unit within LOS and range 1 of the scenery with this skill can spend 2 actions to replenish all limited ammo weapons.
+                - cell [ref=f1e128]:
+                  - button [ref=f1e129] [cursor=pointer]
+                  - button [ref=f1e2673] [cursor=pointer]
+                  - button [ref=f1e135] [cursor=pointer]
+              - row [ref=f1e2674]:
+                - cell [ref=f1e2675]: "5"
+                - cell [ref=f1e2676]:
+                  - strong [ref=f1e141]: AMPHIBIOUS
+                - cell [ref=f1e2677]: Alle
+                - cell [ref=f1e2678]: Move through water/swamp
+                - cell [ref=f1e2679]: This vehicle can enter and move through water and swamp as if it were open terrain.
+                - cell [ref=f1e145]:
+                  - button [ref=f1e146] [cursor=pointer]
+                  - button [ref=f1e2680] [cursor=pointer]
+                  - button [ref=f1e152] [cursor=pointer]
+              - row [ref=f1e2681]:
+                - cell [ref=f1e2682]: "6"
+                - cell [ref=f1e2683]:
+                  - strong [ref=f1e158]: AND STAY DOWN
+                - cell [ref=f1e2684]: Alle
+                - cell [ref=f1e2685]: Apply suppression on hit
+                - cell [ref=f1e2686]: Any unit hit by this unit???s ranged weapons automatically gains a suppression token if it does not already have one. This skill is not shared with any unit a hero joins.
+                - cell [ref=f1e162]:
+                  - button [ref=f1e163] [cursor=pointer]
+                  - button [ref=f1e2687] [cursor=pointer]
+                  - button [ref=f1e169] [cursor=pointer]
+              - row [ref=f1e2688]:
+                - cell [ref=f1e2689]: "7"
+                - cell [ref=f1e2690]:
+                  - strong [ref=f1e175]: ARTILLERY OBSERVER
+                - cell [ref=f1e2691]: Alle
+                - cell [ref=f1e2692]: Can shoot at a target in Line of Sight with an Artillery Weapon from another Unit that has not yet Activated, even if the other Unit does not have Line of Sight. The other Unit is counted as Activated after making its Attack.
+                - cell [ref=f1e2693]: When this performs an ATTACK or SUSTAINED ATTACK action, they may use the artillery weapons of a friendly unit that has not yet activated, rather than their own weapons. The artillery unit immediately activates and performs an ATTACK, SUSTAINED ATTACK, or fires smoke (whichever the artillery observer is performing) with its artillery weapons.
+                - cell [ref=f1e179]:
+                  - button [ref=f1e180] [cursor=pointer]
+                  - button [ref=f1e2694] [cursor=pointer]
+                  - button [ref=f1e186] [cursor=pointer]
+              - row [ref=f1e2695]:
+                - cell [ref=f1e2696]: "8"
+                - cell [ref=f1e2697]:
+                  - strong [ref=f1e192]: ASSAULT SHIELD
+                - cell [ref=f1e2698]: Alle
+                - cell [ref=f1e2699]: Unit leader protection
+                - cell [ref=f1e2700]: An assault shield is equipment that gives access to the skill of the same name, carried by the unit leader, who protects the rest of the unit squad with it. You can elect to assign the leader hits during a CC attack. If the assault shield roll fails, the leader and the assault shield is lost.
+                - cell [ref=f1e196]:
+                  - button [ref=f1e197] [cursor=pointer]
+                  - button [ref=f1e2701] [cursor=pointer]
+                  - button [ref=f1e203] [cursor=pointer]
+              - row [ref=f1e2702]:
+                - cell [ref=f1e2703]: "9"
+                - cell [ref=f1e2704]:
+                  - strong [ref=f1e209]: ASSAULT VEHICLE
+                - cell [ref=f1e2705]: Alle
+                - cell [ref=f1e2706]: Disembark anytime
+                - cell [ref=f1e2707]: Passengers in this vehicle (or aircraft) can disembark from it even if the vehicle (or aircraft) has already activated in the current turn.
+                - cell [ref=f1e213]:
+                  - button [ref=f1e214] [cursor=pointer]
+                  - button [ref=f1e2708] [cursor=pointer]
+                  - button [ref=f1e220] [cursor=pointer]
+              - row [ref=f1e2709]:
+                - cell [ref=f1e2710]: "10"
+                - cell [ref=f1e2711]:
+                  - strong [ref=f1e226]: ASSASSIN
+                - cell [ref=f1e2712]: Alle
+                - cell [ref=f1e2713]: Control hit assignment
+                - cell [ref=f1e2714]: This hero chooses which enemy soldiers are assigned hits when performing an ATTACK action with CC weapons. However, the assassin cannot target the unit leader unless it is a hero or the last remaining soldier in the target unit. This skill is not shared with any unit a hero joins.
+                - cell [ref=f1e230]:
+                  - button [ref=f1e231] [cursor=pointer]
+                  - button [ref=f1e2715] [cursor=pointer]
+                  - button [ref=f1e237] [cursor=pointer]
+              - row [ref=f1e2716]:
+                - cell [ref=f1e2717]: "11"
+                - cell [ref=f1e2718]:
+                  - strong [ref=f1e243]: AT THE DOUBLE
+                - cell [ref=f1e2719]: Alle
+                - cell [ref=f1e2720]: Free move after march
+                - cell [ref=f1e2721]: This unit (and any unit it has joined or hero that has joined it) may perform a free MOVE action immediately after performing a MARCH MOVE action.
+                - cell [ref=f1e247]:
+                  - button [ref=f1e248] [cursor=pointer]
+                  - button [ref=f1e2722] [cursor=pointer]
+                  - button [ref=f1e254] [cursor=pointer]
+              - row [ref=f1e2723]:
+                - cell [ref=f1e2724]: "12"
+                - cell [ref=f1e2725]:
+                  - strong [ref=f1e260]: BERSERK
+                - cell [ref=f1e2726]: Dust 1947
+                - cell [ref=f1e2727]: When hero hits with a close-combat weapon, roll again scoring another hit on [Symbol]. Continue rolling until fail to hit. Does not apply to units joined.
+                - cell [ref=f1e2728]: When hero hits with a close-combat weapon, roll again scoring another hit on [Symbol]. Continue rolling until fail to hit. Does not apply to units joined.
+                - cell [ref=f1e264]:
+                  - button [ref=f1e265] [cursor=pointer]
+                  - button [ref=f1e2729] [cursor=pointer]
+                  - button [ref=f1e271] [cursor=pointer]
+              - row [ref=f1e2730]:
+                - cell [ref=f1e2731]: "13"
+                - cell [ref=f1e2732]:
+                  - strong [ref=f1e277]: BLACK OPS
+                - cell [ref=f1e2733]: Alle
+                - cell [ref=f1e2734]: Extra initiative dice
+                - cell [ref=f1e2735]: If your force has a hero with this skill, roll 4 dice for initiative rolls.
+                - cell [ref=f1e281]:
+                  - button [ref=f1e282] [cursor=pointer]
+                  - button [ref=f1e2736] [cursor=pointer]
+                  - button [ref=f1e288] [cursor=pointer]
+              - row [ref=f1e2737]:
+                - cell [ref=f1e2738]: "14"
+                - cell [ref=f1e2739]:
+                  - strong [ref=f1e294]: BLUTKREUZ
+                - cell [ref=f1e2740]: Alle
+                - cell [ref=f1e2741]: Buff nearby zombies
+                - cell [ref=f1e2742]: All Mindless Zombie units within range 1 of this hero at the start of their Activation increase their MOVE to 3 or their MARCH MOVE to 4, and gain the Charge skill. This skill is not shared with any unit a hero joins.
+                - cell [ref=f1e298]:
+                  - button [ref=f1e299] [cursor=pointer]
+                  - button [ref=f1e2743] [cursor=pointer]
+                  - button [ref=f1e305] [cursor=pointer]
+              - row [ref=f1e2744]:
+                - cell [ref=f1e2745]: "15"
+                - cell [ref=f1e2746]:
+                  - strong [ref=f1e311]: BRAVE
+                - cell [ref=f1e2747]: Dust 1947
+                - cell [ref=f1e2748]: Roll three dice when rolling to remove Under Fire or Suppression tokens.
+                - cell [ref=f1e2749]: This unit rolls 3 dice instead of 2 when rolling to remove under fire or suppression tokens.
+                - cell [ref=f1e315]:
+                  - button [ref=f1e316] [cursor=pointer]
+                  - button [ref=f1e2750] [cursor=pointer]
+                  - button [ref=f1e322] [cursor=pointer]
+              - row [ref=f1e2751]:
+                - cell [ref=f1e2752]: "16"
+                - cell [ref=f1e2753]:
+                  - strong [ref=f1e328]: CAMOUFLAGE
+                - cell [ref=f1e2754]: Dust 1947
+                - cell [ref=f1e2755]: Take Camouflage Special Action. Unit cannot be attacked at Range 3 or higher. Ends if Unit takes any Action other than a Move or Nothing Action. Starts the game Camouflaged. Does not Share it with any Unit Joined.
+                - cell [ref=f1e2756]: This unit may take a CAMOUFLAGE special action. If it does, it cannot be attacked at range 3 or higher. This benefit ends if the camouflaged unit takes any action other than MOVE or NOTHING (artillery observers can use their skill to attack with an artillery unit as well). The unit starts the game camouflaged. This skill is not shared with any unit a hero joins.
+                - cell [ref=f1e332]:
+                  - button [ref=f1e333] [cursor=pointer]
+                  - button [ref=f1e2757] [cursor=pointer]
+                  - button [ref=f1e339] [cursor=pointer]
+              - row [ref=f1e2758]:
+                - cell [ref=f1e2759]: "17"
+                - cell [ref=f1e2760]:
+                  - strong [ref=f1e345]: CHARGE
+                - cell [ref=f1e2761]: Dust 1947
+                - cell [ref=f1e2762]: May take a free Close-Combat Action after performing a March Move Action.
+                - cell [ref=f1e2763]: May take a free Close-Combat Action after performing a March Move Action.
+                - cell [ref=f1e349]:
+                  - button [ref=f1e350] [cursor=pointer]
+                  - button [ref=f1e2764] [cursor=pointer]
+                  - button [ref=f1e356] [cursor=pointer]
+              - row [ref=f1e2765]:
+                - cell [ref=f1e2766]: "18"
+                - cell [ref=f1e2767]:
+                  - strong [ref=f1e362]: CHEAT DEATH
+                - cell [ref=f1e2768]: Alle
+                - cell [ref=f1e2769]: Survive lethal hit once
+                - cell [ref=f1e2770]: If this hero is eliminated, roll a die after resolving the attack that eliminated it. On or , the hero removes 1 point of damage and survives, but gains a stunned token. A hero can only cheat death once per game. A stunned unit cannot fight, including fighting back if attacked in CC. Any time a stunned unit activates, it must perform a NOTHING action as its first action, then remove any stunned tokens. If a stunned unit attempts a reactive attack, it rolls 1 die rather than 2 to see if it can make a reactive attack.
+                - cell [ref=f1e366]:
+                  - button [ref=f1e367] [cursor=pointer]
+                  - button [ref=f1e2771] [cursor=pointer]
+                  - button [ref=f1e373] [cursor=pointer]
+              - row [ref=f1e2772]:
+                - cell [ref=f1e2773]: "19"
+                - cell [ref=f1e2774]:
+                  - strong [ref=f1e379]: COMMAND SQUAD
+                - cell [ref=f1e2775]: Dust 1947
+                - cell [ref=f1e2776]: May perform Special Actions with its Officer, Medic, or Mechanic, to reactivate, heal, repair, or rearm Units.
+                - cell [ref=f1e2777]: May perform special actions with its officer, medic, or mechanic to reactivate, rally, heal, repair, or rearm units.
+                - cell [ref=f1e383]:
+                  - button [ref=f1e384] [cursor=pointer]
+                  - button [ref=f1e2778] [cursor=pointer]
+                  - button [ref=f1e390] [cursor=pointer]
+              - row [ref=f1e2779]:
+                - cell [ref=f1e2780]: "20"
+                - cell [ref=f1e2781]:
+                  - strong [ref=f1e396]: COMMAND VEHICLE
+                - cell [ref=f1e2782]: Alle
+                - cell [ref=f1e2783]: Extra operator & reroll
+                - cell [ref=f1e2784]: This vehicle provides any command squad mounted in it with an additional radio operator. In addition, officers, mechanics, and medics mounted in the command vehicle can re-roll failed COMMAND SQUAD special actions.
+                - cell [ref=f1e400]:
+                  - button [ref=f1e401] [cursor=pointer]
+                  - button [ref=f1e2785] [cursor=pointer]
+                  - button [ref=f1e407] [cursor=pointer]
+              - row [ref=f1e2786]:
+                - cell [ref=f1e2787]: "21"
+                - cell [ref=f1e2788]:
+                  - strong [ref=f1e413]: COMMISSAR
+                - cell [ref=f1e2789]: Alle
+                - cell [ref=f1e2790]: Join infantry, boost suppression roll
+                - cell [ref=f1e2791]: "Individual commissars must join an infantry unit with the same armor value at the start of the game, becoming part of the unit for the rest of the game. When a unit from a specific faction is joined by a commissar, that commissar is always considered as belonging to that faction. A unit with a commissar rolls 3 dice instead of 2 when rolling to remove under fire or suppression. There cannot be more than 1 commissar in a unit. Commissars must have the same armor rating as the unit they join. If a unit is returned to the game for any reason, any commissar joined to the unit returns with them. Commissar Poon: This SSU character is both a hero and a commissar and must join a unit, but no other hero or commissar can join the same unit. Unlike other heroes he can be returned to the game if he is destroyed (as non-hero commissars sometimes can through special rules like reserves or platoon advantages)."
+                - cell [ref=f1e417]:
+                  - button [ref=f1e418] [cursor=pointer]
+                  - button [ref=f1e2792] [cursor=pointer]
+                  - button [ref=f1e424] [cursor=pointer]
+              - row [ref=f1e2793]:
+                - cell [ref=f1e2794]: "22"
+                - cell [ref=f1e2795]:
+                  - strong [ref=f1e430]: DAMAGE RESILIENT
+                - cell [ref=f1e2796]: Alle
+                - cell [ref=f1e2797]: Roll one die for each point of Damage the Unit Takes, negating one point for each [symbol] rolled. Does not apply to Units Joined.
+                - cell [ref=f1e2798]: When this infantry, vehicle, or hero unit is the target of an attack that rolls successful hits, first roll for any saves, then determine the final damage. Roll 1 die for each point of damage, negating 1 point for each. The unit takes any remaining damage. This skill is not shared with any unit a hero or unit joins.
+                - cell [ref=f1e434]:
+                  - button [ref=f1e435] [cursor=pointer]
+                  - button [ref=f1e2799] [cursor=pointer]
+                  - button [ref=f1e441] [cursor=pointer]
+              - row [ref=f1e2800]:
+                - cell [ref=f1e2801]: "23"
+                - cell [ref=f1e2802]:
+                  - strong [ref=f1e447]: DEFENSIVE TACTICS
+                - cell [ref=f1e2803]: Alle
+                - cell [ref=f1e2804]: Gain Damage Resilient in cover
+                - cell [ref=f1e2805]: This unit (and any unit it has joined or hero that has joined it) gains the Damage Resilient skill when in cover (even against weapons that negate cover and CC attacks).
+                - cell [ref=f1e451]:
+                  - button [ref=f1e452] [cursor=pointer]
+                  - button [ref=f1e2806] [cursor=pointer]
+                  - button [ref=f1e458] [cursor=pointer]
+              - row [ref=f1e2807]:
+                - cell [ref=f1e2808]: "24"
+                - cell [ref=f1e2809]:
+                  - strong [ref=f1e464]: DESERT FOX
+                - cell [ref=f1e2810]: Alle
+                - cell [ref=f1e2811]: Grant At The Double when reactivated
+                - cell [ref=f1e2812]: Any unit reactivated by a unit with this skill using Get Moving You Monkeys gains the At The Double skill for that activation.
+                - cell [ref=f1e468]:
+                  - button [ref=f1e469] [cursor=pointer]
+                  - button [ref=f1e2813] [cursor=pointer]
+                  - button [ref=f1e475] [cursor=pointer]
+              - row [ref=f1e2814]:
+                - cell [ref=f1e2815]: "25"
+                - cell [ref=f1e2816]:
+                  - strong [ref=f1e481]: DEVOUR
+                - cell [ref=f1e2817]: Alle
+                - cell [ref=f1e2818]: Heal 1 HP per CC damage
+                - cell [ref=f1e2819]: Each time this unit inflicts 1 point of damage in close combat, it heals 1 health. This unit can???t have more health than the maximum on its unit card. Since close combat is simultaneous (except against First Strike), this unit can heal itself while taking damage.
+                - cell [ref=f1e485]:
+                  - button [ref=f1e486] [cursor=pointer]
+                  - button [ref=f1e2820] [cursor=pointer]
+                  - button [ref=f1e492] [cursor=pointer]
+              - row [ref=f1e2821]:
+                - cell [ref=f1e2822]: "26"
+                - cell [ref=f1e2823]:
+                  - strong [ref=f1e498]: DOZER BLADE
+                - cell [ref=f1e2824]: Alle
+                - cell [ref=f1e2825]: Dig in & gain cover, perform ENGINEERING actions
+                - cell [ref=f1e2826]: A vehicle equipped with a dozer blade can perform a DOZER special action to dig in and gain cover from any angle until it performs a MOVE or MARCH MOVE action. A vehicle with a dozer blade can also perform ENGINEERING special actions.
+                - cell [ref=f1e502]:
+                  - button [ref=f1e503] [cursor=pointer]
+                  - button [ref=f1e2827] [cursor=pointer]
+                  - button [ref=f1e509] [cursor=pointer]
+              - row [ref=f1e2828]:
+                - cell [ref=f1e2829]: "27"
+                - cell [ref=f1e2830]:
+                  - strong [ref=f1e515]: ENGINEER VEHICLE
+                - cell [ref=f1e2831]: Alle
+                - cell [ref=f1e2832]: Has improved Engineering Action.
+                - cell [ref=f1e2833]: Has improved Engineering Action.
+                - cell [ref=f1e519]:
+                  - button [ref=f1e520] [cursor=pointer]
+                  - button [ref=f1e2834] [cursor=pointer]
+                  - button [ref=f1e526] [cursor=pointer]
+              - row [ref=f1e2835]:
+                - cell [ref=f1e2836]: "28"
+                - cell [ref=f1e2837]:
+                  - strong [ref=f1e532]: EXECUTE
+                - cell [ref=f1e2838]: Alle
+                - cell [ref=f1e2839]: Execute stunned soldier within range
+                - cell [ref=f1e2840]: This unit can take an EXECUTE special action to choose and eliminate a soldier that is part of a unit with a stunned token (including a hero) within range 1.
+                - cell [ref=f1e536]:
+                  - button [ref=f1e537] [cursor=pointer]
+                  - button [ref=f1e2841] [cursor=pointer]
+                  - button [ref=f1e543] [cursor=pointer]
+              - row [ref=f1e2842]:
+                - cell [ref=f1e2843]: "29"
+                - cell [ref=f1e2844]:
+                  - strong [ref=f1e549]: EXPERT
+                - cell [ref=f1e2845]: Alle
+                - cell [ref=f1e2846]: Hit more reliably with specific weapon
+                - cell [ref=f1e2847]: A hero with this skill hits on as well as when making an ATTACK or SUSTAINED ATTACK action with the specified weapon. If a vehicle is equipped with the weapons mentioned, the skill applies. This skill is not shared with any unit a hero joins.
+                - cell [ref=f1e553]:
+                  - button [ref=f1e554] [cursor=pointer]
+                  - button [ref=f1e2848] [cursor=pointer]
+                  - button [ref=f1e560] [cursor=pointer]
+              - row [ref=f1e2849]:
+                - cell [ref=f1e2850]: "30"
+                - cell [ref=f1e2851]:
+                  - strong [ref=f1e566]: FIGHTING SPIRIT
+                - cell [ref=f1e2852]: Alle
+                - cell [ref=f1e2853]: Boost attack once per game
+                - cell [ref=f1e2854]: Once per game, this unit (and any unit it has joined or hero that has joined it) hits on as well as SUSTAINED ATTACK action.
+                - cell [ref=f1e570]:
+                  - button [ref=f1e571] [cursor=pointer]
+                  - button [ref=f1e2855] [cursor=pointer]
+                  - button [ref=f1e577] [cursor=pointer]
+              - row [ref=f1e2856]:
+                - cell [ref=f1e2857]: "31"
+                - cell [ref=f1e2858]:
+                  - strong [ref=f1e583]: FLAME BURST
+                - cell [ref=f1e2859]: Alle
+                - cell [ref=f1e2860]: Fireball damages ground units & applies suppression
+                - cell [ref=f1e2861]: When making an ATTACK, this shoots a fireball of intense heat, attacking all ground units in 1 target square. Units hit by these weapons gain a suppression token (removing an under fire token if the unit had one) and do not receive an infantry or cover save.
+                - cell [ref=f1e587]:
+                  - button [ref=f1e588] [cursor=pointer]
+                  - button [ref=f1e2862] [cursor=pointer]
+                  - button [ref=f1e594] [cursor=pointer]
+              - row [ref=f1e2863]:
+                - cell [ref=f1e2864]: "32"
+                - cell [ref=f1e2865]:
+                  - strong [ref=f1e600]: FIRST STRIKE
+                - cell [ref=f1e2866]: Alle
+                - cell [ref=f1e2867]: Resolves Close-Combat Attacks before target resolves theirs.
+                - cell [ref=f1e2868]: Resolves Close-Combat Attacks before target resolves theirs.
+                - cell [ref=f1e604]:
+                  - button [ref=f1e605] [cursor=pointer]
+                  - button [ref=f1e2869] [cursor=pointer]
+                  - button [ref=f1e611] [cursor=pointer]
+              - row [ref=f1e2870]:
+                - cell [ref=f1e2871]: "33"
+                - cell [ref=f1e2872]:
+                  - strong [ref=f1e617]: FLYING
+                - cell [ref=f1e2873]: Alle
+                - cell [ref=f1e2874]: Pass over units/terrain, only flying units can join
+                - cell [ref=f1e2875]: This unit can pass over any unit, and over any terrain as if it were open terrain, provided that it ends its MOVE or MARCH MOVE action in a place it could normally occupy. Only a flying unit can join a flying unit.
+                - cell [ref=f1e621]:
+                  - button [ref=f1e622] [cursor=pointer]
+                  - button [ref=f1e2876] [cursor=pointer]
+                  - button [ref=f1e628] [cursor=pointer]
+              - row [ref=f1e2877]:
+                - cell [ref=f1e2878]: "34"
+                - cell [ref=f1e2879]:
+                  - strong [ref=f1e634]: FOLLOW ME
+                - cell [ref=f1e2880]: Alle
+                - cell [ref=f1e2881]: Force nearby infantry to move immediately
+                - cell [ref=f1e2882]: This unit can take a FOLLOW ME special action once per turn. All friendly infantry units with armor 1 or 2 within range 2 and in LOS roll a die. On a success they take an immediate MOVE action with a rating of 2.
+                - cell [ref=f1e638]:
+                  - button [ref=f1e639] [cursor=pointer]
+                  - button [ref=f1e2883] [cursor=pointer]
+                  - button [ref=f1e645] [cursor=pointer]
+              - row [ref=f1e2884]:
+                - cell [ref=f1e2885]: "35"
+                - cell [ref=f1e2886]:
+                  - strong [ref=f1e651]: GENERAL
+                - cell [ref=f1e2887]: Alle
+                - cell [ref=f1e2888]: When joined to a Command Squad, this hero rolls one extra dice when attempting Officer Special Actions.
+                - cell [ref=f1e2889]: When joined to a Command Squad, this hero rolls one extra dice when attempting Officer Special Actions.
+                - cell [ref=f1e655]:
+                  - button [ref=f1e656] [cursor=pointer]
+                  - button [ref=f1e2890] [cursor=pointer]
+                  - button [ref=f1e662] [cursor=pointer]
+              - row [ref=f1e2891]:
+                - cell [ref=f1e2892]: "36"
+                - cell [ref=f1e2893]:
+                  - strong [ref=f1e668]: GORILLA
+                - cell [ref=f1e2894]: Alle
+                - cell [ref=f1e2895]: Only gorilla heroes can join gorilla units
+                - cell [ref=f1e2896]: Only a gorilla hero may join a gorilla unit. Gorilla heroes cannot join units that are not gorillas.
+                - cell [ref=f1e672]:
+                  - button [ref=f1e673] [cursor=pointer]
+                  - button [ref=f1e2897] [cursor=pointer]
+                  - button [ref=f1e679] [cursor=pointer]
+              - row [ref=f1e2898]:
+                - cell [ref=f1e2899]: "37"
+                - cell [ref=f1e2900]:
+                  - strong [ref=f1e685]: GRAPPLE
+                - cell [ref=f1e2901]: Alle
+                - cell [ref=f1e2902]: Targets Hit by this weapon gain a Stunned Token.
+                - cell [ref=f1e2903]: Targets Hit by this weapon gain a Stunned Token.
+                - cell [ref=f1e689]:
+                  - button [ref=f1e690] [cursor=pointer]
+                  - button [ref=f1e2904] [cursor=pointer]
+                  - button [ref=f1e696] [cursor=pointer]
+              - row [ref=f1e2905]:
+                - cell [ref=f1e2906]: "38"
+                - cell [ref=f1e2907]:
+                  - strong [ref=f1e702]: HALF-TRACKED MOVE
+                - cell [ref=f1e2908]: Alle
+                - cell [ref=f1e2909]: Movement affected by terrain
+                - cell [ref=f1e2910]: MOVE and MARCH MOVE actions by this unit are affected by the type of terrain being crossed as indicated in the terrain table.
+                - cell [ref=f1e706]:
+                  - button [ref=f1e707] [cursor=pointer]
+                  - button [ref=f1e2911] [cursor=pointer]
+                  - button [ref=f1e713] [cursor=pointer]
+              - row [ref=f1e2912]:
+                - cell [ref=f1e2913]: "39"
+                - cell [ref=f1e2914]:
+                  - strong [ref=f1e719]: HELICOPTER
+                - cell [ref=f1e2915]: Alle
+                - cell [ref=f1e2916]: Hover & perform SUSTAINED ATTACKs
+                - cell [ref=f1e2917]: A helicopter can hover and therefore does not have to take a MOVE action as its first action allowing it to be assigned SUSTAINED ATTACK actions.
+                - cell [ref=f1e723]:
+                  - button [ref=f1e724] [cursor=pointer]
+                  - button [ref=f1e2918] [cursor=pointer]
+                  - button [ref=f1e730] [cursor=pointer]
+              - row [ref=f1e2919]:
+                - cell [ref=f1e2920]: "40"
+                - cell [ref=f1e2921]:
+                  - strong [ref=f1e736]: INFANTRY ACE
+                - cell [ref=f1e2922]: Alle
+                - cell [ref=f1e2923]: Gain third action on die roll
+                - cell [ref=f1e2924]: "This hero rolls a die when it activates: on a success this hero (and any unit it has joined or hero that has joined it) gains a third action for this activation."
+                - cell [ref=f1e740]:
+                  - button [ref=f1e741] [cursor=pointer]
+                  - button [ref=f1e2925] [cursor=pointer]
+                  - button [ref=f1e747] [cursor=pointer]
+              - row [ref=f1e2926]:
+                - cell [ref=f1e2927]: "41"
+                - cell [ref=f1e2928]:
+                  - strong [ref=f1e753]: INTERROGATE
+                - cell [ref=f1e2929]: Alle
+                - cell [ref=f1e2930]: Roll initiative after killing hero/officer
+                - cell [ref=f1e2931]: If a unit with this skill (or a unit joined) uses a CC weapon to eliminate a hero or officer, or execute a hero or officer, roll 4 dice for initiative at the start of each turn for the rest of the game.
+                - cell [ref=f1e757]:
+                  - button [ref=f1e758] [cursor=pointer]
+                  - button [ref=f1e2932] [cursor=pointer]
+                  - button [ref=f1e764] [cursor=pointer]
+              - row [ref=f1e2933]:
+                - cell [ref=f1e2934]: "42"
+                - cell [ref=f1e2935]:
+                  - strong [ref=f1e770]: JAMMER
+                - cell [ref=f1e2936]: Alle
+                - cell [ref=f1e2937]: Force enemies to re-roll dice within range 6
+                - cell [ref=f1e2938]: All successful dice rolls for actions performed by an enemy unit using a radio within range 6 of a unit equipped with a jammer are re-rolled. Enemies in command vehicles must re-roll successful dice rolls for each attempt to perform an action using a radio. Jammer also affects ATTACK actions and SUSTAINED ATTACK actions triggered by artillery observers, causing them to re-roll successful dice rolls.
+                - cell [ref=f1e774]:
+                  - button [ref=f1e775] [cursor=pointer]
+                  - button [ref=f1e2939] [cursor=pointer]
+                  - button [ref=f1e781] [cursor=pointer]
+              - row [ref=f1e2940]:
+                - cell [ref=f1e2941]: "43"
+                - cell [ref=f1e2942]:
+                  - strong [ref=f1e787]: KILLING SPREE
+                - cell [ref=f1e2943]: Alle
+                - cell [ref=f1e2944]: Chain extra hits until miss
+                - cell [ref=f1e2945]: When this hero scores a hit with a ranged weapon, roll another die scoring a further hit on success. Continue scoring hits and rolling an additional die for each hit until it rolls a miss. If the hero has a special rule that allows it to hit on a specific number, rolls of that number only count as a hit for the first roll. This skill is not shared with any unit a hero joins.
+                - cell [ref=f1e791]:
+                  - button [ref=f1e792] [cursor=pointer]
+                  - button [ref=f1e2946] [cursor=pointer]
+                  - button [ref=f1e798] [cursor=pointer]
+              - row [ref=f1e2947]:
+                - cell [ref=f1e2948]: "44"
+                - cell [ref=f1e2949]:
+                  - strong [ref=f1e804]: LARGE ORDNANCE
+                - cell [ref=f1e2950]: Alle
+                - cell [ref=f1e2951]: Affects target + 3 adjacent squares
+                - cell [ref=f1e2952]: When this weapon is assigned an ATTACK or SUSTAINED ATTACK action, choose a target point within the weapon???s fire arc, range, and LOS. The explosion includes the square of the target point plus 3 chosen adjacent squares that form a 2x2 larger square. The adjacent squares do not need to be in range or LOS of the weapon.
+                - cell [ref=f1e808]:
+                  - button [ref=f1e809] [cursor=pointer]
+                  - button [ref=f1e2953] [cursor=pointer]
+                  - button [ref=f1e815] [cursor=pointer]
+              - row [ref=f1e2954]:
+                - cell [ref=f1e2955]: "45"
+                - cell [ref=f1e2956]:
+                  - strong [ref=f1e821]: LASER WEAPONS
+                - cell [ref=f1e2957]: Alle
+                - cell [ref=f1e2958]: Re-roll misses on sustained attack
+                - cell [ref=f1e2959]: When a laser weapon makes a SUSTAINED ATTACK, re-roll misses on the initial roll. Additional rolls gained through the Laser Weapons special rule are not re-rolled.
+                - cell [ref=f1e825]:
+                  - button [ref=f1e826] [cursor=pointer]
+                  - button [ref=f1e2960] [cursor=pointer]
+                  - button [ref=f1e832] [cursor=pointer]
+              - row [ref=f1e2961]:
+                - cell [ref=f1e2962]: "46"
+                - cell [ref=f1e2963]:
+                  - strong [ref=f1e838]: LESSER MYTHOS CREATURES
+                - cell [ref=f1e2964]: Alle
+                - cell [ref=f1e2965]: Immune to command actions
+                - cell [ref=f1e2966]: This unit can never be the target of any command squad, officer, or medic special actions.
+                - cell [ref=f1e842]:
+                  - button [ref=f1e843] [cursor=pointer]
+                  - button [ref=f1e2967] [cursor=pointer]
+                  - button [ref=f1e849] [cursor=pointer]
+              - row [ref=f1e2968]:
+                - cell [ref=f1e2969]: "47"
+                - cell [ref=f1e2970]:
+                  - strong [ref=f1e855]: LONER
+                - cell [ref=f1e2971]: Alle
+                - cell [ref=f1e2972]: Cannot join a unit
+                - cell [ref=f1e2973]: This hero may not join a unit.
+                - cell [ref=f1e859]:
+                  - button [ref=f1e860] [cursor=pointer]
+                  - button [ref=f1e2974] [cursor=pointer]
+                  - button [ref=f1e866] [cursor=pointer]
+              - row [ref=f1e2975]:
+                - cell [ref=f1e2976]: "48"
+                - cell [ref=f1e2977]:
+                  - strong [ref=f1e872]: LUCKY
+                - cell [ref=f1e2978]: Alle
+                - cell [ref=f1e2979]: One-time re-roll of failed attacks
+                - cell [ref=f1e2980]: Once per game, this hero may re-roll any dice that failed to hit with any of their weapons when making an ATTACK or SUSTAINED ATTACK action. This hero does not share this skill with any unit they join. You do not need to declare the use of this skill prior to the original roll.
+                - cell [ref=f1e876]:
+                  - button [ref=f1e877] [cursor=pointer]
+                  - button [ref=f1e2981] [cursor=pointer]
+                  - button [ref=f1e883] [cursor=pointer]
+              - row [ref=f1e2982]:
+                - cell [ref=f1e2983]: "49"
+                - cell [ref=f1e2984]:
+                  - strong [ref=f1e889]: MAKESHIFT REPAIR
+                - cell [ref=f1e2985]: Alle
+                - cell [ref=f1e2986]: Repair self within range 1 of scenery
+                - cell [ref=f1e2987]: A vehicle unit within LOS and range 1 of scenery with this skill can spend 2 actions to perform a MAKESHIFT REPAIR on itself only.
+                - cell [ref=f1e893]:
+                  - button [ref=f1e894] [cursor=pointer]
+                  - button [ref=f1e2988] [cursor=pointer]
+                  - button [ref=f1e900] [cursor=pointer]
+              - row [ref=f1e2989]:
+                - cell [ref=f1e2990]: "50"
+                - cell [ref=f1e2991]:
+                  - strong [ref=f1e906]: MECHANIC
+                - cell [ref=f1e2992]: Alle
+                - cell [ref=f1e2993]: Can use Makeshift Repair Action.
+                - cell [ref=f1e2994]: Can use Makeshift Repair Action.
+                - cell [ref=f1e910]:
+                  - button [ref=f1e911] [cursor=pointer]
+                  - button [ref=f1e2995] [cursor=pointer]
+                  - button [ref=f1e917] [cursor=pointer]
+              - row [ref=f1e2996]:
+                - cell [ref=f1e2997]: "51"
+                - cell [ref=f1e2998]:
+                  - strong [ref=f1e923]: MEDEVAC
+                - cell [ref=f1e2999]: Alle
+                - cell [ref=f1e3000]: Return eliminated infantry within range 1
+                - cell [ref=f1e3001]: This vehicle can perform a MEDEVAC special action. If it does, select an infantry unit within range 1 and roll a die for each soldier eliminated from the unit. Each returns 1 of the eliminated soldiers to the unit.
+                - cell [ref=f1e927]:
+                  - button [ref=f1e928] [cursor=pointer]
+                  - button [ref=f1e3002] [cursor=pointer]
+                  - button [ref=f1e934] [cursor=pointer]
+              - row [ref=f1e3003]:
+                - cell [ref=f1e3004]: "52"
+                - cell [ref=f1e3005]:
+                  - strong [ref=f1e940]: MERCENARY
+                - cell [ref=f1e3006]: Alle
+                - cell [ref=f1e3007]: Fieldable by any bloc
+                - cell [ref=f1e3008]: This unit can be fielded by any bloc.
+                - cell [ref=f1e944]:
+                  - button [ref=f1e945] [cursor=pointer]
+                  - button [ref=f1e3009] [cursor=pointer]
+                  - button [ref=f1e951] [cursor=pointer]
+              - row [ref=f1e3010]:
+                - cell [ref=f1e3011]: "53"
+                - cell [ref=f1e3012]:
+                  - strong [ref=f1e957]: MINDLESS
+                - cell [ref=f1e3013]: Alle
+                - cell [ref=f1e3014]: Zombies, immune to suppression, contest objectives
+                - cell [ref=f1e3015]: These are zombies that can be led by a hero equipped with the Blutkreuz skill. Mindless zombies cannot take or hold objectives but may contest them (applies to units joined) and are immune to suppression (both of these rules apply to units joined). Mindless Zombies can be joined by a zombie hero or a hero equipped with a Blutkreuz.
+                - cell [ref=f1e961]:
+                  - button [ref=f1e962] [cursor=pointer]
+                  - button [ref=f1e3016] [cursor=pointer]
+                  - button [ref=f1e968] [cursor=pointer]
+              - row [ref=f1e3017]:
+                - cell [ref=f1e3018]: "54"
+                - cell [ref=f1e3019]:
+                  - strong [ref=f1e974]: MOVE AND FIRE
+                - cell [ref=f1e3020]: Alle
+                - cell [ref=f1e3021]: Move and attack freely around action
+                - cell [ref=f1e3022]: This unit (and any unit it has joined or hero that has joined it) may either perform a free MOVE action immediately before or after performing a SUSTAINED ATTACK action using ranged weapons, or a free ATTACK action using ranged weapons immediately before or after taking a MARCH MOVE action.
+                - cell [ref=f1e978]:
+                  - button [ref=f1e979] [cursor=pointer]
+                  - button [ref=f1e3023] [cursor=pointer]
+                  - button [ref=f1e985] [cursor=pointer]
+              - row [ref=f1e3024]:
+                - cell [ref=f1e3025]: "55"
+                - cell [ref=f1e3026]:
+                  - strong [ref=f1e991]: MYTHOS CREATURE
+                - cell [ref=f1e3027]: Alle
+                - cell [ref=f1e3028]: Immune to suppression and critical hits
+                - cell [ref=f1e3029]: Immune to suppression and critical hits.
+                - cell [ref=f1e995]:
+                  - button [ref=f1e996] [cursor=pointer]
+                  - button [ref=f1e3030] [cursor=pointer]
+                  - button [ref=f1e1002] [cursor=pointer]
+              - row [ref=f1e3031]:
+                - cell [ref=f1e3032]: "56"
+                - cell [ref=f1e3033]:
+                  - strong [ref=f1e1008]: NAVAL UNIT
+                - cell [ref=f1e3034]: Alle
+                - cell [ref=f1e3035]: Water is open terrain, can attack after march
+                - cell [ref=f1e3036]: This unit treats water as open terrain, but cannot enter any other type of terrain. A naval unit may take a free ATTACK action immediately after it performs a MARCH MOVE action. An eliminated naval unit becomes water terrain.
+                - cell [ref=f1e1012]:
+                  - button [ref=f1e1013] [cursor=pointer]
+                  - button [ref=f1e3037] [cursor=pointer]
+                  - button [ref=f1e1019] [cursor=pointer]
+              - row [ref=f1e3038]:
+                - cell [ref=f1e3039]: "57"
+                - cell [ref=f1e3040]:
+                  - strong [ref=f1e1025]: NOTHIN???S EASY
+                - cell [ref=f1e3041]: Alle
+                - cell [ref=f1e3042]: Joined units ignore suppression
+                - cell [ref=f1e3043]: Any unit joined by this hero cannot gain under fire or suppression tokens.
+                - cell [ref=f1e1029]:
+                  - button [ref=f1e1030] [cursor=pointer]
+                  - button [ref=f1e3044] [cursor=pointer]
+                  - button [ref=f1e1036] [cursor=pointer]
+              - row [ref=f1e3045]:
+                - cell [ref=f1e3046]: "58"
+                - cell [ref=f1e3047]:
+                  - strong [ref=f1e1042]: OFFICER
+                - cell [ref=f1e3048]: Alle
+                - cell [ref=f1e3049]: May take Officer Special Actions to reactivate or rearm their troops.
+                - cell [ref=f1e3050]: May take Officer Special Actions to reactivate or rearm their troops.
+                - cell [ref=f1e1046]:
+                  - button [ref=f1e1047] [cursor=pointer]
+                  - button [ref=f1e3051] [cursor=pointer]
+                  - button [ref=f1e1053] [cursor=pointer]
+              - row [ref=f1e3052]:
+                - cell [ref=f1e3053]: "59"
+                - cell [ref=f1e3054]:
+                  - strong [ref=f1e1059]: PASSENGERS
+                - cell [ref=f1e3055]: Alle
+                - cell [ref=f1e3056]: Transport infantry units
+                - cell [ref=f1e3057]: "This vehicle can transport infantry units. # is the number of passenger spaces available inside the vehicle."
+                - cell [ref=f1e1063]:
+                  - button [ref=f1e1064] [cursor=pointer]
+                  - button [ref=f1e3058] [cursor=pointer]
+                  - button [ref=f1e1070] [cursor=pointer]
+              - row [ref=f1e3059]:
+                - cell [ref=f1e3060]: "60"
+                - cell [ref=f1e3061]:
+                  - strong [ref=f1e1076]: PILOT
+                - cell [ref=f1e3062]: Alle
+                - cell [ref=f1e3063]: Vehicle requires specific pilot
+                - cell [ref=f1e3064]: A vehicle with this attribute can only be piloted by the named hero. The vehicle can still be fielded without a pilot. This vehicle is unique, so only one may be included in any player???s force.
+                - cell [ref=f1e1080]:
+                  - button [ref=f1e1081] [cursor=pointer]
+                  - button [ref=f1e3065] [cursor=pointer]
+                  - button [ref=f1e1087] [cursor=pointer]
+              - row [ref=f1e3066]:
+                - cell [ref=f1e3067]: "61"
+                - cell [ref=f1e3068]:
+                  - strong [ref=f1e1093]: PSYCHIC SCREAM
+                - cell [ref=f1e3069]: Alle
+                - cell [ref=f1e3070]: Area attack ignoring LOS and saves
+                - cell [ref=f1e3071]: Once per game, this unit may execute the PSYCHIC SCREAM free action to attack all units (friend or foe) within a range 3 radius. Ignores LOS, infantry saves, and cover saves.
+                - cell [ref=f1e1097]:
+                  - button [ref=f1e1098] [cursor=pointer]
+                  - button [ref=f1e3072] [cursor=pointer]
+                  - button [ref=f1e1104] [cursor=pointer]
+              - row [ref=f1e3073]:
+                - cell [ref=f1e3074]: "62"
+                - cell [ref=f1e3075]:
+                  - strong [ref=f1e1110]: RADIATION
+                - cell [ref=f1e3076]: Alle
+                - cell [ref=f1e3077]: Forces re-rolls of saves
+                - cell [ref=f1e3078]: Targets must re-roll successful saves against this weapon.
+                - cell [ref=f1e1114]:
+                  - button [ref=f1e1115] [cursor=pointer]
+                  - button [ref=f1e3079] [cursor=pointer]
+                  - button [ref=f1e1121] [cursor=pointer]
+              - row [ref=f1e3080]:
+                - cell [ref=f1e3081]: "63"
+                - cell [ref=f1e3082]:
+                  - strong [ref=f1e1127]: RED BANNER
+                - cell [ref=f1e3083]: Alle
+                - cell [ref=f1e3084]: Boosts friendly infantry rally rolls
+                - cell [ref=f1e3085]: All friendly infantry units within range 2 and with LOS to this unit roll 3 dice when rallying.
+                - cell [ref=f1e1131]:
+                  - button [ref=f1e1132] [cursor=pointer]
+                  - button [ref=f1e3086] [cursor=pointer]
+                  - button [ref=f1e1138] [cursor=pointer]
+              - row [ref=f1e3087]:
+                - cell [ref=f1e3088]: "64"
+                - cell [ref=f1e3089]:
+                  - strong [ref=f1e1144]: RESURRECTION
+                - cell [ref=f1e3090]: Alle
+                - cell [ref=f1e3091]: Revive zombies within range 1
+                - cell [ref=f1e3092]: A hero equipped with a Blutkreuz may take a RESURRECTION special action. Select a mindless zombie unit within range 1. Roll a die for each zombie soldier eliminated from the unit. Each returns one of the eliminated soldiers to the unit.
+                - cell [ref=f1e1148]:
+                  - button [ref=f1e1149] [cursor=pointer]
+                  - button [ref=f1e3093] [cursor=pointer]
+                  - button [ref=f1e1155] [cursor=pointer]
+              - row [ref=f1e3094]:
+                - cell [ref=f1e3095]: "65"
+                - cell [ref=f1e3096]:
+                  - strong [ref=f1e1161]: SAVAGE ANIMAL
+                - cell [ref=f1e3097]: Alle
+                - cell [ref=f1e3098]: Hits on SCOUT and gains extra action after march
+                - cell [ref=f1e3099]: This unit hits on SCOUT as well as specified with the weapon. If this unit (and any unit it has joined or hero that has joined it) performs a MARCH MOVE action during its first action of the game, it gains a third action for this activation.
+                - cell [ref=f1e1165]:
+                  - button [ref=f1e1166] [cursor=pointer]
+                  - button [ref=f1e3100] [cursor=pointer]
+                  - button [ref=f1e1172] [cursor=pointer]
+              - row [ref=f1e3101]:
+                - cell [ref=f1e3102]: "66"
+                - cell [ref=f1e3103]:
+                  - strong [ref=f1e1178]: SEALIFTER
+                - cell [ref=f1e3104]: Alle
+                - cell [ref=f1e3105]: Naval units can transport others
+                - cell [ref=f1e3106]: These are naval units that are equipped to carry units into battle.
+                - cell [ref=f1e1182]:
+                  - button [ref=f1e1183] [cursor=pointer]
+                  - button [ref=f1e3107] [cursor=pointer]
+                  - button [ref=f1e1189] [cursor=pointer]
+              - row [ref=f1e3108]:
+                - cell [ref=f1e3109]: "67"
+                - cell [ref=f1e3110]:
+                  - strong [ref=f1e1195]: SMALL VEHICLES
+                - cell [ref=f1e3111]: Alle
+                - cell [ref=f1e3112]: Small vehicles treated as infantry for LOS
+                - cell [ref=f1e3113]: Small vehicles always receive cover. When in cover, they do not gain an improved save. They determine and affect LOS as if they were infantry units, but do block LOS for other small vehicles.
+                - cell [ref=f1e1199]:
+                  - button [ref=f1e1200] [cursor=pointer]
+                  - button [ref=f1e3114] [cursor=pointer]
+                  - button [ref=f1e1206] [cursor=pointer]
+              - row [ref=f1e3115]:
+                - cell [ref=f1e3116]: "68"
+                - cell [ref=f1e3117]:
+                  - strong [ref=f1e1212]: SMOKE LAUNCHERS
+                - cell [ref=f1e3118]: Alle
+                - cell [ref=f1e3119]: Once per game, take a Free Smoke Launcher Action to place Smoke on Unit.
+                - cell [ref=f1e3120]: Once per game, this vehicle may take a free LAUNCH SMOKE special action to place a smoke screen on itself. This covers any 1 square occupied by the vehicle plus 3 adjacent squares that form a larger 2x2 square. The adjacent squares are chosen by the player using the smoke launcher and do not need to be in LOS of the vehicle.
+                - cell [ref=f1e1216]:
+                  - button [ref=f1e1217] [cursor=pointer]
+                  - button [ref=f1e3121] [cursor=pointer]
+                  - button [ref=f1e1223] [cursor=pointer]
+              - row [ref=f1e3122]:
+                - cell [ref=f1e3123]: "69"
+                - cell [ref=f1e3124]:
+                  - strong [ref=f1e1229]: SPY
+                - cell [ref=f1e3125]: Alle
+                - cell [ref=f1e3126]: Can deploy off-field and perform SPY REVEALED! actions
+                - cell [ref=f1e3127]: "A unit with this skill can choose to: Enter or be deployed on the battlefield like any other unit. Stay off the battlefield for as long as desired. If it does so, the unit only does NOTHING actions, can pass, and counts towards the number of units in play. Execute a SPY REVEALED! activation, if the unit is not already on the battlefield. Roll 2 dice: If you score 1, the unit is immediately placed within range 1 of an enemy unit and it has 1 action for this activation. If you score 2, the unit is immediately placed within range 1 of an enemy unit and it has 2 actions for this activation. If you don???t score any, the unit is not placed on the battlefield and may only perform NOTHING actions this activation. It can try another SPY REVEALED! for its next activation. A unit that is not on the battlefield cannot be the target of command actions. This skill is not shared with a unit joined."
+                - cell [ref=f1e1233]:
+                  - button [ref=f1e1234] [cursor=pointer]
+                  - button [ref=f1e3128] [cursor=pointer]
+                  - button [ref=f1e1240] [cursor=pointer]
+              - row [ref=f1e3129]:
+                - cell [ref=f1e3130]: "70"
+                - cell [ref=f1e3131]:
+                  - strong [ref=f1e1246]: SPORES (FUNGI FROM YUGGOTH)
+                - cell [ref=f1e3132]: Alle
+                - cell [ref=f1e3133]: Area attack ignoring cover save for infantry
+                - cell [ref=f1e3134]: Attacks all units within range 1 around the unit. Target infantry receive no cover save (but still have an infantry save).
+                - cell [ref=f1e1250]:
+                  - button [ref=f1e1251] [cursor=pointer]
+                  - button [ref=f1e3135] [cursor=pointer]
+                  - button [ref=f1e1257] [cursor=pointer]
+              - row [ref=f1e3136]:
+                - cell [ref=f1e3137]: "71"
+                - cell [ref=f1e3138]:
+                  - strong [ref=f1e1263]: STEEL GUARD
+                - cell [ref=f1e3139]: Alle
+                - cell [ref=f1e3140]: Always passes infantry save, exclusive hero/unit rule
+                - cell [ref=f1e3141]: This unit never has a cover save, but always passes their infantry save on a roll of as well as specified. Only a Steel Guard hero may join a Steel Guard unit, and join only units that are Steel Guard. A unit with this skill also gains the Damage Resilient skill.
+                - cell [ref=f1e1267]:
+                  - button [ref=f1e1268] [cursor=pointer]
+                  - button [ref=f1e3142] [cursor=pointer]
+                  - button [ref=f1e1274] [cursor=pointer]
+              - row [ref=f1e3143]:
+                - cell [ref=f1e3144]: "72"
+                - cell [ref=f1e3145]:
+                  - strong [ref=f1e1280]: STRONGPOINT
+                - cell [ref=f1e3146]: Alle
+                - cell [ref=f1e3147]: Must be deployed in strongpoint or bunker
+                - cell [ref=f1e3148]: A strongpoint unit must be deployed in a strongpoint or bunker.
+                - cell [ref=f1e1284]:
+                  - button [ref=f1e1285] [cursor=pointer]
+                  - button [ref=f1e3149] [cursor=pointer]
+                  - button [ref=f1e1291] [cursor=pointer]
+              - row [ref=f1e3150]:
+                - cell [ref=f1e3151]: "73"
+                - cell [ref=f1e3152]:
+                  - strong [ref=f1e1297]: SUPERHUMANS
+                - cell [ref=f1e3153]: Alle
+                - cell [ref=f1e3154]: Passes Infantry Save on [Symbol] as well as [Symbol] and can benefit from Cover, but not at the same time. May not Join a Unit.
+                - cell [ref=f1e3155]: Passes Infantry Save on [Symbol] as well as [Symbol] and can benefit from Cover, but not at the same time. May not Join a Unit.
+                - cell [ref=f1e1301]:
+                  - button [ref=f1e1302] [cursor=pointer]
+                  - button [ref=f1e3156] [cursor=pointer]
+                  - button [ref=f1e1308] [cursor=pointer]
+              - row [ref=f1e3157]:
+                - cell [ref=f1e3158]: "74"
+                - cell [ref=f1e3159]:
+                  - strong [ref=f1e1314]: SUPPORT WEAPON
+                - cell [ref=f1e3160]: Alle
+                - cell [ref=f1e3161]: Multi-soldier unit with separate weapon actions
+                - cell [ref=f1e3162]: Support weapon units have several soldiers on the same base; treat them as if every miniature is on a separate base. If they???ve sustained damage, they have 1 soldier left for each point remaining on their damage track. Every time the unit loses 1 miniature, it loses 1 appropriate weapon. These units use a 2-man team to fire the support weapon. Only the third or fourth soldiers of the unit can fire other weapons if the support weapon fires. Each time you attack with a support weapon, choose which weapons the crew are using.
+                - cell [ref=f1e1318]:
+                  - button [ref=f1e1319] [cursor=pointer]
+                  - button [ref=f1e3163] [cursor=pointer]
+                  - button [ref=f1e1325] [cursor=pointer]
+              - row [ref=f1e3164]:
+                - cell [ref=f1e3165]: "75"
+                - cell [ref=f1e3166]:
+                  - strong [ref=f1e1331]: TAKE AIM
+                - cell [ref=f1e3167]: Alle
+                - cell [ref=f1e3168]: Improves hero ranged attack rolls
+                - cell [ref=f1e3169]: This hero hits on rolls of as well as specified when making a SUSTAINED ATTACK action with ranged weapons. This skill is not shared with any unit a hero joins.
+                - cell [ref=f1e1335]:
+                  - button [ref=f1e1336] [cursor=pointer]
+                  - button [ref=f1e3170] [cursor=pointer]
+                  - button [ref=f1e1342] [cursor=pointer]
+              - row [ref=f1e3171]:
+                - cell [ref=f1e3172]: "76"
+                - cell [ref=f1e3173]:
+                  - strong [ref=f1e1348]: TRACKED
+                - cell [ref=f1e3174]: Alle
+                - cell [ref=f1e3175]: Can be affected by type of Terrain crossed. (See Terrain Table)
+                - cell [ref=f1e3176]: Can be affected by type of Terrain crossed. (See Terrain Table)
+                - cell [ref=f1e1352]:
+                  - button [ref=f1e1353] [cursor=pointer]
+                  - button [ref=f1e3177] [cursor=pointer]
+                  - button [ref=f1e1359] [cursor=pointer]
+              - row [ref=f1e3178]:
+                - cell [ref=f1e3179]: "77"
+                - cell [ref=f1e3180]:
+                  - strong [ref=f1e1365]: TRAILBLAZER
+                - cell [ref=f1e3181]: Alle
+                - cell [ref=f1e3182]: Can move through enemy units
+                - cell [ref=f1e3183]: This unit (and any unit it has joined or hero that has joined it) can move through enemy units.
+                - cell [ref=f1e1369]:
+                  - button [ref=f1e1370] [cursor=pointer]
+                  - button [ref=f1e3184] [cursor=pointer]
+                  - button [ref=f1e1376] [cursor=pointer]
+              - row [ref=f1e3185]:
+                - cell [ref=f1e3186]: "78"
+                - cell [ref=f1e3187]:
+                  - strong [ref=f1e1382]: WHEELED
+                - cell [ref=f1e3188]: Dust 1947
+                - cell [ref=f1e3189]: Can be affected by type of Terrain crossed. (See Terrain Table)
+                - cell [ref=f1e3190]: Can be affected by type of Terrain crossed. (See Terrain Table)
+                - cell [ref=f1e1386]:
+                  - button [ref=f1e1387] [cursor=pointer]
+                  - button [ref=f1e3191] [cursor=pointer]
+                  - button [ref=f1e1393] [cursor=pointer]
+              - row [ref=f1e3192]:
+                - cell [ref=f1e3193]: "79"
+                - cell [ref=f1e3194]:
+                  - strong [ref=f1e1399]: ZOMBIE
+                - cell [ref=f1e3195]: Alle
+                - cell [ref=f1e3196]: Ignores cover saves, only zombie heroes may join
+                - cell [ref=f1e3197]: This unit never makes cover saves, but always passes its infantry saves on a roll of as well as specified. An officer, medic, or mechanic cannot target a zombie with their COMMAND SQUAD special actions. A zombie unit can never mount a vehicle or aircraft as passengers. Only a zombie hero may join a zombie unit. Zombie heroes cannot join units that are not zombies.
+                - cell [ref=f1e1403]:
+                  - button [ref=f1e1404] [cursor=pointer]
+                  - button [ref=f1e3198] [cursor=pointer]
+                  - button [ref=f1e1410] [cursor=pointer]
+              - row [ref=f1e3199]:
+                - cell [ref=f1e3200]: "80"
+                - cell [ref=f1e3201]:
+                  - strong [ref=f1e1416]: LARGE VEHICLES
+                - cell [ref=f1e3202]: Alle
+                - cell [ref=f1e3203]: "-"
+                - cell [ref=f1e3204]: "-"
+                - cell [ref=f1e1420]:
+                  - button [ref=f1e1421] [cursor=pointer]
+                  - button [ref=f1e3205] [cursor=pointer]
+                  - button [ref=f1e1427] [cursor=pointer]
+              - row [ref=f1e3206]:
+                - cell [ref=f1e3207]: "81"
+                - cell [ref=f1e3208]:
+                  - strong [ref=f1e1433]: HUGE VEHICLES
+                - cell [ref=f1e3209]: Alle
+                - cell [ref=f1e3210]: "-"
+                - cell [ref=f1e3211]: "-"
+                - cell [ref=f1e1437]:
+                  - button [ref=f1e1438] [cursor=pointer]
+                  - button [ref=f1e3212] [cursor=pointer]
+                  - button [ref=f1e1444] [cursor=pointer]
+              - row [ref=f1e3213]:
+                - cell [ref=f1e3214]: "82"
+                - cell [ref=f1e3215]:
+                  - strong [ref=f1e1450]: PHASER WEAPONS
+                - cell [ref=f1e3216]: Alle
+                - cell [ref=f1e3217]: Units hit by phaser weapons do not receive a cover save, but infantry units retain their infantry save.
+                - cell [ref=f1e3218]: Units hit by phaser weapons do not receive a cover save, but infantry units retain their infantry save.
+                - cell [ref=f1e1454]:
+                  - button [ref=f1e1455] [cursor=pointer]
+                  - button [ref=f1e3219] [cursor=pointer]
+                  - button [ref=f1e1461] [cursor=pointer]
+              - row [ref=f1e3220]:
+                - cell [ref=f1e3221]: "84"
+                - cell [ref=f1e3222]:
+                  - strong [ref=f1e1467]: ARTILLERY WEAPONS
+                - cell [ref=f1e3223]: Alle
+                - cell [ref=f1e3224]: Artillery can either fire at a target point they can see, or be fired remotely by an artillery observer unit with LOS to the target polnt. They may shoot over buildings, vehicles, walls, and other terrain, but they cannot be fired from inside buildings or
+                - cell [ref=f1e3225]: "-"
+                - cell [ref=f1e1471]:
+                  - button [ref=f1e1472] [cursor=pointer]
+                  - button [ref=f1e3226] [cursor=pointer]
+                  - button [ref=f1e1478] [cursor=pointer]
+              - row [ref=f1e3227]:
+                - cell [ref=f1e3228]: "85"
+                - cell [ref=f1e3229]:
+                  - strong [ref=f1e1484]: PSYKER
+                - cell [ref=f1e3230]: Alle
+                - cell [ref=f1e3231]: Can perform PSYKER actions
+                - cell [ref=f1e3232]: "-"
+                - cell [ref=f1e1488]:
+                  - button [ref=f1e1489] [cursor=pointer]
+                  - button [ref=f1e3233] [cursor=pointer]
+                  - button [ref=f1e1495] [cursor=pointer]
+              - row [ref=f1e3234]:
+                - cell [ref=f1e3235]: "2147483733"
+                - cell [ref=f1e3236]:
+                  - strong [ref=f1e1501]: TESLA
+                - cell [ref=f1e3237]: Dust 1947
+                - cell [ref=f1e3238]: Place Stunned Token on Unit hit by this weapon. Unit must perform a Nothing Action as its first Action next Activation, removing all Stunned tokens.
+                - cell [ref=f1e3239]: Place Stunned Token on Unit hit by this weapon. Unit must perform a Nothing Action as its first Action next Activation, removing all Stunned tokens.
+                - cell [ref=f1e1505]:
+                  - button [ref=f1e1506] [cursor=pointer]
+                  - button [ref=f1e3240] [cursor=pointer]
+                  - button [ref=f1e1512] [cursor=pointer]
+              - row [ref=f1e3241]:
+                - cell [ref=f1e3242]: "2147483734"
+                - cell [ref=f1e3243]:
+                  - strong [ref=f1e1518]: LARGE VEHICLE
+                - cell [ref=f1e3244]: Dust 1947
+                - cell [ref=f1e3245]: Large vehicle
+                - cell [ref=f1e3246]: "-"
+                - cell [ref=f1e1522]:
+                  - button [ref=f1e1523] [cursor=pointer]
+                  - button [ref=f1e3247] [cursor=pointer]
+                  - button [ref=f1e1529] [cursor=pointer]
+              - row [ref=f1e3248]:
+                - cell [ref=f1e3249]: "2147483735"
+                - cell [ref=f1e3250]:
+                  - strong [ref=f1e1535]: HUGE VEHICLE
+                - cell [ref=f1e3251]: Dust 1947
+                - cell [ref=f1e3252]: Huge vehicle
+                - cell [ref=f1e3253]: "-"
+                - cell [ref=f1e1539]:
+                  - button [ref=f1e1540] [cursor=pointer]
+                  - button [ref=f1e3254] [cursor=pointer]
+                  - button [ref=f1e1546] [cursor=pointer]
+              - row [ref=f1e3255]:
+                - cell [ref=f1e3256]: "2147483736"
+                - cell [ref=f1e3257]:
+                  - strong [ref=f1e1552]: ADVANCED REACTIVE FIRE
+                - cell [ref=f1e3258]: Dust 1947
+                - cell [ref=f1e3259]: Can attempt a Reactive Attack at up to Range 6, counting [Shield Symbol] as [Hit Symbol] when rolling for number of actions. Does not apply to units joined.
+                - cell [ref=f1e3260]: Can attempt a Reactive Attack at up to Range 6, counting [Shield Symbol] as [Hit Symbol] when rolling for number of actions. Does not apply to units joined.
+                - cell [ref=f1e1556]:
+                  - button [ref=f1e1557] [cursor=pointer]
+                  - button [ref=f1e3261] [cursor=pointer]
+                  - button [ref=f1e1563] [cursor=pointer]
+              - row [ref=f1e3262]:
+                - cell [ref=f1e3263]: "2147483737"
+                - cell [ref=f1e3264]:
+                  - strong [ref=f1e1569]: AIRMOBILE
+                - cell [ref=f1e3265]: Dust 1947
+                - cell [ref=f1e3266]: Can be carried by Airlifter
+                - cell [ref=f1e3267]: Can be carried by an Airlifter.
+                - cell [ref=f1e1573]:
+                  - button [ref=f1e1574] [cursor=pointer]
+                  - button [ref=f1e3268] [cursor=pointer]
+                  - button [ref=f1e1580] [cursor=pointer]
+              - row [ref=f1e3269]:
+                - cell [ref=f1e3270]: "2147483738"
+                - cell [ref=f1e3271]:
+                  - strong [ref=f1e1586]: COMBAT MEDIC
+                - cell [ref=f1e3272]: Dust 1947
+                - cell [ref=f1e3273]: Medic special actions
+                - cell [ref=f1e3274]: Can use the Medic Special Actions like a Command Squad Medic. Can be used on a unit joined.
+                - cell [ref=f1e1590]:
+                  - button [ref=f1e1591] [cursor=pointer]
+                  - button [ref=f1e3275] [cursor=pointer]
+                  - button [ref=f1e1597] [cursor=pointer]
+              - row [ref=f1e3276]:
+                - cell [ref=f1e3277]: "2147483739"
+                - cell [ref=f1e3278]:
+                  - strong [ref=f1e1603]: FLAME
+                - cell [ref=f1e3279]: Dust 1947
+                - cell [ref=f1e3280]: Target gets no saves from this weapon and is suppressed.
+                - cell [ref=f1e3281]: Target gets no saves from this weapon and is suppressed.
+                - cell [ref=f1e1607]:
+                  - button [ref=f1e1608] [cursor=pointer]
+                  - button [ref=f1e3282] [cursor=pointer]
+                  - button [ref=f1e1614] [cursor=pointer]
+              - row [ref=f1e3283]:
+                - cell [ref=f1e3284]: "2147483740"
+                - cell [ref=f1e3285]:
+                  - strong [ref=f1e1620]: RAID
+                - cell [ref=f1e3286]: Dust 1947
+                - cell [ref=f1e3287]: Move + attack + move
+                - cell [ref=f1e3288]: The vehicle can spend all its Actions to do a Raid Special Action. It can do MOVE + ATTACK + MOVE in this Activation, but cannot be reactivated for this turn.
+                - cell [ref=f1e1624]:
+                  - button [ref=f1e1625] [cursor=pointer]
+                  - button [ref=f1e3289] [cursor=pointer]
+                  - button [ref=f1e1631] [cursor=pointer]
+              - row [ref=f1e3290]:
+                - cell [ref=f1e3291]: "2147483741"
+                - cell [ref=f1e3292]:
+                  - strong [ref=f1e1637]: PASSENGERS (2)
+                - cell [ref=f1e3293]: Dust 1947
+                - cell [ref=f1e3294]: Transport capacity 2
+                - cell [ref=f1e3295]: Can carry two Infantry with Armour 1 or 2 or one Infantry with Armour 3 or 4.
+                - cell [ref=f1e1641]:
+                  - button [ref=f1e1642] [cursor=pointer]
+                  - button [ref=f1e3296] [cursor=pointer]
+                  - button [ref=f1e1648] [cursor=pointer]
+              - row [ref=f1e3297]:
+                - cell [ref=f1e3298]: "2147483742"
+                - cell [ref=f1e3299]:
+                  - strong [ref=f1e1654]: SPORES
+                - cell [ref=f1e3300]: Dust 1947
+                - cell [ref=f1e3301]: Range 1 area attack
+                - cell [ref=f1e3302]: Attacks all Units in Range 1 around the Unit. Target Infantry get no Cover Save from this weapon (but still have an Infantry Save).
+                - cell [ref=f1e1658]:
+                  - button [ref=f1e1659] [cursor=pointer]
+                  - button [ref=f1e3303] [cursor=pointer]
+                  - button [ref=f1e1665] [cursor=pointer]
+              - row [ref=f1e3304]:
+                - cell [ref=f1e3305]: "2147483743"
+                - cell [ref=f1e3306]:
+                  - strong [ref=f1e1671]: PASSENGERS (18)
+                - cell [ref=f1e3307]: Dust 1947
+                - cell [ref=f1e3308]: Transport capacity 18
+                - cell [ref=f1e3309]: Can carry eighteen Infantry with Armour 1 or 2 or nine Infantry with Armour 3 or 4.
+                - cell [ref=f1e1675]:
+                  - button [ref=f1e1676] [cursor=pointer]
+                  - button [ref=f1e3310] [cursor=pointer]
+                  - button [ref=f1e1682] [cursor=pointer]
+              - row [ref=f1e3311]:
+                - cell [ref=f1e3312]: "2147483744"
+                - cell [ref=f1e3313]:
+                  - strong [ref=f1e1688]: Ace Air Pilot
+                - cell [ref=f1e3314]: Dust 1947
+                - cell [ref=f1e3315]: "-"
+                - cell [ref=f1e3316]: May mount an Aircraft, using his skills while mounted. Roll one die when the Aircraft Activates gaining a third action on a [bloc] or [crosshair].
+                - cell [ref=f1e1692]:
+                  - button [ref=f1e1693] [cursor=pointer]
+                  - button [ref=f1e3317] [cursor=pointer]
+                  - button [ref=f1e1699] [cursor=pointer]
+              - row [ref=f1e3318]:
+                - cell [ref=f1e3319]: "2147483745"
+                - cell [ref=f1e3320]:
+                  - strong [ref=f1e1705]: Ace Gunner
+                - cell [ref=f1e3321]: Dust 1947
+                - cell [ref=f1e3322]: "-"
+                - cell [ref=f1e3323]: Any Vehicle this Hero pilots gains Expert on all Weapons.
+                - cell [ref=f1e1709]:
+                  - button [ref=f1e1710] [cursor=pointer]
+                  - button [ref=f1e3324] [cursor=pointer]
+                  - button [ref=f1e1716] [cursor=pointer]
+              - row [ref=f1e3325]:
+                - cell [ref=f1e3326]: "2147483746"
+                - cell [ref=f1e3327]:
+                  - strong [ref=f1e1722]: Ace Pilot
+                - cell [ref=f1e3328]: Dust 1947
+                - cell [ref=f1e3329]: "-"
+                - cell [ref=f1e3330]: May mount a Vehicle, using his skills while mounted. Roll one die when Vehicle Activates gaining a third action on a [bloc] or a [crosshair].
+                - cell [ref=f1e1726]:
+                  - button [ref=f1e1727] [cursor=pointer]
+                  - button [ref=f1e3331] [cursor=pointer]
+                  - button [ref=f1e1733] [cursor=pointer]
+              - row [ref=f1e3332]:
+                - cell [ref=f1e3333]: "2147483747"
+                - cell [ref=f1e3334]:
+                  - strong [ref=f1e1739]: Air Alert
+                - cell [ref=f1e3335]: Dust 1947
+                - cell [ref=f1e3336]: "-"
+                - cell [ref=f1e3337]: Take Air Alert Special Action to select an Aircraft in Line of Sight. On a [bloc], friendly Units attacking it hit on [crosshair] as well as [bloc] for the remainder of the turn.
+                - cell [ref=f1e1743]:
+                  - button [ref=f1e1744] [cursor=pointer]
+                  - button [ref=f1e3338] [cursor=pointer]
+                  - button [ref=f1e1750] [cursor=pointer]
+              - row [ref=f1e3339]:
+                - cell [ref=f1e3340]: "2147483748"
+                - cell [ref=f1e3341]:
+                  - strong [ref=f1e1756]: Air Assault
+                - cell [ref=f1e3342]: Dust 1947
+                - cell [ref=f1e3343]: Can be carried by an Airlifter and Activate after the Airlifter carrying it to dismount and Move.
+                - cell [ref=f1e3344]: Can be carried by an Airlifter and Activate after the Airlifter carrying it to dismount and Move.
+                - cell [ref=f1e1760]:
+                  - button [ref=f1e1761] [cursor=pointer]
+                  - button [ref=f1e3345] [cursor=pointer]
+                  - button [ref=f1e1767] [cursor=pointer]
+              - row [ref=f1e3346]:
+                - cell [ref=f1e3347]: "2147483749"
+                - cell [ref=f1e3348]:
+                  - strong [ref=f1e1773]: Airborne
+                - cell [ref=f1e3349]: Dust 1947
+                - cell [ref=f1e3350]: "-"
+                - cell [ref=f1e3351]: Airborne units are dropped anywhere on the table, but not closer than range 2 to any objective in the game. The Unit's first Action must by a Nothing Action. Player rolls one die and on a roll of [bloc] or [crosshair] the player may take a second action. Unit may not capture objectives on the first turn placed.
+                - cell [ref=f1e1777]:
+                  - button [ref=f1e1778] [cursor=pointer]
+                  - button [ref=f1e3352] [cursor=pointer]
+                  - button [ref=f1e1784] [cursor=pointer]
+              - row [ref=f1e3353]:
+                - cell [ref=f1e3354]: "2147483750"
+                - cell [ref=f1e3355]:
+                  - strong [ref=f1e1790]: Airlifter
+                - cell [ref=f1e3356]: Dust 1947
+                - cell [ref=f1e3357]: "-"
+                - cell [ref=f1e3358]: Can carry an Air Assault or Airmobile Unit.
+                - cell [ref=f1e1794]:
+                  - button [ref=f1e1795] [cursor=pointer]
+                  - button [ref=f1e3359] [cursor=pointer]
+                  - button [ref=f1e1801] [cursor=pointer]
+              - row [ref=f1e3360]:
+                - cell [ref=f1e3361]: "2147483751"
+                - cell [ref=f1e3362]:
+                  - strong [ref=f1e1807]: Artillery
+                - cell [ref=f1e3363]: Dust 1947
+                - cell [ref=f1e3364]: "-"
+                - cell [ref=f1e3365]: Can fire under control of an Artillery Observer. Ignores infantry save.
+                - cell [ref=f1e1811]:
+                  - button [ref=f1e1812] [cursor=pointer]
+                  - button [ref=f1e3366] [cursor=pointer]
+                  - button [ref=f1e1818] [cursor=pointer]
+              - row [ref=f1e3367]:
+                - cell [ref=f1e3368]: "2147483752"
+                - cell [ref=f1e3369]:
+                  - strong [ref=f1e1824]: Crazy Jimmy
+                - cell [ref=f1e3370]: Dust 1947
+                - cell [ref=f1e3371]: "-"
+                - cell [ref=f1e3372]: If this Hero performs a March Move with the Vehicle he is piloting it receives a Cover Save until his next Activation.
+                - cell [ref=f1e1828]:
+                  - button [ref=f1e1829] [cursor=pointer]
+                  - button [ref=f1e3373] [cursor=pointer]
+                  - button [ref=f1e1835] [cursor=pointer]
+              - row [ref=f1e3374]:
+                - cell [ref=f1e3375]: "2147483753"
+                - cell [ref=f1e3376]:
+                  - strong [ref=f1e1841]: Cutting
+                - cell [ref=f1e3377]: Dust 1947
+                - cell [ref=f1e3378]: When weapon hits, roll again scoring another hit on a [Symbol]. Keep rolling until failing to hit.
+                - cell [ref=f1e3379]: When weapon hits, roll again scoring another hit on a [Symbol]. Keep rolling until failing to hit.
+                - cell [ref=f1e1845]:
+                  - button [ref=f1e1846] [cursor=pointer]
+                  - button [ref=f1e3380] [cursor=pointer]
+                  - button [ref=f1e1852] [cursor=pointer]
+              - row [ref=f1e3381]:
+                - cell [ref=f1e3382]: "2147483754"
+                - cell [ref=f1e3383]:
+                  - strong [ref=f1e1858]: Get Moving You...
+                - cell [ref=f1e3384]: Dust 1947
+                - cell [ref=f1e3385]: Succeeds on [Symbol] as well as [Symbol] when using Get Moving You Monkeys on a Spetsnaz Unit.
+                - cell [ref=f1e3386]: Succeeds on [Symbol] as well as [Symbol] when using Get Moving You Monkeys on a Spetsnaz Unit.
+                - cell [ref=f1e1862]:
+                  - button [ref=f1e1863] [cursor=pointer]
+                  - button [ref=f1e3387] [cursor=pointer]
+                  - button [ref=f1e1869] [cursor=pointer]
+              - row [ref=f1e3388]:
+                - cell [ref=f1e3389]: "2147483755"
+                - cell [ref=f1e3390]:
+                  - strong [ref=f1e1875]: GRENADE
+                - cell [ref=f1e3391]: Dust 1947
+                - cell [ref=f1e3392]: Target Infantry receive no Cover Save from this weapon but still receive Infantry Save.
+                - cell [ref=f1e3393]: Target Infantry receive no Cover Save from this weapon but still receive Infantry Save.
+                - cell [ref=f1e1879]:
+                  - button [ref=f1e1880] [cursor=pointer]
+                  - button [ref=f1e3394] [cursor=pointer]
+                  - button [ref=f1e1886] [cursor=pointer]
+              - row [ref=f1e3395]:
+                - cell [ref=f1e3396]: "2147483756"
+                - cell [ref=f1e3397]:
+                  - strong [ref=f1e1892]: Half-Tracked
+                - cell [ref=f1e3398]: Dust 1947
+                - cell [ref=f1e3399]: "-"
+                - cell [ref=f1e3400]: Can be affected by type of Terrain crossed. (See Terrain Table)
+                - cell [ref=f1e1896]:
+                  - button [ref=f1e1897] [cursor=pointer]
+                  - button [ref=f1e3401] [cursor=pointer]
+                  - button [ref=f1e1903] [cursor=pointer]
+              - row [ref=f1e3402]:
+                - cell [ref=f1e3403]: "2147483757"
+                - cell [ref=f1e3404]:
+                  - strong [ref=f1e1909]: Head Shot
+                - cell [ref=f1e3405]: Dust 1947
+                - cell [ref=f1e3406]: "-"
+                - cell [ref=f1e3407]: Choose the enemy soldiers hit with this weapon. Place stunned token on unit hit by this weapon.
+                - cell [ref=f1e1913]:
+                  - button [ref=f1e1914] [cursor=pointer]
+                  - button [ref=f1e3408] [cursor=pointer]
+                  - button [ref=f1e1920] [cursor=pointer]
+              - row [ref=f1e3409]:
+                - cell [ref=f1e3410]: "2147483758"
+                - cell [ref=f1e3411]:
+                  - strong [ref=f1e1926]: Laser
+                - cell [ref=f1e3412]: Dust 1947
+                - cell [ref=f1e3413]: "-"
+                - cell [ref=f1e3414]: When weapon hits, roll again scoring another hit on a [bloc]. Keep rolling until failing to hit.
+                - cell [ref=f1e1930]:
+                  - button [ref=f1e1931] [cursor=pointer]
+                  - button [ref=f1e3415] [cursor=pointer]
+                  - button [ref=f1e1937] [cursor=pointer]
+              - row [ref=f1e3416]:
+                - cell [ref=f1e3417]: "2147483759"
+                - cell [ref=f1e3418]:
+                  - strong [ref=f1e1943]: Mechanic Crew
+                - cell [ref=f1e3419]: Dust 1947
+                - cell [ref=f1e3420]: "-"
+                - cell [ref=f1e3421]: Perform a Makeshift repair Action to roll one die for each Miniature in the Unit. Cancel one point of damage on an adjacent vehicle for each [bloc] rolled. Does not apply to Units Joined.
+                - cell [ref=f1e1947]:
+                  - button [ref=f1e1948] [cursor=pointer]
+                  - button [ref=f1e3422] [cursor=pointer]
+                  - button [ref=f1e1954] [cursor=pointer]
+              - row [ref=f1e3423]:
+                - cell [ref=f1e3424]: "2147483760"
+                - cell [ref=f1e3425]:
+                  - strong [ref=f1e1960]: Nothin's Easy
+                - cell [ref=f1e3426]: Dust 1947
+                - cell [ref=f1e3427]: "-"
+                - cell [ref=f1e3428]: Does not gain Under fire or Suppression. Applies to Units Joined.
+                - cell [ref=f1e1964]:
+                  - button [ref=f1e1965] [cursor=pointer]
+                  - button [ref=f1e3429] [cursor=pointer]
+                  - button [ref=f1e1971] [cursor=pointer]
+              - row [ref=f1e3430]:
+                - cell [ref=f1e3431]: "2147483761"
+                - cell [ref=f1e3432]:
+                  - strong [ref=f1e1977]: Passengers (12)
+                - cell [ref=f1e3433]: Dust 1947
+                - cell [ref=f1e3434]: "-"
+                - cell [ref=f1e3435]: Can carry twelve Infantry with Armour 1 or 2 or six Infantry with Armour 3 or 4.
+                - cell [ref=f1e1981]:
+                  - button [ref=f1e1982] [cursor=pointer]
+                  - button [ref=f1e3436] [cursor=pointer]
+                  - button [ref=f1e1988] [cursor=pointer]
+              - row [ref=f1e3437]:
+                - cell [ref=f1e3438]: "2147483762"
+                - cell [ref=f1e3439]:
+                  - strong [ref=f1e1994]: Passengers (3)
+                - cell [ref=f1e3440]: Dust 1947
+                - cell [ref=f1e3441]: "-"
+                - cell [ref=f1e3442]: Can carry three Infantry with Armour 1 or 2 or one Infantry with Armour 3 or 4.
+                - cell [ref=f1e1998]:
+                  - button [ref=f1e1999] [cursor=pointer]
+                  - button [ref=f1e3443] [cursor=pointer]
+                  - button [ref=f1e2005] [cursor=pointer]
+              - row [ref=f1e3444]:
+                - cell [ref=f1e3445]: "2147483763"
+                - cell [ref=f1e3446]:
+                  - strong [ref=f1e2011]: Passengers (6)
+                - cell [ref=f1e3447]: Dust 1947
+                - cell [ref=f1e3448]: "-"
+                - cell [ref=f1e3449]: Can carry six Infantry with Armour 1 or 2 or three Infantry with Armour 3 or 4.
+                - cell [ref=f1e2015]:
+                  - button [ref=f1e2016] [cursor=pointer]
+                  - button [ref=f1e3450] [cursor=pointer]
+                  - button [ref=f1e2022] [cursor=pointer]
+              - row [ref=f1e3451]:
+                - cell [ref=f1e3452]: "2147483764"
+                - cell [ref=f1e3453]:
+                  - strong [ref=f1e2028]: Phaser
+                - cell [ref=f1e3454]: Dust 1947
+                - cell [ref=f1e3455]: "-"
+                - cell [ref=f1e3456]: Targets get no Cover Save from this weapon but still receive Infantry Save.
+                - cell [ref=f1e2032]:
+                  - button [ref=f1e2033] [cursor=pointer]
+                  - button [ref=f1e3457] [cursor=pointer]
+                  - button [ref=f1e2039] [cursor=pointer]
+              - row [ref=f1e3458]:
+                - cell [ref=f1e3459]: "2147483765"
+                - cell [ref=f1e3460]:
+                  - strong [ref=f1e2045]: "Pilot: Bloody Baron"
+                - cell [ref=f1e3461]: Dust 1947
+                - cell [ref=f1e3462]: "-"
+                - cell [ref=f1e3463]: Only the Bloody Baron can pilot the Bloody Blitz, but it can be fielded without him. The Bloody Blitz is unique so only one may be fielded.
+                - cell [ref=f1e2049]:
+                  - button [ref=f1e2050] [cursor=pointer]
+                  - button [ref=f1e3464] [cursor=pointer]
+                  - button [ref=f1e2056] [cursor=pointer]
+              - row [ref=f1e3465]:
+                - cell [ref=f1e3466]: "2147483766"
+                - cell [ref=f1e3467]:
+                  - strong [ref=f1e2062]: "Pilot: Demolisher"
+                - cell [ref=f1e3468]: Dust 1947
+                - cell [ref=f1e3469]: "-"
+                - cell [ref=f1e3470]: May pilot this vehicle, using her skills while mounted.
+                - cell [ref=f1e2066]:
+                  - button [ref=f1e2067] [cursor=pointer]
+                  - button [ref=f1e3471] [cursor=pointer]
+                  - button [ref=f1e2073] [cursor=pointer]
+              - row [ref=f1e3472]:
+                - cell [ref=f1e3473]: "2147483767"
+                - cell [ref=f1e3474]:
+                  - strong [ref=f1e2079]: "Pilot: Koshka"
+                - cell [ref=f1e3475]: Dust 1947
+                - cell [ref=f1e3476]: Only Koshka can pilot Grand'Ma, but it can be fielded without her. Grand'Ma is unique so only one may be fielded.
+                - cell [ref=f1e3477]: Only Koshka can pilot Grand'Ma, but it can be fielded without her. Grand'Ma is unique so only one may be fielded.
+                - cell [ref=f1e2083]:
+                  - button [ref=f1e2084] [cursor=pointer]
+                  - button [ref=f1e3478] [cursor=pointer]
+                  - button [ref=f1e2090] [cursor=pointer]
+              - row [ref=f1e3479]:
+                - cell [ref=f1e3480]: "2147483768"
+                - cell [ref=f1e3481]:
+                  - strong [ref=f1e2096]: "Pilot: Luisa"
+                - cell [ref=f1e3482]: Dust 1947
+                - cell [ref=f1e3483]: "-"
+                - cell [ref=f1e3484]: Only Luisa can pilot the Demolisher, but it can be fielded without her. The Demolisher is unique so only one may be fielded.
+                - cell [ref=f1e2100]:
+                  - button [ref=f1e2101] [cursor=pointer]
+                  - button [ref=f1e3485] [cursor=pointer]
+                  - button [ref=f1e2107] [cursor=pointer]
+              - row [ref=f1e3486]:
+                - cell [ref=f1e3487]: "2147483769"
+                - cell [ref=f1e3488]:
+                  - strong [ref=f1e2113]: "Pilot: Nikolai"
+                - cell [ref=f1e3489]: Dust 1947
+                - cell [ref=f1e3490]: "-"
+                - cell [ref=f1e3491]: Only Nikolai can pilot the Red Cossack, but it can be fielded without him. The Red Cossack is unique so only one may be fielded.
+                - cell [ref=f1e2117]:
+                  - button [ref=f1e2118] [cursor=pointer]
+                  - button [ref=f1e3492] [cursor=pointer]
+                  - button [ref=f1e2124] [cursor=pointer]
+              - row [ref=f1e3493]:
+                - cell [ref=f1e3494]: "2147483770"
+                - cell [ref=f1e3495]:
+                  - strong [ref=f1e2130]: "Pilot: Red Ace"
+                - cell [ref=f1e3496]: Dust 1947
+                - cell [ref=f1e3497]: "-"
+                - cell [ref=f1e3498]: Eva is the only Hero that can pilot the Red Star, although it can be fielded without a Hero pilot. The Red Star is unique, so only one may be fielded.
+                - cell [ref=f1e2134]:
+                  - button [ref=f1e2135] [cursor=pointer]
+                  - button [ref=f1e3499] [cursor=pointer]
+                  - button [ref=f1e2141] [cursor=pointer]
+              - row [ref=f1e3500]:
+                - cell [ref=f1e3501]: "2147483771"
+                - cell [ref=f1e3502]:
+                  - strong [ref=f1e2147]: "Pilot: Sigrid"
+                - cell [ref=f1e3503]: Dust 1947
+                - cell [ref=f1e3504]: "-"
+                - cell [ref=f1e3505]: Only Sigrid can pilot the Snow Lynx and when it is the Snow Lynx gains the Expert Skill with it's Dual Anti-Tank Guns, but it can be fielded without her. The Snow Lynx is unique so only one may be fielded.
+                - cell [ref=f1e2151]:
+                  - button [ref=f1e2152] [cursor=pointer]
+                  - button [ref=f1e3506] [cursor=pointer]
+                  - button [ref=f1e2158] [cursor=pointer]
+              - row [ref=f1e3507]:
+                - cell [ref=f1e3508]: "2147483772"
+                - cell [ref=f1e3509]:
+                  - strong [ref=f1e2164]: "Pilot: Snow Lynx"
+                - cell [ref=f1e3510]: Dust 1947
+                - cell [ref=f1e3511]: "-"
+                - cell [ref=f1e3512]: Sigrid can pilot this special JagdLuther and only this vehicle.
+                - cell [ref=f1e2168]:
+                  - button [ref=f1e2169] [cursor=pointer]
+                  - button [ref=f1e3513] [cursor=pointer]
+                  - button [ref=f1e2175] [cursor=pointer]
+              - row [ref=f1e3514]:
+                - cell [ref=f1e3515]: "2147483773"
+                - cell [ref=f1e3516]:
+                  - strong [ref=f1e2181]: "Pilot: Tom"
+                - cell [ref=f1e3517]: Dust 1947
+                - cell [ref=f1e3518]: "-"
+                - cell [ref=f1e3519]: Only Tom can pilot the Rattlesnake, but it can be fielded without him. The Rattlesnake is unique so only one may be fielded.
+                - cell [ref=f1e2185]:
+                  - button [ref=f1e2186] [cursor=pointer]
+                  - button [ref=f1e3520] [cursor=pointer]
+                  - button [ref=f1e2192] [cursor=pointer]
+              - row [ref=f1e3521]:
+                - cell [ref=f1e3522]: "2147483774"
+                - cell [ref=f1e3523]:
+                  - strong [ref=f1e2198]: Possessed
+                - cell [ref=f1e3524]: Dust 1947
+                - cell [ref=f1e3525]: "-"
+                - cell [ref=f1e3526]: When this Hero is at full Health she uses the Lilith profile. When she has lost at least one Health she uses the Possessed profile.
+                - cell [ref=f1e2202]:
+                  - button [ref=f1e2203] [cursor=pointer]
+                  - button [ref=f1e3527] [cursor=pointer]
+                  - button [ref=f1e2209] [cursor=pointer]
+              - row [ref=f1e3528]:
+                - cell [ref=f1e3529]: "2147483775"
+                - cell [ref=f1e3530]:
+                  - strong [ref=f1e2215]: Power Scope
+                - cell [ref=f1e3531]: Dust 1947
+                - cell [ref=f1e3532]: "-"
+                - cell [ref=f1e3533]: Hits on [crosshair] as well as [bloc] when using ranged weapons when making a Sustained Attack. Does not appy to Units Joined.
+                - cell [ref=f1e2219]:
+                  - button [ref=f1e2220] [cursor=pointer]
+                  - button [ref=f1e3534] [cursor=pointer]
+                  - button [ref=f1e2226] [cursor=pointer]
+              - row [ref=f1e3535]:
+                - cell [ref=f1e3536]: "2147483776"
+                - cell [ref=f1e3537]:
+                  - strong [ref=f1e2232]: Quick Recovery
+                - cell [ref=f1e3538]: Dust 1947
+                - cell [ref=f1e3539]: "-"
+                - cell [ref=f1e3540]: Unit does not need to take a Nothing Action after using Airborne skill. A Unit share this skill with a Squad but not a Vehicle.
+                - cell [ref=f1e2236]:
+                  - button [ref=f1e2237] [cursor=pointer]
+                  - button [ref=f1e3541] [cursor=pointer]
+                  - button [ref=f1e2243] [cursor=pointer]
+              - row [ref=f1e3542]:
+                - cell [ref=f1e3543]: "2147483777"
+                - cell [ref=f1e3544]:
+                  - strong [ref=f1e2249]: Radar
+                - cell [ref=f1e3545]: Dust 1947
+                - cell [ref=f1e3546]: "-"
+                - cell [ref=f1e3547]: A vehicle with this equipment can reroll once any failed dice when making an Attack or Sustained Attack Action against an Aircraft.
+                - cell [ref=f1e2253]:
+                  - button [ref=f1e2254] [cursor=pointer]
+                  - button [ref=f1e3548] [cursor=pointer]
+                  - button [ref=f1e2260] [cursor=pointer]
+              - row [ref=f1e3549]:
+                - cell [ref=f1e3550]: "2147483778"
+                - cell [ref=f1e3551]:
+                  - strong [ref=f1e2266]: Reload
+                - cell [ref=f1e3552]: Dust 1947
+                - cell [ref=f1e3553]: When this weapon performs an Attack Action, remove its Reload Token. The Unit may not perform another Attack Action until a Reload Action is performed.
+                - cell [ref=f1e3554]: When this weapon performs an Attack Action, remove its Reload Token. The Unit may not perform another Attack Action until a Reload Action is performed.
+                - cell [ref=f1e2270]:
+                  - button [ref=f1e2271] [cursor=pointer]
+                  - button [ref=f1e3555] [cursor=pointer]
+                  - button [ref=f1e2277] [cursor=pointer]
+              - row [ref=f1e3556]:
+                - cell [ref=f1e3557]: "2147483779"
+                - cell [ref=f1e3558]:
+                  - strong [ref=f1e2283]: Salvo
+                - cell [ref=f1e3559]: Dust 1947
+                - cell [ref=f1e3560]: "-"
+                - cell [ref=f1e3561]: May double number of attack dice in an Attack but must be reloaded with a Reload Action prior to next use.
+                - cell [ref=f1e2287]:
+                  - button [ref=f1e2288] [cursor=pointer]
+                  - button [ref=f1e3562] [cursor=pointer]
+                  - button [ref=f1e2294] [cursor=pointer]
+              - row [ref=f1e3563]:
+                - cell [ref=f1e3564]: "2147483780"
+                - cell [ref=f1e3565]:
+                  - strong [ref=f1e2300]: SCOUT
+                - cell [ref=f1e3566]: Dust 1947
+                - cell [ref=f1e3567]: Take March Move Action as first Action of the game leaving one further Action for that Activation.
+                - cell [ref=f1e3568]: Take March Move Action as first Action of game and recieve one extra Action for that Activation.
+                - cell [ref=f1e2304]:
+                  - button [ref=f1e2305] [cursor=pointer]
+                  - button [ref=f1e3569] [cursor=pointer]
+                  - button [ref=f1e2311] [cursor=pointer]
+              - row [ref=f1e3570]:
+                - cell [ref=f1e3571]: "2147483781"
+                - cell [ref=f1e3572]:
+                  - strong [ref=f1e2317]: "Sibling: The Dragon"
+                - cell [ref=f1e3573]: Dust 1947
+                - cell [ref=f1e3574]: "-"
+                - cell [ref=f1e3575]: The Phoenix can join the same Unit as The Dragon or form one with her. When Joined in the same Unit, they gain Expert with all weapons.
+                - cell [ref=f1e2321]:
+                  - button [ref=f1e2322] [cursor=pointer]
+                  - button [ref=f1e3576] [cursor=pointer]
+                  - button [ref=f1e2328] [cursor=pointer]
+              - row [ref=f1e3577]:
+                - cell [ref=f1e3578]: "2147483782"
+                - cell [ref=f1e3579]:
+                  - strong [ref=f1e2334]: "Sibling: The Phoenix"
+                - cell [ref=f1e3580]: Dust 1947
+                - cell [ref=f1e3581]: "-"
+                - cell [ref=f1e3582]: The Dragon can join the same Unit as The Phoenix or form one with her. When Joined in the same Unit, they gain Expert with all weapons.
+                - cell [ref=f1e2338]:
+                  - button [ref=f1e2339] [cursor=pointer]
+                  - button [ref=f1e3583] [cursor=pointer]
+                  - button [ref=f1e2345] [cursor=pointer]
+              - row [ref=f1e3584]:
+                - cell [ref=f1e3585]: "2147483783"
+                - cell [ref=f1e3586]:
+                  - strong [ref=f1e2351]: Small Vehicle
+                - cell [ref=f1e3587]: Dust 1947
+                - cell [ref=f1e3588]: "-"
+                - cell [ref=f1e3589]: Always has Cover save. Determines and affects Line of Sight as an Infantry Unit, but blocks LoS for other Small Vehicles.
+                - cell [ref=f1e2355]:
+                  - button [ref=f1e2356] [cursor=pointer]
+                  - button [ref=f1e3590] [cursor=pointer]
+                  - button [ref=f1e2362] [cursor=pointer]
+              - row [ref=f1e3591]:
+                - cell [ref=f1e3592]: "2147483784"
+                - cell [ref=f1e3593]:
+                  - strong [ref=f1e2368]: SNIPER
+                - cell [ref=f1e3594]: Dust 1947
+                - cell [ref=f1e3595]: Choose the enemy soldiers hit with this weapon. It Ignores Infantry and Cover saves.
+                - cell [ref=f1e3596]: Choose the enemy soldiers hit with this weapon. It Ignores Infantry and Cover saves.
+                - cell [ref=f1e2372]:
+                  - button [ref=f1e2373] [cursor=pointer]
+                  - button [ref=f1e3597] [cursor=pointer]
+                  - button [ref=f1e2379] [cursor=pointer]
+              - row [ref=f1e3598]:
+                - cell [ref=f1e3599]: "2147483785"
+                - cell [ref=f1e3600]:
+                  - strong [ref=f1e2385]: Spotter
+                - cell [ref=f1e3601]: Dust 1947
+                - cell [ref=f1e3602]: "-"
+                - cell [ref=f1e3603]: If Spotter does not use a weapon, each Sniper weapon making a Sustained Attack hits on rolls of [crosshair] as well as [bloc].
+                - cell [ref=f1e2389]:
+                  - button [ref=f1e2390] [cursor=pointer]
+                  - button [ref=f1e3604] [cursor=pointer]
+                  - button [ref=f1e2396] [cursor=pointer]
+              - row [ref=f1e3605]:
+                - cell [ref=f1e3606]: "2147483786"
+                - cell [ref=f1e3607]:
+                  - strong [ref=f1e2402]: Stealth
+                - cell [ref=f1e3608]: Dust 1947
+                - cell [ref=f1e3609]: "-"
+                - cell [ref=f1e3610]: Attacking with this weapon does not remove Camouflage.
+                - cell [ref=f1e2406]:
+                  - button [ref=f1e2407] [cursor=pointer]
+                  - button [ref=f1e3611] [cursor=pointer]
+                  - button [ref=f1e2413] [cursor=pointer]
+              - row [ref=f1e3612]:
+                - cell [ref=f1e3613]: "2147483787"
+                - cell [ref=f1e3614]:
+                  - strong [ref=f1e2419]: Super Human
+                - cell [ref=f1e3615]: Dust 1947
+                - cell [ref=f1e3616]: "-"
+                - cell [ref=f1e3617]: Passes Infantry Save on [shield] as well as [bloc] and can benefit from Cover, but not at the same time. May not Join a Unit.
+                - cell [ref=f1e2423]:
+                  - button [ref=f1e2424] [cursor=pointer]
+                  - button [ref=f1e3618] [cursor=pointer]
+                  - button [ref=f1e2430] [cursor=pointer]
+              - row [ref=f1e3619]:
+                - cell [ref=f1e3620]: "2147483788"
+                - cell [ref=f1e3621]:
+                  - strong [ref=f1e2436]: Trail Blazer
+                - cell [ref=f1e3622]: Dust 1947
+                - cell [ref=f1e3623]: "-"
+                - cell [ref=f1e3624]: Can Move through enemy Units. Applies to Units Joined.
+                - cell [ref=f1e2440]:
+                  - button [ref=f1e2441] [cursor=pointer]
+                  - button [ref=f1e3625] [cursor=pointer]
+                  - button [ref=f1e2447] [cursor=pointer]
+              - row [ref=f1e3626]:
+                - cell [ref=f1e3627]: "2147483789"
+                - cell [ref=f1e3628]:
+                  - strong [ref=f1e2453]: Volley
+                - cell [ref=f1e3629]: Dust 1947
+                - cell [ref=f1e3630]: "-"
+                - cell [ref=f1e3631]: Weapon may fire all remaining ammunition at the same target in a Single Attack or Sustained Attack Action.
+                - cell [ref=f1e2457]:
+                  - button [ref=f1e2458] [cursor=pointer]
+                  - button [ref=f1e3632] [cursor=pointer]
+                  - button [ref=f1e2464] [cursor=pointer]
+              - row [ref=f1e3633]:
+                - cell [ref=f1e3634]: "2147483790"
+                - cell [ref=f1e3635]:
+                  - strong [ref=f1e2470]: Wire Guided
+                - cell [ref=f1e3636]: Dust 1947
+                - cell [ref=f1e3637]: "-"
+                - cell [ref=f1e3638]: If unit Attacks with one Missile and no other weapons, it re-rolls misses for that missile as if making a Sustained Attack.
+                - cell [ref=f1e2474]:
+                  - button [ref=f1e2475] [cursor=pointer]
+                  - button [ref=f1e3639] [cursor=pointer]
+                  - button [ref=f1e2481] [cursor=pointer]
+              - row [ref=f1e3640]:
+                - cell [ref=f1e3641]: "2147483791"
+                - cell [ref=f1e3642]:
+                  - strong [ref=f1e2487]: REPULSOR
+                - cell [ref=f1e3643]: Star Wars
+                - cell [ref=f1e3644]: This Unit ignores terrain penalties that would normally affect ground vehicles, but does not ignore terrain entirely.
+                - cell [ref=f1e3645]: This Unit ignores terrain penalties that would normally affect ground vehicles, but does not ignore terrain entirely.
+                - cell [ref=f1e2491]:
+                  - button [ref=f1e2492] [cursor=pointer]
+                  - button [ref=f1e3646] [cursor=pointer]
+                  - button [ref=f1e2498] [cursor=pointer]
+              - row [ref=f1e3647]:
+                - cell [ref=f1e3648]: "2147483792"
+                - cell [ref=f1e3649]:
+                  - strong [ref=f1e2504]: "EXPERT: DC-15S Blaster Carbine"
+                - cell [ref=f1e3650]: Star Wars
+                - cell [ref=f1e3651]: Hits on [TARGET] as well as [SHIELD].
+                - cell [ref=f1e3652]: Hits on [TARGET] as well as [SHIELD].
+                - cell [ref=f1e2508]:
+                  - button [ref=f1e2509] [cursor=pointer]
+                  - button [ref=f1e3653] [cursor=pointer]
+                  - button [ref=f1e2515] [cursor=pointer]
+              - row [ref=f1e3654]:
+                - cell [ref=f1e3655]: "2147483793"
+                - cell [ref=f1e3656]:
+                  - strong [ref=f1e2521]: "EXPERT: DC-17 Blaster Pistol"
+                - cell [ref=f1e3657]: Star Wars
+                - cell [ref=f1e3658]: Hits on [TARGET] as well as [SHIELD].
+                - cell [ref=f1e3659]: Hits on [TARGET] as well as [SHIELD].
+                - cell [ref=f1e2525]:
+                  - button [ref=f1e2526] [cursor=pointer]
+                  - button [ref=f1e3660] [cursor=pointer]
+                  - button [ref=f1e2532] [cursor=pointer]
+              - row [ref=f1e3661]:
+                - cell [ref=f1e3662]: "2147483794"
+                - cell [ref=f1e3663]:
+                  - strong [ref=f1e2538]: "EXPERT: Lightsaber"
+                - cell [ref=f1e3664]: Alle
+                - cell [ref=f1e3665]: Hits on [TARGET] as well as [SHIELD].
+                - cell [ref=f1e3666]: Hits on [TARGET] as well as [SHIELD].
+                - cell [ref=f1e2542]:
+                  - button [ref=f1e2543] [cursor=pointer]
+                  - button [ref=f1e3667] [cursor=pointer]
+                  - button [ref=f1e2549] [cursor=pointer]
+              - row [ref=f1e3668]:
+                - cell [ref=f1e3669]: "2147483795"
+                - cell [ref=f1e3670]:
+                  - strong [ref=f1e2555]: Smoke Granades
+                - cell [ref=f1e3671]: Dust 1947
+                - cell [ref=f1e3672]: Once per game, Free Action to place Smoke on Unit.
+                - cell [ref=f1e3673]: "-"
+                - cell [ref=f1e2559]:
+                  - button [ref=f1e2560] [cursor=pointer]
+                  - button [ref=f1e3674] [cursor=pointer]
+                  - button [ref=f1e2566] [cursor=pointer]
+              - row [ref=f1e3675]:
+                - cell [ref=f1e3676]: "2147483796"
+                - cell [ref=f1e3677]:
+                  - strong [ref=f1e2572]: ROCKET PACK
+                - cell [ref=f1e3678]: Dust 1947
+                - cell [ref=f1e3679]: Once per game gain Fly, Charge and double Move and March values.
+                - cell [ref=f1e3680]: "-"
+                - cell [ref=f1e2576]:
+                  - button [ref=f1e2577] [cursor=pointer]
+                  - button [ref=f1e3681] [cursor=pointer]
+                  - button [ref=f1e2583] [cursor=pointer]
+              - row [ref=f1e3682]:
+                - cell [ref=f1e3683]: "2147483797"
+                - cell [ref=f1e3684]:
+                  - strong [ref=f1e2589]: RAID
+                - cell [ref=f1e3685]: Alle
+                - cell [ref=f1e3686]: "RAID: The Vehicle can spend all its Actions to do a Raid Special Action. It can do MOVE + ATTACK + MOVE in this Activation, but can't be reactivated for this turn."
+                - cell [ref=f1e3687]: "-"
+                - cell [ref=f1e2593]:
+                  - button [ref=f1e2594] [cursor=pointer]
+                  - button [ref=f1e3688] [cursor=pointer]
+                  - button [ref=f1e2600] [cursor=pointer]
+              - row [ref=f1e3689]:
+                - cell [ref=f1e3690]: "2147483798"
+                - cell [ref=f1e3691]:
+                  - strong [ref=f1e2606]: VEHICLE SQUADRON
+                - cell [ref=f1e3692]: Alle
+                - cell [ref=f1e3693]: Vehicle Unit made of several miniatures. Apply damage and Critical Hits to miniatures one by one. When a Vehicle is lost, so are all associated weapons.
+                - cell [ref=f1e3694]: "-"
+                - cell [ref=f1e2610]:
+                  - button [ref=f1e2611] [cursor=pointer]
+                  - button [ref=f1e3695] [cursor=pointer]
+                  - button [ref=f1e2617] [cursor=pointer]
+  - dialog [ref=f1e3698]:
+    - heading "Regel klonen" [level=2] [ref=f1e3699]
+    - generic [ref=f1e3700]:
+      - generic [ref=f1e3701]:
+        - generic [ref=f1e3702]: Name
+        - generic [ref=f1e3703]:
+          - textbox "Name" [ref=f1e3704]: ARMOR 3 (Kopie)
+          - group [aria-hidden]:
+            - generic: Name
+      - generic [ref=f1e3705]:
+        - generic: Game System (optional)
+        - generic [ref=f1e3706]:
+          - combobox "Game System (optional)" [ref=f1e3707] [cursor=pointer]
+          - textbox [aria-hidden]
+          - group [aria-hidden]:
+            - generic: Game System (optional)
+      - generic [ref=f1e3708]:
+        - generic [ref=f1e3709]: Kurzbeschreibung
+        - generic [ref=f1e3710]:
+          - textbox "Kurzbeschreibung" [ref=f1e3711]: Reduziert Schaden
+          - group [aria-hidden]:
+            - generic: Kurzbeschreibung
+        - paragraph [ref=f1e3712]: Kurze Zusammenfassung (wird in Übersichten angezeigt)
+      - generic [ref=f1e3713]:
+        - generic [ref=f1e3714]: Vollständige Beschreibung
+        - generic [ref=f1e3715]:
+          - textbox "Vollständige Beschreibung" [ref=f1e3716]: Diese Einheit ignoriert x Schaden von Angriffen.
+          - group [aria-hidden]:
+            - generic: Vollständige Beschreibung
+        - paragraph [ref=f1e3717]: Detaillierte Regelbeschreibung
+    - generic [ref=f1e3718]:
+      - button "Abbrechen" [ref=f1e3719] [cursor=pointer]
+      - button "Speichern" [ref=f1e3720] [cursor=pointer]

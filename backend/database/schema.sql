@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS units (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     type VARCHAR(50),
+    is_unique BOOLEAN NOT NULL DEFAULT 0,
     level VARCHAR(10),
     speed INT,
     march_speed INT,
@@ -84,7 +85,9 @@ CREATE TABLE IF NOT EXISTS weapons (
     `range` VARCHAR(20),
     disposable BOOLEAN DEFAULT FALSE,
     game_system_id INT UNSIGNED NULL,
+    faction_id INT NULL,
     FOREIGN KEY (game_system_id) REFERENCES game_systems(id) ON DELETE SET NULL,
+    FOREIGN KEY (faction_id) REFERENCES factions(id) ON DELETE SET NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -189,4 +192,3 @@ FROM armies a
 LEFT JOIN army_units au ON au.army_id = a.id
 LEFT JOIN units u ON u.id = au.unit_id
 GROUP BY a.id;
-

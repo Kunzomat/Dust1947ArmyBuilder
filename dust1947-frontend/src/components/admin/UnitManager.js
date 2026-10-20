@@ -15,6 +15,8 @@ import {
   DialogContent,
   DialogActions,
   TextField,
+  Checkbox,
+  FormControlLabel,
   MenuItem,
   Typography,
   Tabs,
@@ -28,6 +30,8 @@ import {
 } from '@mui/material';
 import { Edit, Delete, Add, Link as LinkIcon, ContentCopy, CheckCircle } from '@mui/icons-material';
 import { getImageUrl } from '../../imageHelper';
+import { ADMIN_CLONE_BUTTON_COLOR } from './adminStyles';
+import useSessionStorageState from '../../hooks/useSessionStorageState';
 
 // Admin API uses different base URL than army_api
 const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
@@ -184,6 +188,7 @@ const getUnitFormData = (unit) => ({
   faction_id: unit?.faction_id || '',
   game_system_id: unit?.game_system_id || '',
   type: unit?.type || '',
+  is_unique: [true, 1, '1'].includes(unit?.is_unique),
   level: toFormValue(unit?.level),
   points: toFormValue(unit?.points),
   speed: toFormValue(unit?.speed),
@@ -197,7 +202,7 @@ const getUnitFormData = (unit) => ({
 // this dialog's subtree instead of the whole UnitManager (including the full
 // units table, which can contain hundreds of rows and was previously
 // re-rendered on every keystroke, causing multi-second input lag).
-function UnitEditDialog({ open, editingUnit, cloneSourceUnit, factions, gameSystems, onClose, onSaved }) {
+export function UnitEditDialog({ open, editingUnit, cloneSourceUnit, factions, gameSystems, onClose, onSaved }) {
   const [formData, setFormData] = useState(() => getUnitFormData(null));
   const [uploadedImageName, setUploadedImageName] = useState('');
   const [imageOptions, setImageOptions] = useState([]);
@@ -420,6 +425,16 @@ function UnitEditDialog({ open, editingUnit, cloneSourceUnit, factions, gameSyst
             </TextField>
           </Box>
 
+          <FormControlLabel
+            label="Einzigartige Einheit"
+            control={
+              <Checkbox
+                checked={formData.is_unique}
+                onChange={(e) => setFormData({ ...formData, is_unique: e.target.checked })}
+              />
+            }
+          />
+
           <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
             <TextField
               type="text"
@@ -596,9 +611,17 @@ export default function UnitManager() {
   const [selectedUnit, setSelectedUnit] = useState(null);
   const [unitWeapons, setUnitWeapons] = useState([]);
   const [unitRules, setUnitRules] = useState([]);
-  const [filterGameSystemId, setFilterGameSystemId] = useState('');
-  const [filterFactionId, setFilterFactionId] = useState('');
-  const [filterType, setFilterType] = useState('');
+  const [unitFilters, setUnitFilters] = useSessionStorageState(
+    'dust1947.filters.v1.admin.units',
+    { filterGameSystemId: '', filterFactionId: '', filterType: '', nameFilter: '' }
+  );
+  const { filterGameSystemId, filterFactionId, filterType, nameFilter } = unitFilters;
+  const setUnitFilter = (field, value) =>
+    setUnitFilters((previous) => ({ ...previous, [field]: value }));
+  const setFilterGameSystemId = (value) => setUnitFilter('filterGameSystemId', value);
+  const setFilterFactionId = (value) => setUnitFilter('filterFactionId', value);
+  const setFilterType = (value) => setUnitFilter('filterType', value);
+  const setNameFilter = (value) => setUnitFilter('nameFilter', value);
   const [sortBy, setSortBy] = useState('id');
   const [sortDirection, setSortDirection] = useState('asc');
    const [calculatedPointsCache, setCalculatedPointsCache] = useState({});
@@ -609,9 +632,16 @@ export default function UnitManager() {
      firing_arc: ''
    });
 
-   const [weaponFilterGameSystemId, setWeaponFilterGameSystemId] = useState('');
-   const [weaponFilterFactionId, setWeaponFilterFactionId] = useState('');
-   const [weaponFilterName, setWeaponFilterName] = useState('');
+   const [weaponAssignmentFilters, setWeaponAssignmentFilters] = useSessionStorageState(
+     'dust1947.filters.v1.admin.unit-weapon-assignment',
+     { weaponFilterGameSystemId: '', weaponFilterFactionId: '', weaponFilterName: '' }
+   );
+   const { weaponFilterGameSystemId, weaponFilterFactionId, weaponFilterName } = weaponAssignmentFilters;
+   const setWeaponAssignmentFilter = (field, value) =>
+     setWeaponAssignmentFilters((previous) => ({ ...previous, [field]: value }));
+   const setWeaponFilterGameSystemId = (value) => setWeaponAssignmentFilter('weaponFilterGameSystemId', value);
+   const setWeaponFilterFactionId = (value) => setWeaponAssignmentFilter('weaponFilterFactionId', value);
+   const setWeaponFilterName = (value) => setWeaponAssignmentFilter('weaponFilterName', value);
 
    const [editingAssignedWeapon, setEditingAssignedWeapon] = useState(null);
 
@@ -664,6 +694,8 @@ export default function UnitManager() {
   };
 
   const filteredAndSortedUnits = useMemo(() => {
+    const normalizedNameFilter = String(nameFilter || '').trim().toLowerCase();
+
     const filtered = units.filter((unit) => {
       if (filterGameSystemId && String(unit.game_system_id || '') !== String(filterGameSystemId)) {
         return false;
@@ -674,7 +706,7 @@ export default function UnitManager() {
       if (filterType && String(unit.type || '') !== String(filterType)) {
         return false;
       }
-      return true;
+      return !normalizedNameFilter || String(unit.name || '').toLowerCase().includes(normalizedNameFilter);
     });
 
     const sorted = [...filtered].sort((a, b) => {
@@ -687,7 +719,7 @@ export default function UnitManager() {
     });
 
     return sorted;
-  }, [units, filterGameSystemId, filterFactionId, filterType, sortBy, sortDirection]);
+  }, [units, filterGameSystemId, filterFactionId, filterType, nameFilter, sortBy, sortDirection]);
 
   const availableFactionsForFilter = useMemo(() => {
     if (!filterGameSystemId) {
@@ -708,6 +740,28 @@ export default function UnitManager() {
       (faction) => String(faction.game_system_id || '') === String(weaponFilterGameSystemId)
     );
   }, [factions, weaponFilterGameSystemId]);
+
+  useEffect(() => {
+    if (filterGameSystemId && gameSystems.length > 0
+      && !gameSystems.some((system) => String(system.id) === String(filterGameSystemId))) {
+      setUnitFilters((previous) => ({ ...previous, filterGameSystemId: '' }));
+    }
+    if (filterFactionId && factions.length > 0
+      && !availableFactionsForFilter.some((faction) => String(faction.id) === String(filterFactionId))) {
+      setUnitFilters((previous) => ({ ...previous, filterFactionId: '' }));
+    }
+  }, [availableFactionsForFilter, factions.length, filterFactionId, filterGameSystemId, gameSystems, setUnitFilters]);
+
+  useEffect(() => {
+    if (weaponFilterGameSystemId && gameSystems.length > 0
+      && !gameSystems.some((system) => String(system.id) === String(weaponFilterGameSystemId))) {
+      setWeaponAssignmentFilters((previous) => ({ ...previous, weaponFilterGameSystemId: '' }));
+    }
+    if (weaponFilterFactionId && factions.length > 0
+      && !availableWeaponFactions.some((faction) => String(faction.id) === String(weaponFilterFactionId))) {
+      setWeaponAssignmentFilters((previous) => ({ ...previous, weaponFilterFactionId: '' }));
+    }
+  }, [availableWeaponFactions, factions.length, gameSystems, setWeaponAssignmentFilters, weaponFilterFactionId, weaponFilterGameSystemId]);
 
   const handleSort = (column) => {
     if (sortBy === column) {
@@ -905,9 +959,18 @@ export default function UnitManager() {
   const handleOpenRelationDialog = (unit) => {
     setSelectedUnit(unit);
     setCurrentWeaponForm({ weapon_id: '', number: 1, firing_arc: '' });
-    setWeaponFilterName('');
-    setWeaponFilterGameSystemId(unit?.game_system_id ? String(unit.game_system_id) : '');
-    setWeaponFilterFactionId('');
+    setWeaponAssignmentFilters((previous) => {
+      const requiredGameSystemId = unit?.game_system_id ? String(unit.game_system_id) : previous.weaponFilterGameSystemId;
+      const factionIsCompatible = !previous.weaponFilterFactionId || factions.some(
+        (faction) => String(faction.id) === String(previous.weaponFilterFactionId)
+          && (!requiredGameSystemId || String(faction.game_system_id || '') === requiredGameSystemId)
+      );
+      return {
+        ...previous,
+        weaponFilterGameSystemId: requiredGameSystemId,
+        weaponFilterFactionId: factionIsCompatible ? previous.weaponFilterFactionId : '',
+      };
+    });
     loadUnitRelations(unit.id);
     setRelationDialogOpen(true);
     setEditingAssignedWeapon(null);
@@ -1053,6 +1116,7 @@ export default function UnitManager() {
          faction_id: unit.faction_id,
          game_system_id: unit.game_system_id || null,
          type: unit.type,
+         is_unique: [true, 1, '1'].includes(unit.is_unique),
          points: theoreticalPoints,
          level: unit.level,
          speed: unit.speed,
@@ -1124,17 +1188,17 @@ export default function UnitManager() {
         </IconButton>
         <IconButton
           size="small"
-          color="secondary"
+          onClick={() => handleOpenDialog(unit)}
+        >
+          <Edit />
+        </IconButton>
+        <IconButton
+          size="small"
+          color={ADMIN_CLONE_BUTTON_COLOR}
           onClick={() => handleOpenDialog(unit, { clone: true })}
           title="Unit klonen"
         >
           <ContentCopy />
-        </IconButton>
-        <IconButton
-          size="small"
-          onClick={() => handleOpenDialog(unit)}
-        >
-          <Edit />
         </IconButton>
         <IconButton
           size="small"
@@ -1153,6 +1217,13 @@ export default function UnitManager() {
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, gap: 2, flexWrap: 'wrap' }}>
         <Typography variant="h6">Units ({filteredAndSortedUnits.length})</Typography>
         <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', flexWrap: 'wrap' }}>
+          <TextField
+            size="small"
+            label="Name filtern"
+            value={nameFilter}
+            onChange={(e) => setNameFilter(e.target.value)}
+            sx={{ minWidth: 220 }}
+          />
           <FormControl size="small" sx={{ minWidth: 220 }}>
             <InputLabel id="units-game-system-filter-label">Game System</InputLabel>
             <Select
@@ -1618,4 +1689,3 @@ export default function UnitManager() {
     </Box>
   );
 }
-

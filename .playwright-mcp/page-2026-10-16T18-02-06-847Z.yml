@@ -1,0 +1,82 @@
+- generic [ref=f2e3]:
+  - banner [ref=f2e4]:
+    - generic [ref=f2e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f2e6]
+      - group [ref=f2e7]:
+        - button "Army Builder" [ref=f2e8] [cursor=pointer]
+        - button "Admin" [pressed] [ref=f2e11] [cursor=pointer]
+  - generic [ref=f2e15]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=f2e16]
+    - paragraph [ref=f2e17]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln, Platoons und Actions"
+    - tablist [ref=f2e21]:
+      - tab "🎮 Game Systems" [ref=f2e22] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=f2e23] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=f2e24] [cursor=pointer]
+      - tab "⚔️ Units" [ref=f2e25] [cursor=pointer]
+      - tab "🔫 Weapons" [ref=f2e26] [cursor=pointer]
+      - tab "📜 Rules" [ref=f2e27] [cursor=pointer]
+      - tab "🪖 Platoons" [ref=f2e28] [cursor=pointer]
+      - tab "Actions" [selected] [ref=f2e29] [cursor=pointer]
+    - tabpanel [ref=f2e31]:
+      - generic [ref=f2e33]:
+        - generic [ref=f2e34]:
+          - heading "Action Types (6)" [level=6] [ref=f2e35]
+          - generic [ref=f2e36]:
+            - button "Back to Actions" [active] [ref=f2e37] [cursor=pointer]
+            - button [ref=f2e38] [cursor=pointer]
+        - table [ref=f2e43]:
+          - rowgroup [ref=f2e44]:
+            - row [ref=f2e45]:
+              - columnheader "ID" [ref=f2e46]
+              - columnheader "Name" [ref=f2e47]
+              - columnheader "Code" [ref=f2e48]
+              - columnheader "Operations" [ref=f2e49]
+          - rowgroup [ref=f2e50]:
+            - row [ref=f2e51]:
+              - cell "1" [ref=f2e52]
+              - cell "Normal Action" [ref=f2e53]
+              - cell "normal_action" [ref=f2e54]
+              - cell [ref=f2e55]:
+                - button "Edit Normal Action" [ref=f2e56] [cursor=pointer]
+                - button "Clone Normal Action" [ref=f2e59] [cursor=pointer]
+                - button "Delete Normal Action" [ref=f2e62] [cursor=pointer]
+            - row [ref=f2e65]:
+              - cell "3" [ref=f2e66]
+              - cell "Officer Special Action" [ref=f2e67]
+              - cell "officer_special_action" [ref=f2e68]
+              - cell [ref=f2e69]:
+                - button "Edit Officer Special Action" [ref=f2e70] [cursor=pointer]
+                - button "Clone Officer Special Action" [ref=f2e73] [cursor=pointer]
+                - button "Delete Officer Special Action" [ref=f2e76] [cursor=pointer]
+            - row [ref=f2e79]:
+              - cell "4" [ref=f2e80]
+              - cell "Psyker Special Action" [ref=f2e81]
+              - cell "psyker_special_action" [ref=f2e82]
+              - cell [ref=f2e83]:
+                - button "Edit Psyker Special Action" [ref=f2e84] [cursor=pointer]
+                - button "Clone Psyker Special Action" [ref=f2e87] [cursor=pointer]
+                - button "Delete Psyker Special Action" [ref=f2e90] [cursor=pointer]
+            - row [ref=f2e93]:
+              - cell "2" [ref=f2e94]
+              - cell "Special Action" [ref=f2e95]
+              - cell "special_action" [ref=f2e96]
+              - cell [ref=f2e97]:
+                - button "Edit Special Action" [ref=f2e98] [cursor=pointer]
+                - button "Clone Special Action" [ref=f2e101] [cursor=pointer]
+                - button "Delete Special Action" [ref=f2e104] [cursor=pointer]
+            - row [ref=f2e107]:
+              - cell "9" [ref=f2e108]
+              - cell "ZZ_DUST_TEST_20261016_UI Type Clone" [ref=f2e109]
+              - cell "zz_dust_test_20261016_ui_copy" [ref=f2e110]
+              - cell [ref=f2e111]:
+                - button "Edit ZZ_DUST_TEST_20261016_UI Type Clone" [ref=f2e112] [cursor=pointer]
+                - button "Clone ZZ_DUST_TEST_20261016_UI Type Clone" [ref=f2e115] [cursor=pointer]
+                - button "Delete ZZ_DUST_TEST_20261016_UI Type Clone" [ref=f2e118] [cursor=pointer]
+            - row [ref=f2e121]:
+              - cell "8" [ref=f2e122]
+              - cell "ZZ_DUST_TEST_20261016_UI Type Edited" [ref=f2e123]
+              - cell "zz_dust_test_20261016_ui" [ref=f2e124]
+              - cell [ref=f2e125]:
+                - button "Edit ZZ_DUST_TEST_20261016_UI Type Edited" [ref=f2e126] [cursor=pointer]
+                - button "Clone ZZ_DUST_TEST_20261016_UI Type Edited" [ref=f2e129] [cursor=pointer]
+                - button "Delete ZZ_DUST_TEST_20261016_UI Type Edited" [ref=f2e132] [cursor=pointer]

@@ -5,6 +5,19 @@ import CardBack from "./CardBack";
 import CardFront from "./CardFront"; // ✅ neu
 import { apiCall } from "../apiClient";
 
+const CARD_WIDTH = 500;
+const CARD_HEIGHT = 676;
+
+export function getUnitCardFrameStyle() {
+  return {
+    width: `min(${CARD_WIDTH}px, 100%)`,
+    maxWidth: "100%",
+    flexShrink: 0,
+    aspectRatio: `${CARD_WIDTH} / ${CARD_HEIGHT}`,
+    height: "auto",
+  };
+}
+
 function UnitCard({ unitId, onBack }) {
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -101,8 +114,7 @@ function UnitCard({ unitId, onBack }) {
 		<Box
 		  ref={cardRef}
 		  sx={{
-			width: "500px",
-			height: "676px",
+			...getUnitCardFrameStyle(),
 			display: "flex",
 			background: "#FFFFFF",
 			border: "1px solid #000000",

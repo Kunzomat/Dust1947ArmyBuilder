@@ -1,0 +1,88 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e13672]
+      - group [ref=e7]:
+        - button "Army Builder" [ref=e13673] [cursor=pointer]
+        - button "Admin" [pressed] [ref=e13674] [cursor=pointer]
+  - generic [ref=e113]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=e13675]
+    - paragraph [ref=e115]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+    - tablist [ref=e119]:
+      - tab "🎮 Game Systems" [ref=e13676] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=e13677] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=e13678] [cursor=pointer]
+      - tab "⚔️ Units" [selected] [ref=e13679] [cursor=pointer]
+      - tab "🔫 Weapons" [ref=e13680] [cursor=pointer]
+      - tab "📜 Rules" [ref=e13681] [cursor=pointer]
+      - tab "🪖 Platoons" [ref=e13682] [cursor=pointer]
+    - tabpanel [ref=e203]:
+      - generic [ref=e205]:
+        - generic [ref=e206]:
+          - heading "Units (1)" [level=6] [ref=e13683]
+          - generic [ref=e208]:
+            - generic [ref=e209]:
+              - generic [ref=e13427]: Name filtern
+              - generic [ref=e210]:
+                - textbox "Name filtern" [ref=e13684]: Droideka
+                - group [aria-hidden]:
+                  - generic: Name filtern
+            - generic [ref=e212]:
+              - generic [ref=e13441]: Game System
+              - generic [ref=e213]:
+                - combobox "Game System" [ref=e13685] [cursor=pointer]: Star Wars
+                - textbox [aria-hidden]: "3"
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=e215]:
+              - generic [ref=e13537]: Faction
+              - generic [ref=e216]:
+                - combobox "Faction" [ref=e13686] [cursor=pointer]: Droid Army
+                - textbox [aria-hidden]: "5"
+                - group [aria-hidden]:
+                  - generic: Faction
+            - generic [ref=e218]:
+              - generic [ref=e13635]: Type
+              - generic [ref=e219]:
+                - combobox "Type" [active] [ref=e13687] [cursor=pointer]: I - Infantry
+                - textbox [aria-hidden]: I
+                - group [aria-hidden]:
+                  - generic: Type
+            - button [ref=e13688] [cursor=pointer]
+        - table [ref=e226]:
+          - rowgroup [ref=e227]:
+            - row [ref=e13689]:
+              - columnheader [ref=e13690]:
+                - button "ID" [ref=e13691] [cursor=pointer]
+              - columnheader [ref=e13692]:
+                - button "Name" [ref=e13693] [cursor=pointer]
+              - columnheader [ref=e13694]:
+                - button "Faction" [ref=e13695] [cursor=pointer]
+              - columnheader [ref=e13696]:
+                - button "Game System" [ref=e13697] [cursor=pointer]
+              - columnheader [ref=e13698]:
+                - button "Type" [ref=e13699] [cursor=pointer]
+              - columnheader [ref=e13700]:
+                - button "Punkte" [ref=e13701] [cursor=pointer]
+              - columnheader "Stats" [ref=e13702]
+              - columnheader "Aktionen" [ref=e13703]
+          - rowgroup [ref=e255]:
+            - row [ref=e13704]:
+              - cell "218" [ref=e13705]
+              - cell [ref=e13706]:
+                - strong [ref=e1369]: Droideka
+              - cell "Droid Army" [ref=e13707]
+              - cell "Star Wars" [ref=e13708]
+              - cell "I" [ref=e13709]
+              - cell "13 13" [ref=e13710]:
+                - generic [ref=e1374]:
+                  - paragraph [ref=e1375]: "13"
+                  - generic [ref=e1376]:
+                    - generic [ref=e1377]: "13"
+                    - button "Berechnete Punkte übernehmen" [ref=e13711] [cursor=pointer]
+              - cell "Lvl 4 | 💚1 | 🏃2 | 🚶6" [ref=e13712]
+              - cell [ref=e1383]:
+                - button "Waffen & Regeln verwalten" [ref=e13713] [cursor=pointer]
+                - button [ref=e1387] [cursor=pointer]
+                - button "Unit klonen" [ref=e13714] [cursor=pointer]
+                - button [ref=e1393] [cursor=pointer]

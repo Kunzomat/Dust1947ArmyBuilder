@@ -1,0 +1,96 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading [level=6] [ref=e13428]: Dust 1947 – Army Builder
+        - group [ref=e7]:
+          - button [ref=e13429] [cursor=pointer]: Army Builder
+          - button [pressed] [ref=e13430] [cursor=pointer]: Admin
+    - generic [ref=e113]:
+      - heading [level=4] [ref=e13431]: ⚙️ Admin Panel - Daten Verwaltung
+      - paragraph [ref=e115]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+      - tablist [ref=e119]:
+        - tab [ref=e13432] [cursor=pointer]: 🎮 Game Systems
+        - tab [ref=e13433] [cursor=pointer]: 🏴 Blocs
+        - tab [ref=e13434] [cursor=pointer]: 🎖️ Factions
+        - tab [selected] [ref=e13435] [cursor=pointer]: ⚔️ Units
+        - tab [ref=e13436] [cursor=pointer]: 🔫 Weapons
+        - tab [ref=e13437] [cursor=pointer]: 📜 Rules
+        - tab [ref=e13438] [cursor=pointer]: 🪖 Platoons
+      - tabpanel [ref=e203]:
+        - generic [ref=e205]:
+          - generic [ref=e206]:
+            - heading [level=6] [ref=e13439]: Units (1)
+            - generic [ref=e208]:
+              - generic [ref=e209]:
+                - generic [ref=e13427]: Name filtern
+                - generic [ref=e210]:
+                  - textbox [ref=e13440]: Droideka
+                  - group [aria-hidden]:
+                    - generic: Name filtern
+              - generic [ref=e212]:
+                - generic [ref=e13441]: Game System
+                - generic [ref=e213]:
+                  - combobox [expanded] [ref=e13442] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Game System
+              - generic [ref=e215]:
+                - generic: Faction
+                - generic [ref=e216]:
+                  - combobox [ref=e13443] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Faction
+              - generic [ref=e218]:
+                - generic: Type
+                - generic [ref=e219]:
+                  - combobox [ref=e13444] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Type
+              - button [ref=e13445] [cursor=pointer]: Neue Unit
+          - table [ref=e226]:
+            - rowgroup [ref=e227]:
+              - row [ref=e13446]:
+                - columnheader [ref=e13447]:
+                  - button [ref=e13448] [cursor=pointer]: ID
+                - columnheader [ref=e13449]:
+                  - button [ref=e13450] [cursor=pointer]: Name
+                - columnheader [ref=e13451]:
+                  - button [ref=e13452] [cursor=pointer]: Faction
+                - columnheader [ref=e13453]:
+                  - button [ref=e13454] [cursor=pointer]: Game System
+                - columnheader [ref=e13455]:
+                  - button [ref=e13456] [cursor=pointer]: Type
+                - columnheader [ref=e13457]:
+                  - button [ref=e13458] [cursor=pointer]: Punkte
+                - columnheader [ref=e13459]: Stats
+                - columnheader [ref=e13460]: Aktionen
+            - rowgroup [ref=e255]:
+              - row [ref=e13461]:
+                - cell [ref=e13462]: "218"
+                - cell [ref=e13463]:
+                  - strong [ref=e1369]: Droideka
+                - cell [ref=e13464]: Droid Army
+                - cell [ref=e13465]: Star Wars
+                - cell [ref=e13466]: I
+                - cell [ref=e13467]:
+                  - generic [ref=e1374]:
+                    - paragraph [ref=e1375]: "13"
+                    - generic [ref=e1376]:
+                      - generic [ref=e1377]: "13"
+                      - button [ref=e13468] [cursor=pointer]
+                - cell [ref=e13469]:
+                  - generic [ref=e1382]: Lvl 4 | 💚1 | 🏃2 | 🚶6
+                - cell [ref=e1383]:
+                  - button [ref=e13470] [cursor=pointer]
+                  - button [ref=e1387] [cursor=pointer]
+                  - button [ref=e13471] [cursor=pointer]
+                  - button [ref=e1393] [cursor=pointer]
+  - listbox "Game System" [ref=e13474]:
+    - option "Alle Systeme" [active] [selected] [ref=e13475] [cursor=pointer]
+    - option "Dune" [ref=e13476] [cursor=pointer]
+    - option "Dust 1947" [ref=e13477] [cursor=pointer]
+    - option "Star Wars" [ref=e13478] [cursor=pointer]
+    - option "Warhammer 40k" [ref=e13479] [cursor=pointer]

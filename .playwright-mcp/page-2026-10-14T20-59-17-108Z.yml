@@ -1,0 +1,66 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e6]
+      - group [ref=e7]:
+        - button "Army Builder" [ref=e8] [cursor=pointer]
+        - button "Admin" [active] [pressed] [ref=e11] [cursor=pointer]
+  - generic [ref=e113]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=e114]
+    - paragraph [ref=e115]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+    - tablist [ref=e119]:
+      - tab "🎮 Game Systems" [selected] [ref=e120] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=e121] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=e122] [cursor=pointer]
+      - tab "⚔️ Units" [ref=e123] [cursor=pointer]
+      - tab "🔫 Weapons" [ref=e124] [cursor=pointer]
+      - tab "📜 Rules" [ref=e125] [cursor=pointer]
+      - tab "🪖 Platoons" [ref=e126] [cursor=pointer]
+    - tabpanel [ref=e128]:
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - heading "Game Systems (4)" [level=6] [ref=e132]
+          - button [ref=e133] [cursor=pointer]
+        - table [ref=e138]:
+          - rowgroup [ref=e139]:
+            - row [ref=e140]:
+              - columnheader [ref=e141]:
+                - button "ID" [ref=e142] [cursor=pointer]
+              - columnheader [ref=e145]:
+                - button "Name" [ref=e146] [cursor=pointer]
+              - columnheader [ref=e149]:
+                - button "Beschreibung" [ref=e150] [cursor=pointer]
+              - columnheader "Aktionen" [ref=e153]
+          - rowgroup [ref=e154]:
+            - row [ref=e155]:
+              - cell "4" [ref=e156]
+              - cell [ref=e157]:
+                - strong [ref=e158]: Dune
+              - cell "Der Kampf um Arrakis und das Spice" [ref=e159]
+              - cell [ref=e160]:
+                - button [ref=e161] [cursor=pointer]
+                - button [ref=e164] [cursor=pointer]
+            - row [ref=e167]:
+              - cell "1" [ref=e168]
+              - cell [ref=e169]:
+                - strong [ref=e170]: Dust 1947
+              - cell "Alternativer Zweiter Weltkrieg mit Mechs und Dieselpunk" [ref=e171]
+              - cell [ref=e172]:
+                - button [ref=e173] [cursor=pointer]
+                - button [ref=e176] [cursor=pointer]
+            - row [ref=e179]:
+              - cell "3" [ref=e180]
+              - cell [ref=e181]:
+                - strong [ref=e182]: Star Wars
+              - cell "Kämpfe in einer weit, weit entfernten Galaxis" [ref=e183]
+              - cell [ref=e184]:
+                - button [ref=e185] [cursor=pointer]
+                - button [ref=e188] [cursor=pointer]
+            - row [ref=e191]:
+              - cell "2" [ref=e192]
+              - cell [ref=e193]:
+                - strong [ref=e194]: Warhammer 40k
+              - cell "Düstere Science-Fiction im 41. Jahrtausend" [ref=e195]
+              - cell [ref=e196]:
+                - button [ref=e197] [cursor=pointer]
+                - button [ref=e200] [cursor=pointer]

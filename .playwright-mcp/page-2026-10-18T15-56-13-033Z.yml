@@ -1,0 +1,138 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e19342]
+      - group [ref=e7]:
+        - button "Army Builder" [active] [pressed] [ref=e19343] [cursor=pointer]
+        - button "Admin" [ref=e19344] [cursor=pointer]
+      - generic [ref=e24446]: 209/220 Punkte
+  - generic [ref=e24448]:
+    - alert [ref=e24449]:
+      - generic [ref=e24453]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=e24454]:
+      - generic [ref=e24455]:
+        - heading "Armeen" [level=6] [ref=e24457]
+        - separator [ref=e24458]
+        - generic [ref=e24459]:
+          - generic [ref=e24460]:
+            - generic [ref=e24461]:
+              - generic: Game System
+              - generic [ref=e24462]:
+                - combobox "Game System" [ref=e24463] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=e24464]:
+              - generic: Bloc
+              - generic [ref=e24465]:
+                - combobox "Bloc" [ref=e24466] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=e24467]:
+              - button "Aktualisieren" [ref=e24468] [cursor=pointer]
+              - button "Neue Armee" [ref=e24469] [cursor=pointer]
+              - button "Löschen" [ref=e24470] [cursor=pointer]
+          - list [ref=e24471]:
+            - button "Steel Legion II 209/220 Punkte • Imperium (Warhammer 40k)" [ref=e24472] [cursor=pointer]:
+              - generic [ref=e24473]:
+                - generic [ref=e24474]: Steel Legion II
+                - paragraph [ref=e24475]: 209/220 Punkte • Imperium (Warhammer 40k)
+            - button "Steel Legion I 110/100 Punkte • Imperium (Warhammer 40k)" [ref=e24476] [cursor=pointer]:
+              - generic [ref=e24477]:
+                - generic [ref=e24478]: Steel Legion I
+                - paragraph [ref=e24479]: 110/100 Punkte • Imperium (Warhammer 40k)
+            - button "Space Marine II 163/200 Punkte • Imperium (Warhammer 40k)" [ref=e24480] [cursor=pointer]:
+              - generic [ref=e24481]:
+                - generic [ref=e24482]: Space Marine II
+                - paragraph [ref=e24483]: 163/200 Punkte • Imperium (Warhammer 40k)
+            - button "Space Marine I 110/100 Punkte • Imperium (Warhammer 40k)" [ref=e24484] [cursor=pointer]:
+              - generic [ref=e24485]:
+                - generic [ref=e24486]: Space Marine I
+                - paragraph [ref=e24487]: 110/100 Punkte • Imperium (Warhammer 40k)
+            - button "Aeldari II 175/200 Punkte • Aeldari (Warhammer 40k)" [ref=e24488] [cursor=pointer]:
+              - generic [ref=e24489]:
+                - generic [ref=e24490]: Aeldari II
+                - paragraph [ref=e24491]: 175/200 Punkte • Aeldari (Warhammer 40k)
+            - button "Aeldari I 103/100 Punkte • Aeldari (Warhammer 40k)" [ref=e24492] [cursor=pointer]:
+              - generic [ref=e24493]:
+                - generic [ref=e24494]: Aeldari I
+                - paragraph [ref=e24495]: 103/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=e24496]:
+        - 'heading "Armee: Steel Legion II (Imperium • Warhammer 40k)" [level=6] [ref=e24498]'
+        - separator [ref=e24499]
+        - generic [ref=e24500]:
+          - generic [ref=e24501]:
+            - button "Bearbeiten" [ref=e24502] [cursor=pointer]
+            - button "Klonen" [ref=e24503] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=e24504] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=e24505] [cursor=pointer]
+          - paragraph [ref=e24506]: Platoons
+          - generic [ref=e24507]:
+            - alert [ref=e24508]:
+              - generic [ref=e24512]:
+                - strong [ref=e24513]: Faction Force
+                - text: "• 209/220 AP • Bonus: 9/20 AP"
+            - alert [ref=e24514]:
+              - generic [ref=e24518]: "Regel 15: Lieutenant darf als einzigartiger Held nur einmal in der Armee vorkommen."
+          - generic [ref=e24519]:
+            - paragraph [ref=e24520]: Freie Einheiten
+            - list [ref=e24521]:
+              - listitem [ref=e24522]:
+                - button "2× Lieutenant 2 × 6 AP = 12 AP" [ref=e24523] [cursor=pointer]:
+                  - generic [ref=e24524]:
+                    - generic [ref=e24525]: 2× Lieutenant
+                    - paragraph [ref=e24526]: 2 × 6 AP = 12 AP
+                - button "Entfernen" [ref=e24528] [cursor=pointer]
+              - listitem [ref=e24529]:
+                - button "1× Primaris Psyker 1 × 6 AP = 6 AP" [ref=e24530] [cursor=pointer]:
+                  - generic [ref=e24531]:
+                    - generic [ref=e24532]: 1× Primaris Psyker
+                    - paragraph [ref=e24533]: 1 × 6 AP = 6 AP
+                - button "Entfernen" [ref=e24535] [cursor=pointer]
+              - listitem [ref=e24536]:
+                - button "3× Heavy Weapons Team (Autocannon) 3 × 8 AP = 24 AP" [ref=e24537] [cursor=pointer]:
+                  - generic [ref=e24538]:
+                    - generic [ref=e24539]: 3× Heavy Weapons Team (Autocannon)
+                    - paragraph [ref=e24540]: 3 × 8 AP = 24 AP
+                - button "Entfernen" [ref=e24542] [cursor=pointer]
+              - listitem [ref=e24543]:
+                - button "3× Heavy Weapons Team (Lascannon) 3 × 7 AP = 21 AP" [ref=e24544] [cursor=pointer]:
+                  - generic [ref=e24545]:
+                    - generic [ref=e24546]: 3× Heavy Weapons Team (Lascannon)
+                    - paragraph [ref=e24547]: 3 × 7 AP = 21 AP
+                - button "Entfernen" [ref=e24549] [cursor=pointer]
+              - listitem [ref=e24550]:
+                - button "3× Heavy Weapons Team (Mortar) 3 × 9 AP = 27 AP" [ref=e24551] [cursor=pointer]:
+                  - generic [ref=e24552]:
+                    - generic [ref=e24553]: 3× Heavy Weapons Team (Mortar)
+                    - paragraph [ref=e24554]: 3 × 9 AP = 27 AP
+                - button "Entfernen" [ref=e24556] [cursor=pointer]
+              - listitem [ref=e24557]:
+                - button "2× Leman Russ Vanquisher 2 × 28 AP = 56 AP" [ref=e24558] [cursor=pointer]:
+                  - generic [ref=e24559]:
+                    - generic [ref=e24560]: 2× Leman Russ Vanquisher
+                    - paragraph [ref=e24561]: 2 × 28 AP = 56 AP
+                - button "Entfernen" [ref=e24563] [cursor=pointer]
+              - listitem [ref=e24564]:
+                - button "3× Infantry Squad (Missile Launcher) 3 × 8 AP = 24 AP" [ref=e24565] [cursor=pointer]:
+                  - generic [ref=e24566]:
+                    - generic [ref=e24567]: 3× Infantry Squad (Missile Launcher)
+                    - paragraph [ref=e24568]: 3 × 8 AP = 24 AP
+                - button "Entfernen" [ref=e24570] [cursor=pointer]
+              - listitem [ref=e24571]:
+                - button "3× Infantry Squad (Sergeant + Granade) 3 × 6 AP = 18 AP" [ref=e24572] [cursor=pointer]:
+                  - generic [ref=e24573]:
+                    - generic [ref=e24574]: 3× Infantry Squad (Sergeant + Granade)
+                    - paragraph [ref=e24575]: 3 × 6 AP = 18 AP
+                - button "Entfernen" [ref=e24577] [cursor=pointer]
+              - listitem [ref=e24578]:
+                - button "3× Infantry Squad (Sergeant + Flamer) 3 × 7 AP = 21 AP" [ref=e24579] [cursor=pointer]:
+                  - generic [ref=e24580]:
+                    - generic [ref=e24581]: 3× Infantry Squad (Sergeant + Flamer)
+                    - paragraph [ref=e24582]: 3 × 7 AP = 21 AP
+                - button "Entfernen" [ref=e24584] [cursor=pointer]
+      - generic [ref=e24585]:
+        - heading "Details" [level=6] [ref=e24587]
+        - separator [ref=e24588]
+        - paragraph [ref=e24590]: Einheit auswählen…

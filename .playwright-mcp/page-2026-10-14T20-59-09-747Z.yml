@@ -1,0 +1,35 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e6]
+      - group [ref=e7]:
+        - button "Army Builder" [pressed] [ref=e8] [cursor=pointer]
+        - button "Admin" [ref=e11] [cursor=pointer]
+  - generic [ref=e14]:
+    - alert [ref=e15]:
+      - generic [ref=e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Armeen" [level=6] [ref=e23]
+        - separator [ref=e24]
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - button "Aktualisieren" [ref=e27] [cursor=pointer]
+            - button "Neue Armee" [ref=e28] [cursor=pointer]
+          - progressbar [ref=e29]
+      - generic [ref=e32]:
+        - 'heading "Armee: ()" [level=6] [ref=e34]'
+        - separator [ref=e35]
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - button "Bearbeiten" [ref=e38] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=e39] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=e40] [cursor=pointer]
+          - paragraph [ref=e41]: Platoons
+          - generic [ref=e42]:
+            - paragraph [ref=e43]: Freie Einheiten
+            - list [ref=e44]
+      - generic [ref=e45]:
+        - heading "Details" [level=6] [ref=e47]
+        - separator [ref=e48]
+        - paragraph [ref=e50]: Einheit auswählen…

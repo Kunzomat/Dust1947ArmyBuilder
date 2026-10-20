@@ -1,0 +1,60 @@
+- generic [ref=f10e3]:
+  - banner [ref=f10e4]:
+    - generic [ref=f10e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f10e6]
+      - group [ref=f10e7]:
+        - button "Army Builder" [ref=f10e8] [cursor=pointer]
+        - button "Admin" [pressed] [ref=f10e11] [cursor=pointer]
+  - generic [ref=f10e15]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=f10e16]
+    - paragraph [ref=f10e17]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+    - tablist [ref=f10e21]:
+      - tab "🎮 Game Systems" [ref=f10e22] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=f10e23] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=f10e24] [cursor=pointer]
+      - tab "⚔️ Units" [ref=f10e25] [cursor=pointer]
+      - tab "🔫 Weapons" [selected] [ref=f10e26] [cursor=pointer]
+      - tab "📜 Rules" [ref=f10e27] [cursor=pointer]
+      - tab "🪖 Platoons" [ref=f10e28] [cursor=pointer]
+    - tabpanel [ref=f10e30]:
+      - generic [ref=f10e32]:
+        - generic [ref=f10e33]:
+          - heading "Weapons (0)" [level=6] [ref=f10e34]
+          - generic [ref=f10e35]:
+            - generic [ref=f10e36]:
+              - generic: Waffe suchen
+              - generic [ref=f10e37]:
+                - textbox "Waffe suchen" [ref=f10e38]:
+                  - /placeholder: Contains (ab 1 Zeichen)
+                - group [aria-hidden]:
+                  - generic: Waffe suchen
+            - generic [ref=f10e39]:
+              - generic: Game System
+              - generic [ref=f10e40]:
+                - combobox "Game System" [ref=f10e41] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=f10e42]:
+              - generic: Faction
+              - generic [ref=f10e43]:
+                - combobox "Faction" [ref=f10e44] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Faction
+            - button [ref=f10e45] [cursor=pointer]
+        - table [ref=f10e50]:
+          - rowgroup [ref=f10e51]:
+            - row [ref=f10e52]:
+              - columnheader [ref=f10e53]:
+                - button "ID" [ref=f10e54] [cursor=pointer]
+              - columnheader [ref=f10e57]:
+                - button "Name" [ref=f10e58] [cursor=pointer]
+              - columnheader [ref=f10e61]:
+                - button "Game System" [ref=f10e62] [cursor=pointer]
+              - columnheader [ref=f10e65]:
+                - button "Reichweite" [ref=f10e66] [cursor=pointer]
+              - columnheader [ref=f10e69]:
+                - button "Einmalwaffe" [ref=f10e70] [cursor=pointer]
+              - columnheader "Aktionen" [ref=f10e73]
+          - rowgroup

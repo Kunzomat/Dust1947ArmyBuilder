@@ -1,0 +1,96 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading [level=6] [ref=e13620]: Dust 1947 – Army Builder
+        - group [ref=e7]:
+          - button [ref=e13621] [cursor=pointer]: Army Builder
+          - button [pressed] [ref=e13622] [cursor=pointer]: Admin
+    - generic [ref=e113]:
+      - heading [level=4] [ref=e13623]: ⚙️ Admin Panel - Daten Verwaltung
+      - paragraph [ref=e115]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+      - tablist [ref=e119]:
+        - tab [ref=e13624] [cursor=pointer]: 🎮 Game Systems
+        - tab [ref=e13625] [cursor=pointer]: 🏴 Blocs
+        - tab [ref=e13626] [cursor=pointer]: 🎖️ Factions
+        - tab [selected] [ref=e13627] [cursor=pointer]: ⚔️ Units
+        - tab [ref=e13628] [cursor=pointer]: 🔫 Weapons
+        - tab [ref=e13629] [cursor=pointer]: 📜 Rules
+        - tab [ref=e13630] [cursor=pointer]: 🪖 Platoons
+      - tabpanel [ref=e203]:
+        - generic [ref=e205]:
+          - generic [ref=e206]:
+            - heading [level=6] [ref=e13631]: Units (1)
+            - generic [ref=e208]:
+              - generic [ref=e209]:
+                - generic [ref=e13427]: Name filtern
+                - generic [ref=e210]:
+                  - textbox [ref=e13632]: Droideka
+                  - group [aria-hidden]:
+                    - generic: Name filtern
+              - generic [ref=e212]:
+                - generic [ref=e13441]: Game System
+                - generic [ref=e213]:
+                  - combobox [ref=e13633] [cursor=pointer]: Star Wars
+                  - textbox [aria-hidden]: "3"
+                  - group [aria-hidden]:
+                    - generic: Game System
+              - generic [ref=e215]:
+                - generic [ref=e13537]: Faction
+                - generic [ref=e216]:
+                  - combobox [ref=e13634] [cursor=pointer]: Droid Army
+                  - textbox [aria-hidden]: "5"
+                  - group [aria-hidden]:
+                    - generic: Faction
+              - generic [ref=e218]:
+                - generic [ref=e13635]: Type
+                - generic [ref=e219]:
+                  - combobox [expanded] [ref=e13636] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Type
+              - button [ref=e13637] [cursor=pointer]: Neue Unit
+          - table [ref=e226]:
+            - rowgroup [ref=e227]:
+              - row [ref=e13638]:
+                - columnheader [ref=e13639]:
+                  - button [ref=e13640] [cursor=pointer]: ID
+                - columnheader [ref=e13641]:
+                  - button [ref=e13642] [cursor=pointer]: Name
+                - columnheader [ref=e13643]:
+                  - button [ref=e13644] [cursor=pointer]: Faction
+                - columnheader [ref=e13645]:
+                  - button [ref=e13646] [cursor=pointer]: Game System
+                - columnheader [ref=e13647]:
+                  - button [ref=e13648] [cursor=pointer]: Type
+                - columnheader [ref=e13649]:
+                  - button [ref=e13650] [cursor=pointer]: Punkte
+                - columnheader [ref=e13651]: Stats
+                - columnheader [ref=e13652]: Aktionen
+            - rowgroup [ref=e255]:
+              - row [ref=e13653]:
+                - cell [ref=e13654]: "218"
+                - cell [ref=e13655]:
+                  - strong [ref=e1369]: Droideka
+                - cell [ref=e13656]: Droid Army
+                - cell [ref=e13657]: Star Wars
+                - cell [ref=e13658]: I
+                - cell [ref=e13659]:
+                  - generic [ref=e1374]:
+                    - paragraph [ref=e1375]: "13"
+                    - generic [ref=e1376]:
+                      - generic [ref=e1377]: "13"
+                      - button [ref=e13660] [cursor=pointer]
+                - cell [ref=e13661]:
+                  - generic [ref=e1382]: Lvl 4 | 💚1 | 🏃2 | 🚶6
+                - cell [ref=e1383]:
+                  - button [ref=e13662] [cursor=pointer]
+                  - button [ref=e1387] [cursor=pointer]
+                  - button [ref=e13663] [cursor=pointer]
+                  - button [ref=e1393] [cursor=pointer]
+  - listbox "Type" [ref=e13666]:
+    - option "Alle Typen" [active] [selected] [ref=e13667] [cursor=pointer]
+    - option "I - Infantry" [ref=e13668] [cursor=pointer]
+    - option "V - Vehicle" [ref=e13669] [cursor=pointer]
+    - option "A - Aircraft" [ref=e13670] [cursor=pointer]
+    - option "H - Hero" [ref=e13671] [cursor=pointer]

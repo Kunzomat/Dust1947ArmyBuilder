@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import useSessionStorageState from "../hooks/useSessionStorageState";
 
 const TYPE_LABELS = {
   I: "Infantry",
@@ -33,14 +34,19 @@ export default function AddUnitDialog({
   onClose,
   onAdd,
 }) {
-  const [selectedFaction, setSelectedFaction] = useState("");
-  const [selectedType, setSelectedType] = useState("");
+  const [filters, setFilters] = useSessionStorageState(
+    "dust1947.filters.v1.add-unit-dialog",
+    { selectedFaction: "", selectedType: "" }
+  );
+  const { selectedFaction, selectedType } = filters;
+  const setSelectedFaction = (value) =>
+    setFilters((previous) => ({ ...previous, selectedFaction: value }));
+  const setSelectedType = (value) =>
+    setFilters((previous) => ({ ...previous, selectedType: value }));
   const [quantities, setQuantities] = useState({});
 
   useEffect(() => {
     if (!open) return;
-    setSelectedFaction("");
-    setSelectedType("");
     setQuantities({});
   }, [open]);
 
@@ -69,6 +75,16 @@ export default function AddUnitDialog({
     [units]
   );
 
+  useEffect(() => {
+    if (!open) return;
+    if (selectedFaction && !factionOptions.includes(selectedFaction)) {
+      setFilters((previous) => ({ ...previous, selectedFaction: "" }));
+    }
+    if (selectedType && !typeOptions.some((type) => String(type) === String(selectedType))) {
+      setFilters((previous) => ({ ...previous, selectedType: "" }));
+    }
+  }, [factionOptions, open, selectedFaction, setFilters, typeOptions, selectedType]);
+
   const filteredUnits = useMemo(
     () =>
       (units || []).filter((u) => {
@@ -76,7 +92,13 @@ export default function AddUnitDialog({
         const factionMatch = !selectedFaction || u.faction_name === selectedFaction;
         const typeMatch = !selectedType || String(unitType) === selectedType;
         return factionMatch && typeMatch;
-      }),
+      }).sort((a, b) =>
+        (a.name || a.unit_name || "").localeCompare(
+          b.name || b.unit_name || "",
+          "de",
+          { sensitivity: "base" }
+        )
+      ),
     [units, selectedFaction, selectedType]
   );
 

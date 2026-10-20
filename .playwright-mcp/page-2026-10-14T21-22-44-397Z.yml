@@ -1,0 +1,124 @@
+- generic [ref=f4e3]:
+  - banner [ref=f4e4]:
+    - generic [ref=f4e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f4e623]
+      - group [ref=f4e7]:
+        - button "Army Builder" [pressed] [ref=f4e624] [cursor=pointer]
+        - button "Admin" [ref=f4e625] [cursor=pointer]
+      - generic [ref=f4e59]: 52/110 Punkte
+  - generic [ref=f4e14]:
+    - alert [ref=f4e15]:
+      - generic [ref=f4e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=f4e20]:
+      - generic [ref=f4e21]:
+        - heading "Armeen" [level=6] [ref=f4e626]
+        - separator [ref=f4e24]
+        - generic [ref=f4e25]:
+          - generic [ref=f4e26]:
+            - generic [ref=f4e27]:
+              - generic [ref=f4e191]: Game System
+              - generic [ref=f4e28]:
+                - combobox "Game System" [ref=f4e627] [cursor=pointer]: Star Wars
+                - textbox [aria-hidden]: "3"
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=f4e30]:
+              - generic: Bloc
+              - generic [ref=f4e31]:
+                - combobox "Bloc" [ref=f4e628] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=f4e33]:
+              - button "Aktualisieren" [ref=f4e629] [cursor=pointer]
+              - button "Neue Armee" [ref=f4e630] [cursor=pointer]
+              - button "Löschen" [ref=f4e631] [cursor=pointer]
+          - list [ref=f4e658]:
+            - button "Star Wars Droiden Armee 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=f4e659] [cursor=pointer]:
+              - generic [ref=f4e660]:
+                - generic [ref=f4e661]: Star Wars Droiden Armee
+                - paragraph [ref=f4e662]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army (Copy) 52/110 Punkte • Star Wars Republik (Star Wars)" [ref=f4e663] [cursor=pointer]:
+              - generic [ref=f4e664]:
+                - generic [ref=f4e665]: Star Wars Clone Army (Copy)
+                - paragraph [ref=f4e666]: 52/110 Punkte • Star Wars Republik (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=f4e667] [cursor=pointer]:
+              - generic [ref=f4e668]:
+                - generic [ref=f4e669]: Star Wars Clone Army
+                - paragraph [ref=f4e670]: 52/100 Punkte • Star Wars Republik (Star Wars)
+      - generic [ref=f4e39]:
+        - 'heading "Armee: Star Wars Clone Army (Copy) (Star Wars Republik • Star Wars)" [level=6] [ref=f4e671]'
+        - separator [ref=f4e42]
+        - generic [ref=f4e43]:
+          - generic [ref=f4e44]:
+            - button "Bearbeiten" [ref=f4e641] [cursor=pointer]
+            - button "Klonen" [active] [ref=f4e642] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=f4e643] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=f4e644] [cursor=pointer]
+          - paragraph [ref=f4e49]: Platoons
+          - generic [ref=f4e100]:
+            - alert [ref=f4e101]:
+              - generic [ref=f4e105]:
+                - strong [ref=f4e106]: Faction Force
+                - text: "• 52/110 AP • Bonus: 0/10 AP"
+            - alert [ref=f4e127]:
+              - generic [ref=f4e131]: "Regel 30: Platoon-Vorteile gelten nur für zugewiesene Platoon-/Support-Einheiten; diese Regel wird als Hinweis ausgegeben, beeinflusst aber nicht die AP-Gültigkeit."
+          - generic [ref=f4e672]:
+            - generic [ref=f4e673]:
+              - paragraph [ref=f4e674]: Clone Trooper Platoon
+              - button "Entfernen" [ref=f4e675] [cursor=pointer]
+            - generic [ref=f4e676]:
+              - generic [ref=f4e677]:
+                - button "COMMAND_1 (belegt)" [disabled]
+                - list [ref=f4e678]:
+                  - listitem [ref=f4e679]:
+                    - button "1× Clone Trooper Command Squad 1 × 11 AP = 11 AP" [ref=f4e680] [cursor=pointer]:
+                      - generic [ref=f4e681]:
+                        - generic [ref=f4e682]: 1× Clone Trooper Command Squad
+                        - paragraph [ref=f4e683]: 1 × 11 AP = 11 AP
+                    - button "Entfernen" [ref=f4e685] [cursor=pointer]
+              - generic [ref=f4e686]:
+                - button "COMBAT_1 (belegt)" [disabled]
+                - list [ref=f4e687]:
+                  - listitem [ref=f4e688]:
+                    - button "1× Clone Trooper Combat Squad 1 × 13 AP = 13 AP" [ref=f4e689] [cursor=pointer]:
+                      - generic [ref=f4e690]:
+                        - generic [ref=f4e691]: 1× Clone Trooper Combat Squad
+                        - paragraph [ref=f4e692]: 1 × 13 AP = 13 AP
+                    - button "Entfernen" [ref=f4e694] [cursor=pointer]
+              - generic [ref=f4e695]:
+                - button "COMBAT_2 (belegt)" [disabled]
+                - list [ref=f4e696]:
+                  - listitem [ref=f4e697]:
+                    - button "1× Clone Trooper Rifle Squad 1 × 8 AP = 8 AP" [ref=f4e698] [cursor=pointer]:
+                      - generic [ref=f4e699]:
+                        - generic [ref=f4e700]: 1× Clone Trooper Rifle Squad
+                        - paragraph [ref=f4e701]: 1 × 8 AP = 8 AP
+                    - button "Entfernen" [ref=f4e703] [cursor=pointer]
+              - generic [ref=f4e704]:
+                - button "COMBAT_3 (belegt)" [disabled]
+                - list [ref=f4e705]:
+                  - listitem [ref=f4e706]:
+                    - button "1× Clone Trooper Anti Tank Squad 1 × 9 AP = 9 AP" [ref=f4e707] [cursor=pointer]:
+                      - generic [ref=f4e708]:
+                        - generic [ref=f4e709]: 1× Clone Trooper Anti Tank Squad
+                        - paragraph [ref=f4e710]: 1 × 9 AP = 9 AP
+                    - button "Entfernen" [ref=f4e712] [cursor=pointer]
+              - generic [ref=f4e713]:
+                - button "COMBAT_4 (belegt)" [disabled]
+                - list [ref=f4e714]:
+                  - listitem [ref=f4e715]:
+                    - button "1× Clone Trooper Battle Squad 1 × 11 AP = 11 AP" [ref=f4e716] [cursor=pointer]:
+                      - generic [ref=f4e717]:
+                        - generic [ref=f4e718]: 1× Clone Trooper Battle Squad
+                        - paragraph [ref=f4e719]: 1 × 11 AP = 11 AP
+                    - button "Entfernen" [ref=f4e721] [cursor=pointer]
+            - button "+ Support-Einheit hinzufügen" [ref=f4e722] [cursor=pointer]
+            - list [ref=f4e723]
+          - generic [ref=f4e724]:
+            - paragraph [ref=f4e725]: Freie Einheiten
+            - list [ref=f4e726]
+      - generic [ref=f4e53]:
+        - heading "Details" [level=6] [ref=f4e657]
+        - separator [ref=f4e56]
+        - paragraph [ref=f4e58]: Einheit auswählen…

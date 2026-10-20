@@ -1,0 +1,199 @@
+- generic [ref=f1e3]:
+  - banner [ref=f1e4]:
+    - generic [ref=f1e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f1e6]
+      - group [ref=f1e7]:
+        - button "Army Builder" [pressed] [ref=f1e8] [cursor=pointer]
+        - button "Admin" [ref=f1e11] [cursor=pointer]
+      - generic [ref=f1e59]: 38/110 Punkte
+  - generic [ref=f1e14]:
+    - alert [ref=f1e15]:
+      - generic [ref=f1e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=f1e20]:
+      - generic [ref=f1e21]:
+        - heading "Armeen" [level=6] [ref=f1e23]
+        - separator [ref=f1e24]
+        - generic [ref=f1e25]:
+          - generic [ref=f1e26]:
+            - generic [ref=f1e27]:
+              - generic: Game System
+              - generic [ref=f1e28]:
+                - combobox "Game System" [ref=f1e29] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=f1e30]:
+              - generic: Bloc
+              - generic [ref=f1e31]:
+                - combobox "Bloc" [ref=f1e32] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=f1e33]:
+              - button "Aktualisieren" [ref=f1e34] [cursor=pointer]
+              - button "Neue Armee" [ref=f1e35] [cursor=pointer]
+              - button "Löschen" [ref=f1e61] [cursor=pointer]
+          - list [ref=f1e62]:
+            - button "Star Wars Droiden Armee 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=f1e128] [cursor=pointer]:
+              - generic [ref=f1e64]:
+                - generic [ref=f1e65]: Star Wars Droiden Armee
+                - paragraph [ref=f1e66]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=f1e67] [cursor=pointer]:
+              - generic [ref=f1e68]:
+                - generic [ref=f1e69]: Star Wars Clone Army
+                - paragraph [ref=f1e70]: 52/100 Punkte • Star Wars Republik (Star Wars)
+            - button "Space Marine Ziel 62/100 Punkte • Imperium (Warhammer 40k)" [ref=f1e71] [cursor=pointer]:
+              - generic [ref=f1e72]:
+                - generic [ref=f1e73]: Space Marine Ziel
+                - paragraph [ref=f1e74]: 62/100 Punkte • Imperium (Warhammer 40k)
+            - button "Space Marine Aktuell 143/100 Punkte • Imperium (Warhammer 40k)" [ref=f1e75] [cursor=pointer]:
+              - generic [ref=f1e76]:
+                - generic [ref=f1e77]: Space Marine Aktuell
+                - paragraph [ref=f1e78]: 143/100 Punkte • Imperium (Warhammer 40k)
+            - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=f1e79] [cursor=pointer]:
+              - generic [ref=f1e80]:
+                - generic [ref=f1e81]: next stepp
+                - paragraph [ref=f1e82]: 107/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friezillas 114/100 Punkte • Imperium (Warhammer 40k)" [ref=f1e83] [cursor=pointer]:
+              - generic [ref=f1e84]:
+                - generic [ref=f1e85]: Friezillas
+                - paragraph [ref=f1e86]: 114/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friedas Rache 182/100 Punkte • Imperium (Warhammer 40k)" [ref=f1e87] [cursor=pointer]:
+              - generic [ref=f1e88]:
+                - generic [ref=f1e89]: Friedas Rache
+                - paragraph [ref=f1e90]: 182/100 Punkte • Imperium (Warhammer 40k)
+            - button "Dust SSU 38/110 Punkte • SSU (Dust 1947)" [active] [ref=f1e129] [cursor=pointer]:
+              - generic [ref=f1e92]:
+                - generic [ref=f1e93]: Dust SSU
+                - paragraph [ref=f1e94]: 38/110 Punkte • SSU (Dust 1947)
+            - button "Andreas Verteidiger 105/100 Punkte • Aeldari (Warhammer 40k)" [ref=f1e95] [cursor=pointer]:
+              - generic [ref=f1e96]:
+                - generic [ref=f1e97]: Andreas Verteidiger
+                - paragraph [ref=f1e98]: 105/100 Punkte • Aeldari (Warhammer 40k)
+            - button "Aeldari 50/100 Punkte • Aeldari (Warhammer 40k)" [ref=f1e99] [cursor=pointer]:
+              - generic [ref=f1e100]:
+                - generic [ref=f1e101]: Aeldari
+                - paragraph [ref=f1e102]: 50/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=f1e39]:
+        - 'heading "Armee: Dust SSU (SSU • Dust 1947)" [level=6] [ref=f1e130]'
+        - separator [ref=f1e42]
+        - generic [ref=f1e43]:
+          - generic [ref=f1e44]:
+            - button "Bearbeiten" [ref=f1e45] [cursor=pointer]
+            - button "Klonen" [ref=f1e46] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=f1e47] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=f1e48] [cursor=pointer]
+          - paragraph [ref=f1e49]: Platoons
+          - alert [ref=f1e105]:
+            - generic [ref=f1e109]:
+              - strong [ref=f1e110]: Faction Force
+              - text: "• 38/110 AP • Bonus: 0/10 AP"
+          - generic [ref=f1e131]:
+            - paragraph [ref=f1e132]: Freie Einheiten
+            - list [ref=f1e133]:
+              - listitem [ref=f1e134]:
+                - button "1× Nikolai 1 × 7 AP = 7 AP" [ref=f1e135] [cursor=pointer]:
+                  - generic [ref=f1e136]:
+                    - generic [ref=f1e137]: 1× Nikolai
+                    - paragraph [ref=f1e138]: 1 × 7 AP = 7 AP
+                - button "Entfernen" [ref=f1e140] [cursor=pointer]
+              - listitem [ref=f1e141]:
+                - button "1× Guaï-lo 1 × 13 AP = 13 AP" [ref=f1e142] [cursor=pointer]:
+                  - generic [ref=f1e143]:
+                    - generic [ref=f1e144]: 1× Guaï-lo
+                    - paragraph [ref=f1e145]: 1 × 13 AP = 13 AP
+                - button "Entfernen" [ref=f1e147] [cursor=pointer]
+              - listitem [ref=f1e148]:
+                - button "1× Karl the Hammer 1 × 8 AP = 8 AP" [ref=f1e149] [cursor=pointer]:
+                  - generic [ref=f1e150]:
+                    - generic [ref=f1e151]: 1× Karl the Hammer
+                    - paragraph [ref=f1e152]: 1 × 8 AP = 8 AP
+                - button "Entfernen" [ref=f1e154] [cursor=pointer]
+              - listitem [ref=f1e155]:
+                - button "1× Red Guards Anti-Tank Squad 1 × 0 AP = 0 AP" [ref=f1e156] [cursor=pointer]:
+                  - generic [ref=f1e157]:
+                    - generic [ref=f1e158]: 1× Red Guards Anti-Tank Squad
+                    - paragraph [ref=f1e159]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e161] [cursor=pointer]
+              - listitem [ref=f1e162]:
+                - button "1× Red Guards Assault Squad 1 × 0 AP = 0 AP" [ref=f1e163] [cursor=pointer]:
+                  - generic [ref=f1e164]:
+                    - generic [ref=f1e165]: 1× Red Guards Assault Squad
+                    - paragraph [ref=f1e166]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e168] [cursor=pointer]
+              - listitem [ref=f1e169]:
+                - button "1× Red Guards Command Squad 1 × 0 AP = 0 AP" [ref=f1e170] [cursor=pointer]:
+                  - generic [ref=f1e171]:
+                    - generic [ref=f1e172]: 1× Red Guards Command Squad
+                    - paragraph [ref=f1e173]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e175] [cursor=pointer]
+              - listitem [ref=f1e176]:
+                - button "1× Steel Guards Anti-Infantry Squad 1 × 0 AP = 0 AP" [ref=f1e177] [cursor=pointer]:
+                  - generic [ref=f1e178]:
+                    - generic [ref=f1e179]: 1× Steel Guards Anti-Infantry Squad
+                    - paragraph [ref=f1e180]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e182] [cursor=pointer]
+              - listitem [ref=f1e183]:
+                - button "1× Steel Guards Anti-Tank Squad 1 × 0 AP = 0 AP" [ref=f1e184] [cursor=pointer]:
+                  - generic [ref=f1e185]:
+                    - generic [ref=f1e186]: 1× Steel Guards Anti-Tank Squad
+                    - paragraph [ref=f1e187]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e189] [cursor=pointer]
+              - listitem [ref=f1e190]:
+                - button "1× Steel Guards Assault Squad 1 × 0 AP = 0 AP" [ref=f1e191] [cursor=pointer]:
+                  - generic [ref=f1e192]:
+                    - generic [ref=f1e193]: 1× Steel Guards Assault Squad
+                    - paragraph [ref=f1e194]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e196] [cursor=pointer]
+              - listitem [ref=f1e197]:
+                - button "1× Steel Guards Command Squad 1 × 0 AP = 0 AP" [ref=f1e198] [cursor=pointer]:
+                  - generic [ref=f1e199]:
+                    - generic [ref=f1e200]: 1× Steel Guards Command Squad
+                    - paragraph [ref=f1e201]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e203] [cursor=pointer]
+              - listitem [ref=f1e204]:
+                - button "1× Steel Guards Fire Support Squad 1 × 0 AP = 0 AP" [ref=f1e205] [cursor=pointer]:
+                  - generic [ref=f1e206]:
+                    - generic [ref=f1e207]: 1× Steel Guards Fire Support Squad
+                    - paragraph [ref=f1e208]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e210] [cursor=pointer]
+              - listitem [ref=f1e211]:
+                - button "1× Steel Guards Sniper Squad 1 × 0 AP = 0 AP" [ref=f1e212] [cursor=pointer]:
+                  - generic [ref=f1e213]:
+                    - generic [ref=f1e214]: 1× Steel Guards Sniper Squad
+                    - paragraph [ref=f1e215]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e217] [cursor=pointer]
+              - listitem [ref=f1e218]:
+                - button "1× Steel Guards Tesla Squad 1 × 0 AP = 0 AP" [ref=f1e219] [cursor=pointer]:
+                  - generic [ref=f1e220]:
+                    - generic [ref=f1e221]: 1× Steel Guards Tesla Squad
+                    - paragraph [ref=f1e222]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e224] [cursor=pointer]
+              - listitem [ref=f1e225]:
+                - button "1× Steel Guards Close Combat Squad 1 × 10 AP = 10 AP" [ref=f1e226] [cursor=pointer]:
+                  - generic [ref=f1e227]:
+                    - generic [ref=f1e228]: 1× Steel Guards Close Combat Squad
+                    - paragraph [ref=f1e229]: 1 × 10 AP = 10 AP
+                - button "Entfernen" [ref=f1e231] [cursor=pointer]
+              - listitem [ref=f1e232]:
+                - button "1× Babushka 1 × 0 AP = 0 AP" [ref=f1e233] [cursor=pointer]:
+                  - generic [ref=f1e234]:
+                    - generic [ref=f1e235]: 1× Babushka
+                    - paragraph [ref=f1e236]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e238] [cursor=pointer]
+              - listitem [ref=f1e239]:
+                - button "1× Matrioshka 1 × 0 AP = 0 AP" [ref=f1e240] [cursor=pointer]:
+                  - generic [ref=f1e241]:
+                    - generic [ref=f1e242]: 1× Matrioshka
+                    - paragraph [ref=f1e243]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e245] [cursor=pointer]
+              - listitem [ref=f1e246]:
+                - button "1× KV 152 1 × 0 AP = 0 AP" [ref=f1e247] [cursor=pointer]:
+                  - generic [ref=f1e248]:
+                    - generic [ref=f1e249]: 1× KV 152
+                    - paragraph [ref=f1e250]: 1 × 0 AP = 0 AP
+                - button "Entfernen" [ref=f1e252] [cursor=pointer]
+      - generic [ref=f1e53]:
+        - heading "Details" [level=6] [ref=f1e55]
+        - separator [ref=f1e56]
+        - paragraph [ref=f1e58]: Einheit auswählen…

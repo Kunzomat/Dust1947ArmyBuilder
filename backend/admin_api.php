@@ -54,10 +54,82 @@ try {
 $action = $_GET['action'] ?? '';
 $method = $_SERVER['REQUEST_METHOD'];
 
+// New catalogue routes are isolated from the legacy endpoint behavior.
+if (str_starts_with($action, 'actions.') || str_starts_with($action, 'action_types.')) {
+    require_once __DIR__ . '/actions_admin.php';
+    handleActionCatalogue($conn, $action, $method);
+    ob_end_flush();
+    exit();
+}
+
 function nullableInt($value)
 {
     if ($value === null || $value === '') return null;
     return (int)$value;
+}
+
+function validateCloneWeaponStats($stats)
+{
+    // Keep the clone draft aligned with weapon_stats.save: dice and damage
+    // are editor text, not numeric-only values. Empty slots are not stored;
+    // a partially filled slot is stored with its empty value unchanged.
+    if (!is_array($stats) || !array_is_list($stats)) {
+        throw new InvalidArgumentException('Ungültige Waffen-Stats');
+    }
+
+    $validLevels = ['I' => [1, 2, 3, 4], 'V' => [1, 2, 3, 4, 5, 6, 7], 'A' => [1, 2, 3]];
+    $seenStatKeys = [];
+    $validatedStats = [];
+
+    foreach ($stats as $stat) {
+        if (!is_array($stat)
+            || !isset($stat['target_type'], $stat['target_level'])
+            || !array_key_exists('dice', $stat)
+            || !array_key_exists('damage', $stat)) {
+            throw new InvalidArgumentException('Ungültige Waffen-Stats');
+        }
+
+        $targetType = $stat['target_type'];
+        $targetLevel = $stat['target_level'];
+        $dice = $stat['dice'];
+        $damage = $stat['damage'];
+
+        // Text inputs submit strings. Integers/floats are retained for
+        // compatibility with existing stat rows returned as numeric values.
+        if (!is_string($targetType)
+            || !is_int($targetLevel)
+            || (!is_string($dice) && !is_int($dice) && !is_float($dice))
+            || (!is_string($damage) && !is_int($damage) && !is_float($damage))) {
+            throw new InvalidArgumentException('Ungültige Waffen-Stats');
+        }
+
+        $dice = (string)$dice;
+        $damage = (string)$damage;
+        $statKey = $targetType . '-' . $targetLevel;
+
+        if (!isset($validLevels[$targetType])
+            || !in_array($targetLevel, $validLevels[$targetType], true)
+            || isset($seenStatKeys[$statKey])) {
+            throw new InvalidArgumentException('Ungültige Waffen-Stats');
+        }
+        $seenStatKeys[$statKey] = true;
+
+        // This is the Stats & Regeln save behavior: omit only a completely
+        // empty slot. Partial rows, as well as textual notations such as
+        // "*", "#", "☠", "¤", and "1/", are persisted without alteration.
+        if ($dice === '' && $damage === '') {
+            continue;
+        }
+
+        $validatedStats[] = [
+            'target_type' => $targetType,
+            'target_level' => $targetLevel,
+            'dice' => $dice,
+            'damage' => $damage,
+        ];
+    }
+
+    return $validatedStats;
 }
 
 function respondJson($data, $statusCode = 200)
@@ -350,38 +422,13 @@ try {
     } elseif ($action === 'units.create') {
         $data = json_decode(file_get_contents('php://input'), true);
         $game_system_id = nullableInt($data['game_system_id'] ?? null);
+        $is_unique = in_array($data['is_unique'] ?? false, [true, 1, '1'], true) ? 1 : 0;
         $stmt = $conn->prepare("
             INSERT INTO units (
                 name, faction_id, game_system_id, type, points,
                 level, speed, march_speed, health,
-                image_url, notes
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ");
-        $stmt->bind_param(
-            'siisisiiiss',
-            $data['name'],
-            $data['faction_id'],
-            $game_system_id,
-            $data['type'],
-            $data['points'],
-            $data['level'],
-            $data['speed'],
-            $data['march_speed'],
-            $data['health'],
-            $data['image_url'],
-            $data['notes']
-        );
-        $stmt->execute();
-        echo json_encode(['id' => $conn->insert_id, 'message' => 'Unit created']);
-    } elseif ($action === 'units.update') {
-        $data = json_decode(file_get_contents('php://input'), true);
-        $game_system_id = nullableInt($data['game_system_id'] ?? null);
-        $stmt = $conn->prepare("
-            UPDATE units SET
-                name=?, faction_id=?, game_system_id=?, type=?, points=?,
-                level=?, speed=?, march_speed=?, health=?,
-                image_url=?, notes=?
-            WHERE id=?
+                image_url, notes, is_unique
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ");
         $stmt->bind_param(
             'siisisiiissi',
@@ -396,6 +443,38 @@ try {
             $data['health'],
             $data['image_url'],
             $data['notes'],
+            $is_unique
+        );
+        $stmt->execute();
+        echo json_encode(['id' => $conn->insert_id, 'message' => 'Unit created']);
+    } elseif ($action === 'units.update') {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $game_system_id = nullableInt($data['game_system_id'] ?? null);
+        // Older callers updating other fields must not clear existing uniqueness.
+        $is_unique = array_key_exists('is_unique', $data)
+            ? (in_array($data['is_unique'], [true, 1, '1'], true) ? 1 : 0)
+            : null;
+        $stmt = $conn->prepare("
+            UPDATE units SET
+                name=?, faction_id=?, game_system_id=?, type=?, points=?,
+                level=?, speed=?, march_speed=?, health=?,
+                image_url=?, notes=?, is_unique=COALESCE(?, is_unique)
+            WHERE id=?
+        ");
+        $stmt->bind_param(
+            'siisisiiissii',
+            $data['name'],
+            $data['faction_id'],
+            $game_system_id,
+            $data['type'],
+            $data['points'],
+            $data['level'],
+            $data['speed'],
+            $data['march_speed'],
+            $data['health'],
+            $data['image_url'],
+            $data['notes'],
+            $is_unique,
             $data['id']
         );
         $stmt->execute();
@@ -419,7 +498,7 @@ try {
             exit;
         }
 
-        $sourceStmt = $conn->prepare("SELECT name, faction_id, game_system_id, type, points, level, speed, march_speed, health, image_url, notes FROM units WHERE id = ?");
+        $sourceStmt = $conn->prepare("SELECT name, faction_id, game_system_id, type, points, level, speed, march_speed, health, image_url, notes, is_unique FROM units WHERE id = ?");
         $sourceStmt->bind_param('i', $sourceId);
         $sourceStmt->execute();
         $source = $sourceStmt->get_result()->fetch_assoc();
@@ -443,13 +522,14 @@ try {
         $health = array_key_exists('health', $data) ? nullableInt($data['health']) : nullableInt($source['health']);
         $imageUrl = array_key_exists('image_url', $data) ? (string)$data['image_url'] : $source['image_url'];
         $notes = array_key_exists('notes', $data) ? (string)$data['notes'] : $source['notes'];
+        $isUnique = in_array($data['is_unique'] ?? $source['is_unique'], [true, 1, '1'], true) ? 1 : 0;
 
         try {
             $conn->begin_transaction();
 
-            $insertUnitStmt = $conn->prepare("\n                INSERT INTO units (\n                    name, faction_id, game_system_id, type, points,\n                    level, speed, march_speed, health,\n                    image_url, notes\n                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n            ");
+            $insertUnitStmt = $conn->prepare("\n                INSERT INTO units (\n                    name, faction_id, game_system_id, type, points,\n                    level, speed, march_speed, health,\n                    image_url, notes, is_unique\n                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n            ");
             $insertUnitStmt->bind_param(
-                'siisisiiiss',
+                'siisisiiissi',
                 $clonedName,
                 $factionId,
                 $gameSystemId,
@@ -460,7 +540,8 @@ try {
                 $marchSpeed,
                 $health,
                 $imageUrl,
-                $notes
+                $notes,
+                $isUnique
             );
             $insertUnitStmt->execute();
             $newUnitId = (int)$conn->insert_id;
@@ -499,20 +580,23 @@ try {
                 w.`range`,
                 w.disposable,
                 w.game_system_id,
+                w.faction_id,
                 gs.name as game_system_name,
-                GROUP_CONCAT(DISTINCT f.id ORDER BY f.name SEPARATOR ',') AS faction_ids,
-                GROUP_CONCAT(DISTINCT f.name ORDER BY f.name SEPARATOR ' | ') AS faction_names
+                direct_f.name AS faction_name,
+                CONCAT_WS(',', w.faction_id, GROUP_CONCAT(DISTINCT assigned_f.id ORDER BY assigned_f.name SEPARATOR ',')) AS faction_ids,
+                GROUP_CONCAT(DISTINCT assigned_f.name ORDER BY assigned_f.name SEPARATOR ' | ') AS faction_names
             FROM weapons w
             LEFT JOIN game_systems gs ON w.game_system_id = gs.id
+            LEFT JOIN factions direct_f ON w.faction_id = direct_f.id
             LEFT JOIN unit_weapons uw ON uw.weapon_id = w.id
             LEFT JOIN units u ON uw.unit_id = u.id
-            LEFT JOIN factions f ON u.faction_id = f.id
+            LEFT JOIN factions assigned_f ON u.faction_id = assigned_f.id
         ";
         if ($gameSystemId !== null) {
             $query .= " WHERE w.game_system_id IS NULL OR w.game_system_id = $gameSystemId ";
         }
         $query .= "
-            GROUP BY w.id, w.name, w.`range`, w.disposable, w.game_system_id, gs.name
+            GROUP BY w.id, w.name, w.`range`, w.disposable, w.game_system_id, w.faction_id, gs.name, direct_f.name
             ORDER BY w.name
         ";
 
@@ -526,23 +610,25 @@ try {
     } elseif ($action === 'weapons.create') {
         $data = json_decode(file_get_contents('php://input'), true);
         $game_system_id = nullableInt($data['game_system_id'] ?? null);
+        $faction_id = nullableInt($data['faction_id'] ?? null);
         $stmt = $conn->prepare("
-            INSERT INTO weapons (name, `range`, disposable, game_system_id)
-            VALUES (?, ?, ?, ?)
+            INSERT INTO weapons (name, `range`, disposable, game_system_id, faction_id)
+            VALUES (?, ?, ?, ?, ?)
         ");
         $disposable = ($data['disposable'] === true || $data['disposable'] === 1 || $data['disposable'] === '1') ? 1 : 0;
-        $stmt->bind_param('ssii', $data['name'], $data['range'], $disposable, $game_system_id);
+        $stmt->bind_param('ssiii', $data['name'], $data['range'], $disposable, $game_system_id, $faction_id);
         $stmt->execute();
         echo json_encode(['id' => $conn->insert_id, 'message' => 'Weapon created']);
     } elseif ($action === 'weapons.update') {
         $data = json_decode(file_get_contents('php://input'), true);
         $game_system_id = nullableInt($data['game_system_id'] ?? null);
+        $faction_id = nullableInt($data['faction_id'] ?? null);
         $stmt = $conn->prepare("
-            UPDATE weapons SET name=?, `range`=?, disposable=?, game_system_id=?
+            UPDATE weapons SET name=?, `range`=?, disposable=?, game_system_id=?, faction_id=?
             WHERE id=?
         ");
         $disposable = ($data['disposable'] === true || $data['disposable'] === 1 || $data['disposable'] === '1') ? 1 : 0;
-        $stmt->bind_param('ssiii', $data['name'], $data['range'], $disposable, $game_system_id, $data['id']);
+        $stmt->bind_param('ssiiii', $data['name'], $data['range'], $disposable, $game_system_id, $faction_id, $data['id']);
         $stmt->execute();
         echo json_encode(['message' => 'Weapon updated']);
     } elseif ($action === 'weapons.clone') {
@@ -555,7 +641,7 @@ try {
             exit;
         }
 
-        $sourceStmt = $conn->prepare("SELECT name, `range`, disposable, game_system_id FROM weapons WHERE id = ?");
+        $sourceStmt = $conn->prepare("SELECT name, `range`, disposable, game_system_id, faction_id FROM weapons WHERE id = ?");
         $sourceStmt->bind_param('i', $sourceId);
         $sourceStmt->execute();
         $source = $sourceStmt->get_result()->fetch_assoc();
@@ -566,36 +652,91 @@ try {
             exit;
         }
 
-        $clonedName = $source['name'] . ' (Kopie)';
-        $range = $source['range'];
-        $disposable = (int)$source['disposable'];
-        $gameSystemId = nullableInt($source['game_system_id']);
+        $clonedName = array_key_exists('name', $data) ? (string)$data['name'] : ($source['name'] . ' (Kopie)');
+        $range = array_key_exists('range', $data) ? (string)$data['range'] : $source['range'];
+        $disposable = array_key_exists('disposable', $data)
+            ? (($data['disposable'] === true || $data['disposable'] === 1 || $data['disposable'] === '1') ? 1 : 0)
+            : (int)$source['disposable'];
+        $gameSystemId = array_key_exists('game_system_id', $data)
+            ? nullableInt($data['game_system_id'])
+            : nullableInt($source['game_system_id']);
+        $factionId = array_key_exists('faction_id', $data)
+            ? nullableInt($data['faction_id'])
+            : nullableInt($source['faction_id']);
+        $hasStatsDraft = array_key_exists('stats', $data);
+        $hasRulesDraft = array_key_exists('rule_ids', $data);
+
+        if ($hasStatsDraft && !is_array($data['stats'])) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Ungültige Waffen-Stats']);
+            exit;
+        }
+        if ($hasRulesDraft && !is_array($data['rule_ids'])) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Ungültige Waffen-Regeln']);
+            exit;
+        }
 
         try {
             $conn->begin_transaction();
 
-            $insertWeaponStmt = $conn->prepare("INSERT INTO weapons (name, `range`, disposable, game_system_id) VALUES (?, ?, ?, ?)");
-            $insertWeaponStmt->bind_param('ssii', $clonedName, $range, $disposable, $gameSystemId);
+            $insertWeaponStmt = $conn->prepare("INSERT INTO weapons (name, `range`, disposable, game_system_id, faction_id) VALUES (?, ?, ?, ?, ?)");
+            $insertWeaponStmt->bind_param('ssiii', $clonedName, $range, $disposable, $gameSystemId, $factionId);
             $insertWeaponStmt->execute();
             $newWeaponId = (int)$conn->insert_id;
 
-            $cloneStatsStmt = $conn->prepare("
-                INSERT INTO weapon_stats (weapon_id, target_type, target_level, dice, damage)
-                SELECT ?, target_type, target_level, dice, damage
-                FROM weapon_stats
-                WHERE weapon_id = ?
-            ");
-            $cloneStatsStmt->bind_param('ii', $newWeaponId, $sourceId);
-            $cloneStatsStmt->execute();
+            if ($hasStatsDraft) {
+                $insertStatStmt = $conn->prepare("
+                    INSERT INTO weapon_stats (weapon_id, target_type, target_level, dice, damage)
+                    VALUES (?, ?, ?, ?, ?)
+                ");
+                foreach (validateCloneWeaponStats($data['stats']) as $stat) {
+                    $insertStatStmt->bind_param(
+                        'isiss',
+                        $newWeaponId,
+                        $stat['target_type'],
+                        $stat['target_level'],
+                        $stat['dice'],
+                        $stat['damage']
+                    );
+                    $insertStatStmt->execute();
+                }
+            } else {
+                $cloneStatsStmt = $conn->prepare("
+                    INSERT INTO weapon_stats (weapon_id, target_type, target_level, dice, damage)
+                    SELECT ?, target_type, target_level, dice, damage
+                    FROM weapon_stats
+                    WHERE weapon_id = ?
+                ");
+                $cloneStatsStmt->bind_param('ii', $newWeaponId, $sourceId);
+                $cloneStatsStmt->execute();
+            }
 
-            $cloneRulesStmt = $conn->prepare("
-                INSERT INTO weapon_rules (weapon_id, rule_id)
-                SELECT ?, rule_id
-                FROM weapon_rules
-                WHERE weapon_id = ?
-            ");
-            $cloneRulesStmt->bind_param('ii', $newWeaponId, $sourceId);
-            $cloneRulesStmt->execute();
+            if ($hasRulesDraft) {
+                $insertRuleStmt = $conn->prepare("INSERT INTO weapon_rules (weapon_id, rule_id) VALUES (?, ?)");
+                $seenRuleIds = [];
+                foreach ($data['rule_ids'] as $ruleId) {
+                    $ruleId = (int)$ruleId;
+                    if ($ruleId <= 0 || isset($seenRuleIds[$ruleId])) {
+                        if ($ruleId <= 0) {
+                            throw new InvalidArgumentException('Ungültige Waffen-Regeln');
+                        }
+                        continue;
+                    }
+                    $seenRuleIds[$ruleId] = true;
+                    $insertRuleStmt->bind_param('ii', $newWeaponId, $ruleId);
+                    $insertRuleStmt->execute();
+                }
+            } else {
+                $cloneRulesStmt = $conn->prepare("
+                    INSERT INTO weapon_rules (weapon_id, rule_id)
+                    SELECT ?, rule_id
+                    FROM weapon_rules
+                    WHERE weapon_id = ?
+                ");
+                $cloneRulesStmt->bind_param('ii', $newWeaponId, $sourceId);
+                $cloneRulesStmt->execute();
+            }
 
             $conn->commit();
 
@@ -605,7 +746,7 @@ try {
             ]);
         } catch (Throwable $e) {
             $conn->rollback();
-            http_response_code(500);
+            http_response_code($e instanceof InvalidArgumentException ? 400 : 500);
             echo json_encode(['error' => 'Fehler beim Klonen der Waffe: ' . $e->getMessage()]);
         }
     } elseif ($action === 'weapons.delete') {
@@ -656,6 +797,90 @@ try {
         $stmt->bind_param('sssii', $data['name'], $short, $full, $game_system_id, $data['id']);
         $stmt->execute();
         echo json_encode(['message' => 'Rule updated']);
+    } elseif ($action === 'rules.clone') {
+        $data = json_decode(file_get_contents('php://input'), true);
+        if (!is_array($data)) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Ungültige Regel-Daten']);
+            exit;
+        }
+
+        $sourceId = filter_var($data['id'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+        $name = isset($data['name']) && is_string($data['name']) ? trim($data['name']) : '';
+        $hasShortText = array_key_exists('short_text', $data) && is_string($data['short_text']);
+        $hasFullText = array_key_exists('full_text', $data) && is_string($data['full_text']);
+        $short = $hasShortText ? $data['short_text'] : '';
+        $full = $hasFullText ? $data['full_text'] : '';
+        $gameSystemId = null;
+
+        if ($sourceId === false || $name === '' || !$hasShortText || !$hasFullText) {
+            http_response_code(400);
+            echo json_encode(['error' => 'Ungültige Regel-Daten']);
+            exit;
+        }
+        if (array_key_exists('game_system_id', $data) && $data['game_system_id'] !== null && $data['game_system_id'] !== '') {
+            $gameSystemId = filter_var($data['game_system_id'], FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+            if ($gameSystemId === false) {
+                http_response_code(400);
+                echo json_encode(['error' => 'Ungültiges Game System']);
+                exit;
+            }
+        }
+
+        // Some deployed databases have this legacy runtime column although
+        // schema.sql does not. Detect it without changing the schema.
+        $bonusFactorColumn = $conn->query("SHOW COLUMNS FROM rules LIKE 'bonus_factor'");
+        if ($bonusFactorColumn === false) {
+            throw new RuntimeException('Regel-Spalten konnten nicht geprüft werden');
+        }
+        $hasBonusFactor = $bonusFactorColumn->num_rows > 0;
+
+        try {
+            $conn->begin_transaction();
+
+            // Lock and verify the source before creating the independent rule.
+            // No unit_rules, weapon_rules, or platoons references are copied.
+            $sourceStmt = $conn->prepare("SELECT id FROM rules WHERE id = ? FOR UPDATE");
+            $sourceStmt->bind_param('i', $sourceId);
+            $sourceStmt->execute();
+            if (!$sourceStmt->get_result()->fetch_assoc()) {
+                throw new InvalidArgumentException('Quellregel nicht gefunden');
+            }
+
+            if ($gameSystemId !== null) {
+                $gameSystemStmt = $conn->prepare("SELECT id FROM game_systems WHERE id = ?");
+                $gameSystemStmt->bind_param('i', $gameSystemId);
+                $gameSystemStmt->execute();
+                if (!$gameSystemStmt->get_result()->fetch_assoc()) {
+                    throw new InvalidArgumentException('Game System nicht gefunden');
+                }
+            }
+
+            if ($hasBonusFactor) {
+                // Copy the non-editable source value in SQL so its exact
+                // database representation (including NULL) is retained.
+                $insertStmt = $conn->prepare("
+                    INSERT INTO rules (name, short_text, full_text, game_system_id, bonus_factor)
+                    SELECT ?, ?, ?, ?, bonus_factor FROM rules WHERE id = ?
+                ");
+                $insertStmt->bind_param('sssii', $name, $short, $full, $gameSystemId, $sourceId);
+            } else {
+                $insertStmt = $conn->prepare("
+                    INSERT INTO rules (name, short_text, full_text, game_system_id)
+                    VALUES (?, ?, ?, ?)
+                ");
+                $insertStmt->bind_param('sssi', $name, $short, $full, $gameSystemId);
+            }
+            $insertStmt->execute();
+            $newRuleId = (int)$conn->insert_id;
+
+            $conn->commit();
+            echo json_encode(['id' => $newRuleId, 'message' => 'Rule cloned']);
+        } catch (Throwable $e) {
+            $conn->rollback();
+            http_response_code($e instanceof InvalidArgumentException ? 400 : 500);
+            echo json_encode(['error' => 'Fehler beim Klonen der Regel: ' . $e->getMessage()]);
+        }
     } elseif ($action === 'rules.delete') {
         $id = $_GET['id'] ?? 0;
         // Check if rule is in use

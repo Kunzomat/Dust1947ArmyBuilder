@@ -1,0 +1,76 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e6]
+      - group [ref=e7]:
+        - button "Army Builder" [pressed] [ref=e8] [cursor=pointer]
+        - button "Admin" [ref=e11] [cursor=pointer]
+  - generic [ref=e14]:
+    - alert [ref=e15]:
+      - generic [ref=e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Armeen" [level=6] [ref=e23]
+        - separator [ref=e24]
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic: Game System
+              - generic [ref=e28]:
+                - combobox "Game System" [ref=e29] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=e30]:
+              - generic: Bloc
+              - generic [ref=e31]:
+                - combobox "Bloc" [ref=e32] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=e33]:
+              - button "Aktualisieren" [ref=e34] [cursor=pointer]
+              - button "Neue Armee" [ref=e35] [cursor=pointer]
+              - button "Löschen" [ref=e36] [cursor=pointer]
+          - list [ref=e37]:
+            - button "Steel Legion II 209/200 Punkte • Imperium (Warhammer 40k)" [ref=e38] [cursor=pointer]:
+              - generic [ref=e39]:
+                - generic [ref=e40]: Steel Legion II
+                - paragraph [ref=e41]: 209/200 Punkte • Imperium (Warhammer 40k)
+            - button "Steel Legion I 110/100 Punkte • Imperium (Warhammer 40k)" [ref=e42] [cursor=pointer]:
+              - generic [ref=e43]:
+                - generic [ref=e44]: Steel Legion I
+                - paragraph [ref=e45]: 110/100 Punkte • Imperium (Warhammer 40k)
+            - button "Space Marine II 163/200 Punkte • Imperium (Warhammer 40k)" [ref=e46] [cursor=pointer]:
+              - generic [ref=e47]:
+                - generic [ref=e48]: Space Marine II
+                - paragraph [ref=e49]: 163/200 Punkte • Imperium (Warhammer 40k)
+            - button "Space Marine I 110/100 Punkte • Imperium (Warhammer 40k)" [ref=e50] [cursor=pointer]:
+              - generic [ref=e51]:
+                - generic [ref=e52]: Space Marine I
+                - paragraph [ref=e53]: 110/100 Punkte • Imperium (Warhammer 40k)
+            - button "Aeldari II 175/200 Punkte • Aeldari (Warhammer 40k)" [ref=e54] [cursor=pointer]:
+              - generic [ref=e55]:
+                - generic [ref=e56]: Aeldari II
+                - paragraph [ref=e57]: 175/200 Punkte • Aeldari (Warhammer 40k)
+            - button "Aeldari I 103/100 Punkte • Aeldari (Warhammer 40k)" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]:
+                - generic [ref=e60]: Aeldari I
+                - paragraph [ref=e61]: 103/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=e62]:
+        - heading "Armee" [level=6] [ref=e64]
+        - separator [ref=e65]
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - button "Bearbeiten" [ref=e68] [cursor=pointer]
+            - button "Klonen" [ref=e69] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=e70] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=e71] [cursor=pointer]
+          - paragraph [ref=e72]: Platoons
+          - generic [ref=e73]:
+            - paragraph [ref=e74]: Freie Einheiten
+            - list [ref=e75]
+      - generic [ref=e76]:
+        - heading "Details" [level=6] [ref=e78]
+        - separator [ref=e79]
+        - paragraph [ref=e81]: Einheit auswählen…

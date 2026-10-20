@@ -1,0 +1,3197 @@
+- generic [ref=f1e3]:
+  - banner [ref=f1e4]:
+    - generic [ref=f1e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f1e14274]
+      - group [ref=f1e7]:
+        - button "Army Builder" [ref=f1e14275] [cursor=pointer]
+        - button "Admin" [pressed] [ref=f1e14276] [cursor=pointer]
+  - generic [ref=f1e15]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=f1e14277]
+    - paragraph [ref=f1e17]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+    - tablist [ref=f1e21]:
+      - tab "🎮 Game Systems" [ref=f1e14278] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=f1e14279] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=f1e14280] [cursor=pointer]
+      - tab "⚔️ Units" [ref=f1e14281] [cursor=pointer]
+      - tab "🔫 Weapons" [selected] [ref=f1e14282] [cursor=pointer]
+      - tab "📜 Rules" [ref=f1e14283] [cursor=pointer]
+      - tab "🪖 Platoons" [ref=f1e14284] [cursor=pointer]
+    - tabpanel [ref=f1e154]:
+      - generic [ref=f1e156]:
+        - generic [ref=f1e157]:
+          - heading "Weapons (262)" [level=6] [ref=f1e14285]
+          - generic [ref=f1e159]:
+            - generic [ref=f1e160]:
+              - generic: Waffe suchen
+              - generic [ref=f1e161]:
+                - textbox "Waffe suchen" [ref=f1e14286]:
+                  - /placeholder: Contains (ab 1 Zeichen)
+                - group [aria-hidden]:
+                  - generic: Waffe suchen
+            - generic [ref=f1e163]:
+              - generic: Game System
+              - generic [ref=f1e164]:
+                - combobox "Game System" [ref=f1e14287] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - button [ref=f1e14288] [cursor=pointer]
+        - table [ref=f1e171]:
+          - rowgroup [ref=f1e172]:
+            - row [ref=f1e14289]:
+              - columnheader [ref=f1e14290]:
+                - button "ID" [ref=f1e14291] [cursor=pointer]
+              - columnheader [ref=f1e14292]:
+                - button "Name" [ref=f1e14293] [cursor=pointer]
+              - columnheader [ref=f1e14294]:
+                - button "Game System" [ref=f1e14295] [cursor=pointer]
+              - columnheader [ref=f1e14296]:
+                - button "Reichweite" [ref=f1e14297] [cursor=pointer]
+              - columnheader [ref=f1e14298]:
+                - button "Einmalwaffe" [ref=f1e14299] [cursor=pointer]
+              - columnheader "Aktionen" [ref=f1e14300]
+          - rowgroup [ref=f1e195]:
+            - row [ref=f1e14301]:
+              - cell "1" [ref=f1e14302]
+              - cell [ref=f1e14303]:
+                - strong [ref=f1e200]: Bolt Pistol
+              - cell "Warhammer 40k" [ref=f1e14304]
+              - cell "2" [ref=f1e14305]
+              - cell "Nein" [ref=f1e14306]
+              - cell [ref=f1e206]:
+                - button "Stats & Regeln verwalten" [ref=f1e14307] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14308] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14309] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14310] [cursor=pointer]
+            - row [ref=f1e14311]:
+              - cell "2" [ref=f1e14312]
+              - cell [ref=f1e14313]:
+                - strong [ref=f1e223]: Energie Fist
+              - cell "Warhammer 40k" [ref=f1e14314]
+              - cell "C" [ref=f1e14315]
+              - cell "Nein" [ref=f1e14316]
+              - cell [ref=f1e229]:
+                - button "Stats & Regeln verwalten" [ref=f1e14317] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14318] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14319] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14320] [cursor=pointer]
+            - row [ref=f1e14321]:
+              - cell "3" [ref=f1e14322]
+              - cell [ref=f1e14323]:
+                - strong [ref=f1e246]: Boltgun
+              - cell "Warhammer 40k" [ref=f1e14324]
+              - cell "4" [ref=f1e14325]
+              - cell "Nein" [ref=f1e14326]
+              - cell [ref=f1e252]:
+                - button "Stats & Regeln verwalten" [ref=f1e14327] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14328] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14329] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14330] [cursor=pointer]
+            - row [ref=f1e14331]:
+              - cell "4" [ref=f1e14332]
+              - cell [ref=f1e14333]:
+                - strong [ref=f1e269]: Plasma Pistol
+              - cell "Warhammer 40k" [ref=f1e14334]
+              - cell "2" [ref=f1e14335]
+              - cell "Nein" [ref=f1e14336]
+              - cell [ref=f1e275]:
+                - button "Stats & Regeln verwalten" [ref=f1e14337] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14338] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14339] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14340] [cursor=pointer]
+            - row [ref=f1e14341]:
+              - cell "5" [ref=f1e14342]
+              - cell [ref=f1e14343]:
+                - strong [ref=f1e292]: Energie Sword
+              - cell "Warhammer 40k" [ref=f1e14344]
+              - cell "C" [ref=f1e14345]
+              - cell "Nein" [ref=f1e14346]
+              - cell [ref=f1e298]:
+                - button "Stats & Regeln verwalten" [ref=f1e14347] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14348] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14349] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14350] [cursor=pointer]
+            - row [ref=f1e14351]:
+              - cell "6" [ref=f1e14352]
+              - cell [ref=f1e14353]:
+                - strong [ref=f1e315]: Flamer
+              - cell "Warhammer 40k" [ref=f1e14354]
+              - cell "1" [ref=f1e14355]
+              - cell "Nein" [ref=f1e14356]
+              - cell [ref=f1e321]:
+                - button "Stats & Regeln verwalten" [ref=f1e14357] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14358] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14359] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14360] [cursor=pointer]
+            - row [ref=f1e14361]:
+              - cell "7" [ref=f1e14362]
+              - cell [ref=f1e14363]:
+                - strong [ref=f1e338]: Meltagun
+              - cell "Warhammer 40k" [ref=f1e14364]
+              - cell "3" [ref=f1e14365]
+              - cell "Nein" [ref=f1e14366]
+              - cell [ref=f1e344]:
+                - button "Stats & Regeln verwalten" [ref=f1e14367] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14368] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14369] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14370] [cursor=pointer]
+            - row [ref=f1e14371]:
+              - cell "8" [ref=f1e14372]
+              - cell [ref=f1e14373]:
+                - strong [ref=f1e361]: Chainsword
+              - cell "Warhammer 40k" [ref=f1e14374]
+              - cell "C" [ref=f1e14375]
+              - cell "Nein" [ref=f1e14376]
+              - cell [ref=f1e367]:
+                - button "Stats & Regeln verwalten" [ref=f1e14377] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14378] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14379] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14380] [cursor=pointer]
+            - row [ref=f1e14381]:
+              - cell "9" [ref=f1e14382]
+              - cell [ref=f1e14383]:
+                - strong [ref=f1e384]: Missile Launcher
+              - cell "Warhammer 40k" [ref=f1e14384]
+              - cell "8" [ref=f1e14385]
+              - cell "Nein" [ref=f1e14386]
+              - cell [ref=f1e390]:
+                - button "Stats & Regeln verwalten" [ref=f1e14387] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14388] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14389] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14390] [cursor=pointer]
+            - row [ref=f1e14391]:
+              - cell "10" [ref=f1e14392]
+              - cell [ref=f1e14393]:
+                - strong [ref=f1e407]: Twin Lascannon
+              - cell "Warhammer 40k" [ref=f1e14394]
+              - cell "12" [ref=f1e14395]
+              - cell "Nein" [ref=f1e14396]
+              - cell [ref=f1e413]:
+                - button "Stats & Regeln verwalten" [ref=f1e14397] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14398] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14399] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14400] [cursor=pointer]
+            - row [ref=f1e14401]:
+              - cell "11" [ref=f1e14402]
+              - cell [ref=f1e14403]:
+                - strong [ref=f1e430]: Lascannon
+              - cell "Warhammer 40k" [ref=f1e14404]
+              - cell "12" [ref=f1e14405]
+              - cell "Nein" [ref=f1e14406]
+              - cell [ref=f1e436]:
+                - button "Stats & Regeln verwalten" [ref=f1e14407] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14408] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14409] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14410] [cursor=pointer]
+            - row [ref=f1e14411]:
+              - cell "44" [ref=f1e14412]
+              - cell [ref=f1e14413]:
+                - strong [ref=f1e453]: Predator Autocannon
+              - cell "Warhammer 40k" [ref=f1e14414]
+              - cell "12" [ref=f1e14415]
+              - cell "Nein" [ref=f1e14416]
+              - cell [ref=f1e459]:
+                - button "Stats & Regeln verwalten" [ref=f1e14417] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14418] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14419] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14420] [cursor=pointer]
+            - row [ref=f1e14421]:
+              - cell "45" [ref=f1e14422]
+              - cell [ref=f1e14423]:
+                - strong [ref=f1e476]: Heavy Bolter
+              - cell "Warhammer 40k" [ref=f1e14424]
+              - cell "9" [ref=f1e14425]
+              - cell "Nein" [ref=f1e14426]
+              - cell [ref=f1e482]:
+                - button "Stats & Regeln verwalten" [ref=f1e14427] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14428] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14429] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14430] [cursor=pointer]
+            - row [ref=f1e14431]:
+              - cell "100" [ref=f1e14432]
+              - cell [ref=f1e14433]:
+                - strong [ref=f1e499]: Singing spear
+              - cell "Warhammer 40k" [ref=f1e14434]
+              - cell "C" [ref=f1e14435]
+              - cell "Nein" [ref=f1e14436]
+              - cell [ref=f1e505]:
+                - button "Stats & Regeln verwalten" [ref=f1e14437] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14438] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14439] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14440] [cursor=pointer]
+            - row [ref=f1e14441]:
+              - cell "101" [ref=f1e14442]
+              - cell [ref=f1e14443]:
+                - strong [ref=f1e522]: Star Glaive
+              - cell "Warhammer 40k" [ref=f1e14444]
+              - cell "C" [ref=f1e14445]
+              - cell "Nein" [ref=f1e14446]
+              - cell [ref=f1e528]:
+                - button "Stats & Regeln verwalten" [ref=f1e14447] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14448] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14449] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14450] [cursor=pointer]
+            - row [ref=f1e14451]:
+              - cell "102" [ref=f1e14452]
+              - cell [ref=f1e14453]:
+                - strong [ref=f1e545]: Shuriken cannon
+              - cell "Warhammer 40k" [ref=f1e14454]
+              - cell "8" [ref=f1e14455]
+              - cell "Nein" [ref=f1e14456]
+              - cell [ref=f1e551]:
+                - button "Stats & Regeln verwalten" [ref=f1e14457] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14458] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14459] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14460] [cursor=pointer]
+            - row [ref=f1e14461]:
+              - cell "103" [ref=f1e14462]
+              - cell [ref=f1e14463]:
+                - strong [ref=f1e568]: Bright lance
+              - cell "Warhammer 40k" [ref=f1e14464]
+              - cell "12" [ref=f1e14465]
+              - cell "Nein" [ref=f1e14466]
+              - cell [ref=f1e574]:
+                - button "Stats & Regeln verwalten" [ref=f1e14467] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14468] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14469] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14470] [cursor=pointer]
+            - row [ref=f1e14471]:
+              - cell "104" [ref=f1e14472]
+              - cell [ref=f1e14473]:
+                - strong [ref=f1e591]: Reaper Launcher
+              - cell "Warhammer 40k" [ref=f1e14474]
+              - cell "12" [ref=f1e14475]
+              - cell "Nein" [ref=f1e14476]
+              - cell [ref=f1e597]:
+                - button "Stats & Regeln verwalten" [ref=f1e14477] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14478] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14479] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14480] [cursor=pointer]
+            - row [ref=f1e14481]:
+              - cell "105" [ref=f1e14482]
+              - cell [ref=f1e14483]:
+                - strong [ref=f1e614]: Tempest Launcher
+              - cell "Warhammer 40k" [ref=f1e14484]
+              - cell "12" [ref=f1e14485]
+              - cell "Nein" [ref=f1e14486]
+              - cell [ref=f1e620]:
+                - button "Stats & Regeln verwalten" [ref=f1e14487] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14488] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14489] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14490] [cursor=pointer]
+            - row [ref=f1e14491]:
+              - cell "106" [ref=f1e14492]
+              - cell [ref=f1e14493]:
+                - strong [ref=f1e637]: Twin Shuriken Catapult
+              - cell "Warhammer 40k" [ref=f1e14494]
+              - cell "4" [ref=f1e14495]
+              - cell "Nein" [ref=f1e14496]
+              - cell [ref=f1e643]:
+                - button "Stats & Regeln verwalten" [ref=f1e14497] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14498] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14499] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14500] [cursor=pointer]
+            - row [ref=f1e14501]:
+              - cell "107" [ref=f1e14502]
+              - cell [ref=f1e14503]:
+                - strong [ref=f1e660]: Dual Bright Lance
+              - cell "Warhammer 40k" [ref=f1e14504]
+              - cell "12" [ref=f1e14505]
+              - cell "Nein" [ref=f1e14506]
+              - cell [ref=f1e666]:
+                - button "Stats & Regeln verwalten" [ref=f1e14507] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14508] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14509] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14510] [cursor=pointer]
+            - row [ref=f1e14511]:
+              - cell "108" [ref=f1e14512]
+              - cell [ref=f1e14513]:
+                - strong [ref=f1e683]: Shuriken Catapult
+              - cell "Warhammer 40k" [ref=f1e14514]
+              - cell "4" [ref=f1e14515]
+              - cell "Nein" [ref=f1e14516]
+              - cell [ref=f1e689]:
+                - button "Stats & Regeln verwalten" [ref=f1e14517] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14518] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14519] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14520] [cursor=pointer]
+            - row [ref=f1e14521]:
+              - cell "109" [ref=f1e14522]
+              - cell [ref=f1e14523]:
+                - strong [ref=f1e706]: Plasma Grenades
+              - cell "Warhammer 40k" [ref=f1e14524]
+              - cell "C" [ref=f1e14525]
+              - cell "Ja" [ref=f1e14526]
+              - cell [ref=f1e712]:
+                - button "Stats & Regeln verwalten" [ref=f1e14527] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14528] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14529] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14530] [cursor=pointer]
+            - row [ref=f1e14531]:
+              - cell "110" [ref=f1e14532]
+              - cell [ref=f1e14533]:
+                - strong [ref=f1e729]: Shuriken Pistol
+              - cell "Warhammer 40k" [ref=f1e14534]
+              - cell "2" [ref=f1e14535]
+              - cell "Nein" [ref=f1e14536]
+              - cell [ref=f1e735]:
+                - button "Stats & Regeln verwalten" [ref=f1e14537] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14538] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14539] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14540] [cursor=pointer]
+            - row [ref=f1e14541]:
+              - cell "111" [ref=f1e14542]
+              - cell [ref=f1e14543]:
+                - strong [ref=f1e752]: Witchblade
+              - cell "Warhammer 40k" [ref=f1e14544]
+              - cell "C" [ref=f1e14545]
+              - cell "Nein" [ref=f1e14546]
+              - cell [ref=f1e758]:
+                - button "Stats & Regeln verwalten" [ref=f1e14547] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14548] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14549] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14550] [cursor=pointer]
+            - row [ref=f1e14551]:
+              - cell "112" [ref=f1e14552]
+              - cell [ref=f1e14553]:
+                - strong [ref=f1e775]: Scorpion chainsword
+              - cell "Warhammer 40k" [ref=f1e14554]
+              - cell "C" [ref=f1e14555]
+              - cell "Nein" [ref=f1e14556]
+              - cell [ref=f1e781]:
+                - button "Stats & Regeln verwalten" [ref=f1e14557] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14558] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14559] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14560] [cursor=pointer]
+            - row [ref=f1e14561]:
+              - cell "113" [ref=f1e14562]
+              - cell [ref=f1e14563]:
+                - strong [ref=f1e798]: Biting Blade
+              - cell "Warhammer 40k" [ref=f1e14564]
+              - cell "C" [ref=f1e14565]
+              - cell "Nein" [ref=f1e14566]
+              - cell [ref=f1e804]:
+                - button "Stats & Regeln verwalten" [ref=f1e14567] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14568] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14569] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14570] [cursor=pointer]
+            - row [ref=f1e14571]:
+              - cell "114" [ref=f1e14572]
+              - cell [ref=f1e14573]:
+                - strong [ref=f1e821]: Banshee blade
+              - cell "Warhammer 40k" [ref=f1e14574]
+              - cell "C" [ref=f1e14575]
+              - cell "Nein" [ref=f1e14576]
+              - cell [ref=f1e827]:
+                - button "Stats & Regeln verwalten" [ref=f1e14577] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14578] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14579] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14580] [cursor=pointer]
+            - row [ref=f1e14581]:
+              - cell "115" [ref=f1e14582]
+              - cell [ref=f1e14583]:
+                - strong [ref=f1e844]: Dual Banshee blade
+              - cell "Warhammer 40k" [ref=f1e14584]
+              - cell "C" [ref=f1e14585]
+              - cell "Nein" [ref=f1e14586]
+              - cell [ref=f1e850]:
+                - button "Stats & Regeln verwalten" [ref=f1e14587] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14588] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14589] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14590] [cursor=pointer]
+            - row [ref=f1e14591]:
+              - cell "200" [ref=f1e14592]
+              - cell [ref=f1e14593]:
+                - strong [ref=f1e867]: Laspistol
+              - cell "Warhammer 40k" [ref=f1e14594]
+              - cell "2" [ref=f1e14595]
+              - cell "Nein" [ref=f1e14596]
+              - cell [ref=f1e873]:
+                - button "Stats & Regeln verwalten" [ref=f1e14597] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14598] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14599] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14600] [cursor=pointer]
+            - row [ref=f1e14601]:
+              - cell "201" [ref=f1e14602]
+              - cell [ref=f1e14603]:
+                - strong [ref=f1e890]: Lasgun
+              - cell "Warhammer 40k" [ref=f1e14604]
+              - cell "5" [ref=f1e14605]
+              - cell "Nein" [ref=f1e14606]
+              - cell [ref=f1e896]:
+                - button "Stats & Regeln verwalten" [ref=f1e14607] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14608] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14609] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14610] [cursor=pointer]
+            - row [ref=f1e14611]:
+              - cell "202" [ref=f1e14612]
+              - cell [ref=f1e14613]:
+                - strong [ref=f1e913]: Force stave
+              - cell "Warhammer 40k" [ref=f1e14614]
+              - cell "C" [ref=f1e14615]
+              - cell "Nein" [ref=f1e14616]
+              - cell [ref=f1e919]:
+                - button "Stats & Regeln verwalten" [ref=f1e14617] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14618] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14619] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14620] [cursor=pointer]
+            - row [ref=f1e14621]:
+              - cell "203" [ref=f1e14622]
+              - cell [ref=f1e14623]:
+                - strong [ref=f1e936]: Autocannon
+              - cell "Warhammer 40k" [ref=f1e14624]
+              - cell "12" [ref=f1e14625]
+              - cell "Nein" [ref=f1e14626]
+              - cell [ref=f1e942]:
+                - button "Stats & Regeln verwalten" [ref=f1e14627] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14628] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14629] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14630] [cursor=pointer]
+            - row [ref=f1e14631]:
+              - cell "204" [ref=f1e14632]
+              - cell [ref=f1e14633]:
+                - strong [ref=f1e959]: Mortar
+              - cell "Warhammer 40k" [ref=f1e14634]
+              - cell "12" [ref=f1e14635]
+              - cell "Nein" [ref=f1e14636]
+              - cell [ref=f1e965]:
+                - button "Stats & Regeln verwalten" [ref=f1e14637] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14638] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14639] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14640] [cursor=pointer]
+            - row [ref=f1e14641]:
+              - cell "206" [ref=f1e14642]
+              - cell [ref=f1e14643]:
+                - strong [ref=f1e982]: Demolisher cannon
+              - cell "Warhammer 40k" [ref=f1e14644]
+              - cell "6" [ref=f1e14645]
+              - cell "Nein" [ref=f1e14646]
+              - cell [ref=f1e988]:
+                - button "Stats & Regeln verwalten" [ref=f1e14647] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14648] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14649] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14650] [cursor=pointer]
+            - row [ref=f1e14651]:
+              - cell "207" [ref=f1e14652]
+              - cell [ref=f1e14653]:
+                - strong [ref=f1e1005]: Vanquisher Cannon
+              - cell "Warhammer 40k" [ref=f1e14654]
+              - cell "18" [ref=f1e14655]
+              - cell "Nein" [ref=f1e14656]
+              - cell [ref=f1e1011]:
+                - button "Stats & Regeln verwalten" [ref=f1e14657] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14658] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14659] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14660] [cursor=pointer]
+            - row [ref=f1e14661]:
+              - cell "208" [ref=f1e14662]
+              - cell [ref=f1e14663]:
+                - strong [ref=f1e1028]: Flamethrower
+              - cell "Dust 1947" [ref=f1e14664]
+              - cell "1" [ref=f1e14665]
+              - cell "Nein" [ref=f1e14666]
+              - cell [ref=f1e1034]:
+                - button "Stats & Regeln verwalten" [ref=f1e14667] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14668] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14669] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14670] [cursor=pointer]
+            - row [ref=f1e14671]:
+              - cell "209" [ref=f1e14672]
+              - cell [ref=f1e14673]:
+                - strong [ref=f1e1051]: .45 ACP Pistol
+              - cell "Dust 1947" [ref=f1e14674]
+              - cell "2" [ref=f1e14675]
+              - cell "Nein" [ref=f1e14676]
+              - cell [ref=f1e1057]:
+                - button "Stats & Regeln verwalten" [ref=f1e14677] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14678] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14679] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14680] [cursor=pointer]
+            - row [ref=f1e14681]:
+              - cell "210" [ref=f1e14682]
+              - cell [ref=f1e14683]:
+                - strong [ref=f1e1074]: Abomination's Bite
+              - cell "Dust 1947" [ref=f1e14684]
+              - cell "C" [ref=f1e14685]
+              - cell "Nein" [ref=f1e14686]
+              - cell [ref=f1e1080]:
+                - button "Stats & Regeln verwalten" [ref=f1e14687] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14688] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14689] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14690] [cursor=pointer]
+            - row [ref=f1e14691]:
+              - cell "211" [ref=f1e14692]
+              - cell [ref=f1e14693]:
+                - strong [ref=f1e1097]: Anti-Aircraft Gun (Turret)
+              - cell "Dust 1947" [ref=f1e14694]
+              - cell "8" [ref=f1e14695]
+              - cell "Nein" [ref=f1e14696]
+              - cell [ref=f1e1103]:
+                - button "Stats & Regeln verwalten" [ref=f1e14697] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14698] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14699] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14700] [cursor=pointer]
+            - row [ref=f1e14701]:
+              - cell "212" [ref=f1e14702]
+              - cell [ref=f1e14703]:
+                - strong [ref=f1e1120]: Anti-Tank Gun
+              - cell "Dust 1947" [ref=f1e14704]
+              - cell "12" [ref=f1e14705]
+              - cell "Nein" [ref=f1e14706]
+              - cell [ref=f1e1126]:
+                - button "Stats & Regeln verwalten" [ref=f1e14707] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14708] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14709] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14710] [cursor=pointer]
+            - row [ref=f1e14711]:
+              - cell "215" [ref=f1e14712]
+              - cell [ref=f1e14713]:
+                - strong [ref=f1e1143]: Anti-Tank Gun
+              - cell "Dust 1947" [ref=f1e14714]
+              - cell "18" [ref=f1e14715]
+              - cell "Nein" [ref=f1e14716]
+              - cell [ref=f1e1149]:
+                - button "Stats & Regeln verwalten" [ref=f1e14717] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14718] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14719] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14720] [cursor=pointer]
+            - row [ref=f1e14721]:
+              - cell "219" [ref=f1e14722]
+              - cell [ref=f1e14723]:
+                - strong [ref=f1e1166]: Anti-Tank Gun (Turret) [variant 1]
+              - cell "Dust 1947" [ref=f1e14724]
+              - cell "14" [ref=f1e14725]
+              - cell "Nein" [ref=f1e14726]
+              - cell [ref=f1e1172]:
+                - button "Stats & Regeln verwalten" [ref=f1e14727] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14728] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14729] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14730] [cursor=pointer]
+            - row [ref=f1e14731]:
+              - cell "221" [ref=f1e14732]
+              - cell [ref=f1e14733]:
+                - strong [ref=f1e1189]: Antitank Gun (Turret)
+              - cell "Dust 1947" [ref=f1e14734]
+              - cell "16" [ref=f1e14735]
+              - cell "Nein" [ref=f1e14736]
+              - cell [ref=f1e1195]:
+                - button "Stats & Regeln verwalten" [ref=f1e14737] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14738] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14739] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14740] [cursor=pointer]
+            - row [ref=f1e14741]:
+              - cell "222" [ref=f1e14742]
+              - cell [ref=f1e14743]:
+                - strong [ref=f1e1212]: Assault Phaser Gun (Front)
+              - cell "Dust 1947" [ref=f1e14744]
+              - cell "8" [ref=f1e14745]
+              - cell "Nein" [ref=f1e14746]
+              - cell [ref=f1e1218]:
+                - button "Stats & Regeln verwalten" [ref=f1e14747] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14748] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14749] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14750] [cursor=pointer]
+            - row [ref=f1e14751]:
+              - cell "223" [ref=f1e14752]
+              - cell [ref=f1e14753]:
+                - strong [ref=f1e1235]: Assault Rifle
+              - cell "Dust 1947" [ref=f1e14754]
+              - cell "4" [ref=f1e14755]
+              - cell "Nein" [ref=f1e14756]
+              - cell [ref=f1e1241]:
+                - button "Stats & Regeln verwalten" [ref=f1e14757] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14758] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14759] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14760] [cursor=pointer]
+            - row [ref=f1e14761]:
+              - cell "224" [ref=f1e14762]
+              - cell [ref=f1e14763]:
+                - strong [ref=f1e1258]: Auto Grenade Launcher
+              - cell "Dust 1947" [ref=f1e14764]
+              - cell "3" [ref=f1e14765]
+              - cell "Nein" [ref=f1e14766]
+              - cell [ref=f1e1264]:
+                - button "Stats & Regeln verwalten" [ref=f1e14767] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14768] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14769] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14770] [cursor=pointer]
+            - row [ref=f1e14771]:
+              - cell "225" [ref=f1e14772]
+              - cell [ref=f1e14773]:
+                - strong [ref=f1e1281]: Autogun
+              - cell "Dust 1947" [ref=f1e14774]
+              - cell "8" [ref=f1e14775]
+              - cell "Nein" [ref=f1e14776]
+              - cell [ref=f1e1287]:
+                - button "Stats & Regeln verwalten" [ref=f1e14777] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14778] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14779] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14780] [cursor=pointer]
+            - row [ref=f1e14781]:
+              - cell "226" [ref=f1e14782]
+              - cell [ref=f1e14783]:
+                - strong [ref=f1e1304]: Automatic Bazooka
+              - cell "Dust 1947" [ref=f1e14784]
+              - cell "4" [ref=f1e14785]
+              - cell "Nein" [ref=f1e14786]
+              - cell [ref=f1e1310]:
+                - button "Stats & Regeln verwalten" [ref=f1e14787] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14788] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14789] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14790] [cursor=pointer]
+            - row [ref=f1e14791]:
+              - cell "227" [ref=f1e14792]
+              - cell [ref=f1e14793]:
+                - strong [ref=f1e1327]: Automatic Rifle
+              - cell "Dust 1947" [ref=f1e14794]
+              - cell "4" [ref=f1e14795]
+              - cell "Nein" [ref=f1e14796]
+              - cell [ref=f1e1333]:
+                - button "Stats & Regeln verwalten" [ref=f1e14797] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14798] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14799] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14800] [cursor=pointer]
+            - row [ref=f1e14801]:
+              - cell "228" [ref=f1e14802]
+              - cell [ref=f1e14803]:
+                - strong [ref=f1e1350]: Automatic Rifle
+              - cell "Dust 1947" [ref=f1e14804]
+              - cell "6" [ref=f1e14805]
+              - cell "Nein" [ref=f1e14806]
+              - cell [ref=f1e1356]:
+                - button "Stats & Regeln verwalten" [ref=f1e14807] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14808] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14809] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14810] [cursor=pointer]
+            - row [ref=f1e14811]:
+              - cell "229" [ref=f1e14812]
+              - cell [ref=f1e14813]:
+                - strong [ref=f1e1373]: BAR Automatic Rifle
+              - cell "Dust 1947" [ref=f1e14814]
+              - cell "6" [ref=f1e14815]
+              - cell "Nein" [ref=f1e14816]
+              - cell [ref=f1e1379]:
+                - button "Stats & Regeln verwalten" [ref=f1e14817] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14818] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14819] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14820] [cursor=pointer]
+            - row [ref=f1e14821]:
+              - cell "230" [ref=f1e14822]
+              - cell [ref=f1e14823]:
+                - strong [ref=f1e1396]: Bare Knuckles
+              - cell "Dust 1947" [ref=f1e14824]
+              - cell "C" [ref=f1e14825]
+              - cell "Nein" [ref=f1e14826]
+              - cell [ref=f1e1402]:
+                - button "Stats & Regeln verwalten" [ref=f1e14827] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14828] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14829] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14830] [cursor=pointer]
+            - row [ref=f1e14831]:
+              - cell "231" [ref=f1e14832]
+              - cell [ref=f1e14833]:
+                - strong [ref=f1e1419]: Bazooka
+              - cell "Dust 1947" [ref=f1e14834]
+              - cell "4" [ref=f1e14835]
+              - cell "Nein" [ref=f1e14836]
+              - cell [ref=f1e1425]:
+                - button "Stats & Regeln verwalten" [ref=f1e14837] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14838] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14839] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14840] [cursor=pointer]
+            - row [ref=f1e14841]:
+              - cell "234" [ref=f1e14842]
+              - cell [ref=f1e14843]:
+                - strong [ref=f1e1442]: Blutkreuz
+              - cell "Dust 1947" [ref=f1e14844]
+              - cell "C" [ref=f1e14845]
+              - cell "Nein" [ref=f1e14846]
+              - cell [ref=f1e1448]:
+                - button "Stats & Regeln verwalten" [ref=f1e14847] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14848] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14849] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14850] [cursor=pointer]
+            - row [ref=f1e14851]:
+              - cell "235" [ref=f1e14852]
+              - cell [ref=f1e14853]:
+                - strong [ref=f1e1465]: Bomb (Front)
+              - cell "Dust 1947" [ref=f1e14854]
+              - cell "2" [ref=f1e14855]
+              - cell "Nein" [ref=f1e14856]
+              - cell [ref=f1e1471]:
+                - button "Stats & Regeln verwalten" [ref=f1e14857] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14858] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14859] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14860] [cursor=pointer]
+            - row [ref=f1e14861]:
+              - cell "236" [ref=f1e14862]
+              - cell [ref=f1e14863]:
+                - strong [ref=f1e1488]: Chainsaw
+              - cell "Dust 1947" [ref=f1e14864]
+              - cell "C" [ref=f1e14865]
+              - cell "Nein" [ref=f1e14866]
+              - cell [ref=f1e1494]:
+                - button "Stats & Regeln verwalten" [ref=f1e14867] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14868] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14869] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14870] [cursor=pointer]
+            - row [ref=f1e14871]:
+              - cell "237" [ref=f1e14872]
+              - cell [ref=f1e14873]:
+                - strong [ref=f1e1511]: Circular Saw
+              - cell "Dust 1947" [ref=f1e14874]
+              - cell "C" [ref=f1e14875]
+              - cell "Nein" [ref=f1e14876]
+              - cell [ref=f1e1517]:
+                - button "Stats & Regeln verwalten" [ref=f1e14877] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14878] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14879] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14880] [cursor=pointer]
+            - row [ref=f1e14881]:
+              - cell "238" [ref=f1e14882]
+              - cell [ref=f1e14883]:
+                - strong [ref=f1e1534]: Claws
+              - cell "Dust 1947" [ref=f1e14884]
+              - cell "C" [ref=f1e14885]
+              - cell "Nein" [ref=f1e14886]
+              - cell [ref=f1e1540]:
+                - button "Stats & Regeln verwalten" [ref=f1e14887] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14888] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14889] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14890] [cursor=pointer]
+            - row [ref=f1e14891]:
+              - cell "241" [ref=f1e14892]
+              - cell [ref=f1e14893]:
+                - strong [ref=f1e1557]: Claymore
+              - cell "Dust 1947" [ref=f1e14894]
+              - cell "C" [ref=f1e14895]
+              - cell "Nein" [ref=f1e14896]
+              - cell [ref=f1e1563]:
+                - button "Stats & Regeln verwalten" [ref=f1e14897] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14898] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14899] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14900] [cursor=pointer]
+            - row [ref=f1e14901]:
+              - cell "242" [ref=f1e14902]
+              - cell [ref=f1e14903]:
+                - strong [ref=f1e1580]: Combat Claw (Front)
+              - cell "Dust 1947" [ref=f1e14904]
+              - cell "C" [ref=f1e14905]
+              - cell "Nein" [ref=f1e14906]
+              - cell [ref=f1e1586]:
+                - button "Stats & Regeln verwalten" [ref=f1e14907] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14908] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14909] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14910] [cursor=pointer]
+            - row [ref=f1e14911]:
+              - cell "243" [ref=f1e14912]
+              - cell [ref=f1e14913]:
+                - strong [ref=f1e1603]: Crossbow
+              - cell "Dust 1947" [ref=f1e14914]
+              - cell "4" [ref=f1e14915]
+              - cell "Nein" [ref=f1e14916]
+              - cell [ref=f1e1609]:
+                - button "Stats & Regeln verwalten" [ref=f1e14917] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14918] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14919] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14920] [cursor=pointer]
+            - row [ref=f1e14921]:
+              - cell "244" [ref=f1e14922]
+              - cell [ref=f1e14923]:
+                - strong [ref=f1e1626]: Deadly Punch
+              - cell "Dust 1947" [ref=f1e14924]
+              - cell "C" [ref=f1e14925]
+              - cell "Nein" [ref=f1e14926]
+              - cell [ref=f1e1632]:
+                - button "Stats & Regeln verwalten" [ref=f1e14927] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14928] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14929] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14930] [cursor=pointer]
+            - row [ref=f1e14931]:
+              - cell "245" [ref=f1e14932]
+              - cell [ref=f1e14933]:
+                - strong [ref=f1e1649]: Demo Charge
+              - cell "Dust 1947" [ref=f1e14934]
+              - cell "C" [ref=f1e14935]
+              - cell "Nein" [ref=f1e14936]
+              - cell [ref=f1e1655]:
+                - button "Stats & Regeln verwalten" [ref=f1e14937] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14938] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14939] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14940] [cursor=pointer]
+            - row [ref=f1e14941]:
+              - cell "246" [ref=f1e14942]
+              - cell [ref=f1e14943]:
+                - strong [ref=f1e1672]: Dog Bite
+              - cell "Dust 1947" [ref=f1e14944]
+              - cell "C" [ref=f1e14945]
+              - cell "Nein" [ref=f1e14946]
+              - cell [ref=f1e1678]:
+                - button "Stats & Regeln verwalten" [ref=f1e14947] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14948] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14949] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14950] [cursor=pointer]
+            - row [ref=f1e14951]:
+              - cell "247" [ref=f1e14952]
+              - cell [ref=f1e14953]:
+                - strong [ref=f1e1695]: Dual Anti-Aircraft Guns
+              - cell "Dust 1947" [ref=f1e14954]
+              - cell "12" [ref=f1e14955]
+              - cell "Nein" [ref=f1e14956]
+              - cell [ref=f1e1701]:
+                - button "Stats & Regeln verwalten" [ref=f1e14957] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14958] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14959] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14960] [cursor=pointer]
+            - row [ref=f1e14961]:
+              - cell "248" [ref=f1e14962]
+              - cell [ref=f1e14963]:
+                - strong [ref=f1e1718]: Dual Anti-Aircraft Guns (Turret)
+              - cell "Dust 1947" [ref=f1e14964]
+              - cell "12" [ref=f1e14965]
+              - cell "Nein" [ref=f1e14966]
+              - cell [ref=f1e1724]:
+                - button "Stats & Regeln verwalten" [ref=f1e14967] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14968] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14969] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14970] [cursor=pointer]
+            - row [ref=f1e14971]:
+              - cell "250" [ref=f1e14972]
+              - cell [ref=f1e14973]:
+                - strong [ref=f1e1741]: Dual Anti-Tank Guns
+              - cell "Dust 1947" [ref=f1e14974]
+              - cell "14" [ref=f1e14975]
+              - cell "Nein" [ref=f1e14976]
+              - cell [ref=f1e1747]:
+                - button "Stats & Regeln verwalten" [ref=f1e14977] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14978] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14979] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14980] [cursor=pointer]
+            - row [ref=f1e14981]:
+              - cell "251" [ref=f1e14982]
+              - cell [ref=f1e14983]:
+                - strong [ref=f1e1764]: Dual Anti-Tank Guns (Front)
+              - cell "Dust 1947" [ref=f1e14984]
+              - cell "16" [ref=f1e14985]
+              - cell "Nein" [ref=f1e14986]
+              - cell [ref=f1e1770]:
+                - button "Stats & Regeln verwalten" [ref=f1e14987] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14988] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14989] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e14990] [cursor=pointer]
+            - row [ref=f1e14991]:
+              - cell "254" [ref=f1e14992]
+              - cell [ref=f1e14993]:
+                - strong [ref=f1e1787]: Dual Autocannons (Turret)
+              - cell "Dust 1947" [ref=f1e14994]
+              - cell "3" [ref=f1e14995]
+              - cell "Nein" [ref=f1e14996]
+              - cell [ref=f1e1793]:
+                - button "Stats & Regeln verwalten" [ref=f1e14997] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e14998] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e14999] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15000] [cursor=pointer]
+            - row [ref=f1e15001]:
+              - cell "255" [ref=f1e15002]
+              - cell [ref=f1e15003]:
+                - strong [ref=f1e1810]: Dual Blowtorches
+              - cell "Dust 1947" [ref=f1e15004]
+              - cell "1" [ref=f1e15005]
+              - cell "Nein" [ref=f1e15006]
+              - cell [ref=f1e1816]:
+                - button "Stats & Regeln verwalten" [ref=f1e15007] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15008] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15009] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15010] [cursor=pointer]
+            - row [ref=f1e15011]:
+              - cell "256" [ref=f1e15012]
+              - cell [ref=f1e15013]:
+                - strong [ref=f1e1833]: Dual Chainsaws
+              - cell "Dust 1947" [ref=f1e15014]
+              - cell "C" [ref=f1e15015]
+              - cell "Nein" [ref=f1e15016]
+              - cell [ref=f1e1839]:
+                - button "Stats & Regeln verwalten" [ref=f1e15017] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15018] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15019] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15020] [cursor=pointer]
+            - row [ref=f1e15021]:
+              - cell "257" [ref=f1e15022]
+              - cell [ref=f1e15023]:
+                - strong [ref=f1e1856]: Dual Claws
+              - cell "Dust 1947" [ref=f1e15024]
+              - cell "C" [ref=f1e15025]
+              - cell "Nein" [ref=f1e15026]
+              - cell [ref=f1e1862]:
+                - button "Stats & Regeln verwalten" [ref=f1e15027] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15028] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15029] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15030] [cursor=pointer]
+            - row [ref=f1e15031]:
+              - cell "258" [ref=f1e15032]
+              - cell [ref=f1e15033]:
+                - strong [ref=f1e1879]: Dual Combat Claw (Front)
+              - cell "Dust 1947" [ref=f1e15034]
+              - cell "C" [ref=f1e15035]
+              - cell "Nein" [ref=f1e15036]
+              - cell [ref=f1e1885]:
+                - button "Stats & Regeln verwalten" [ref=f1e15037] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15038] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15039] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15040] [cursor=pointer]
+            - row [ref=f1e15041]:
+              - cell "259" [ref=f1e15042]
+              - cell [ref=f1e15043]:
+                - strong [ref=f1e1902]: Dual Gatling Gun
+              - cell "Dust 1947" [ref=f1e15044]
+              - cell "10" [ref=f1e15045]
+              - cell "Nein" [ref=f1e15046]
+              - cell [ref=f1e1908]:
+                - button "Stats & Regeln verwalten" [ref=f1e15047] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15048] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15049] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15050] [cursor=pointer]
+            - row [ref=f1e15051]:
+              - cell "260" [ref=f1e15052]
+              - cell [ref=f1e15053]:
+                - strong [ref=f1e1925]: Dual Gatling Gun (Front)
+              - cell "Dust 1947" [ref=f1e15054]
+              - cell "12" [ref=f1e15055]
+              - cell "Nein" [ref=f1e15056]
+              - cell [ref=f1e1931]:
+                - button "Stats & Regeln verwalten" [ref=f1e15057] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15058] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15059] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15060] [cursor=pointer]
+            - row [ref=f1e15061]:
+              - cell "262" [ref=f1e15062]
+              - cell [ref=f1e15063]:
+                - strong [ref=f1e1948]: Dual Heavy Flamethrower
+              - cell "Dust 1947" [ref=f1e15064]
+              - cell "2" [ref=f1e15065]
+              - cell "Nein" [ref=f1e15066]
+              - cell [ref=f1e1954]:
+                - button "Stats & Regeln verwalten" [ref=f1e15067] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15068] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15069] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15070] [cursor=pointer]
+            - row [ref=f1e15071]:
+              - cell "264" [ref=f1e15072]
+              - cell [ref=f1e15073]:
+                - strong [ref=f1e1971]: Dual Heavy Machinegun (Front)
+              - cell "Dust 1947" [ref=f1e15074]
+              - cell "8" [ref=f1e15075]
+              - cell "Nein" [ref=f1e15076]
+              - cell [ref=f1e1977]:
+                - button "Stats & Regeln verwalten" [ref=f1e15077] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15078] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15079] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15080] [cursor=pointer]
+            - row [ref=f1e15081]:
+              - cell "265" [ref=f1e15082]
+              - cell [ref=f1e15083]:
+                - strong [ref=f1e1994]: Dual Heavy Machineguns (Turret)
+              - cell "Dust 1947" [ref=f1e15084]
+              - cell "8" [ref=f1e15085]
+              - cell "Nein" [ref=f1e15086]
+              - cell [ref=f1e2000]:
+                - button "Stats & Regeln verwalten" [ref=f1e15087] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15088] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15089] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15090] [cursor=pointer]
+            - row [ref=f1e15091]:
+              - cell "266" [ref=f1e15092]
+              - cell [ref=f1e15093]:
+                - strong [ref=f1e2017]: Dual Heavy Rocket Punch
+              - cell "Dust 1947" [ref=f1e15094]
+              - cell "C" [ref=f1e15095]
+              - cell "Nein" [ref=f1e15096]
+              - cell [ref=f1e2023]:
+                - button "Stats & Regeln verwalten" [ref=f1e15097] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15098] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15099] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15100] [cursor=pointer]
+            - row [ref=f1e15101]:
+              - cell "267" [ref=f1e15102]
+              - cell [ref=f1e15103]:
+                - strong [ref=f1e2040]: Dual Howitzers
+              - cell "Dust 1947" [ref=f1e15104]
+              - cell "6" [ref=f1e15105]
+              - cell "Nein" [ref=f1e15106]
+              - cell [ref=f1e2046]:
+                - button "Stats & Regeln verwalten" [ref=f1e15107] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15108] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15109] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15110] [cursor=pointer]
+            - row [ref=f1e15111]:
+              - cell "269" [ref=f1e15112]
+              - cell [ref=f1e15113]:
+                - strong [ref=f1e2063]: Dual Knives
+              - cell "Dust 1947" [ref=f1e15114]
+              - cell "C" [ref=f1e15115]
+              - cell "Nein" [ref=f1e15116]
+              - cell [ref=f1e2069]:
+                - button "Stats & Regeln verwalten" [ref=f1e15117] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15118] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15119] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15120] [cursor=pointer]
+            - row [ref=f1e15121]:
+              - cell "270" [ref=f1e15122]
+              - cell [ref=f1e15123]:
+                - strong [ref=f1e2086]: Dual Laser Gun
+              - cell "Dust 1947" [ref=f1e15124]
+              - cell "10" [ref=f1e15125]
+              - cell "Nein" [ref=f1e15126]
+              - cell [ref=f1e2092]:
+                - button "Stats & Regeln verwalten" [ref=f1e15127] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15128] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15129] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15130] [cursor=pointer]
+            - row [ref=f1e15131]:
+              - cell "274" [ref=f1e15132]
+              - cell [ref=f1e15133]:
+                - strong [ref=f1e2109]: Dual Light Tesla Gun (Front)
+              - cell "Dust 1947" [ref=f1e15134]
+              - cell "8" [ref=f1e15135]
+              - cell "Nein" [ref=f1e15136]
+              - cell [ref=f1e2115]:
+                - button "Stats & Regeln verwalten" [ref=f1e15137] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15138] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15139] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15140] [cursor=pointer]
+            - row [ref=f1e15141]:
+              - cell "275" [ref=f1e15142]
+              - cell [ref=f1e15143]:
+                - strong [ref=f1e2132]: Dual Machetes
+              - cell "Dust 1947" [ref=f1e15144]
+              - cell "C" [ref=f1e15145]
+              - cell "Nein" [ref=f1e15146]
+              - cell [ref=f1e2138]:
+                - button "Stats & Regeln verwalten" [ref=f1e15147] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15148] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15149] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15150] [cursor=pointer]
+            - row [ref=f1e15151]:
+              - cell "276" [ref=f1e15152]
+              - cell [ref=f1e15153]:
+                - strong [ref=f1e2155]: Dual Machinegun
+              - cell "Dust 1947" [ref=f1e15154]
+              - cell "6" [ref=f1e15155]
+              - cell "Nein" [ref=f1e15156]
+              - cell [ref=f1e2161]:
+                - button "Stats & Regeln verwalten" [ref=f1e15157] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15158] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15159] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15160] [cursor=pointer]
+            - row [ref=f1e15161]:
+              - cell "280" [ref=f1e15162]
+              - cell [ref=f1e15163]:
+                - strong [ref=f1e2178]: Dual Machineguns
+              - cell "Dust 1947" [ref=f1e15164]
+              - cell "6" [ref=f1e15165]
+              - cell "Nein" [ref=f1e15166]
+              - cell [ref=f1e2184]:
+                - button "Stats & Regeln verwalten" [ref=f1e15167] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15168] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15169] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15170] [cursor=pointer]
+            - row [ref=f1e15171]:
+              - cell "281" [ref=f1e15172]
+              - cell [ref=f1e15173]:
+                - strong [ref=f1e2201]: Dual Machineguns (Turret)
+              - cell "Dust 1947" [ref=f1e15174]
+              - cell "6" [ref=f1e15175]
+              - cell "Nein" [ref=f1e15176]
+              - cell [ref=f1e2207]:
+                - button "Stats & Regeln verwalten" [ref=f1e15177] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15178] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15179] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15180] [cursor=pointer]
+            - row [ref=f1e15181]:
+              - cell "283" [ref=f1e15182]
+              - cell [ref=f1e15183]:
+                - strong [ref=f1e2224]: Dual Machineguns [variant 2]
+              - cell "Dust 1947" [ref=f1e15184]
+              - cell "6" [ref=f1e15185]
+              - cell "Nein" [ref=f1e15186]
+              - cell [ref=f1e2230]:
+                - button "Stats & Regeln verwalten" [ref=f1e15187] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15188] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15189] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15190] [cursor=pointer]
+            - row [ref=f1e15191]:
+              - cell "284" [ref=f1e15192]
+              - cell [ref=f1e15193]:
+                - strong [ref=f1e2247]: Dual Medium Guns (Front)
+              - cell "Dust 1947" [ref=f1e15194]
+              - cell "3" [ref=f1e15195]
+              - cell "Nein" [ref=f1e15196]
+              - cell [ref=f1e2253]:
+                - button "Stats & Regeln verwalten" [ref=f1e15197] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15198] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15199] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15200] [cursor=pointer]
+            - row [ref=f1e15201]:
+              - cell "285" [ref=f1e15202]
+              - cell [ref=f1e15203]:
+                - strong [ref=f1e2270]: Dual Medium Phaser Guns (Front)
+              - cell "Dust 1947" [ref=f1e15204]
+              - cell "8" [ref=f1e15205]
+              - cell "Nein" [ref=f1e15206]
+              - cell [ref=f1e2276]:
+                - button "Stats & Regeln verwalten" [ref=f1e15207] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15208] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15209] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15210] [cursor=pointer]
+            - row [ref=f1e15211]:
+              - cell "286" [ref=f1e15212]
+              - cell [ref=f1e15213]:
+                - strong [ref=f1e2293]: Dual Phaser Gun
+              - cell "Dust 1947" [ref=f1e15214]
+              - cell "12" [ref=f1e15215]
+              - cell "Nein" [ref=f1e15216]
+              - cell [ref=f1e2299]:
+                - button "Stats & Regeln verwalten" [ref=f1e15217] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15218] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15219] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15220] [cursor=pointer]
+            - row [ref=f1e15221]:
+              - cell "287" [ref=f1e15222]
+              - cell [ref=f1e15223]:
+                - strong [ref=f1e2316]: Dual Quad Grenade Launchers
+              - cell "Dust 1947" [ref=f1e15224]
+              - cell "8" [ref=f1e15225]
+              - cell "Nein" [ref=f1e15226]
+              - cell [ref=f1e2322]:
+                - button "Stats & Regeln verwalten" [ref=f1e15227] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15228] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15229] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15230] [cursor=pointer]
+            - row [ref=f1e15231]:
+              - cell "288" [ref=f1e15232]
+              - cell [ref=f1e15233]:
+                - strong [ref=f1e2339]: Dual Quad Heavy Machineguns (Front)
+              - cell "Dust 1947" [ref=f1e15234]
+              - cell "8" [ref=f1e15235]
+              - cell "Nein" [ref=f1e15236]
+              - cell [ref=f1e2345]:
+                - button "Stats & Regeln verwalten" [ref=f1e15237] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15238] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15239] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15240] [cursor=pointer]
+            - row [ref=f1e15241]:
+              - cell "289" [ref=f1e15242]
+              - cell [ref=f1e15243]:
+                - strong [ref=f1e2362]: Dual Rocket Launcher
+              - cell "Dust 1947" [ref=f1e15244]
+              - cell "3" [ref=f1e15245]
+              - cell "Nein" [ref=f1e15246]
+              - cell [ref=f1e2368]:
+                - button "Stats & Regeln verwalten" [ref=f1e15247] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15248] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15249] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15250] [cursor=pointer]
+            - row [ref=f1e15251]:
+              - cell "292" [ref=f1e15252]
+              - cell [ref=f1e15253]:
+                - strong [ref=f1e2385]: Dual Rocket Punch
+              - cell "Dust 1947" [ref=f1e15254]
+              - cell "C" [ref=f1e15255]
+              - cell "Nein" [ref=f1e15256]
+              - cell [ref=f1e2391]:
+                - button "Stats & Regeln verwalten" [ref=f1e15257] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15258] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15259] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15260] [cursor=pointer]
+            - row [ref=f1e15261]:
+              - cell "293" [ref=f1e15262]
+              - cell [ref=f1e15263]:
+                - strong [ref=f1e2408]: Dual Steel Fists
+              - cell "Dust 1947" [ref=f1e15264]
+              - cell "C" [ref=f1e15265]
+              - cell "Nein" [ref=f1e15266]
+              - cell [ref=f1e2414]:
+                - button "Stats & Regeln verwalten" [ref=f1e15267] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15268] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15269] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15270] [cursor=pointer]
+            - row [ref=f1e15271]:
+              - cell "294" [ref=f1e15272]
+              - cell [ref=f1e15273]:
+                - strong [ref=f1e2431]: Dual Triple Recoilless Guns (Turret)
+              - cell "Dust 1947" [ref=f1e15274]
+              - cell "12" [ref=f1e15275]
+              - cell "Nein" [ref=f1e15276]
+              - cell [ref=f1e2437]:
+                - button "Stats & Regeln verwalten" [ref=f1e15277] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15278] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15279] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15280] [cursor=pointer]
+            - row [ref=f1e15281]:
+              - cell "295" [ref=f1e15282]
+              - cell [ref=f1e15283]:
+                - strong [ref=f1e2454]: Dual Triple RPG
+              - cell "Dust 1947" [ref=f1e15284]
+              - cell "4" [ref=f1e15285]
+              - cell "Nein" [ref=f1e15286]
+              - cell [ref=f1e2460]:
+                - button "Stats & Regeln verwalten" [ref=f1e15287] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15288] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15289] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15290] [cursor=pointer]
+            - row [ref=f1e15291]:
+              - cell "296" [ref=f1e15292]
+              - cell [ref=f1e15293]:
+                - strong [ref=f1e2477]: Dynamite
+              - cell "Dust 1947" [ref=f1e15294]
+              - cell "C" [ref=f1e15295]
+              - cell "Nein" [ref=f1e15296]
+              - cell [ref=f1e2483]:
+                - button "Stats & Regeln verwalten" [ref=f1e15297] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15298] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15299] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15300] [cursor=pointer]
+            - row [ref=f1e15301]:
+              - cell "297" [ref=f1e15302]
+              - cell [ref=f1e15303]:
+                - strong [ref=f1e2500]: Eldritch Fire (Turret)
+              - cell "Dust 1947" [ref=f1e15304]
+              - cell "3" [ref=f1e15305]
+              - cell "Nein" [ref=f1e15306]
+              - cell [ref=f1e2506]:
+                - button "Stats & Regeln verwalten" [ref=f1e15307] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15308] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15309] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15310] [cursor=pointer]
+            - row [ref=f1e15311]:
+              - cell "298" [ref=f1e15312]
+              - cell [ref=f1e15313]:
+                - strong [ref=f1e2523]: Field Laser Gun (Turret)
+              - cell "Dust 1947" [ref=f1e15314]
+              - cell "14" [ref=f1e15315]
+              - cell "Nein" [ref=f1e15316]
+              - cell [ref=f1e2529]:
+                - button "Stats & Regeln verwalten" [ref=f1e15317] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15318] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15319] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15320] [cursor=pointer]
+            - row [ref=f1e15321]:
+              - cell "299" [ref=f1e15322]
+              - cell [ref=f1e15323]:
+                - strong [ref=f1e2546]: Flamethrower
+              - cell "Dust 1947" [ref=f1e15324]
+              - cell "1" [ref=f1e15325]
+              - cell "Nein" [ref=f1e15326]
+              - cell [ref=f1e2552]:
+                - button "Stats & Regeln verwalten" [ref=f1e15327] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15328] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15329] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15330] [cursor=pointer]
+            - row [ref=f1e15331]:
+              - cell "300" [ref=f1e15332]
+              - cell [ref=f1e15333]:
+                - strong [ref=f1e2569]: Flamethrower
+              - cell "Dust 1947" [ref=f1e15334]
+              - cell "2" [ref=f1e15335]
+              - cell "Nein" [ref=f1e15336]
+              - cell [ref=f1e2575]:
+                - button "Stats & Regeln verwalten" [ref=f1e15337] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15338] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15339] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15340] [cursor=pointer]
+            - row [ref=f1e15341]:
+              - cell "303" [ref=f1e15342]
+              - cell [ref=f1e15343]:
+                - strong [ref=f1e2592]: Flammfaust
+              - cell "Dust 1947" [ref=f1e15344]
+              - cell "3" [ref=f1e15345]
+              - cell "Nein" [ref=f1e15346]
+              - cell [ref=f1e2598]:
+                - button "Stats & Regeln verwalten" [ref=f1e15347] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15348] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15349] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15350] [cursor=pointer]
+            - row [ref=f1e15351]:
+              - cell "304" [ref=f1e15352]
+              - cell [ref=f1e15353]:
+                - strong [ref=f1e2615]: Fungi From Yuggoth
+              - cell "Dust 1947" [ref=f1e15354]
+              - cell "1" [ref=f1e15355]
+              - cell "Nein" [ref=f1e15356]
+              - cell [ref=f1e2621]:
+                - button "Stats & Regeln verwalten" [ref=f1e15357] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15358] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15359] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15360] [cursor=pointer]
+            - row [ref=f1e15361]:
+              - cell "305" [ref=f1e15362]
+              - cell [ref=f1e15363]:
+                - strong [ref=f1e2638]: Gliding Bomb (Front)
+              - cell "Dust 1947" [ref=f1e15364]
+              - cell "6" [ref=f1e15365]
+              - cell "Nein" [ref=f1e15366]
+              - cell [ref=f1e2644]:
+                - button "Stats & Regeln verwalten" [ref=f1e15367] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15368] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15369] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15370] [cursor=pointer]
+            - row [ref=f1e15371]:
+              - cell "306" [ref=f1e15372]
+              - cell [ref=f1e15373]:
+                - strong [ref=f1e2661]: Grenade Launcher
+              - cell "Dust 1947" [ref=f1e15374]
+              - cell "3" [ref=f1e15375]
+              - cell "Nein" [ref=f1e15376]
+              - cell [ref=f1e2667]:
+                - button "Stats & Regeln verwalten" [ref=f1e15377] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15378] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15379] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15380] [cursor=pointer]
+            - row [ref=f1e15381]:
+              - cell "307" [ref=f1e15382]
+              - cell [ref=f1e15383]:
+                - strong [ref=f1e2684]: Grenade Pistol
+              - cell "Dust 1947" [ref=f1e15384]
+              - cell "2" [ref=f1e15385]
+              - cell "Nein" [ref=f1e15386]
+              - cell [ref=f1e2690]:
+                - button "Stats & Regeln verwalten" [ref=f1e15387] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15388] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15389] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15390] [cursor=pointer]
+            - row [ref=f1e15391]:
+              - cell "308" [ref=f1e15392]
+              - cell [ref=f1e15393]:
+                - strong [ref=f1e2707]: Guandao
+              - cell "Dust 1947" [ref=f1e15394]
+              - cell "C" [ref=f1e15395]
+              - cell "Nein" [ref=f1e15396]
+              - cell [ref=f1e2713]:
+                - button "Stats & Regeln verwalten" [ref=f1e15397] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15398] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15399] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15400] [cursor=pointer]
+            - row [ref=f1e15401]:
+              - cell "309" [ref=f1e15402]
+              - cell [ref=f1e15403]:
+                - strong [ref=f1e2730]: Heavy Assault Laser
+              - cell "Dust 1947" [ref=f1e15404]
+              - cell "6" [ref=f1e15405]
+              - cell "Nein" [ref=f1e15406]
+              - cell [ref=f1e2736]:
+                - button "Stats & Regeln verwalten" [ref=f1e15407] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15408] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15409] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15410] [cursor=pointer]
+            - row [ref=f1e15411]:
+              - cell "310" [ref=f1e15412]
+              - cell [ref=f1e15413]:
+                - strong [ref=f1e2753]: Heavy Assault Rifle
+              - cell "Dust 1947" [ref=f1e15414]
+              - cell "6" [ref=f1e15415]
+              - cell "Nein" [ref=f1e15416]
+              - cell [ref=f1e2759]:
+                - button "Stats & Regeln verwalten" [ref=f1e15417] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15418] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15419] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15420] [cursor=pointer]
+            - row [ref=f1e15421]:
+              - cell "311" [ref=f1e15422]
+              - cell [ref=f1e15423]:
+                - strong [ref=f1e2776]: Heavy Bomb (Front)
+              - cell "Dust 1947" [ref=f1e15424]
+              - cell "2" [ref=f1e15425]
+              - cell "Nein" [ref=f1e15426]
+              - cell [ref=f1e2782]:
+                - button "Stats & Regeln verwalten" [ref=f1e15427] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15428] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15429] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15430] [cursor=pointer]
+            - row [ref=f1e15431]:
+              - cell "312" [ref=f1e15432]
+              - cell [ref=f1e15433]:
+                - strong [ref=f1e2799]: Heavy Flamethrower
+              - cell "Dust 1947" [ref=f1e15434]
+              - cell "2" [ref=f1e15435]
+              - cell "Nein" [ref=f1e15436]
+              - cell [ref=f1e2805]:
+                - button "Stats & Regeln verwalten" [ref=f1e15437] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15438] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15439] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15440] [cursor=pointer]
+            - row [ref=f1e15441]:
+              - cell "313" [ref=f1e15442]
+              - cell [ref=f1e15443]:
+                - strong [ref=f1e2822]: Heavy Gun
+              - cell "Dust 1947" [ref=f1e15444]
+              - cell "18" [ref=f1e15445]
+              - cell "Nein" [ref=f1e15446]
+              - cell [ref=f1e2828]:
+                - button "Stats & Regeln verwalten" [ref=f1e15447] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15448] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15449] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15450] [cursor=pointer]
+            - row [ref=f1e15451]:
+              - cell "314" [ref=f1e15452]
+              - cell [ref=f1e15453]:
+                - strong [ref=f1e2845]: Heavy Howitzer (Turret)
+              - cell "Dust 1947" [ref=f1e15454]
+              - cell "4-16" [ref=f1e15455]
+              - cell "Nein" [ref=f1e15456]
+              - cell [ref=f1e2851]:
+                - button "Stats & Regeln verwalten" [ref=f1e15457] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15458] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15459] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15460] [cursor=pointer]
+            - row [ref=f1e15461]:
+              - cell "315" [ref=f1e15462]
+              - cell [ref=f1e15463]:
+                - strong [ref=f1e2868]: Heavy Machinegun
+              - cell "Dust 1947" [ref=f1e15464]
+              - cell "10" [ref=f1e15465]
+              - cell "Nein" [ref=f1e15466]
+              - cell [ref=f1e2874]:
+                - button "Stats & Regeln verwalten" [ref=f1e15467] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15468] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15469] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15470] [cursor=pointer]
+            - row [ref=f1e15471]:
+              - cell "316" [ref=f1e15472]
+              - cell [ref=f1e15473]:
+                - strong [ref=f1e2891]: Heavy Machinegun
+              - cell "Dust 1947" [ref=f1e15474]
+              - cell "8" [ref=f1e15475]
+              - cell "Nein" [ref=f1e15476]
+              - cell [ref=f1e2897]:
+                - button "Stats & Regeln verwalten" [ref=f1e15477] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15478] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15479] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15480] [cursor=pointer]
+            - row [ref=f1e15481]:
+              - cell "329" [ref=f1e15482]
+              - cell [ref=f1e15483]:
+                - strong [ref=f1e2914]: Heavy Mortar
+              - cell "Dust 1947" [ref=f1e15484]
+              - cell "4-12" [ref=f1e15485]
+              - cell "Nein" [ref=f1e15486]
+              - cell [ref=f1e2920]:
+                - button "Stats & Regeln verwalten" [ref=f1e15487] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15488] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15489] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15490] [cursor=pointer]
+            - row [ref=f1e15491]:
+              - cell "331" [ref=f1e15492]
+              - cell [ref=f1e15493]:
+                - strong [ref=f1e2937]: Heavy Mortar (Turret)
+              - cell "Dust 1947" [ref=f1e15494]
+              - cell "4-12" [ref=f1e15495]
+              - cell "Nein" [ref=f1e15496]
+              - cell [ref=f1e2943]:
+                - button "Stats & Regeln verwalten" [ref=f1e15497] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15498] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15499] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15500] [cursor=pointer]
+            - row [ref=f1e15501]:
+              - cell "333" [ref=f1e15502]
+              - cell [ref=f1e15503]:
+                - strong [ref=f1e2960]: Heavy Napalm Thrower (Front)
+              - cell "Dust 1947" [ref=f1e15504]
+              - cell "3" [ref=f1e15505]
+              - cell "Nein" [ref=f1e15506]
+              - cell [ref=f1e2966]:
+                - button "Stats & Regeln verwalten" [ref=f1e15507] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15508] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15509] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15510] [cursor=pointer]
+            - row [ref=f1e15511]:
+              - cell "334" [ref=f1e15512]
+              - cell [ref=f1e15513]:
+                - strong [ref=f1e2983]: Heavy Panzer Gloves
+              - cell "Dust 1947" [ref=f1e15514]
+              - cell "C" [ref=f1e15515]
+              - cell "Nein" [ref=f1e15516]
+              - cell [ref=f1e2989]:
+                - button "Stats & Regeln verwalten" [ref=f1e15517] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15518] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15519] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15520] [cursor=pointer]
+            - row [ref=f1e15521]:
+              - cell "335" [ref=f1e15522]
+              - cell [ref=f1e15523]:
+                - strong [ref=f1e3006]: Heavy Phaser (Turret)
+              - cell "Dust 1947" [ref=f1e15524]
+              - cell "10" [ref=f1e15525]
+              - cell "Nein" [ref=f1e15526]
+              - cell [ref=f1e3012]:
+                - button "Stats & Regeln verwalten" [ref=f1e15527] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15528] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15529] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15530] [cursor=pointer]
+            - row [ref=f1e15531]:
+              - cell "336" [ref=f1e15532]
+              - cell [ref=f1e15533]:
+                - strong [ref=f1e3029]: Heavy Piat (Front)
+              - cell "Dust 1947" [ref=f1e15534]
+              - cell "4" [ref=f1e15535]
+              - cell "Nein" [ref=f1e15536]
+              - cell [ref=f1e3035]:
+                - button "Stats & Regeln verwalten" [ref=f1e15537] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15538] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15539] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15540] [cursor=pointer]
+            - row [ref=f1e15541]:
+              - cell "337" [ref=f1e15542]
+              - cell [ref=f1e15543]:
+                - strong [ref=f1e3052]: Heavy Rocket Punch
+              - cell "Dust 1947" [ref=f1e15544]
+              - cell "C" [ref=f1e15545]
+              - cell "Nein" [ref=f1e15546]
+              - cell [ref=f1e3058]:
+                - button "Stats & Regeln verwalten" [ref=f1e15547] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15548] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15549] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15550] [cursor=pointer]
+            - row [ref=f1e15551]:
+              - cell "338" [ref=f1e15552]
+              - cell [ref=f1e15553]:
+                - strong [ref=f1e3075]: Heavy Shotgun
+              - cell "Dust 1947" [ref=f1e15554]
+              - cell "4" [ref=f1e15555]
+              - cell "Nein" [ref=f1e15556]
+              - cell [ref=f1e3081]:
+                - button "Stats & Regeln verwalten" [ref=f1e15557] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15558] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15559] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15560] [cursor=pointer]
+            - row [ref=f1e15561]:
+              - cell "339" [ref=f1e15562]
+              - cell [ref=f1e15563]:
+                - strong [ref=f1e3098]: Heavy Sniper Rifle
+              - cell "Dust 1947" [ref=f1e15564]
+              - cell "10" [ref=f1e15565]
+              - cell "Nein" [ref=f1e15566]
+              - cell [ref=f1e3104]:
+                - button "Stats & Regeln verwalten" [ref=f1e15567] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15568] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15569] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15570] [cursor=pointer]
+            - row [ref=f1e15571]:
+              - cell "340" [ref=f1e15572]
+              - cell [ref=f1e15573]:
+                - strong [ref=f1e3121]: Heavy Tesla Gun
+              - cell "Dust 1947" [ref=f1e15574]
+              - cell "10" [ref=f1e15575]
+              - cell "Nein" [ref=f1e15576]
+              - cell [ref=f1e3127]:
+                - button "Stats & Regeln verwalten" [ref=f1e15577] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15578] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15579] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15580] [cursor=pointer]
+            - row [ref=f1e15581]:
+              - cell "342" [ref=f1e15582]
+              - cell [ref=f1e15583]:
+                - strong [ref=f1e3144]: Howitzer
+              - cell "Dust 1947" [ref=f1e15584]
+              - cell "6" [ref=f1e15585]
+              - cell "Nein" [ref=f1e15586]
+              - cell [ref=f1e3150]:
+                - button "Stats & Regeln verwalten" [ref=f1e15587] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15588] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15589] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15590] [cursor=pointer]
+            - row [ref=f1e15591]:
+              - cell "343" [ref=f1e15592]
+              - cell [ref=f1e15593]:
+                - strong [ref=f1e3167]: Howitzer (Front)
+              - cell "Dust 1947" [ref=f1e15594]
+              - cell "8" [ref=f1e15595]
+              - cell "Nein" [ref=f1e15596]
+              - cell [ref=f1e3173]:
+                - button "Stats & Regeln verwalten" [ref=f1e15597] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15598] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15599] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15600] [cursor=pointer]
+            - row [ref=f1e15601]:
+              - cell "344" [ref=f1e15602]
+              - cell [ref=f1e15603]:
+                - strong [ref=f1e3190]: Hyena Bite
+              - cell "Dust 1947" [ref=f1e15604]
+              - cell "C" [ref=f1e15605]
+              - cell "Nein" [ref=f1e15606]
+              - cell [ref=f1e3196]:
+                - button "Stats & Regeln verwalten" [ref=f1e15607] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15608] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15609] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15610] [cursor=pointer]
+            - row [ref=f1e15611]:
+              - cell "345" [ref=f1e15612]
+              - cell [ref=f1e15613]:
+                - strong [ref=f1e3213]: Izzy's Bite
+              - cell "Dust 1947" [ref=f1e15614]
+              - cell "C" [ref=f1e15615]
+              - cell "Nein" [ref=f1e15616]
+              - cell [ref=f1e3219]:
+                - button "Stats & Regeln verwalten" [ref=f1e15617] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15618] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15619] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15620] [cursor=pointer]
+            - row [ref=f1e15621]:
+              - cell "346" [ref=f1e15622]
+              - cell [ref=f1e15623]:
+                - strong [ref=f1e3236]: Jackhammer
+              - cell "Dust 1947" [ref=f1e15624]
+              - cell "C" [ref=f1e15625]
+              - cell "Nein" [ref=f1e15626]
+              - cell [ref=f1e3242]:
+                - button "Stats & Regeln verwalten" [ref=f1e15627] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15628] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15629] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15630] [cursor=pointer]
+            - row [ref=f1e15631]:
+              - cell "347" [ref=f1e15632]
+              - cell [ref=f1e15633]:
+                - strong [ref=f1e3259]: Kitchen Knives
+              - cell "Dust 1947" [ref=f1e15634]
+              - cell "C" [ref=f1e15635]
+              - cell "Nein" [ref=f1e15636]
+              - cell [ref=f1e3265]:
+                - button "Stats & Regeln verwalten" [ref=f1e15637] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15638] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15639] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15640] [cursor=pointer]
+            - row [ref=f1e15641]:
+              - cell "348" [ref=f1e15642]
+              - cell [ref=f1e15643]:
+                - strong [ref=f1e3282]: Laser Gun
+              - cell "Dust 1947" [ref=f1e15644]
+              - cell "10" [ref=f1e15645]
+              - cell "Nein" [ref=f1e15646]
+              - cell [ref=f1e3288]:
+                - button "Stats & Regeln verwalten" [ref=f1e15647] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15648] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15649] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15650] [cursor=pointer]
+            - row [ref=f1e15651]:
+              - cell "351" [ref=f1e15652]
+              - cell [ref=f1e15653]:
+                - strong [ref=f1e3305]: Laser Pistol
+              - cell "Dust 1947" [ref=f1e15654]
+              - cell "3" [ref=f1e15655]
+              - cell "Nein" [ref=f1e15656]
+              - cell [ref=f1e3311]:
+                - button "Stats & Regeln verwalten" [ref=f1e15657] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15658] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15659] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15660] [cursor=pointer]
+            - row [ref=f1e15661]:
+              - cell "352" [ref=f1e15662]
+              - cell [ref=f1e15663]:
+                - strong [ref=f1e3328]: Laser Rifle
+              - cell "Dust 1947" [ref=f1e15664]
+              - cell "4" [ref=f1e15665]
+              - cell "Nein" [ref=f1e15666]
+              - cell [ref=f1e3334]:
+                - button "Stats & Regeln verwalten" [ref=f1e15667] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15668] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15669] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15670] [cursor=pointer]
+            - row [ref=f1e15671]:
+              - cell "353" [ref=f1e15672]
+              - cell [ref=f1e15673]:
+                - strong [ref=f1e3351]: Laser-Antitank Gun
+              - cell "Dust 1947" [ref=f1e15674]
+              - cell "10" [ref=f1e15675]
+              - cell "Nein" [ref=f1e15676]
+              - cell [ref=f1e3357]:
+                - button "Stats & Regeln verwalten" [ref=f1e15677] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15678] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15679] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15680] [cursor=pointer]
+            - row [ref=f1e15681]:
+              - cell "354" [ref=f1e15682]
+              - cell [ref=f1e15683]:
+                - strong [ref=f1e3374]: Light Bomb (Front)
+              - cell "Dust 1947" [ref=f1e15684]
+              - cell "2" [ref=f1e15685]
+              - cell "Nein" [ref=f1e15686]
+              - cell [ref=f1e3380]:
+                - button "Stats & Regeln verwalten" [ref=f1e15687] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15688] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15689] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15690] [cursor=pointer]
+            - row [ref=f1e15691]:
+              - cell "355" [ref=f1e15692]
+              - cell [ref=f1e15693]:
+                - strong [ref=f1e3397]: Light Gun (Front)
+              - cell "Dust 1947" [ref=f1e15694]
+              - cell "12" [ref=f1e15695]
+              - cell "Nein" [ref=f1e15696]
+              - cell [ref=f1e3403]:
+                - button "Stats & Regeln verwalten" [ref=f1e15697] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15698] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15699] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15700] [cursor=pointer]
+            - row [ref=f1e15701]:
+              - cell "356" [ref=f1e15702]
+              - cell [ref=f1e15703]:
+                - strong [ref=f1e3420]: Light Laser Gun (Turret)
+              - cell "Dust 1947" [ref=f1e15704]
+              - cell "8" [ref=f1e15705]
+              - cell "Nein" [ref=f1e15706]
+              - cell [ref=f1e3426]:
+                - button "Stats & Regeln verwalten" [ref=f1e15707] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15708] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15709] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15710] [cursor=pointer]
+            - row [ref=f1e15711]:
+              - cell "357" [ref=f1e15712]
+              - cell [ref=f1e15713]:
+                - strong [ref=f1e3443]: Light Submachine Gun
+              - cell "Dust 1947" [ref=f1e15714]
+              - cell "2" [ref=f1e15715]
+              - cell "Nein" [ref=f1e15716]
+              - cell [ref=f1e3449]:
+                - button "Stats & Regeln verwalten" [ref=f1e15717] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15718] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15719] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15720] [cursor=pointer]
+            - row [ref=f1e15721]:
+              - cell "358" [ref=f1e15722]
+              - cell [ref=f1e15723]:
+                - strong [ref=f1e3466]: Light Tesla Gun
+              - cell "Dust 1947" [ref=f1e15724]
+              - cell "8" [ref=f1e15725]
+              - cell "Nein" [ref=f1e15726]
+              - cell [ref=f1e3472]:
+                - button "Stats & Regeln verwalten" [ref=f1e15727] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15728] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15729] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15730] [cursor=pointer]
+            - row [ref=f1e15731]:
+              - cell "359" [ref=f1e15732]
+              - cell [ref=f1e15733]:
+                - strong [ref=f1e3489]: M1 Howitzer (Turret)
+              - cell "Dust 1947" [ref=f1e15734]
+              - cell "8" [ref=f1e15735]
+              - cell "Nein" [ref=f1e15736]
+              - cell [ref=f1e3495]:
+                - button "Stats & Regeln verwalten" [ref=f1e15737] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15738] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15739] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15740] [cursor=pointer]
+            - row [ref=f1e15741]:
+              - cell "360" [ref=f1e15742]
+              - cell [ref=f1e15743]:
+                - strong [ref=f1e3512]: M2 Long Tom Gun (Turret)
+              - cell "Dust 1947" [ref=f1e15744]
+              - cell "4-18" [ref=f1e15745]
+              - cell "Nein" [ref=f1e15746]
+              - cell [ref=f1e3518]:
+                - button "Stats & Regeln verwalten" [ref=f1e15747] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15748] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15749] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15750] [cursor=pointer]
+            - row [ref=f1e15751]:
+              - cell "361" [ref=f1e15752]
+              - cell [ref=f1e15753]:
+                - strong [ref=f1e3535]: Machette & Dagger
+              - cell "Dust 1947" [ref=f1e15754]
+              - cell "C" [ref=f1e15755]
+              - cell "Nein" [ref=f1e15756]
+              - cell [ref=f1e3541]:
+                - button "Stats & Regeln verwalten" [ref=f1e15757] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15758] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15759] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15760] [cursor=pointer]
+            - row [ref=f1e15761]:
+              - cell "362" [ref=f1e15762]
+              - cell [ref=f1e15763]:
+                - strong [ref=f1e3558]: Machinegun
+              - cell "Dust 1947" [ref=f1e15764]
+              - cell "6" [ref=f1e15765]
+              - cell "Nein" [ref=f1e15766]
+              - cell [ref=f1e3564]:
+                - button "Stats & Regeln verwalten" [ref=f1e15767] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15768] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15769] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15770] [cursor=pointer]
+            - row [ref=f1e15771]:
+              - cell "363" [ref=f1e15772]
+              - cell [ref=f1e15773]:
+                - strong [ref=f1e3581]: Machinegun
+              - cell "Dust 1947" [ref=f1e15774]
+              - cell "6" [ref=f1e15775]
+              - cell "Nein" [ref=f1e15776]
+              - cell [ref=f1e3587]:
+                - button "Stats & Regeln verwalten" [ref=f1e15777] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15778] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15779] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15780] [cursor=pointer]
+            - row [ref=f1e15781]:
+              - cell "379" [ref=f1e15782]
+              - cell [ref=f1e15783]:
+                - strong [ref=f1e3604]: Mechanics' Tools
+              - cell "Dust 1947" [ref=f1e15784]
+              - cell "C" [ref=f1e15785]
+              - cell "Nein" [ref=f1e15786]
+              - cell [ref=f1e3610]:
+                - button "Stats & Regeln verwalten" [ref=f1e15787] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15788] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15789] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15790] [cursor=pointer]
+            - row [ref=f1e15791]:
+              - cell "380" [ref=f1e15792]
+              - cell [ref=f1e15793]:
+                - strong [ref=f1e3627]: Medium Rockets (Front)
+              - cell "Dust 1947" [ref=f1e15794]
+              - cell "3" [ref=f1e15795]
+              - cell "Nein" [ref=f1e15796]
+              - cell [ref=f1e3633]:
+                - button "Stats & Regeln verwalten" [ref=f1e15797] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15798] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15799] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15800] [cursor=pointer]
+            - row [ref=f1e15801]:
+              - cell "381" [ref=f1e15802]
+              - cell [ref=f1e15803]:
+                - strong [ref=f1e3650]: Mine
+              - cell "Dust 1947" [ref=f1e15804]
+              - cell "C" [ref=f1e15805]
+              - cell "Nein" [ref=f1e15806]
+              - cell [ref=f1e3656]:
+                - button "Stats & Regeln verwalten" [ref=f1e15807] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15808] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15809] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15810] [cursor=pointer]
+            - row [ref=f1e15811]:
+              - cell "382" [ref=f1e15812]
+              - cell [ref=f1e15813]:
+                - strong [ref=f1e3673]: Modified Assault Rifle
+              - cell "Dust 1947" [ref=f1e15814]
+              - cell "6" [ref=f1e15815]
+              - cell "Nein" [ref=f1e15816]
+              - cell [ref=f1e3679]:
+                - button "Stats & Regeln verwalten" [ref=f1e15817] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15818] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15819] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15820] [cursor=pointer]
+            - row [ref=f1e15821]:
+              - cell "383" [ref=f1e15822]
+              - cell [ref=f1e15823]:
+                - strong [ref=f1e3696]: Molotov Cocktail
+              - cell "Dust 1947" [ref=f1e15824]
+              - cell "C" [ref=f1e15825]
+              - cell "Ja" [ref=f1e15826]
+              - cell [ref=f1e3702]:
+                - button "Stats & Regeln verwalten" [ref=f1e15827] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15828] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15829] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15830] [cursor=pointer]
+            - row [ref=f1e15831]:
+              - cell "384" [ref=f1e15832]
+              - cell [ref=f1e15833]:
+                - strong [ref=f1e3719]: Mortar
+              - cell "Dust 1947" [ref=f1e15834]
+              - cell "4-12" [ref=f1e15835]
+              - cell "Nein" [ref=f1e15836]
+              - cell [ref=f1e3725]:
+                - button "Stats & Regeln verwalten" [ref=f1e15837] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15838] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15839] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15840] [cursor=pointer]
+            - row [ref=f1e15841]:
+              - cell "385" [ref=f1e15842]
+              - cell [ref=f1e15843]:
+                - strong [ref=f1e3742]: Napalm Bomb (Front)
+              - cell "Dust 1947" [ref=f1e15844]
+              - cell "2" [ref=f1e15845]
+              - cell "Nein" [ref=f1e15846]
+              - cell [ref=f1e3748]:
+                - button "Stats & Regeln verwalten" [ref=f1e15847] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15848] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15849] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15850] [cursor=pointer]
+            - row [ref=f1e15851]:
+              - cell "386" [ref=f1e15852]
+              - cell [ref=f1e15853]:
+                - strong [ref=f1e3765]: Napalm Thrower (Turret)
+              - cell "Dust 1947" [ref=f1e15854]
+              - cell "2" [ref=f1e15855]
+              - cell "Nein" [ref=f1e15856]
+              - cell [ref=f1e3771]:
+                - button "Stats & Regeln verwalten" [ref=f1e15857] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15858] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15859] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15860] [cursor=pointer]
+            - row [ref=f1e15861]:
+              - cell "387" [ref=f1e15862]
+              - cell [ref=f1e15863]:
+                - strong [ref=f1e3788]: Old Submachine Gun
+              - cell "Dust 1947" [ref=f1e15864]
+              - cell "3" [ref=f1e15865]
+              - cell "Nein" [ref=f1e15866]
+              - cell [ref=f1e3794]:
+                - button "Stats & Regeln verwalten" [ref=f1e15867] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15868] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15869] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15870] [cursor=pointer]
+            - row [ref=f1e15871]:
+              - cell "388" [ref=f1e15872]
+              - cell [ref=f1e15873]:
+                - strong [ref=f1e3811]: Paired Claws (Front)
+              - cell "Dust 1947" [ref=f1e15874]
+              - cell "C" [ref=f1e15875]
+              - cell "Nein" [ref=f1e15876]
+              - cell [ref=f1e3817]:
+                - button "Stats & Regeln verwalten" [ref=f1e15877] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15878] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15879] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15880] [cursor=pointer]
+            - row [ref=f1e15881]:
+              - cell "389" [ref=f1e15882]
+              - cell [ref=f1e15883]:
+                - strong [ref=f1e3834]: Paired Deadly Punch
+              - cell "Dust 1947" [ref=f1e15884]
+              - cell "C" [ref=f1e15885]
+              - cell "Nein" [ref=f1e15886]
+              - cell [ref=f1e3840]:
+                - button "Stats & Regeln verwalten" [ref=f1e15887] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15888] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15889] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15890] [cursor=pointer]
+            - row [ref=f1e15891]:
+              - cell "390" [ref=f1e15892]
+              - cell [ref=f1e15893]:
+                - strong [ref=f1e3857]: Paired Katana
+              - cell "Dust 1947" [ref=f1e15894]
+              - cell "C" [ref=f1e15895]
+              - cell "Nein" [ref=f1e15896]
+              - cell [ref=f1e3863]:
+                - button "Stats & Regeln verwalten" [ref=f1e15897] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15898] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15899] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15900] [cursor=pointer]
+            - row [ref=f1e15901]:
+              - cell "391" [ref=f1e15902]
+              - cell [ref=f1e15903]:
+                - strong [ref=f1e3880]: Paired Light Submachine Gun
+              - cell "Dust 1947" [ref=f1e15904]
+              - cell "2" [ref=f1e15905]
+              - cell "Nein" [ref=f1e15906]
+              - cell [ref=f1e3886]:
+                - button "Stats & Regeln verwalten" [ref=f1e15907] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15908] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15909] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15910] [cursor=pointer]
+            - row [ref=f1e15911]:
+              - cell "392" [ref=f1e15912]
+              - cell [ref=f1e15913]:
+                - strong [ref=f1e3903]: Paired Meat Cleavers
+              - cell "Dust 1947" [ref=f1e15914]
+              - cell "C" [ref=f1e15915]
+              - cell "Nein" [ref=f1e15916]
+              - cell [ref=f1e3909]:
+                - button "Stats & Regeln verwalten" [ref=f1e15917] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15918] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15919] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15920] [cursor=pointer]
+            - row [ref=f1e15921]:
+              - cell "393" [ref=f1e15922]
+              - cell [ref=f1e15923]:
+                - strong [ref=f1e3926]: Panzer Gloves
+              - cell "Dust 1947" [ref=f1e15924]
+              - cell "C" [ref=f1e15925]
+              - cell "Nein" [ref=f1e15926]
+              - cell [ref=f1e3932]:
+                - button "Stats & Regeln verwalten" [ref=f1e15927] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15928] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15929] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15930] [cursor=pointer]
+            - row [ref=f1e15931]:
+              - cell "394" [ref=f1e15932]
+              - cell [ref=f1e15933]:
+                - strong [ref=f1e3949]: Panzerfaust
+              - cell "Dust 1947" [ref=f1e15934]
+              - cell "3" [ref=f1e15935]
+              - cell "Nein" [ref=f1e15936]
+              - cell [ref=f1e3955]:
+                - button "Stats & Regeln verwalten" [ref=f1e15937] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15938] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15939] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15940] [cursor=pointer]
+            - row [ref=f1e15941]:
+              - cell "395" [ref=f1e15942]
+              - cell [ref=f1e15943]:
+                - strong [ref=f1e3972]: Panzerfaust 100
+              - cell "Dust 1947" [ref=f1e15944]
+              - cell "3" [ref=f1e15945]
+              - cell "Nein" [ref=f1e15946]
+              - cell [ref=f1e3978]:
+                - button "Stats & Regeln verwalten" [ref=f1e15947] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15948] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15949] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15950] [cursor=pointer]
+            - row [ref=f1e15951]:
+              - cell "396" [ref=f1e15952]
+              - cell [ref=f1e15953]:
+                - strong [ref=f1e3995]: Petard Mortar (Turret)
+              - cell "Dust 1947" [ref=f1e15954]
+              - cell "4" [ref=f1e15955]
+              - cell "Nein" [ref=f1e15956]
+              - cell [ref=f1e4001]:
+                - button "Stats & Regeln verwalten" [ref=f1e15957] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15958] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15959] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15960] [cursor=pointer]
+            - row [ref=f1e15961]:
+              - cell "397" [ref=f1e15962]
+              - cell [ref=f1e15963]:
+                - strong [ref=f1e4018]: Phaser Gun
+              - cell "Dust 1947" [ref=f1e15964]
+              - cell "12" [ref=f1e15965]
+              - cell "Nein" [ref=f1e15966]
+              - cell [ref=f1e4024]:
+                - button "Stats & Regeln verwalten" [ref=f1e15967] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15968] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15969] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15970] [cursor=pointer]
+            - row [ref=f1e15971]:
+              - cell "400" [ref=f1e15972]
+              - cell [ref=f1e15973]:
+                - strong [ref=f1e4041]: Phaser Rifle
+              - cell "Dust 1947" [ref=f1e15974]
+              - cell "6" [ref=f1e15975]
+              - cell "Nein" [ref=f1e15976]
+              - cell [ref=f1e4047]:
+                - button "Stats & Regeln verwalten" [ref=f1e15977] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15978] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15979] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15980] [cursor=pointer]
+            - row [ref=f1e15981]:
+              - cell "401" [ref=f1e15982]
+              - cell [ref=f1e15983]:
+                - strong [ref=f1e4064]: Phaser Submachine Gun
+              - cell "Dust 1947" [ref=f1e15984]
+              - cell "4" [ref=f1e15985]
+              - cell "Nein" [ref=f1e15986]
+              - cell [ref=f1e4070]:
+                - button "Stats & Regeln verwalten" [ref=f1e15987] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15988] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15989] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e15990] [cursor=pointer]
+            - row [ref=f1e15991]:
+              - cell "402" [ref=f1e15992]
+              - cell [ref=f1e15993]:
+                - strong [ref=f1e4087]: Pincer
+              - cell "Dust 1947" [ref=f1e15994]
+              - cell "C" [ref=f1e15995]
+              - cell "Nein" [ref=f1e15996]
+              - cell [ref=f1e4093]:
+                - button "Stats & Regeln verwalten" [ref=f1e15997] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e15998] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e15999] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16000] [cursor=pointer]
+            - row [ref=f1e16001]:
+              - cell "403" [ref=f1e16002]
+              - cell [ref=f1e16003]:
+                - strong [ref=f1e4110]: Pistol [variant 1]
+              - cell "Dust 1947" [ref=f1e16004]
+              - cell "2" [ref=f1e16005]
+              - cell "Nein" [ref=f1e16006]
+              - cell [ref=f1e4116]:
+                - button "Stats & Regeln verwalten" [ref=f1e16007] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16008] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16009] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16010] [cursor=pointer]
+            - row [ref=f1e16011]:
+              - cell "404" [ref=f1e16012]
+              - cell [ref=f1e16013]:
+                - strong [ref=f1e4133]: Pistol [variant 2]
+              - cell "Dust 1947" [ref=f1e16014]
+              - cell "2" [ref=f1e16015]
+              - cell "Nein" [ref=f1e16016]
+              - cell [ref=f1e4139]:
+                - button "Stats & Regeln verwalten" [ref=f1e16017] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16018] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16019] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16020] [cursor=pointer]
+            - row [ref=f1e16021]:
+              - cell "405" [ref=f1e16022]
+              - cell [ref=f1e16023]:
+                - strong [ref=f1e4156]: Power Cutter
+              - cell "Dust 1947" [ref=f1e16024]
+              - cell "C" [ref=f1e16025]
+              - cell "Nein" [ref=f1e16026]
+              - cell [ref=f1e4162]:
+                - button "Stats & Regeln verwalten" [ref=f1e16027] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16028] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16029] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16030] [cursor=pointer]
+            - row [ref=f1e16031]:
+              - cell "406" [ref=f1e16032]
+              - cell [ref=f1e16033]:
+                - strong [ref=f1e4179]: Power Drill
+              - cell "Dust 1947" [ref=f1e16034]
+              - cell "C" [ref=f1e16035]
+              - cell "Nein" [ref=f1e16036]
+              - cell [ref=f1e4185]:
+                - button "Stats & Regeln verwalten" [ref=f1e16037] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16038] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16039] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16040] [cursor=pointer]
+            - row [ref=f1e16041]:
+              - cell "407" [ref=f1e16042]
+              - cell [ref=f1e16043]:
+                - strong [ref=f1e4202]: Psychic Scream (Turret)
+              - cell "Dust 1947" [ref=f1e16044]
+              - cell "3" [ref=f1e16045]
+              - cell "Nein" [ref=f1e16046]
+              - cell [ref=f1e4208]:
+                - button "Stats & Regeln verwalten" [ref=f1e16047] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16048] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16049] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16050] [cursor=pointer]
+            - row [ref=f1e16051]:
+              - cell "408" [ref=f1e16052]
+              - cell [ref=f1e16053]:
+                - strong [ref=f1e4225]: Quad Anti-Aircraft Guns
+              - cell "Dust 1947" [ref=f1e16054]
+              - cell "10" [ref=f1e16055]
+              - cell "Nein" [ref=f1e16056]
+              - cell [ref=f1e4231]:
+                - button "Stats & Regeln verwalten" [ref=f1e16057] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16058] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16059] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16060] [cursor=pointer]
+            - row [ref=f1e16061]:
+              - cell "412" [ref=f1e16062]
+              - cell [ref=f1e16063]:
+                - strong [ref=f1e4248]: Quad Anti-Aircraft Guns
+              - cell "Dust 1947" [ref=f1e16064]
+              - cell "14" [ref=f1e16065]
+              - cell "Nein" [ref=f1e16066]
+              - cell [ref=f1e4254]:
+                - button "Stats & Regeln verwalten" [ref=f1e16067] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16068] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16069] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16070] [cursor=pointer]
+            - row [ref=f1e16071]:
+              - cell "413" [ref=f1e16072]
+              - cell [ref=f1e16073]:
+                - strong [ref=f1e4271]: Quad Autocannons (Front)
+              - cell "Dust 1947" [ref=f1e16074]
+              - cell "2" [ref=f1e16075]
+              - cell "Nein" [ref=f1e16076]
+              - cell [ref=f1e4277]:
+                - button "Stats & Regeln verwalten" [ref=f1e16077] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16078] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16079] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16080] [cursor=pointer]
+            - row [ref=f1e16081]:
+              - cell "414" [ref=f1e16082]
+              - cell [ref=f1e16083]:
+                - strong [ref=f1e4294]: Quad Heavy Machinegun
+              - cell "Dust 1947" [ref=f1e16084]
+              - cell "2" [ref=f1e16085]
+              - cell "Nein" [ref=f1e16086]
+              - cell [ref=f1e4300]:
+                - button "Stats & Regeln verwalten" [ref=f1e16087] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16088] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16089] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16090] [cursor=pointer]
+            - row [ref=f1e16091]:
+              - cell "416" [ref=f1e16092]
+              - cell [ref=f1e16093]:
+                - strong [ref=f1e4317]: Quad Laser Gun (Front)
+              - cell "Dust 1947" [ref=f1e16094]
+              - cell "10" [ref=f1e16095]
+              - cell "Nein" [ref=f1e16096]
+              - cell [ref=f1e4323]:
+                - button "Stats & Regeln verwalten" [ref=f1e16097] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16098] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16099] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16100] [cursor=pointer]
+            - row [ref=f1e16101]:
+              - cell "417" [ref=f1e16102]
+              - cell [ref=f1e16103]:
+                - strong [ref=f1e4340]: Radiation Beam
+              - cell "Dust 1947" [ref=f1e16104]
+              - cell "4" [ref=f1e16105]
+              - cell "Nein" [ref=f1e16106]
+              - cell [ref=f1e4346]:
+                - button "Stats & Regeln verwalten" [ref=f1e16107] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16108] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16109] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16110] [cursor=pointer]
+            - row [ref=f1e16111]:
+              - cell "418" [ref=f1e16112]
+              - cell [ref=f1e16113]:
+                - strong [ref=f1e4363]: Rapid-Fire Phaser Gun (Turret)
+              - cell "Dust 1947" [ref=f1e16114]
+              - cell "10" [ref=f1e16115]
+              - cell "Nein" [ref=f1e16116]
+              - cell [ref=f1e4369]:
+                - button "Stats & Regeln verwalten" [ref=f1e16117] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16118] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16119] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16120] [cursor=pointer]
+            - row [ref=f1e16121]:
+              - cell "419" [ref=f1e16122]
+              - cell [ref=f1e16123]:
+                - strong [ref=f1e4386]: Recoilless Gun (Front)
+              - cell "Dust 1947" [ref=f1e16124]
+              - cell "10" [ref=f1e16125]
+              - cell "Nein" [ref=f1e16126]
+              - cell [ref=f1e4392]:
+                - button "Stats & Regeln verwalten" [ref=f1e16127] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16128] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16129] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16130] [cursor=pointer]
+            - row [ref=f1e16131]:
+              - cell "420" [ref=f1e16132]
+              - cell [ref=f1e16133]:
+                - strong [ref=f1e4409]: Recoilless Gun (Front)
+              - cell "Dust 1947" [ref=f1e16134]
+              - cell "8" [ref=f1e16135]
+              - cell "Nein" [ref=f1e16136]
+              - cell [ref=f1e4415]:
+                - button "Stats & Regeln verwalten" [ref=f1e16137] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16138] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16139] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16140] [cursor=pointer]
+            - row [ref=f1e16141]:
+              - cell "421" [ref=f1e16142]
+              - cell [ref=f1e16143]:
+                - strong [ref=f1e4432]: Recoilless Rifle
+              - cell "Dust 1947" [ref=f1e16144]
+              - cell "8" [ref=f1e16145]
+              - cell "Nein" [ref=f1e16146]
+              - cell [ref=f1e4438]:
+                - button "Stats & Regeln verwalten" [ref=f1e16147] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16148] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16149] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16150] [cursor=pointer]
+            - row [ref=f1e16151]:
+              - cell "424" [ref=f1e16152]
+              - cell [ref=f1e16153]:
+                - strong [ref=f1e4455]: Recoilless Rocket Launcher
+              - cell "Dust 1947" [ref=f1e16154]
+              - cell "12" [ref=f1e16155]
+              - cell "Nein" [ref=f1e16156]
+              - cell [ref=f1e4461]:
+                - button "Stats & Regeln verwalten" [ref=f1e16157] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16158] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16159] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16160] [cursor=pointer]
+            - row [ref=f1e16161]:
+              - cell "425" [ref=f1e16162]
+              - cell [ref=f1e16163]:
+                - strong [ref=f1e4478]: Revolver
+              - cell "Dust 1947" [ref=f1e16164]
+              - cell "2" [ref=f1e16165]
+              - cell "Nein" [ref=f1e16166]
+              - cell [ref=f1e4484]:
+                - button "Stats & Regeln verwalten" [ref=f1e16167] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16168] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16169] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16170] [cursor=pointer]
+            - row [ref=f1e16171]:
+              - cell "426" [ref=f1e16172]
+              - cell [ref=f1e16173]:
+                - strong [ref=f1e4501]: Rocket (Turret)
+              - cell "Dust 1947" [ref=f1e16174]
+              - cell "6" [ref=f1e16175]
+              - cell "Nein" [ref=f1e16176]
+              - cell [ref=f1e4507]:
+                - button "Stats & Regeln verwalten" [ref=f1e16177] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16178] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16179] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16180] [cursor=pointer]
+            - row [ref=f1e16181]:
+              - cell "427" [ref=f1e16182]
+              - cell [ref=f1e16183]:
+                - strong [ref=f1e4524]: Rocket Launcher
+              - cell "Dust 1947" [ref=f1e16184]
+              - cell "10" [ref=f1e16185]
+              - cell "Nein" [ref=f1e16186]
+              - cell [ref=f1e4530]:
+                - button "Stats & Regeln verwalten" [ref=f1e16187] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16188] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16189] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16190] [cursor=pointer]
+            - row [ref=f1e16191]:
+              - cell "430" [ref=f1e16192]
+              - cell [ref=f1e16193]:
+                - strong [ref=f1e4547]: Rocket Pod (Front)
+              - cell "Dust 1947" [ref=f1e16194]
+              - cell "3" [ref=f1e16195]
+              - cell "Nein" [ref=f1e16196]
+              - cell [ref=f1e4553]:
+                - button "Stats & Regeln verwalten" [ref=f1e16197] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16198] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16199] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16200] [cursor=pointer]
+            - row [ref=f1e16201]:
+              - cell "431" [ref=f1e16202]
+              - cell [ref=f1e16203]:
+                - strong [ref=f1e4570]: Rocket Punch
+              - cell "Dust 1947" [ref=f1e16204]
+              - cell "C" [ref=f1e16205]
+              - cell "Nein" [ref=f1e16206]
+              - cell [ref=f1e4576]:
+                - button "Stats & Regeln verwalten" [ref=f1e16207] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16208] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16209] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16210] [cursor=pointer]
+            - row [ref=f1e16211]:
+              - cell "432" [ref=f1e16212]
+              - cell [ref=f1e16213]:
+                - strong [ref=f1e4593]: RPG
+              - cell "Dust 1947" [ref=f1e16214]
+              - cell "3" [ref=f1e16215]
+              - cell "Ja" [ref=f1e16216]
+              - cell [ref=f1e4599]:
+                - button "Stats & Regeln verwalten" [ref=f1e16217] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16218] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16219] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16220] [cursor=pointer]
+            - row [ref=f1e16221]:
+              - cell "433" [ref=f1e16222]
+              - cell [ref=f1e16223]:
+                - strong [ref=f1e4616]: RPG-12
+              - cell "Dust 1947" [ref=f1e16224]
+              - cell "4" [ref=f1e16225]
+              - cell "Nein" [ref=f1e16226]
+              - cell [ref=f1e4622]:
+                - button "Stats & Regeln verwalten" [ref=f1e16227] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16228] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16229] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16230] [cursor=pointer]
+            - row [ref=f1e16231]:
+              - cell "434" [ref=f1e16232]
+              - cell [ref=f1e16233]:
+                - strong [ref=f1e4639]: RPG-15
+              - cell "Dust 1947" [ref=f1e16234]
+              - cell "3" [ref=f1e16235]
+              - cell "Nein" [ref=f1e16236]
+              - cell [ref=f1e4645]:
+                - button "Stats & Regeln verwalten" [ref=f1e16237] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16238] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16239] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16240] [cursor=pointer]
+            - row [ref=f1e16241]:
+              - cell "435" [ref=f1e16242]
+              - cell [ref=f1e16243]:
+                - strong [ref=f1e4662]: Sacrificial Dagger
+              - cell "Dust 1947" [ref=f1e16244]
+              - cell "C" [ref=f1e16245]
+              - cell "Nein" [ref=f1e16246]
+              - cell [ref=f1e4668]:
+                - button "Stats & Regeln verwalten" [ref=f1e16247] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16248] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16249] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16250] [cursor=pointer]
+            - row [ref=f1e16251]:
+              - cell "436" [ref=f1e16252]
+              - cell [ref=f1e16253]:
+                - strong [ref=f1e4685]: Sextuple Anti-Aircraft Guns (Turret)
+              - cell "Dust 1947" [ref=f1e16254]
+              - cell "8" [ref=f1e16255]
+              - cell "Nein" [ref=f1e16256]
+              - cell [ref=f1e4691]:
+                - button "Stats & Regeln verwalten" [ref=f1e16257] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16258] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16259] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16260] [cursor=pointer]
+            - row [ref=f1e16261]:
+              - cell "437" [ref=f1e16262]
+              - cell [ref=f1e16263]:
+                - strong [ref=f1e4708]: Sextuple Heavy Machineguns (Front)
+              - cell "Dust 1947" [ref=f1e16264]
+              - cell "2" [ref=f1e16265]
+              - cell "Nein" [ref=f1e16266]
+              - cell [ref=f1e4714]:
+                - button "Stats & Regeln verwalten" [ref=f1e16267] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16268] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16269] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16270] [cursor=pointer]
+            - row [ref=f1e16271]:
+              - cell "438" [ref=f1e16272]
+              - cell [ref=f1e16273]:
+                - strong [ref=f1e4731]: Sextuple Recoilless Guns (Turret)
+              - cell "Dust 1947" [ref=f1e16274]
+              - cell "12" [ref=f1e16275]
+              - cell "Nein" [ref=f1e16276]
+              - cell [ref=f1e4737]:
+                - button "Stats & Regeln verwalten" [ref=f1e16277] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16278] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16279] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16280] [cursor=pointer]
+            - row [ref=f1e16281]:
+              - cell "439" [ref=f1e16282]
+              - cell [ref=f1e16283]:
+                - strong [ref=f1e4754]: Shotgun
+              - cell "Dust 1947" [ref=f1e16284]
+              - cell "2" [ref=f1e16285]
+              - cell "Nein" [ref=f1e16286]
+              - cell [ref=f1e4760]:
+                - button "Stats & Regeln verwalten" [ref=f1e16287] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16288] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16289] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16290] [cursor=pointer]
+            - row [ref=f1e16291]:
+              - cell "440" [ref=f1e16292]
+              - cell [ref=f1e16293]:
+                - strong [ref=f1e4777]: Sniper Rifle
+              - cell "Dust 1947" [ref=f1e16294]
+              - cell "8" [ref=f1e16295]
+              - cell "Nein" [ref=f1e16296]
+              - cell [ref=f1e4783]:
+                - button "Stats & Regeln verwalten" [ref=f1e16297] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16298] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16299] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16300] [cursor=pointer]
+            - row [ref=f1e16301]:
+              - cell "442" [ref=f1e16302]
+              - cell [ref=f1e16303]:
+                - strong [ref=f1e4800]: Steel Glove
+              - cell "Dust 1947" [ref=f1e16304]
+              - cell "C" [ref=f1e16305]
+              - cell "Nein" [ref=f1e16306]
+              - cell [ref=f1e4806]:
+                - button "Stats & Regeln verwalten" [ref=f1e16307] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16308] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16309] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16310] [cursor=pointer]
+            - row [ref=f1e16311]:
+              - cell "443" [ref=f1e16312]
+              - cell [ref=f1e16313]:
+                - strong [ref=f1e4823]: Submachine Gun
+              - cell "Dust 1947" [ref=f1e16314]
+              - cell "3" [ref=f1e16315]
+              - cell "Nein" [ref=f1e16316]
+              - cell [ref=f1e4829]:
+                - button "Stats & Regeln verwalten" [ref=f1e16317] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16318] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16319] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16320] [cursor=pointer]
+            - row [ref=f1e16321]:
+              - cell "444" [ref=f1e16322]
+              - cell [ref=f1e16323]:
+                - strong [ref=f1e4846]: Submachine Gun
+              - cell "Dust 1947" [ref=f1e16324]
+              - cell "3" [ref=f1e16325]
+              - cell "Nein" [ref=f1e16326]
+              - cell [ref=f1e4852]:
+                - button "Stats & Regeln verwalten" [ref=f1e16327] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16328] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16329] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16330] [cursor=pointer]
+            - row [ref=f1e16331]:
+              - cell "445" [ref=f1e16332]
+              - cell [ref=f1e16333]:
+                - strong [ref=f1e4869]: Submachine Gun
+              - cell "Dust 1947" [ref=f1e16334]
+              - cell "3" [ref=f1e16335]
+              - cell "Nein" [ref=f1e16336]
+              - cell [ref=f1e4875]:
+                - button "Stats & Regeln verwalten" [ref=f1e16337] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16338] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16339] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16340] [cursor=pointer]
+            - row [ref=f1e16341]:
+              - cell "449" [ref=f1e16342]
+              - cell [ref=f1e16343]:
+                - strong [ref=f1e4892]: Submachine-Gun
+              - cell "Dust 1947" [ref=f1e16344]
+              - cell "2" [ref=f1e16345]
+              - cell "Nein" [ref=f1e16346]
+              - cell [ref=f1e4898]:
+                - button "Stats & Regeln verwalten" [ref=f1e16347] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16348] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16349] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16350] [cursor=pointer]
+            - row [ref=f1e16351]:
+              - cell "450" [ref=f1e16352]
+              - cell [ref=f1e16353]:
+                - strong [ref=f1e4915]: Sucker Punch
+              - cell "Dust 1947" [ref=f1e16354]
+              - cell "C" [ref=f1e16355]
+              - cell "Nein" [ref=f1e16356]
+              - cell [ref=f1e4921]:
+                - button "Stats & Regeln verwalten" [ref=f1e16357] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16358] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16359] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16360] [cursor=pointer]
+            - row [ref=f1e16361]:
+              - cell "451" [ref=f1e16362]
+              - cell [ref=f1e16363]:
+                - strong [ref=f1e4938]: Tesla Gun
+              - cell "Dust 1947" [ref=f1e16364]
+              - cell "6" [ref=f1e16365]
+              - cell "Nein" [ref=f1e16366]
+              - cell [ref=f1e4944]:
+                - button "Stats & Regeln verwalten" [ref=f1e16367] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16368] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16369] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16370] [cursor=pointer]
+            - row [ref=f1e16371]:
+              - cell "452" [ref=f1e16372]
+              - cell [ref=f1e16373]:
+                - strong [ref=f1e4961]: Thompson SMG
+              - cell "Dust 1947" [ref=f1e16374]
+              - cell "4" [ref=f1e16375]
+              - cell "Nein" [ref=f1e16376]
+              - cell [ref=f1e4967]:
+                - button "Stats & Regeln verwalten" [ref=f1e16377] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16378] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16379] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16380] [cursor=pointer]
+            - row [ref=f1e16381]:
+              - cell "453" [ref=f1e16382]
+              - cell [ref=f1e16383]:
+                - strong [ref=f1e4984]: Triple Anti-Aircraft Guns (Turret)
+              - cell "Dust 1947" [ref=f1e16384]
+              - cell "12" [ref=f1e16385]
+              - cell "Nein" [ref=f1e16386]
+              - cell [ref=f1e4990]:
+                - button "Stats & Regeln verwalten" [ref=f1e16387] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16388] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16389] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16390] [cursor=pointer]
+            - row [ref=f1e16391]:
+              - cell "454" [ref=f1e16392]
+              - cell [ref=f1e16393]:
+                - strong [ref=f1e5007]: Triple Assault Laser
+              - cell "Dust 1947" [ref=f1e16394]
+              - cell "-" [ref=f1e16395]
+              - cell "Nein" [ref=f1e16396]
+              - cell [ref=f1e5013]:
+                - button "Stats & Regeln verwalten" [ref=f1e16397] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16398] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16399] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16400] [cursor=pointer]
+            - row [ref=f1e16401]:
+              - cell "455" [ref=f1e16402]
+              - cell [ref=f1e16403]:
+                - strong [ref=f1e5030]: Twin Heavy Machinegun (Front)
+              - cell "Dust 1947" [ref=f1e16404]
+              - cell "6" [ref=f1e16405]
+              - cell "Nein" [ref=f1e16406]
+              - cell [ref=f1e5036]:
+                - button "Stats & Regeln verwalten" [ref=f1e16407] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16408] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16409] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16410] [cursor=pointer]
+            - row [ref=f1e16411]:
+              - cell "456" [ref=f1e16412]
+              - cell [ref=f1e16413]:
+                - strong [ref=f1e5053]: Twin Heavy Machinegun (Turret)
+              - cell "Dust 1947" [ref=f1e16414]
+              - cell "6" [ref=f1e16415]
+              - cell "Nein" [ref=f1e16416]
+              - cell [ref=f1e5059]:
+                - button "Stats & Regeln verwalten" [ref=f1e16417] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16418] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16419] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16420] [cursor=pointer]
+            - row [ref=f1e16421]:
+              - cell "457" [ref=f1e16422]
+              - cell [ref=f1e16423]:
+                - strong [ref=f1e5076]: Twin Heavy Machinegun (Turret)
+              - cell "Dust 1947" [ref=f1e16424]
+              - cell "8" [ref=f1e16425]
+              - cell "Nein" [ref=f1e16426]
+              - cell [ref=f1e5082]:
+                - button "Stats & Regeln verwalten" [ref=f1e16427] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16428] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16429] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16430] [cursor=pointer]
+            - row [ref=f1e16431]:
+              - cell "458" [ref=f1e16432]
+              - cell [ref=f1e16433]:
+                - strong [ref=f1e5099]: Twin Recoilless Guns (Front)
+              - cell "Dust 1947" [ref=f1e16434]
+              - cell "8" [ref=f1e16435]
+              - cell "Nein" [ref=f1e16436]
+              - cell [ref=f1e5105]:
+                - button "Stats & Regeln verwalten" [ref=f1e16437] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16438] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16439] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16440] [cursor=pointer]
+            - row [ref=f1e16441]:
+              - cell "459" [ref=f1e16442]
+              - cell [ref=f1e16443]:
+                - strong [ref=f1e5122]: Twin Tesla Gun
+              - cell "Dust 1947" [ref=f1e16444]
+              - cell "10" [ref=f1e16445]
+              - cell "Nein" [ref=f1e16446]
+              - cell [ref=f1e5128]:
+                - button "Stats & Regeln verwalten" [ref=f1e16447] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16448] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16449] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16450] [cursor=pointer]
+            - row [ref=f1e16451]:
+              - cell "461" [ref=f1e16452]
+              - cell [ref=f1e16453]:
+                - strong [ref=f1e5145]: Twin Tesla Guns (Front)
+              - cell "Dust 1947" [ref=f1e16454]
+              - cell "8" [ref=f1e16455]
+              - cell "Nein" [ref=f1e16456]
+              - cell [ref=f1e5151]:
+                - button "Stats & Regeln verwalten" [ref=f1e16457] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16458] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16459] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16460] [cursor=pointer]
+            - row [ref=f1e16461]:
+              - cell "462" [ref=f1e16462]
+              - cell [ref=f1e16463]:
+                - strong [ref=f1e5168]: Under-Barrel Grenade Launcher
+              - cell "Dust 1947" [ref=f1e16464]
+              - cell "3" [ref=f1e16465]
+              - cell "Ja" [ref=f1e16466]
+              - cell [ref=f1e5174]:
+                - button "Stats & Regeln verwalten" [ref=f1e16467] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16468] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16469] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16470] [cursor=pointer]
+            - row [ref=f1e16471]:
+              - cell "463" [ref=f1e16472]
+              - cell [ref=f1e16473]:
+                - strong [ref=f1e5191]: VK Howitzer
+              - cell "Dust 1947" [ref=f1e16474]
+              - cell "6" [ref=f1e16475]
+              - cell "Nein" [ref=f1e16476]
+              - cell [ref=f1e5197]:
+                - button "Stats & Regeln verwalten" [ref=f1e16477] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16478] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16479] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16480] [cursor=pointer]
+            - row [ref=f1e16481]:
+              - cell "464" [ref=f1e16482]
+              - cell [ref=f1e16483]:
+                - strong [ref=f1e5214]: VK Pistol
+              - cell "Dust 1947" [ref=f1e16484]
+              - cell "3" [ref=f1e16485]
+              - cell "Nein" [ref=f1e16486]
+              - cell [ref=f1e5220]:
+                - button "Stats & Regeln verwalten" [ref=f1e16487] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16488] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16489] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16490] [cursor=pointer]
+            - row [ref=f1e16491]:
+              - cell "465" [ref=f1e16492]
+              - cell [ref=f1e16493]:
+                - strong [ref=f1e5237]: Wrench
+              - cell "Dust 1947" [ref=f1e16494]
+              - cell "C" [ref=f1e16495]
+              - cell "Nein" [ref=f1e16496]
+              - cell [ref=f1e5243]:
+                - button "Stats & Regeln verwalten" [ref=f1e16497] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16498] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16499] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16500] [cursor=pointer]
+            - row [ref=f1e16501]:
+              - cell "466" [ref=f1e16502]
+              - cell [ref=f1e16503]:
+                - strong [ref=f1e5260]: Wrench
+              - cell "Dust 1947" [ref=f1e16504]
+              - cell "C" [ref=f1e16505]
+              - cell "Nein" [ref=f1e16506]
+              - cell [ref=f1e5266]:
+                - button "Stats & Regeln verwalten" [ref=f1e16507] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16508] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16509] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16510] [cursor=pointer]
+            - row [ref=f1e16511]:
+              - cell "467" [ref=f1e16512]
+              - cell [ref=f1e16513]:
+                - strong [ref=f1e5283]: X-4 Missile (Front)
+              - cell "Dust 1947" [ref=f1e16514]
+              - cell "4" [ref=f1e16515]
+              - cell "Nein" [ref=f1e16516]
+              - cell [ref=f1e5289]:
+                - button "Stats & Regeln verwalten" [ref=f1e16517] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16518] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16519] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16520] [cursor=pointer]
+            - row [ref=f1e16521]:
+              - cell "468" [ref=f1e16522]
+              - cell [ref=f1e16523]:
+                - strong [ref=f1e5306]: Heavy Machinegun 1
+              - cell "Dust 1947" [ref=f1e16524]
+              - cell "6" [ref=f1e16525]
+              - cell "Nein" [ref=f1e16526]
+              - cell [ref=f1e5312]:
+                - button "Stats & Regeln verwalten" [ref=f1e16527] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16528] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16529] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16530] [cursor=pointer]
+            - row [ref=f1e16531]:
+              - cell "469" [ref=f1e16532]
+              - cell [ref=f1e16533]:
+                - strong [ref=f1e5329]: Heavy Machinegun (Kopie)
+              - cell "Dust 1947" [ref=f1e16534]
+              - cell "6" [ref=f1e16535]
+              - cell "Nein" [ref=f1e16536]
+              - cell [ref=f1e5335]:
+                - button "Stats & Regeln verwalten" [ref=f1e16537] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16538] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16539] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16540] [cursor=pointer]
+            - row [ref=f1e16541]:
+              - cell "470" [ref=f1e16542]
+              - cell [ref=f1e16543]:
+                - strong [ref=f1e5352]: Heavy Machinegun (Kopie) (Kopie)
+              - cell "Dust 1947" [ref=f1e16544]
+              - cell "C" [ref=f1e16545]
+              - cell "Nein" [ref=f1e16546]
+              - cell [ref=f1e5358]:
+                - button "Stats & Regeln verwalten" [ref=f1e16547] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16548] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16549] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16550] [cursor=pointer]
+            - row [ref=f1e16551]:
+              - cell "471" [ref=f1e16552]
+              - cell [ref=f1e16553]:
+                - strong [ref=f1e5375]: Flamethrower
+              - cell "Dust 1947" [ref=f1e16554]
+              - cell "2" [ref=f1e16555]
+              - cell "Nein" [ref=f1e16556]
+              - cell [ref=f1e5381]:
+                - button "Stats & Regeln verwalten" [ref=f1e16557] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16558] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16559] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16560] [cursor=pointer]
+            - row [ref=f1e16561]:
+              - cell "472" [ref=f1e16562]
+              - cell [ref=f1e16563]:
+                - strong [ref=f1e5398]: Twin Tesla Gun
+              - cell "Dust 1947" [ref=f1e16564]
+              - cell "10" [ref=f1e16565]
+              - cell "Nein" [ref=f1e16566]
+              - cell [ref=f1e5404]:
+                - button "Stats & Regeln verwalten" [ref=f1e16567] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16568] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16569] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16570] [cursor=pointer]
+            - row [ref=f1e16571]:
+              - cell "473" [ref=f1e16572]
+              - cell [ref=f1e16573]:
+                - strong [ref=f1e5421]: Heavy Anti-Tank Gun
+              - cell "Dust 1947" [ref=f1e16574]
+              - cell "18" [ref=f1e16575]
+              - cell "Nein" [ref=f1e16576]
+              - cell [ref=f1e5427]:
+                - button "Stats & Regeln verwalten" [ref=f1e16577] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16578] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16579] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16580] [cursor=pointer]
+            - row [ref=f1e16581]:
+              - cell "474" [ref=f1e16582]
+              - cell [ref=f1e16583]:
+                - strong [ref=f1e5444]: E-5 Blaster Rifle
+              - cell "Star Wars" [ref=f1e16584]
+              - cell "4" [ref=f1e16585]
+              - cell "Nein" [ref=f1e16586]
+              - cell [ref=f1e5450]:
+                - button "Stats & Regeln verwalten" [ref=f1e16587] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16588] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16589] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16590] [cursor=pointer]
+            - row [ref=f1e16591]:
+              - cell "475" [ref=f1e16592]
+              - cell [ref=f1e16593]:
+                - strong [ref=f1e5467]: E-5C Heavy Blaster Rifle
+              - cell "Star Wars" [ref=f1e16594]
+              - cell "6" [ref=f1e16595]
+              - cell "Nein" [ref=f1e16596]
+              - cell [ref=f1e5473]:
+                - button "Stats & Regeln verwalten" [ref=f1e16597] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16598] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16599] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16600] [cursor=pointer]
+            - row [ref=f1e16601]:
+              - cell "476" [ref=f1e16602]
+              - cell [ref=f1e16603]:
+                - strong [ref=f1e5490]: E-60R Rocket Launcher
+              - cell "Star Wars" [ref=f1e16604]
+              - cell "8" [ref=f1e16605]
+              - cell "Nein" [ref=f1e16606]
+              - cell [ref=f1e5496]:
+                - button "Stats & Regeln verwalten" [ref=f1e16607] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16608] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16609] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16610] [cursor=pointer]
+            - row [ref=f1e16611]:
+              - cell "477" [ref=f1e16612]
+              - cell [ref=f1e16613]:
+                - strong [ref=f1e5513]: E-5s Sniper Rifle
+              - cell "Star Wars" [ref=f1e16614]
+              - cell "10" [ref=f1e16615]
+              - cell "Nein" [ref=f1e16616]
+              - cell [ref=f1e5519]:
+                - button "Stats & Regeln verwalten" [ref=f1e16617] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16618] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16619] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16620] [cursor=pointer]
+            - row [ref=f1e16621]:
+              - cell "478" [ref=f1e16622]
+              - cell [ref=f1e16623]:
+                - strong [ref=f1e5536]: Radiation Cannon
+              - cell "Star Wars" [ref=f1e16624]
+              - cell "8" [ref=f1e16625]
+              - cell "Nein" [ref=f1e16626]
+              - cell [ref=f1e5542]:
+                - button "Stats & Regeln verwalten" [ref=f1e16627] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16628] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16629] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16630] [cursor=pointer]
+            - row [ref=f1e16631]:
+              - cell "479" [ref=f1e16632]
+              - cell [ref=f1e16633]:
+                - strong [ref=f1e5559]: Wrist Blaster
+              - cell "Star Wars" [ref=f1e16634]
+              - cell "4" [ref=f1e16635]
+              - cell "Nein" [ref=f1e16636]
+              - cell [ref=f1e5565]:
+                - button "Stats & Regeln verwalten" [ref=f1e16637] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16638] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16639] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16640] [cursor=pointer]
+            - row [ref=f1e16641]:
+              - cell "480" [ref=f1e16642]
+              - cell [ref=f1e16643]:
+                - strong [ref=f1e5582]: Twin Blaster Cannon
+              - cell "Star Wars" [ref=f1e16644]
+              - cell "6" [ref=f1e16645]
+              - cell "Nein" [ref=f1e16646]
+              - cell [ref=f1e5588]:
+                - button "Stats & Regeln verwalten" [ref=f1e16647] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16648] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16649] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16650] [cursor=pointer]
+            - row [ref=f1e16651]:
+              - cell "481" [ref=f1e16652]
+              - cell [ref=f1e16653]:
+                - strong [ref=f1e5605]: Blaster Pistol
+              - cell "Star Wars" [ref=f1e16654]
+              - cell "3" [ref=f1e16655]
+              - cell "Nein" [ref=f1e16656]
+              - cell [ref=f1e5611]:
+                - button "Stats & Regeln verwalten" [ref=f1e16657] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16658] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16659] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16660] [cursor=pointer]
+            - row [ref=f1e16661]:
+              - cell "482" [ref=f1e16662]
+              - cell [ref=f1e16663]:
+                - strong [ref=f1e5628]: Electrostaff
+              - cell "Star Wars" [ref=f1e16664]
+              - cell "C" [ref=f1e16665]
+              - cell "Nein" [ref=f1e16666]
+              - cell [ref=f1e5634]:
+                - button "Stats & Regeln verwalten" [ref=f1e16667] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16668] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16669] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16670] [cursor=pointer]
+            - row [ref=f1e16671]:
+              - cell "483" [ref=f1e16672]
+              - cell [ref=f1e16673]:
+                - strong [ref=f1e5651]: Lightsabers
+              - cell "Star Wars" [ref=f1e16674]
+              - cell "C" [ref=f1e16675]
+              - cell "Nein" [ref=f1e16676]
+              - cell [ref=f1e5657]:
+                - button "Stats & Regeln verwalten" [ref=f1e16677] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16678] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16679] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16680] [cursor=pointer]
+            - row [ref=f1e16681]:
+              - cell "484" [ref=f1e16682]
+              - cell [ref=f1e16683]:
+                - strong [ref=f1e5674]: Heavy Laser Cannon
+              - cell "Star Wars" [ref=f1e16684]
+              - cell "10" [ref=f1e16685]
+              - cell "Nein" [ref=f1e16686]
+              - cell [ref=f1e5680]:
+                - button "Stats & Regeln verwalten" [ref=f1e16687] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16688] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16689] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16690] [cursor=pointer]
+            - row [ref=f1e16691]:
+              - cell "485" [ref=f1e16692]
+              - cell [ref=f1e16693]:
+                - strong [ref=f1e5697]: Twin Laser Cannons
+              - cell "Star Wars" [ref=f1e16694]
+              - cell "8" [ref=f1e16695]
+              - cell "Nein" [ref=f1e16696]
+              - cell [ref=f1e5703]:
+                - button "Stats & Regeln verwalten" [ref=f1e16697] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16698] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16699] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16700] [cursor=pointer]
+            - row [ref=f1e16701]:
+              - cell "486" [ref=f1e16702]
+              - cell [ref=f1e16703]:
+                - strong [ref=f1e5720]: Projectile Launchers
+              - cell "Star Wars" [ref=f1e16704]
+              - cell "6" [ref=f1e16705]
+              - cell "Nein" [ref=f1e16706]
+              - cell [ref=f1e5726]:
+                - button "Stats & Regeln verwalten" [ref=f1e16707] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16708] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16709] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16710] [cursor=pointer]
+            - row [ref=f1e16711]:
+              - cell "487" [ref=f1e16712]
+              - cell [ref=f1e16713]:
+                - strong [ref=f1e5743]: Laser Cannon SW
+              - cell "Star Wars" [ref=f1e16714]
+              - cell "8" [ref=f1e16715]
+              - cell "Nein" [ref=f1e16716]
+              - cell [ref=f1e5749]:
+                - button "Stats & Regeln verwalten" [ref=f1e16717] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16718] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16719] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16720] [cursor=pointer]
+            - row [ref=f1e16721]:
+              - cell "488" [ref=f1e16722]
+              - cell [ref=f1e16723]:
+                - strong [ref=f1e5766]: Twin Hailfire Missile Launchers
+              - cell "Star Wars" [ref=f1e16724]
+              - cell "10" [ref=f1e16725]
+              - cell "Nein" [ref=f1e16726]
+              - cell [ref=f1e5772]:
+                - button "Stats & Regeln verwalten" [ref=f1e16727] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16728] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16729] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16730] [cursor=pointer]
+            - row [ref=f1e16731]:
+              - cell "489" [ref=f1e16732]
+              - cell [ref=f1e16733]:
+                - strong [ref=f1e5789]: Twin Auto-Blaster
+              - cell "Star Wars" [ref=f1e16734]
+              - cell "6" [ref=f1e16735]
+              - cell "Nein" [ref=f1e16736]
+              - cell [ref=f1e5795]:
+                - button "Stats & Regeln verwalten" [ref=f1e16737] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16738] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16739] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16740] [cursor=pointer]
+            - row [ref=f1e16741]:
+              - cell "491" [ref=f1e16742]
+              - cell [ref=f1e16743]:
+                - strong [ref=f1e5812]: DC-15A Blaster Rifle
+              - cell "Star Wars" [ref=f1e16744]
+              - cell "6" [ref=f1e16745]
+              - cell "Nein" [ref=f1e16746]
+              - cell [ref=f1e5818]:
+                - button "Stats & Regeln verwalten" [ref=f1e16747] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16748] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16749] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16750] [cursor=pointer]
+            - row [ref=f1e16751]:
+              - cell "492" [ref=f1e16752]
+              - cell [ref=f1e16753]:
+                - strong [ref=f1e5835]: DC-15S Blaster Carbine
+              - cell "Star Wars" [ref=f1e16754]
+              - cell "4" [ref=f1e16755]
+              - cell "Nein" [ref=f1e16756]
+              - cell [ref=f1e5841]:
+                - button "Stats & Regeln verwalten" [ref=f1e16757] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16758] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16759] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16760] [cursor=pointer]
+            - row [ref=f1e16761]:
+              - cell "493" [ref=f1e16762]
+              - cell [ref=f1e16763]:
+                - strong [ref=f1e5858]: Z-6 Rotary Blaster Cannon
+              - cell "Star Wars" [ref=f1e16764]
+              - cell "6" [ref=f1e16765]
+              - cell "Nein" [ref=f1e16766]
+              - cell [ref=f1e5864]:
+                - button "Stats & Regeln verwalten" [ref=f1e16767] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16768] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16769] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16770] [cursor=pointer]
+            - row [ref=f1e16771]:
+              - cell "494" [ref=f1e16772]
+              - cell [ref=f1e16773]:
+                - strong [ref=f1e5881]: RPS-6 Rocket Launcher
+              - cell "Star Wars" [ref=f1e16774]
+              - cell "4" [ref=f1e16775]
+              - cell "Nein" [ref=f1e16776]
+              - cell [ref=f1e5887]:
+                - button "Stats & Regeln verwalten" [ref=f1e16777] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16778] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16779] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16780] [cursor=pointer]
+            - row [ref=f1e16781]:
+              - cell "495" [ref=f1e16782]
+              - cell [ref=f1e16783]:
+                - strong [ref=f1e5904]: DC-17 Blaster Pistol
+              - cell "Star Wars" [ref=f1e16784]
+              - cell "2" [ref=f1e16785]
+              - cell "Nein" [ref=f1e16786]
+              - cell [ref=f1e5910]:
+                - button "Stats & Regeln verwalten" [ref=f1e16787] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16788] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16789] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16790] [cursor=pointer]
+            - row [ref=f1e16791]:
+              - cell "497" [ref=f1e16792]
+              - cell [ref=f1e16793]:
+                - strong [ref=f1e5927]: Twin Light Blaster Cannons
+              - cell "Star Wars" [ref=f1e16794]
+              - cell "6" [ref=f1e16795]
+              - cell "Nein" [ref=f1e16796]
+              - cell [ref=f1e5933]:
+                - button "Stats & Regeln verwalten" [ref=f1e16797] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16798] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16799] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16800] [cursor=pointer]
+            - row [ref=f1e16801]:
+              - cell "498" [ref=f1e16802]
+              - cell [ref=f1e16803]:
+                - strong [ref=f1e5950]: Medium Blaster
+              - cell "Star Wars" [ref=f1e16804]
+              - cell "6" [ref=f1e16805]
+              - cell "Nein" [ref=f1e16806]
+              - cell [ref=f1e5956]:
+                - button "Stats & Regeln verwalten" [ref=f1e16807] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16808] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16809] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16810] [cursor=pointer]
+            - row [ref=f1e16811]:
+              - cell "499" [ref=f1e16812]
+              - cell [ref=f1e16813]:
+                - strong [ref=f1e5973]: Lightsaber
+              - cell "Star Wars" [ref=f1e16814]
+              - cell "C" [ref=f1e16815]
+              - cell "Nein" [ref=f1e16816]
+              - cell [ref=f1e5979]:
+                - button "Stats & Regeln verwalten" [ref=f1e16817] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16818] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16819] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16820] [cursor=pointer]
+            - row [ref=f1e16821]:
+              - cell "500" [ref=f1e16822]
+              - cell [ref=f1e16823]:
+                - strong [ref=f1e5996]: Tesla Club
+              - cell "Dust 1947" [ref=f1e16824]
+              - cell "C" [ref=f1e16825]
+              - cell "Nein" [ref=f1e16826]
+              - cell [ref=f1e6002]:
+                - button "Stats & Regeln verwalten" [ref=f1e16827] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16828] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16829] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16830] [cursor=pointer]
+            - row [ref=f1e16831]:
+              - cell "501" [ref=f1e16832]
+              - cell [ref=f1e16833]:
+                - strong [ref=f1e6019]: Plasma Cannon
+              - cell "Warhammer 40k" [ref=f1e16834]
+              - cell "6" [ref=f1e16835]
+              - cell "Nein" [ref=f1e16836]
+              - cell [ref=f1e6025]:
+                - button "Stats & Regeln verwalten" [ref=f1e16837] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16838] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16839] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16840] [cursor=pointer]
+            - row [ref=f1e16841]:
+              - cell "502" [ref=f1e16842]
+              - cell [ref=f1e16843]:
+                - strong [ref=f1e6042]: Assault Cannon
+              - cell "Warhammer 40k" [ref=f1e16844]
+              - cell "4" [ref=f1e16845]
+              - cell "Nein" [ref=f1e16846]
+              - cell [ref=f1e6048]:
+                - button "Stats & Regeln verwalten" [ref=f1e16847] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16848] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16849] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16850] [cursor=pointer]
+            - row [ref=f1e16851]:
+              - cell "503" [ref=f1e16852]
+              - cell [ref=f1e16853]:
+                - strong [ref=f1e6065]: Storm Bolter
+              - cell "Warhammer 40k" [ref=f1e16854]
+              - cell "4" [ref=f1e16855]
+              - cell "Nein" [ref=f1e16856]
+              - cell [ref=f1e6071]:
+                - button "Stats & Regeln verwalten" [ref=f1e16857] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16858] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16859] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16860] [cursor=pointer]
+            - row [ref=f1e16861]:
+              - cell "504" [ref=f1e16862]
+              - cell [ref=f1e16863]:
+                - strong [ref=f1e6088]: Power Fist
+              - cell "Warhammer 40k" [ref=f1e16864]
+              - cell "C" [ref=f1e16865]
+              - cell "Nein" [ref=f1e16866]
+              - cell [ref=f1e6094]:
+                - button "Stats & Regeln verwalten" [ref=f1e16867] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16868] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16869] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16870] [cursor=pointer]
+            - row [ref=f1e16871]:
+              - cell "505" [ref=f1e16872]
+              - cell [ref=f1e16873]:
+                - strong [ref=f1e6111]: Twin Boltgun
+              - cell "Warhammer 40k" [ref=f1e16874]
+              - cell "4" [ref=f1e16875]
+              - cell "Nein" [ref=f1e16876]
+              - cell [ref=f1e6117]:
+                - button "Stats & Regeln verwalten" [ref=f1e16877] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16878] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16879] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16880] [cursor=pointer]
+            - row [ref=f1e16881]:
+              - cell "506" [ref=f1e16882]
+              - cell [ref=f1e16883]:
+                - strong [ref=f1e6134]: Plasma Gun
+              - cell "Warhammer 40k" [ref=f1e16884]
+              - cell "4" [ref=f1e16885]
+              - cell "Nein" [ref=f1e16886]
+              - cell [ref=f1e6140]:
+                - button "Stats & Regeln verwalten" [ref=f1e16887] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16888] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16889] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16890] [cursor=pointer]
+            - row [ref=f1e16891]:
+              - cell "507" [ref=f1e16892]
+              - cell [ref=f1e16893]:
+                - strong [ref=f1e6157]: Twin Plasma Gun
+              - cell "Warhammer 40k" [ref=f1e16894]
+              - cell "4" [ref=f1e16895]
+              - cell "Nein" [ref=f1e16896]
+              - cell [ref=f1e6163]:
+                - button "Stats & Regeln verwalten" [ref=f1e16897] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16898] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16899] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16900] [cursor=pointer]
+            - row [ref=f1e16901]:
+              - cell "508" [ref=f1e16902]
+              - cell [ref=f1e16903]:
+                - strong [ref=f1e6180]: Death spinner
+              - cell "Warhammer 40k" [ref=f1e16904]
+              - cell "2" [ref=f1e16905]
+              - cell "Nein" [ref=f1e16906]
+              - cell [ref=f1e6186]:
+                - button "Stats & Regeln verwalten" [ref=f1e16907] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f1e16908] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16909] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16910] [cursor=pointer]
+            - row [ref=f1e16911]:
+              - cell "509" [ref=f1e16912]
+              - cell [ref=f1e16913]:
+                - strong [ref=f1e11574]: QA Weapon 20261015-1024 Updated
+              - cell "Dust 1947" [ref=f1e16914]
+              - cell "12-48" [ref=f1e16915]
+              - cell "Nein" [ref=f1e16916]
+              - cell [ref=f1e11580]:
+                - button "Stats & Regeln verwalten" [ref=f1e16917] [cursor=pointer]
+                - button "Waffe bearbeiten" [active] [ref=f1e16918] [cursor=pointer]
+                - button "Waffe klonen" [ref=f1e16919] [cursor=pointer]
+                - button "Waffe löschen" [ref=f1e16920] [cursor=pointer]

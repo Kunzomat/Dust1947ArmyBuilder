@@ -1,0 +1,51 @@
+- generic [ref=f16e3]:
+  - banner [ref=f16e4]:
+    - generic [ref=f16e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f16e6]
+      - group [ref=f16e7]:
+        - button "Army Builder" [pressed] [ref=f16e8] [cursor=pointer]
+        - button "Admin" [ref=f16e11] [cursor=pointer]
+  - generic [ref=f16e14]:
+    - alert [ref=f16e15]:
+      - generic [ref=f16e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=f16e20]:
+      - generic [ref=f16e21]:
+        - heading "Armeen" [level=6] [ref=f16e23]
+        - separator [ref=f16e24]
+        - generic [ref=f16e25]:
+          - generic [ref=f16e26]:
+            - generic [ref=f16e27]:
+              - generic: Game System
+              - generic [ref=f16e28]:
+                - combobox "Game System" [ref=f16e29] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=f16e30]:
+              - generic: Bloc
+              - generic [ref=f16e31]:
+                - combobox "Bloc" [ref=f16e32] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=f16e33]:
+              - button "Aktualisieren" [ref=f16e34] [cursor=pointer]
+              - button "Neue Armee" [ref=f16e35] [cursor=pointer]
+          - progressbar [ref=f16e36]
+      - generic [ref=f16e39]:
+        - heading "Armee" [level=6] [ref=f16e41]
+        - separator [ref=f16e42]
+        - generic [ref=f16e43]:
+          - generic [ref=f16e44]:
+            - button "Bearbeiten" [ref=f16e45] [cursor=pointer]
+            - button "Klonen" [ref=f16e46] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=f16e47] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=f16e48] [cursor=pointer]
+          - paragraph [ref=f16e49]: Platoons
+          - generic [ref=f16e50]:
+            - paragraph [ref=f16e51]: Freie Einheiten
+            - list [ref=f16e52]
+      - generic [ref=f16e53]:
+        - heading "Details" [level=6] [ref=f16e55]
+        - separator [ref=f16e56]
+        - paragraph [ref=f16e58]: Einheit auswählen…

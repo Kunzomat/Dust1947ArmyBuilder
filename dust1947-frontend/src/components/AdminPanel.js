@@ -14,6 +14,7 @@ import RuleManager from './admin/RuleManager';
 import PlatoonManager from './admin/PlatoonManager';
 import BlocManager from './admin/BlocManager';
 import GameSystemManager from './admin/GameSystemManager';
+import ActionManager from './admin/ActionManager';
 
 function TabPanel({ children, value, index }) {
   return (
@@ -23,7 +24,7 @@ function TabPanel({ children, value, index }) {
   );
 }
 
-const ADMIN_TAB_COUNT = 7;
+const ADMIN_TAB_COUNT = 8;
 
 export default function AdminPanel() {
   // Restore last visited Admin tab after a reload (e.g. F5 on Admin -> Units stays on Units).
@@ -43,7 +44,7 @@ export default function AdminPanel() {
           ⚙️ Admin Panel - Daten Verwaltung
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-          Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons
+          Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln, Platoons und Actions
         </Typography>
 
         <Tabs
@@ -59,6 +60,7 @@ export default function AdminPanel() {
           <Tab label="🔫 Weapons" />
           <Tab label="📜 Rules" />
           <Tab label="🪖 Platoons" />
+          <Tab label="Actions" />
         </Tabs>
 
         <TabPanel value={currentTab} index={0}>
@@ -82,8 +84,10 @@ export default function AdminPanel() {
         <TabPanel value={currentTab} index={6}>
           <PlatoonManager />
         </TabPanel>
+        <TabPanel value={currentTab} index={7}>
+          <ActionManager />
+        </TabPanel>
       </Paper>
     </Container>
   );
 }
-

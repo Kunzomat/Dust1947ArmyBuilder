@@ -358,20 +358,20 @@ export function validateArmyComposition(input = {}) {
     }
   }
 
-  const heroDuplicates = new Map();
-  for (const unit of units.filter(isHero)) {
+  const uniqueDuplicates = new Map();
+  for (const unit of units.filter((unit) => [true, 1, "1"].includes(unit.is_unique))) {
     const key = getUnitIdentityKey(unit);
-    heroDuplicates.set(key, [...(heroDuplicates.get(key) || []), unit]);
+    uniqueDuplicates.set(key, [...(uniqueDuplicates.get(key) || []), unit]);
   }
 
-  for (const [key, heroUnits] of heroDuplicates.entries()) {
-    const totalCopies = heroUnits.reduce((sum, unit) => sum + getQuantity(unit), 0);
+  for (const [key, uniqueUnits] of uniqueDuplicates.entries()) {
+    const totalCopies = uniqueUnits.reduce((sum, unit) => sum + getQuantity(unit), 0);
     if (totalCopies > 1) {
       violations.push(
         createMessage(
           "violation",
           15,
-          `${getUnitDisplayName(heroUnits[0])} darf als einzigartiger Held nur einmal in der Armee vorkommen.`,
+          `${getUnitDisplayName(uniqueUnits[0])} darf als einzigartige Einheit nur einmal in der Armee vorkommen.`,
           { key, totalCopies }
         )
       );
@@ -733,4 +733,3 @@ export function validateArmyComposition(input = {}) {
 }
 
 export default validateArmyComposition;
-

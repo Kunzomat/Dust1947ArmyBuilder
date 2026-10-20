@@ -1,0 +1,182 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading [level=6] [ref=e13867]: Dust 1947 – Army Builder
+        - group [ref=e7]:
+          - button [ref=e13868] [cursor=pointer]: Army Builder
+          - button [pressed] [ref=e13869] [cursor=pointer]: Admin
+    - generic [ref=e113]:
+      - heading [level=4] [ref=e13870]: ⚙️ Admin Panel - Daten Verwaltung
+      - paragraph [ref=e115]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+      - tablist [ref=e119]:
+        - tab [ref=e13871] [cursor=pointer]: 🎮 Game Systems
+        - tab [ref=e13872] [cursor=pointer]: 🏴 Blocs
+        - tab [ref=e13873] [cursor=pointer]: 🎖️ Factions
+        - tab [selected] [ref=e13874] [cursor=pointer]: ⚔️ Units
+        - tab [ref=e13875] [cursor=pointer]: 🔫 Weapons
+        - tab [ref=e13876] [cursor=pointer]: 📜 Rules
+        - tab [ref=e13877] [cursor=pointer]: 🪖 Platoons
+      - tabpanel [ref=e203]:
+        - generic [ref=e205]:
+          - generic [ref=e206]:
+            - heading [level=6] [ref=e13878]: Units (1)
+            - generic [ref=e208]:
+              - generic [ref=e209]:
+                - generic [ref=e13427]: Name filtern
+                - generic [ref=e210]:
+                  - textbox [ref=e13879]: Droideka
+                  - group [aria-hidden]:
+                    - generic: Name filtern
+              - generic [ref=e212]:
+                - generic [ref=e13441]: Game System
+                - generic [ref=e213]:
+                  - combobox [ref=e13880] [cursor=pointer]: Star Wars
+                  - textbox [aria-hidden]: "3"
+                  - group [aria-hidden]:
+                    - generic: Game System
+              - generic [ref=e215]:
+                - generic [ref=e13537]: Faction
+                - generic [ref=e216]:
+                  - combobox [ref=e13881] [cursor=pointer]: Droid Army
+                  - textbox [aria-hidden]: "5"
+                  - group [aria-hidden]:
+                    - generic: Faction
+              - generic [ref=e218]:
+                - generic [ref=e13635]: Type
+                - generic [ref=e219]:
+                  - combobox [ref=e13882] [cursor=pointer]: I - Infantry
+                  - textbox [aria-hidden]: I
+                  - group [aria-hidden]:
+                    - generic: Type
+              - button [ref=e13883] [cursor=pointer]: Neue Unit
+          - table [ref=e226]:
+            - rowgroup [ref=e227]:
+              - row [ref=e13884]:
+                - columnheader [ref=e13885]:
+                  - button [ref=e13886] [cursor=pointer]: ID
+                - columnheader [ref=e13887]:
+                  - button [ref=e13888] [cursor=pointer]: Name
+                - columnheader [ref=e13889]:
+                  - button [ref=e13890] [cursor=pointer]: Faction
+                - columnheader [ref=e13891]:
+                  - button [ref=e13892] [cursor=pointer]: Game System
+                - columnheader [ref=e13893]:
+                  - button [ref=e13894] [cursor=pointer]: Type
+                - columnheader [ref=e13895]:
+                  - button [ref=e13896] [cursor=pointer]: Punkte
+                - columnheader [ref=e13897]: Stats
+                - columnheader [ref=e13898]: Aktionen
+            - rowgroup [ref=e255]:
+              - row [ref=e13899]:
+                - cell [ref=e13900]: "218"
+                - cell [ref=e13901]:
+                  - strong [ref=e1369]: Droideka
+                - cell [ref=e13902]: Droid Army
+                - cell [ref=e13903]: Star Wars
+                - cell [ref=e13904]: I
+                - cell [ref=e13905]:
+                  - generic [ref=e1374]:
+                    - paragraph [ref=e1375]: "13"
+                    - generic [ref=e1376]:
+                      - generic [ref=e1377]: "13"
+                      - button [ref=e13906] [cursor=pointer]
+                - cell [ref=e13907]:
+                  - generic [ref=e1382]: Lvl 4 | 💚1 | 🏃2 | 🚶6
+                - cell [ref=e1383]:
+                  - button [ref=e13908] [cursor=pointer]
+                  - button [ref=e1387] [cursor=pointer]
+                  - button [ref=e13909] [cursor=pointer]
+                  - button [ref=e1393] [cursor=pointer]
+  - dialog [ref=e13912]:
+    - heading "Unit klonen" [level=2] [ref=e13913]
+    - generic [ref=e13915]:
+      - generic [ref=e13916]:
+        - generic [ref=e13917]: Name
+        - generic [ref=e13918]:
+          - textbox "Name" [ref=e13919]: Droideka (Kopie)
+          - group [aria-hidden]:
+            - generic: Name
+      - generic [ref=e13920]:
+        - generic [ref=e13921]:
+          - generic [ref=e13922]: Faction
+          - generic [ref=e13923]:
+            - combobox "Faction Droid Army" [ref=e13924] [cursor=pointer]: Droid Army
+            - textbox [aria-hidden]: "5"
+            - group [aria-hidden]:
+              - generic: Faction
+        - generic [ref=e13925]:
+          - generic [ref=e13926]: Game System (optional)
+          - generic [ref=e13927]:
+            - combobox "Game System (optional) Star Wars" [ref=e13928] [cursor=pointer]: Star Wars
+            - textbox [aria-hidden]: "3"
+            - group [aria-hidden]:
+              - generic: Game System (optional)
+        - generic [ref=e13929]:
+          - generic [ref=e13930]: Type
+          - generic [ref=e13931]:
+            - combobox "Type I - Infantry" [ref=e13932] [cursor=pointer]: I - Infantry
+            - textbox [aria-hidden]: I
+            - group [aria-hidden]:
+              - generic: Type
+        - generic [ref=e13933]:
+          - generic [ref=e13934]: Level
+          - generic [ref=e13935]:
+            - combobox "Level 4" [ref=e13936] [cursor=pointer]: "4"
+            - textbox [aria-hidden]: "4"
+            - group [aria-hidden]:
+              - generic: Level
+          - paragraph [ref=e13937]: Nur erlaubte Werte für den gewählten Typ
+      - generic [ref=e13938]:
+        - generic [ref=e13939]:
+          - generic [ref=e13940]: Punkte
+          - generic [ref=e13941]:
+            - textbox "Punkte" [ref=e13942]: "13"
+            - group [aria-hidden]:
+              - generic: Punkte
+        - generic [ref=e13943]:
+          - generic [ref=e13944]: Health
+          - generic [ref=e13945]:
+            - textbox "Health" [ref=e13946]: "1"
+            - group [aria-hidden]:
+              - generic: Health
+          - paragraph [ref=e13947]: Lebenspunkte
+        - generic [ref=e13948]:
+          - generic [ref=e13949]: Speed
+          - generic [ref=e13950]:
+            - textbox "Speed" [ref=e13951]: "2"
+            - group [aria-hidden]:
+              - generic: Speed
+          - paragraph [ref=e13952]: Bewegung
+        - generic [ref=e13953]:
+          - generic [ref=e13954]: March Speed
+          - generic [ref=e13955]:
+            - textbox "March Speed" [ref=e13956]: "6"
+            - group [aria-hidden]:
+              - generic: March Speed
+          - paragraph [ref=e13957]: Marsch
+      - generic [ref=e13958]:
+        - generic [ref=e13959]:
+          - generic [ref=e13960]: Bild aus dem Verzeichnis
+          - generic [ref=e13961]:
+            - combobox "Bild aus dem Verzeichnis 105af638ebbec0cfd9e8419d60e1d310_20260909111943.jpg" [ref=e13962] [cursor=pointer]: 105af638ebbec0cfd9e8419d60e1d310_20260909111943.jpg
+            - textbox [aria-hidden]: 105af638ebbec0cfd9e8419d60e1d310_20260909111943.jpg
+            - group [aria-hidden]:
+              - generic: Bild aus dem Verzeichnis
+          - paragraph [ref=e13963]: "Ein vorhandenes Bild aus `backend/images` auswählen"
+        - button "Bild hochladen" [ref=e13964] [cursor=pointer]
+      - generic [ref=e13965]:
+        - img "Vorschau" [ref=e13966]
+        - generic [ref=e13967]:
+          - heading "Aktuelles Bild" [level=6] [ref=e13968]
+          - paragraph [ref=e13969]: 105af638ebbec0cfd9e8419d60e1d310_20260909111943.jpg
+      - generic [ref=e13970]:
+        - generic: Notes
+        - generic [ref=e13971]:
+          - textbox "Notes" [ref=e13972]:
+            - /placeholder: Besondere Hinweise zur Einheit
+          - group [aria-hidden]:
+            - generic: Notes
+    - generic [ref=e13973]:
+      - button "Abbrechen" [ref=e13974] [cursor=pointer]
+      - button "Speichern" [ref=e13975] [cursor=pointer]

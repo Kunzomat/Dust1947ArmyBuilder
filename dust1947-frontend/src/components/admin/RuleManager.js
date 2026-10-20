@@ -22,7 +22,9 @@ import {
   Select,
   TableSortLabel
 } from '@mui/material';
-import { Edit, Delete, Add } from '@mui/icons-material';
+import { Edit, Delete, Add, ContentCopy } from '@mui/icons-material';
+import { ADMIN_CLONE_BUTTON_COLOR } from './adminStyles';
+import useSessionStorageState from '../../hooks/useSessionStorageState';
 
 // Admin API uses different base URL than army_api
 const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
@@ -54,7 +56,21 @@ export default function RuleManager() {
   const [gameSystems, setGameSystems] = useState([]);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingRule, setEditingRule] = useState(null);
-  const [filterGameSystemId, setFilterGameSystemId] = useState('');
+  const [cloneSourceRule, setCloneSourceRule] = useState(null);
+  const [filters, setFilters] = useSessionStorageState(
+    'dust1947.filters.v1.admin.rules',
+    { filterGameSystemId: '' }
+  );
+  const { filterGameSystemId } = filters;
+  const setFilterGameSystemId = (value) =>
+    setFilters((previous) => ({ ...previous, filterGameSystemId: value }));
+
+  useEffect(() => {
+    if (filterGameSystemId && gameSystems.length > 0
+      && !gameSystems.some((system) => String(system.id) === String(filterGameSystemId))) {
+      setFilters((previous) => ({ ...previous, filterGameSystemId: '' }));
+    }
+  }, [filterGameSystemId, gameSystems, setFilters]);
   const [sortBy, setSortBy] = useState('id');
   const [sortDirection, setSortDirection] = useState('asc');
   const [formData, setFormData] = useState({
@@ -139,17 +155,21 @@ export default function RuleManager() {
     }
   };
 
-  const handleOpenDialog = (rule = null) => {
+  const handleOpenDialog = (rule = null, options = {}) => {
+    const { clone = false } = options;
+
     if (rule) {
-      setEditingRule(rule);
+      setEditingRule(clone ? null : rule);
+      setCloneSourceRule(clone ? rule : null);
       setFormData({
-        name: rule.name || '',
+        name: clone ? `${rule.name || ''} (Kopie)` : (rule.name || ''),
         short_text: rule.short_text || '',
         full_text: rule.full_text || '',
         game_system_id: rule.game_system_id || ''
       });
     } else {
       setEditingRule(null);
+      setCloneSourceRule(null);
       setFormData({ name: '', short_text: '', full_text: '', game_system_id: '' });
     }
     setDialogOpen(true);
@@ -158,15 +178,20 @@ export default function RuleManager() {
   const handleCloseDialog = () => {
     setDialogOpen(false);
     setEditingRule(null);
+    setCloneSourceRule(null);
   };
 
   const handleSave = async () => {
     try {
-      const action = editingRule ? 'rules.update' : 'rules.create';
+      const isClone = !editingRule && Boolean(cloneSourceRule?.id);
+      const action = editingRule ? 'rules.update' : (isClone ? 'rules.clone' : 'rules.create');
       const payload = {
         ...(editingRule ? { ...formData, id: editingRule.id } : formData),
         game_system_id: formData.game_system_id ? parseInt(formData.game_system_id, 10) : null
       };
+      if (isClone) {
+        payload.id = cloneSourceRule.id;
+      }
 
       await adminApiCall(`admin_api.php?action=${action}`, {
         method: 'POST',
@@ -280,6 +305,14 @@ export default function RuleManager() {
                   </IconButton>
                   <IconButton
                     size="small"
+                    color={ADMIN_CLONE_BUTTON_COLOR}
+                    onClick={() => handleOpenDialog(rule, { clone: true })}
+                    title="Regel klonen"
+                  >
+                    <ContentCopy />
+                  </IconButton>
+                  <IconButton
+                    size="small"
                     color="error"
                     onClick={() => handleDelete(rule.id)}
                   >
@@ -295,7 +328,7 @@ export default function RuleManager() {
       {/* Create/Edit Dialog */}
       <Dialog open={dialogOpen} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
         <DialogTitle>
-          {editingRule ? 'Regel bearbeiten' : 'Neue Regel'}
+          {editingRule ? 'Regel bearbeiten' : (cloneSourceRule ? 'Regel klonen' : 'Neue Regel')}
         </DialogTitle>
         <DialogContent>
           <TextField
@@ -351,4 +384,3 @@ export default function RuleManager() {
     </Box>
   );
 }
-

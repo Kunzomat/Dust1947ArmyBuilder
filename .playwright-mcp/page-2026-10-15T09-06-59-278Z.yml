@@ -1,0 +1,60 @@
+- generic [ref=f4e3]:
+  - banner [ref=f4e4]:
+    - generic [ref=f4e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f4e6]
+      - group [ref=f4e7]:
+        - button "Army Builder" [ref=f4e8] [cursor=pointer]
+        - button "Admin" [pressed] [ref=f4e11] [cursor=pointer]
+  - generic [ref=f4e15]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=f4e16]
+    - paragraph [ref=f4e17]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+    - tablist [ref=f4e21]:
+      - tab "🎮 Game Systems" [ref=f4e22] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=f4e23] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=f4e24] [cursor=pointer]
+      - tab "⚔️ Units" [ref=f4e25] [cursor=pointer]
+      - tab "🔫 Weapons" [selected] [ref=f4e26] [cursor=pointer]
+      - tab "📜 Rules" [ref=f4e27] [cursor=pointer]
+      - tab "🪖 Platoons" [ref=f4e28] [cursor=pointer]
+    - tabpanel [ref=f4e30]:
+      - generic [ref=f4e32]:
+        - generic [ref=f4e33]:
+          - heading "Weapons (0)" [level=6] [ref=f4e34]
+          - generic [ref=f4e35]:
+            - generic [ref=f4e36]:
+              - generic: Waffe suchen
+              - generic [ref=f4e37]:
+                - textbox "Waffe suchen" [ref=f4e38]:
+                  - /placeholder: Contains (ab 1 Zeichen)
+                - group [aria-hidden]:
+                  - generic: Waffe suchen
+            - generic [ref=f4e39]:
+              - generic: Game System
+              - generic [ref=f4e40]:
+                - combobox "Game System" [ref=f4e41] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=f4e42]:
+              - generic: Faction
+              - generic [ref=f4e43]:
+                - combobox "Faction" [ref=f4e44] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Faction
+            - button [ref=f4e45] [cursor=pointer]
+        - table [ref=f4e50]:
+          - rowgroup [ref=f4e51]:
+            - row [ref=f4e52]:
+              - columnheader [ref=f4e53]:
+                - button "ID" [ref=f4e54] [cursor=pointer]
+              - columnheader [ref=f4e57]:
+                - button "Name" [ref=f4e58] [cursor=pointer]
+              - columnheader [ref=f4e61]:
+                - button "Game System" [ref=f4e62] [cursor=pointer]
+              - columnheader [ref=f4e65]:
+                - button "Reichweite" [ref=f4e66] [cursor=pointer]
+              - columnheader [ref=f4e69]:
+                - button "Einmalwaffe" [ref=f4e70] [cursor=pointer]
+              - columnheader "Aktionen" [ref=f4e73]
+          - rowgroup

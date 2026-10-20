@@ -19,6 +19,10 @@ import {
   Avatar,
   ToggleButton,
   ToggleButtonGroup,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import { Settings, Build } from "@mui/icons-material";
 import ConfirmDialog from "./components/ConfirmDialog";
@@ -29,6 +33,13 @@ import UnitCard from "./components/UnitCard";
 import AdminPanel from "./components/AdminPanel";
 import { getImageUrl, getPlaceholderImage } from "./imageHelper";
 import { validateArmyComposition } from "./armyValidation";
+import { aggregateArmyUnits, getRemovalRequest } from "./armyUnitAggregation";
+import {
+  filterArmies,
+  getBlocsForGameSystem,
+  getGameSystems,
+} from "./armyFilters";
+import useSessionStorageState from "./hooks/useSessionStorageState";
 
 function ColumnPaper({ title, children, sx }) {
   return (
@@ -51,19 +62,6 @@ function ColumnPaper({ title, children, sx }) {
       <Box sx={{ p: 1.5, overflow: "auto", flex: 1 }}>{children}</Box>
     </Paper>
   );
-}
-
-function groupByPlatoon(units) {
-  const groups = new Map();
-  for (const u of units || []) {
-    const key =
-      u.platoon_id === null || u.platoon_id === undefined
-        ? "FREE"
-        : String(u.platoon_id);
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(u);
-  }
-  return groups;
 }
 
 export default function App() {
@@ -102,6 +100,16 @@ export default function App() {
 
   const [factions, setFactions] = useState([]);
   const [blocs, setBlocs] = useState([]);
+  const [gameSystems, setGameSystems] = useState([]);
+  const [armyListFilters, setArmyListFilters] = useSessionStorageState(
+    "dust1947.filters.v1.army-list",
+    { selectedGameSystemId: "", selectedBlocFilterId: "" }
+  );
+  const { selectedGameSystemId, selectedBlocFilterId } = armyListFilters;
+  const setSelectedGameSystemId = (value) =>
+    setArmyListFilters((previous) => ({ ...previous, selectedGameSystemId: value }));
+  const setSelectedBlocFilterId = (value) =>
+    setArmyListFilters((previous) => ({ ...previous, selectedBlocFilterId: value }));
   
   const [availablePlatoons, setAvailablePlatoons] = useState([]);
   const [addPlatoonOpen, setAddPlatoonOpen] = useState(false);
@@ -184,12 +192,23 @@ export default function App() {
   }
   
   async function loadBlocs() {
-	try {
-	  const data = await apiCall("blocs.list");
-	  setBlocs(data.blocs || []);
-	} catch (e) {
-	  setError(String(e.message || e));
-	}
+    try {
+      const data = await apiCall("blocs.list");
+      setBlocs(data.blocs || []);
+    } catch (e) {
+      setError(String(e.message || e));
+    }
+  }
+
+  async function loadGameSystems() {
+    try {
+      const data = await apiCall("game_systems.list");
+      setGameSystems(data.game_systems || []);
+    } catch (e) {
+      // The bloc response also carries system data and is used as a fallback
+      // by getGameSystems for older API installations.
+      setGameSystems([]);
+    }
   }
   
   async function loadAvailablePlatoons() {
@@ -247,7 +266,16 @@ export default function App() {
 	  await apiCall( "armies.delete", { id }, "POST");
 		setSelectedArmyId(null);
 		setArmyDetail(null);
-		await loadArmies();
+    setSelectedArmyUnitId(null);
+    setSelectedUnitId(null);
+
+    // Do not rely on loadArmies seeing the just-cleared selection: this
+    // handler's closure still has the pre-delete selectedArmyId. Select a
+    // remaining army explicitly, or leave the builder in its empty state.
+    const data = await apiCall("armies.list");
+    const remainingArmies = data.armies || [];
+    setArmies(remainingArmies);
+    setSelectedArmyId(remainingArmies[0]?.id ?? null);
 	  } catch (e) {
 		setError(String(e.message || e));
 	  }
@@ -264,6 +292,17 @@ export default function App() {
 	} catch (e) {
 	  setError(String(e.message || e));
 	}
+  }
+
+  async function handleCloneArmy() {
+    if (!selectedArmyId) return;
+    try {
+      const created = await apiCall("armies.clone", { id: selectedArmyId }, "POST");
+      await loadArmies();
+      setSelectedArmyId(created.id);
+    } catch (e) {
+      setError(String(e.message || e));
+    }
   }
   
   async function handleAddPlatoon(platoonId) {
@@ -330,6 +369,7 @@ export default function App() {
 		if (Number.isInteger(addUnitContext.platoon_unit_id)) {
 		  payload.platoon_unit_id = addUnitContext.platoon_unit_id;
 		}
+
 		// else → Support (NULL, korrekt)
 	  }
 
@@ -341,6 +381,27 @@ export default function App() {
 	  setAddUnitContext(null);
     await refreshSelectedArmy();
 	}
+
+  async function handleRemoveOneUnit(group) {
+    try {
+      const request = getRemovalRequest(group);
+      await apiCall(request.action, request.params, request.method);
+      await refreshSelectedArmy();
+
+      if (selectedArmyUnitId === group.unit.army_unit_id) {
+        if (group.quantity === 1) {
+          setSelectedArmyUnitId(null);
+          setSelectedUnitId(null);
+        } else if (group.units.length > 1 && Number(group.unit.quantity) === 1) {
+          // The displayed group survives, but its representative row was
+          // deleted. Keep selection attached to a surviving equivalent row.
+          setSelectedArmyUnitId(group.units[1].army_unit_id);
+        }
+      }
+    } catch (e) {
+      setError(String(e.message || e));
+    }
+  }
 
 	function isSlotUsed(platoonId, platoonUnitId) {
 		return armyDetail.units.some(
@@ -371,27 +432,66 @@ function groupSlots(platoonUnits) {
 }
 
   useEffect(() => { if (selectedArmyId) loadArmy(selectedArmyId);}, [selectedArmyId]);
-  useEffect(() => { loadArmies(); loadFactions(); loadBlocs();}, []);
+  useEffect(() => { loadArmies(); loadFactions(); loadBlocs(); loadGameSystems();}, []);
   useEffect(() => { if (!addPlatoonOpen || !armyDetail) return; loadAvailablePlatoons(armyDetail.army.bloc_id);}, [addPlatoonOpen, armyDetail]);
   useEffect(() => { if (!armyDetail?.platoons) return; armyDetail.platoons.forEach((p) => {loadPlatoonSlots(p.platoon_id);});}, [armyDetail]);
 
-  
-	const rosterUnits = useMemo(() => {
-		if (!armyDetail) return [];
-		return (armyDetail.units || []).map((u) => ({
-			...u,
-			name: u.unit_name,
-			points: u.unit_points,
-		}));
-	}, [armyDetail]);
+  const filterGameSystems = useMemo(
+    () => getGameSystems(gameSystems, blocs),
+    [gameSystems, blocs]
+  );
+  const filterBlocs = useMemo(
+    () => getBlocsForGameSystem(blocs, selectedGameSystemId),
+    [blocs, selectedGameSystemId]
+  );
+  useEffect(() => {
+    if (
+      selectedGameSystemId !== "" &&
+      filterGameSystems.length > 0 &&
+      !filterGameSystems.some(
+        (system) => String(system.id) === String(selectedGameSystemId)
+      )
+    ) {
+      setArmyListFilters((previous) => ({ ...previous, selectedGameSystemId: "" }));
+    }
+  }, [filterGameSystems, selectedGameSystemId, setArmyListFilters]);
+  const normalizedSelectedBlocFilterId = useMemo(
+    () =>
+      selectedBlocFilterId !== "" &&
+      filterBlocs.some(
+        (bloc) => String(bloc.id) === String(selectedBlocFilterId)
+      )
+        ? selectedBlocFilterId
+        : "",
+    [filterBlocs, selectedBlocFilterId]
+  );
+  const visibleArmies = useMemo(
+    () =>
+      filterArmies(
+        armies,
+        blocs,
+        selectedGameSystemId,
+        normalizedSelectedBlocFilterId
+      ),
+    [armies, blocs, selectedGameSystemId, normalizedSelectedBlocFilterId]
+  );
 
-	const grouped = useMemo(() => groupByPlatoon(rosterUnits), [rosterUnits]);
+  useEffect(() => {
+    if (
+      selectedBlocFilterId !== "" &&
+      !filterBlocs.some((bloc) => String(bloc.id) === String(selectedBlocFilterId))
+    ) {
+      setArmyListFilters((previous) => ({ ...previous, selectedBlocFilterId: "" }));
+    }
+  }, [filterBlocs, selectedBlocFilterId, setArmyListFilters]);
+
   const freeUnits = useMemo(() => {
 		if (!armyDetail) return [];
 		return armyDetail.units.filter(
 			(u) => u.army_platoon_id === null
 		);
 	}, [armyDetail]);
+  const freeUnitGroups = useMemo(() => aggregateArmyUnits(freeUnits), [freeUnits]);
 
   const armyValidation = useMemo(() => {
     if (!armyDetail) return null;
@@ -462,7 +562,46 @@ function groupSlots(platoonUnits) {
           }}
         >
           <ColumnPaper title="Armeen">
-            <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
+            <Stack spacing={1} sx={{ mb: 1 }}>
+              <FormControl size="small" fullWidth>
+                <InputLabel id="game-system-filter-label">Game System</InputLabel>
+                <Select
+                  labelId="game-system-filter-label"
+                  label="Game System"
+                  value={selectedGameSystemId}
+                  onChange={(event) => {
+                    // A bloc is scoped to its game system. Clear it in the
+                    // same update as the system switch so it is never
+                    // rendered against the new option list.
+                    setSelectedBlocFilterId("");
+                    setSelectedGameSystemId(event.target.value);
+                  }}
+                >
+                  <MenuItem value="">All Game Systems</MenuItem>
+                  {filterGameSystems.map((system) => (
+                    <MenuItem key={system.id} value={String(system.id)}>
+                      {system.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <FormControl size="small" fullWidth>
+                <InputLabel id="bloc-filter-label">Bloc</InputLabel>
+                <Select
+                  labelId="bloc-filter-label"
+                  label="Bloc"
+                  value={normalizedSelectedBlocFilterId}
+                  onChange={(event) => setSelectedBlocFilterId(event.target.value)}
+                >
+                  <MenuItem value="">All Blocs</MenuItem>
+                  {filterBlocs.map((bloc) => (
+                    <MenuItem key={bloc.id} value={String(bloc.id)}>
+                      {bloc.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            <Stack direction="row" spacing={1}>
               <Button size="small" onClick={loadArmies}>
                 Aktualisieren
               </Button>
@@ -473,12 +612,13 @@ function groupSlots(platoonUnits) {
 				<Button size="small" color="error" variant="outlined" onClick={() => setConfirmDeleteArmyId(selectedArmyId)}>Löschen</Button>
               )}
             </Stack>
+            </Stack>
 
             {loadingArmies ? (
               <CircularProgress />
             ) : (
               <List dense>
-                {armies.map((a) => {
+				{visibleArmies.map((a) => {
                   const isSelected = String(a.id) === String(selectedArmyId);
                   // For the currently selected army, show the same effective
                   // (bonus-inclusive) limit as the header/alerts instead of
@@ -503,10 +643,19 @@ function groupSlots(platoonUnits) {
             )}
           </ColumnPaper>
 
-          <ColumnPaper title={`Armee: ${armyName} (${blocName}${gameSystemName ? ` • ${gameSystemName}` : ""})`}>
+          <ColumnPaper
+            title={
+              armyDetail
+                ? `Armee: ${armyName} (${blocName}${gameSystemName ? ` • ${gameSystemName}` : ""})`
+                : "Armee"
+            }
+          >
             <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
 			  <Button size="small" variant="outlined" onClick={() => { setArmyFormArmy(armyDetail?.army || armyDetail); setArmyFormOpen(true); }}>
 				Bearbeiten
+			  </Button>
+			  <Button size="small" variant="outlined" onClick={handleCloneArmy}>
+				Klonen
 			  </Button>
 			  <Button size="small" variant="outlined" onClick={() => setAddPlatoonOpen(true)}>
 			    Platoon hinzufügen
@@ -548,7 +697,9 @@ function groupSlots(platoonUnits) {
 			  const rawSlots = platoonSlots[p.platoon_id] || [];
 			  const slots = groupSlots(rawSlots);
 			  const platoonUnits = armyDetail.units.filter((u) => u.army_platoon_id === p.army_platoon_id);
-			  const supportUnits = platoonUnits.filter((u) => u.platoon_unit_id === null);
+			  const supportUnitGroups = aggregateArmyUnits(
+          platoonUnits.filter((u) => u.platoon_unit_id === null)
+        );
 
 			  return (
 				<Box
@@ -570,6 +721,9 @@ function groupSlots(platoonUnits) {
 						const assignedUnit = platoonUnits.find(
 						  (u) => u.platoon_slot === slot
 						);
+            const assignedGroup = assignedUnit
+              ? aggregateArmyUnits(platoonUnits.filter((u) => u.platoon_slot === slot))[0]
+              : null;
 
 						return (
 						  <Box
@@ -599,7 +753,7 @@ function groupSlots(platoonUnits) {
 							  {slot} {assignedUnit ? "(belegt)" : ""}
 							</Button>
 
-							{assignedUnit && (
+							{assignedGroup && (
   <List dense sx={{ mt: 1 }}>
     <ListItem
       disablePadding
@@ -607,19 +761,9 @@ function groupSlots(platoonUnits) {
         <Button
           size="small"
           color="error"
-          onClick={async (e) => {
-            e.stopPropagation(); // 🔥 sonst würde Auswahl toggeln
-            await apiCall(
-              "army.units.delete",
-              { id: assignedUnit.army_unit_id },
-              "POST"
-            );
-            await refreshSelectedArmy();
-
-            if (selectedArmyUnitId === assignedUnit.army_unit_id) {
-              setSelectedArmyUnitId(null);
-              setSelectedUnitId(null);
-            }
+          onClick={(e) => {
+            e.stopPropagation();
+            handleRemoveOneUnit(assignedGroup);
           }}
         >
           Entfernen
@@ -627,15 +771,15 @@ function groupSlots(platoonUnits) {
       }
     >
       <ListItemButton
-        selected={selectedArmyUnitId === assignedUnit.army_unit_id}
+        selected={selectedArmyUnitId === assignedGroup.unit.army_unit_id}
         onClick={() => {
-          setSelectedArmyUnitId(assignedUnit.army_unit_id);
-          setSelectedUnitId(assignedUnit.unit_id);
+          setSelectedArmyUnitId(assignedGroup.unit.army_unit_id);
+          setSelectedUnitId(assignedGroup.unit.unit_id);
         }}
       >
         <ListItemText
-          primary={assignedUnit.unit_name}
-          secondary={`${assignedUnit.unit_points} Punkte`}
+          primary={`${assignedGroup.quantity}× ${assignedGroup.unit.unit_name}`}
+          secondary={`${assignedGroup.quantity} × ${assignedGroup.unitPoints} AP = ${assignedGroup.groupPoints} AP`}
         />
       </ListItemButton>
     </ListItem>
@@ -668,30 +812,20 @@ function groupSlots(platoonUnits) {
 </Button>
 
 <List dense>
-  {supportUnits.map((u) => {
-    const selected = selectedArmyUnitId === u.army_unit_id;
+  {supportUnitGroups.map((group) => {
+    const selected = selectedArmyUnitId === group.unit.army_unit_id;
 
     return (
       <ListItem
-        key={u.army_unit_id}
+        key={group.key}
         disablePadding
         secondaryAction={
           <Button
             size="small"
             color="error"
-            onClick={async (e) => {
-              e.stopPropagation(); // 🔥 extrem wichtig
-              await apiCall(
-                "army.units.delete",
-                { id: u.army_unit_id },
-                "POST"
-              );
-              await refreshSelectedArmy();
-
-              if (selected) {
-                setSelectedArmyUnitId(null);
-                setSelectedUnitId(null);
-              }
+            onClick={(e) => {
+              e.stopPropagation();
+              handleRemoveOneUnit(group);
             }}
           >
             Entfernen
@@ -701,13 +835,13 @@ function groupSlots(platoonUnits) {
         <ListItemButton
           selected={selected}
           onClick={() => {
-            setSelectedArmyUnitId(u.army_unit_id);
-            setSelectedUnitId(u.unit_id);
+            setSelectedArmyUnitId(group.unit.army_unit_id);
+            setSelectedUnitId(group.unit.unit_id);
           }}
         >
           <ListItemText
-            primary={u.unit_name}
-            secondary={`${u.unit_points} Punkte`}
+            primary={`${group.quantity}× ${group.unit.unit_name}`}
+            secondary={`${group.quantity} × ${group.unitPoints} AP = ${group.groupPoints} AP`}
           />
         </ListItemButton>
       </ListItem>
@@ -722,37 +856,24 @@ function groupSlots(platoonUnits) {
             {loadingArmy ? (
               <CircularProgress />
             ) : (
-              [...grouped.entries()].map(([key, units]) => (
-			  
-			  
-<Box key={key} sx={{ mb: 1 }}>
+<Box sx={{ mb: 1 }}>
   <Typography fontWeight={700}>Freie Einheiten</Typography>
 
   <List dense>
-    {freeUnits.map((u) => {
-      const selected = u.army_unit_id === selectedArmyUnitId;
+    {freeUnitGroups.map((group) => {
+      const selected = group.unit.army_unit_id === selectedArmyUnitId;
 
       return (
         <ListItem
-          key={u.army_unit_id}
+          key={group.key}
           disablePadding
           secondaryAction={
             <Button
               size="small"
               color="error"
-              onClick={async (e) => {
-                e.stopPropagation(); // 🔥 sonst Auswahl
-                await apiCall(
-                  "army.units.delete",
-                  { id: u.army_unit_id },
-                  "POST"
-                );
-                await refreshSelectedArmy();
-
-                if (selected) {
-                  setSelectedArmyUnitId(null);
-                  setSelectedUnitId(null);
-                }
+              onClick={(e) => {
+                e.stopPropagation();
+                handleRemoveOneUnit(group);
               }}
             >
               Entfernen
@@ -762,13 +883,13 @@ function groupSlots(platoonUnits) {
           <ListItemButton
             selected={selected}
             onClick={() => {
-              setSelectedArmyUnitId(u.army_unit_id);
-              setSelectedUnitId(u.unit_id);
+              setSelectedArmyUnitId(group.unit.army_unit_id);
+              setSelectedUnitId(group.unit.unit_id);
             }}
           >
             <ListItemText
-              primary={u.unit_name}
-              secondary={`${u.unit_points} Punkte`}
+              primary={`${group.quantity}× ${group.unit.unit_name}`}
+              secondary={`${group.quantity} × ${group.unitPoints} AP = ${group.groupPoints} AP`}
             />
           </ListItemButton>
         </ListItem>
@@ -776,10 +897,6 @@ function groupSlots(platoonUnits) {
     })}
   </List>
 </Box>
-			  
-			  
-
-              ))
             )}
           </ColumnPaper>
 

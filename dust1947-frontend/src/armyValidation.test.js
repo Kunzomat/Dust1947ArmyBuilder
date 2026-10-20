@@ -170,15 +170,54 @@ describe("validateArmyComposition", () => {
     expect(violationRules(invalid)).toEqual(expect.arrayContaining([12, 14]));
   });
 
-  test("rule 15: the same hero may only occur once", () => {
+  test("rule 15: the same unique hero may only occur once", () => {
     const result = validate({
       units: [
-        unit({ army_unit_id: 40, unit_id: 500, unit_name: "Unique Hero", type: "H", unit_points: 10 }),
-        unit({ army_unit_id: 41, unit_id: 500, unit_name: "Unique Hero", type: "H", unit_points: 10 }),
+        unit({ army_unit_id: 40, unit_id: 500, unit_name: "Unique Hero", type: "H", is_unique: true, unit_points: 10 }),
+        unit({ army_unit_id: 41, unit_id: 500, unit_name: "Unique Hero", type: "H", is_unique: true, unit_points: 10 }),
       ],
     });
 
     expect(violationRules(result)).toContain(15);
+  });
+
+  test.each(["H", "HERO", "I", "V", "A"])("rule 15: uniqueness is independent of type %s", (type) => {
+    for (const flag of [true, 1, "1", false, 0, "0", undefined, null]) {
+      const first = unit({ army_unit_id: 1, unit_id: 500, type, is_unique: flag });
+      const repeatedRows = [first, { ...first, army_unit_id: 2 }];
+      const quantityRow = [{ ...first, quantity: "2" }];
+      for (const units of [repeatedRows, quantityRow]) {
+        expect(violationRules(validate({ units })).includes(15)).toBe([true, 1, "1"].includes(flag));
+      }
+      expect(violationRules(validate({ units: [first] }))).not.toContain(15);
+    }
+  });
+
+  test("rule 15: missing flag defaults to nonunique, identity is not the display name", () => {
+    const first = unit({ army_unit_id: 1, unit_id: 500, type: "H" });
+    expect(validate({ units: [first, { ...first, army_unit_id: 2 }] }).isValid).toBe(true);
+    expect(violationRules(validate({ units: [
+      { ...first, is_unique: true },
+      { ...first, army_unit_id: 2, unit_id: 501, is_unique: true },
+    ] }))).not.toContain(15);
+  });
+
+  test("rule 17: generic duplicate heroes still obey attachment limit and Siblings does not bypass uniqueness", () => {
+    const infantry = unit({ army_unit_id: 1, unit_id: 1 });
+    const hero = unit({ army_unit_id: 2, unit_id: 500, type: "H", is_unique: false, attached_to_army_unit_id: 1 });
+    const heroes = [hero, { ...hero, army_unit_id: 3 }];
+    const generic = validate({ units: [infantry, ...heroes] });
+    expect(violationRules(generic)).toContain(17);
+    expect(violationRules(generic)).not.toContain(15);
+
+    const siblings = heroes.map((entry) => ({ ...entry, rule_names: ["ARMOR 2", "SIBLINGS"] }));
+    expect(validate({ units: [infantry, ...siblings] }).isValid).toBe(true);
+    const uniqueSiblings = validate({ units: [infantry, ...siblings.map((entry) => ({ ...entry, is_unique: true }))] });
+    expect(violationRules(uniqueSiblings)).toContain(15);
+    expect(violationRules(uniqueSiblings)).not.toContain(17);
+
+    // Do not broaden the legacy H predicate used by attachment rules.
+    expect(violationRules(validate({ units: [infantry, ...heroes.map((entry) => ({ ...entry, type: "HERO" }))] }))).not.toContain(17);
   });
 
   test("rules 16 to 20: hero joins infantry with same armor, siblings exception, and pilot restrictions", () => {
@@ -339,4 +378,3 @@ describe("validateArmyComposition", () => {
     expect(violationRules(result)).toEqual(expect.arrayContaining([31, 32, 33]));
   });
 });
-

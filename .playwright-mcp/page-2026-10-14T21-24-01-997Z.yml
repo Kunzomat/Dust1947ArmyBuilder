@@ -1,0 +1,87 @@
+- generic [ref=f5e3]:
+  - banner [ref=f5e4]:
+    - generic [ref=f5e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f5e414]
+      - group [ref=f5e7]:
+        - button "Army Builder" [pressed] [ref=f5e415] [cursor=pointer]
+        - button "Admin" [ref=f5e416] [cursor=pointer]
+  - generic [ref=f5e14]:
+    - alert [ref=f5e15]:
+      - generic [ref=f5e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=f5e20]:
+      - generic [ref=f5e21]:
+        - heading "Armeen" [level=6] [ref=f5e417]
+        - separator [ref=f5e24]
+        - generic [ref=f5e25]:
+          - generic [ref=f5e26]:
+            - generic [ref=f5e27]:
+              - generic: Game System
+              - generic [ref=f5e28]:
+                - combobox "Game System" [ref=f5e418] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=f5e30]:
+              - generic: Bloc
+              - generic [ref=f5e31]:
+                - combobox "Bloc" [ref=f5e419] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=f5e33]:
+              - button "Aktualisieren" [ref=f5e420] [cursor=pointer]
+              - button "Neue Armee" [ref=f5e421] [cursor=pointer]
+          - list [ref=f5e422]:
+            - button "Star Wars Droiden Armee 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=f5e423] [cursor=pointer]:
+              - generic [ref=f5e424]:
+                - generic [ref=f5e425]: Star Wars Droiden Armee
+                - paragraph [ref=f5e426]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=f5e427] [cursor=pointer]:
+              - generic [ref=f5e428]:
+                - generic [ref=f5e429]: Star Wars Clone Army
+                - paragraph [ref=f5e430]: 52/100 Punkte • Star Wars Republik (Star Wars)
+            - button "Space Marine Ziel 62/100 Punkte • Imperium (Warhammer 40k)" [ref=f5e431] [cursor=pointer]:
+              - generic [ref=f5e432]:
+                - generic [ref=f5e433]: Space Marine Ziel
+                - paragraph [ref=f5e434]: 62/100 Punkte • Imperium (Warhammer 40k)
+            - button "Space Marine Aktuell 143/100 Punkte • Imperium (Warhammer 40k)" [ref=f5e435] [cursor=pointer]:
+              - generic [ref=f5e436]:
+                - generic [ref=f5e437]: Space Marine Aktuell
+                - paragraph [ref=f5e438]: 143/100 Punkte • Imperium (Warhammer 40k)
+            - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=f5e439] [cursor=pointer]:
+              - generic [ref=f5e440]:
+                - generic [ref=f5e441]: next stepp
+                - paragraph [ref=f5e442]: 107/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friezillas 114/100 Punkte • Imperium (Warhammer 40k)" [ref=f5e443] [cursor=pointer]:
+              - generic [ref=f5e444]:
+                - generic [ref=f5e445]: Friezillas
+                - paragraph [ref=f5e446]: 114/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friedas Rache 182/100 Punkte • Imperium (Warhammer 40k)" [ref=f5e447] [cursor=pointer]:
+              - generic [ref=f5e448]:
+                - generic [ref=f5e449]: Friedas Rache
+                - paragraph [ref=f5e450]: 182/100 Punkte • Imperium (Warhammer 40k)
+            - button "Dust SSU 38/100 Punkte • SSU (Dust 1947)" [ref=f5e451] [cursor=pointer]:
+              - generic [ref=f5e452]:
+                - generic [ref=f5e453]: Dust SSU
+                - paragraph [ref=f5e454]: 38/100 Punkte • SSU (Dust 1947)
+            - button "Andreas Verteidiger 102/100 Punkte • Aeldari (Warhammer 40k)" [ref=f5e455] [cursor=pointer]:
+              - generic [ref=f5e456]:
+                - generic [ref=f5e457]: Andreas Verteidiger
+                - paragraph [ref=f5e458]: 102/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=f5e39]:
+        - 'heading "Armee: ()" [level=6] [ref=f5e459]'
+        - separator [ref=f5e42]
+        - generic [ref=f5e43]:
+          - generic [ref=f5e44]:
+            - button "Bearbeiten" [ref=f5e460] [cursor=pointer]
+            - button "Klonen" [ref=f5e461] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=f5e462] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=f5e463] [cursor=pointer]
+          - paragraph [ref=f5e49]: Platoons
+          - generic [ref=f5e359]:
+            - paragraph [ref=f5e360]: Freie Einheiten
+            - list [ref=f5e361]
+      - generic [ref=f5e53]:
+        - heading "Details" [level=6] [ref=f5e464]
+        - separator [ref=f5e56]
+        - paragraph [ref=f5e58]: Einheit auswählen…

@@ -394,23 +394,23 @@ function dust1947_validate_army_composition(array $army, array $units, array $pl
         }
     }
 
-    $heroDuplicates = [];
-    foreach (array_filter($units, 'dust1947_is_hero') as $unit) {
+    $uniqueDuplicates = [];
+    foreach (array_filter($units, static fn($unit) => in_array($unit['is_unique'] ?? false, [true, 1, '1'], true)) as $unit) {
         $key = dust1947_get_unit_identity_key($unit);
-        if (!isset($heroDuplicates[$key])) $heroDuplicates[$key] = [];
-        $heroDuplicates[$key][] = $unit;
+        if (!isset($uniqueDuplicates[$key])) $uniqueDuplicates[$key] = [];
+        $uniqueDuplicates[$key][] = $unit;
     }
 
-    foreach ($heroDuplicates as $heroUnits) {
+    foreach ($uniqueDuplicates as $uniqueUnits) {
         $totalCopies = 0;
-        foreach ($heroUnits as $unit) {
+        foreach ($uniqueUnits as $unit) {
             $totalCopies += dust1947_get_quantity($unit);
         }
         if ($totalCopies > 1) {
             $violations[] = dust1947_create_message(
                 "violation",
                 15,
-                dust1947_get_unit_display_name($heroUnits[0]) . " darf als einzigartiger Held nur einmal in der Armee vorkommen.",
+                dust1947_get_unit_display_name($uniqueUnits[0]) . " darf als einzigartige Einheit nur einmal in der Armee vorkommen.",
                 ["totalCopies" => $totalCopies]
             );
         }

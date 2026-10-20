@@ -1,0 +1,186 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e3]:
+    - banner [ref=f1e4]:
+      - generic [ref=f1e5]:
+        - heading [level=6] [ref=f1e14066]: Dust 1947 – Army Builder
+        - group [ref=f1e7]:
+          - button [ref=f1e14067] [cursor=pointer]: Army Builder
+          - button [pressed] [ref=f1e14068] [cursor=pointer]: Admin
+    - generic [ref=f1e167]:
+      - heading [level=4] [ref=f1e14069]: ⚙️ Admin Panel - Daten Verwaltung
+      - paragraph [ref=f1e169]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln, Platoons und Actions"
+      - tablist [ref=f1e173]:
+        - tab [ref=f1e14070] [cursor=pointer]: 🎮 Game Systems
+        - tab [ref=f1e14071] [cursor=pointer]: 🏴 Blocs
+        - tab [ref=f1e14072] [cursor=pointer]: 🎖️ Factions
+        - tab [selected] [ref=f1e14073] [cursor=pointer]: ⚔️ Units
+        - tab [ref=f1e14074] [cursor=pointer]: 🔫 Weapons
+        - tab [ref=f1e14075] [cursor=pointer]: 📜 Rules
+        - tab [ref=f1e14076] [cursor=pointer]: 🪖 Platoons
+        - tab [ref=f1e14077] [cursor=pointer]: Actions
+      - tabpanel [ref=f1e183]:
+        - generic [ref=f1e185]:
+          - generic [ref=f1e186]:
+            - heading [level=6] [ref=f1e14078]: Units (1)
+            - generic [ref=f1e188]:
+              - generic [ref=f1e189]:
+                - generic [ref=f1e19346]: Name filtern
+                - generic [ref=f1e190]:
+                  - textbox [ref=f1e14079]: DUSTTEST_UNIQUE_20261018_1808_UI
+                  - group [aria-hidden]:
+                    - generic: Name filtern
+              - generic [ref=f1e192]:
+                - generic: Game System
+                - generic [ref=f1e193]:
+                  - combobox [ref=f1e14080] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Game System
+              - generic [ref=f1e195]:
+                - generic: Faction
+                - generic [ref=f1e196]:
+                  - combobox [ref=f1e14081] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Faction
+              - generic [ref=f1e198]:
+                - generic: Type
+                - generic [ref=f1e199]:
+                  - combobox [ref=f1e14082] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Type
+              - button [ref=f1e14083] [cursor=pointer]: Neue Unit
+          - table [ref=f1e206]:
+            - rowgroup [ref=f1e207]:
+              - row [ref=f1e19347]:
+                - columnheader [ref=f1e19348]:
+                  - button [ref=f1e19349] [cursor=pointer]: ID
+                - columnheader [ref=f1e19350]:
+                  - button [ref=f1e19351] [cursor=pointer]: Name
+                - columnheader [ref=f1e19352]:
+                  - button [ref=f1e19353] [cursor=pointer]: Faction
+                - columnheader [ref=f1e19354]:
+                  - button [ref=f1e19355] [cursor=pointer]: Game System
+                - columnheader [ref=f1e19356]:
+                  - button [ref=f1e19357] [cursor=pointer]: Type
+                - columnheader [ref=f1e19358]:
+                  - button [ref=f1e19359] [cursor=pointer]: Punkte
+                - columnheader [ref=f1e19360]: Stats
+                - columnheader [ref=f1e19361]: Aktionen
+            - rowgroup [ref=f1e235]:
+              - row [ref=f1e19362]:
+                - cell [ref=f1e19363]: "660"
+                - cell [ref=f1e19364]:
+                  - strong [ref=f1e19319]: DUSTTEST_UNIQUE_20261018_1808_UI
+                - cell [ref=f1e19365]: Steel Legion
+                - cell [ref=f1e19366]: Alle
+                - cell [ref=f1e19367]: H
+                - cell [ref=f1e19368]:
+                  - generic [ref=f1e19324]:
+                    - paragraph [ref=f1e19325]: "1"
+                    - generic [ref=f1e19326]:
+                      - generic [ref=f1e19327]: "1"
+                      - button [ref=f1e19369] [cursor=pointer]
+                - cell [ref=f1e19370]:
+                  - generic [ref=f1e19332]: Lvl 2 | 💚1 | 🏃0 | 🚶0
+                - cell [ref=f1e19333]:
+                  - button [ref=f1e19371] [cursor=pointer]
+                  - button [ref=f1e19337] [cursor=pointer]
+                  - button [ref=f1e19372] [cursor=pointer]
+                  - button [ref=f1e19343] [cursor=pointer]
+  - dialog [ref=f1e19375]:
+    - heading "Unit bearbeiten" [level=2] [ref=f1e19376]
+    - generic [ref=f1e19378]:
+      - generic [ref=f1e19379]:
+        - generic [ref=f1e19380]: Name
+        - generic [ref=f1e19381]:
+          - textbox "Name" [ref=f1e19382]: DUSTTEST_UNIQUE_20261018_1808_UI
+          - group [aria-hidden]:
+            - generic: Name
+      - generic [ref=f1e19383]:
+        - generic [ref=f1e19384]:
+          - generic [ref=f1e19385]: Faction
+          - generic [ref=f1e19386]:
+            - combobox "Faction Steel Legion" [ref=f1e19387] [cursor=pointer]: Steel Legion
+            - textbox [aria-hidden]: "3"
+            - group [aria-hidden]:
+              - generic: Faction
+        - generic [ref=f1e19388]:
+          - generic: Game System (optional)
+          - generic [ref=f1e19389]:
+            - combobox "Game System (optional)" [ref=f1e19390] [cursor=pointer]
+            - textbox [aria-hidden]
+            - group [aria-hidden]:
+              - generic: Game System (optional)
+        - generic [ref=f1e19391]:
+          - generic [ref=f1e19392]: Type
+          - generic [ref=f1e19393]:
+            - combobox "Type H - Hero" [ref=f1e19394] [cursor=pointer]: H - Hero
+            - textbox [aria-hidden]: H
+            - group [aria-hidden]:
+              - generic: Type
+        - generic [ref=f1e19395]:
+          - generic [ref=f1e19396]: Level
+          - generic [ref=f1e19397]:
+            - combobox "Level 2" [ref=f1e19398] [cursor=pointer]: "2"
+            - textbox [aria-hidden]: "2"
+            - group [aria-hidden]:
+              - generic: Level
+          - paragraph [ref=f1e19399]: Nur erlaubte Werte für den gewählten Typ
+      - generic [ref=f1e19400] [cursor=pointer]:
+        - checkbox "Einzigartige Einheit" [ref=f1e19402]
+        - generic [ref=f1e19405]: Einzigartige Einheit
+      - generic [ref=f1e19406]:
+        - generic [ref=f1e19407]:
+          - generic [ref=f1e19408]: Punkte
+          - generic [ref=f1e19409]:
+            - textbox "Punkte" [ref=f1e19410]: "1"
+            - group [aria-hidden]:
+              - generic: Punkte
+        - generic [ref=f1e19411]:
+          - generic [ref=f1e19412]: Health
+          - generic [ref=f1e19413]:
+            - textbox "Health" [ref=f1e19414]: "1"
+            - group [aria-hidden]:
+              - generic: Health
+          - paragraph [ref=f1e19415]: Lebenspunkte
+        - generic [ref=f1e19416]:
+          - generic [ref=f1e19417]: Speed
+          - generic [ref=f1e19418]:
+            - textbox "Speed" [ref=f1e19419]: "0"
+            - group [aria-hidden]:
+              - generic: Speed
+          - paragraph [ref=f1e19420]: Bewegung
+        - generic [ref=f1e19421]:
+          - generic [ref=f1e19422]: March Speed
+          - generic [ref=f1e19423]:
+            - textbox "March Speed" [ref=f1e19424]: "0"
+            - group [aria-hidden]:
+              - generic: March Speed
+          - paragraph [ref=f1e19425]: Marsch
+      - generic [ref=f1e19426]:
+        - generic [ref=f1e19427]:
+          - generic: Bild aus dem Verzeichnis
+          - generic [ref=f1e19428]:
+            - combobox "Bild aus dem Verzeichnis" [ref=f1e19429] [cursor=pointer]
+            - textbox [aria-hidden]
+            - group [aria-hidden]:
+              - generic: Bild aus dem Verzeichnis
+          - paragraph [ref=f1e19430]: "Ein vorhandenes Bild aus `backend/images` auswählen"
+        - button "Bild hochladen" [ref=f1e19431] [cursor=pointer]
+      - generic [ref=f1e19432]:
+        - generic [ref=f1e19433]: Keine Vorschau
+        - generic [ref=f1e19434]:
+          - heading "Aktuelles Bild" [level=6] [ref=f1e19435]
+          - paragraph [ref=f1e19436]: Kein Bild ausgewählt
+      - generic [ref=f1e19437]:
+        - generic: Notes
+        - generic [ref=f1e19438]:
+          - textbox "Notes" [ref=f1e19439]:
+            - /placeholder: Besondere Hinweise zur Einheit
+          - group [aria-hidden]:
+            - generic: Notes
+    - generic [ref=f1e19440]:
+      - button "Abbrechen" [ref=f1e19441] [cursor=pointer]
+      - button "Speichern" [ref=f1e19442] [cursor=pointer]

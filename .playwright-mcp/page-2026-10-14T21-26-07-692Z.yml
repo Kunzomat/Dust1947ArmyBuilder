@@ -1,0 +1,73 @@
+- generic [ref=f6e3]:
+  - banner [ref=f6e4]:
+    - generic [ref=f6e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f6e211]
+      - group [ref=f6e7]:
+        - button "Army Builder" [pressed] [ref=f6e212] [cursor=pointer]
+        - button "Admin" [ref=f6e213] [cursor=pointer]
+      - generic [ref=f6e59]: 43/110 Punkte
+  - generic [ref=f6e14]:
+    - alert [ref=f6e15]:
+      - generic [ref=f6e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=f6e20]:
+      - generic [ref=f6e21]:
+        - heading "Armeen" [level=6] [ref=f6e214]
+        - separator [ref=f6e24]
+        - generic [ref=f6e25]:
+          - generic [ref=f6e26]:
+            - generic [ref=f6e27]:
+              - generic [ref=f6e128]: Game System
+              - generic [ref=f6e28]:
+                - combobox "Game System" [ref=f6e215] [cursor=pointer]: Star Wars
+                - textbox [aria-hidden]: "3"
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=f6e30]:
+              - generic [ref=f6e187]: Bloc
+              - generic [ref=f6e31]:
+                - combobox "Bloc" [active] [ref=f6e216] [cursor=pointer]: Konföderation unabhängiger Systeme
+                - textbox [aria-hidden]: "5"
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=f6e33]:
+              - button "Aktualisieren" [ref=f6e217] [cursor=pointer]
+              - button "Neue Armee" [ref=f6e218] [cursor=pointer]
+              - button "Löschen" [ref=f6e219] [cursor=pointer]
+          - list [ref=f6e62]:
+            - button "Star Wars Droiden Armee 43/110 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=f6e220] [cursor=pointer]:
+              - generic [ref=f6e64]:
+                - generic [ref=f6e65]: Star Wars Droiden Armee
+                - paragraph [ref=f6e66]: 43/110 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+      - generic [ref=f6e39]:
+        - 'heading "Armee: Star Wars Droiden Armee (Konföderation unabhängiger Systeme • Star Wars)" [level=6] [ref=f6e221]'
+        - separator [ref=f6e42]
+        - generic [ref=f6e43]:
+          - generic [ref=f6e44]:
+            - button "Bearbeiten" [ref=f6e222] [cursor=pointer]
+            - button "Klonen" [ref=f6e223] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=f6e224] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=f6e225] [cursor=pointer]
+          - paragraph [ref=f6e49]: Platoons
+          - alert [ref=f6e101]:
+            - generic [ref=f6e105]:
+              - strong [ref=f6e106]: Faction Force
+              - text: "• 43/110 AP • Bonus: 0/10 AP"
+          - generic [ref=f6e107]:
+            - paragraph [ref=f6e108]: Freie Einheiten
+            - list [ref=f6e109]:
+              - listitem [ref=f6e110]:
+                - button "3× Droideka 3 × 13 AP = 39 AP" [ref=f6e226] [cursor=pointer]:
+                  - generic [ref=f6e112]:
+                    - generic [ref=f6e113]: 3× Droideka
+                    - paragraph [ref=f6e114]: 3 × 13 AP = 39 AP
+                - button "Entfernen" [ref=f6e227] [cursor=pointer]
+              - listitem [ref=f6e117]:
+                - button "1× B1 Battle Droid Combat Squad 1 × 4 AP = 4 AP" [ref=f6e228] [cursor=pointer]:
+                  - generic [ref=f6e119]:
+                    - generic [ref=f6e120]: 1× B1 Battle Droid Combat Squad
+                    - paragraph [ref=f6e121]: 1 × 4 AP = 4 AP
+                - button "Entfernen" [ref=f6e229] [cursor=pointer]
+      - generic [ref=f6e53]:
+        - heading "Details" [level=6] [ref=f6e230]
+        - separator [ref=f6e56]
+        - paragraph [ref=f6e58]: Einheit auswählen…

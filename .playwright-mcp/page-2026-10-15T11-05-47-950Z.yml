@@ -1,0 +1,160 @@
+- generic [ref=f15e3]:
+  - banner [ref=f15e4]:
+    - generic [ref=f15e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f15e6]
+      - group [ref=f15e7]:
+        - button "Army Builder" [pressed] [ref=f15e8] [cursor=pointer]
+        - button "Admin" [ref=f15e11] [cursor=pointer]
+      - generic [ref=f15e59]: 43/110 Punkte
+  - generic [ref=f15e14]:
+    - alert [ref=f15e15]:
+      - generic [ref=f15e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=f15e20]:
+      - generic [ref=f15e21]:
+        - heading "Armeen" [level=6] [ref=f15e23]
+        - separator [ref=f15e24]
+        - generic [ref=f15e25]:
+          - generic [ref=f15e26]:
+            - generic [ref=f15e27]:
+              - generic: Game System
+              - generic [ref=f15e28]:
+                - combobox "Game System" [ref=f15e29] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=f15e30]:
+              - generic: Bloc
+              - generic [ref=f15e31]:
+                - combobox "Bloc" [ref=f15e32] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=f15e33]:
+              - button "Aktualisieren" [ref=f15e34] [cursor=pointer]
+              - button "Neue Armee" [ref=f15e35] [cursor=pointer]
+              - button "Löschen" [ref=f15e61] [cursor=pointer]
+          - list [ref=f15e62]:
+            - button "Star Wars Droiden Armee 43/110 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=f15e63] [cursor=pointer]:
+              - generic [ref=f15e64]:
+                - generic [ref=f15e65]: Star Wars Droiden Armee
+                - paragraph [ref=f15e66]: 43/110 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=f15e67] [cursor=pointer]:
+              - generic [ref=f15e68]:
+                - generic [ref=f15e69]: Star Wars Clone Army
+                - paragraph [ref=f15e70]: 52/100 Punkte • Star Wars Republik (Star Wars)
+            - button "Space Marine Ziel 62/100 Punkte • Imperium (Warhammer 40k)" [ref=f15e71] [cursor=pointer]:
+              - generic [ref=f15e72]:
+                - generic [ref=f15e73]: Space Marine Ziel
+                - paragraph [ref=f15e74]: 62/100 Punkte • Imperium (Warhammer 40k)
+            - button "Space Marine Aktuell 143/100 Punkte • Imperium (Warhammer 40k)" [ref=f15e75] [cursor=pointer]:
+              - generic [ref=f15e76]:
+                - generic [ref=f15e77]: Space Marine Aktuell
+                - paragraph [ref=f15e78]: 143/100 Punkte • Imperium (Warhammer 40k)
+            - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=f15e79] [cursor=pointer]:
+              - generic [ref=f15e80]:
+                - generic [ref=f15e81]: next stepp
+                - paragraph [ref=f15e82]: 107/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friezillas 114/100 Punkte • Imperium (Warhammer 40k)" [ref=f15e83] [cursor=pointer]:
+              - generic [ref=f15e84]:
+                - generic [ref=f15e85]: Friezillas
+                - paragraph [ref=f15e86]: 114/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friedas Rache 182/100 Punkte • Imperium (Warhammer 40k)" [ref=f15e87] [cursor=pointer]:
+              - generic [ref=f15e88]:
+                - generic [ref=f15e89]: Friedas Rache
+                - paragraph [ref=f15e90]: 182/100 Punkte • Imperium (Warhammer 40k)
+            - button "Dust SSU 38/100 Punkte • SSU (Dust 1947)" [ref=f15e91] [cursor=pointer]:
+              - generic [ref=f15e92]:
+                - generic [ref=f15e93]: Dust SSU
+                - paragraph [ref=f15e94]: 38/100 Punkte • SSU (Dust 1947)
+            - button "Andreas Verteidiger 105/100 Punkte • Aeldari (Warhammer 40k)" [ref=f15e95] [cursor=pointer]:
+              - generic [ref=f15e96]:
+                - generic [ref=f15e97]: Andreas Verteidiger
+                - paragraph [ref=f15e98]: 105/100 Punkte • Aeldari (Warhammer 40k)
+            - button "Aeldari 44/100 Punkte • Aeldari (Warhammer 40k)" [ref=f15e99] [cursor=pointer]:
+              - generic [ref=f15e100]:
+                - generic [ref=f15e101]: Aeldari
+                - paragraph [ref=f15e102]: 44/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=f15e39]:
+        - 'heading "Armee: Star Wars Droiden Armee (Konföderation unabhängiger Systeme • Star Wars)" [level=6] [ref=f15e103]'
+        - separator [ref=f15e42]
+        - generic [ref=f15e43]:
+          - generic [ref=f15e44]:
+            - button "Bearbeiten" [ref=f15e45] [cursor=pointer]
+            - button "Klonen" [ref=f15e46] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=f15e47] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=f15e48] [cursor=pointer]
+          - paragraph [ref=f15e49]: Platoons
+          - alert [ref=f15e105]:
+            - generic [ref=f15e109]:
+              - strong [ref=f15e110]: Faction Force
+              - text: "• 43/110 AP • Bonus: 0/10 AP"
+          - generic [ref=f15e111]:
+            - paragraph [ref=f15e112]: Freie Einheiten
+            - list [ref=f15e113]:
+              - listitem [ref=f15e114]:
+                - button "3× Droideka 3 × 13 AP = 39 AP" [ref=f15e115] [cursor=pointer]:
+                  - generic [ref=f15e116]:
+                    - generic [ref=f15e117]: 3× Droideka
+                    - paragraph [ref=f15e118]: 3 × 13 AP = 39 AP
+                - button "Entfernen" [ref=f15e120] [cursor=pointer]
+              - listitem [ref=f15e121]:
+                - button "1× B1 Battle Droid Combat Squad 1 × 4 AP = 4 AP" [ref=f15e122] [cursor=pointer]:
+                  - generic [ref=f15e123]:
+                    - generic [ref=f15e124]: 1× B1 Battle Droid Combat Squad
+                    - paragraph [ref=f15e125]: 1 × 4 AP = 4 AP
+                - button "Entfernen" [ref=f15e127] [cursor=pointer]
+      - generic [ref=f15e53]:
+        - heading "Details" [level=6] [ref=f15e55]
+        - separator [ref=f15e56]
+        - generic [ref=f15e128]:
+          - button "Vorderseite anzeigen" [active] [ref=f15e146] [cursor=pointer]
+          - generic [ref=f15e148]:
+            - generic [ref=f15e149]:
+              - generic [ref=f15e150]: Droideka
+              - generic [ref=f15e152]:
+                - generic [ref=f15e153]:
+                  - generic [ref=f15e154]: ➜ 2 ⇛ 6
+                  - generic [ref=f15e155]:
+                    - img "I icon" [ref=f15e156]
+                    - generic [ref=f15e157]: "4"
+                - generic [ref=f15e158]: • DAMAGE RESILIENT
+            - generic [ref=f15e160]:
+              - generic [ref=f15e161]: Type Name
+              - generic [ref=f15e163]: Infantry
+              - generic [ref=f15e164]: Vehicles
+              - generic [ref=f15e165]: Aircraft
+            - generic [ref=f15e166]:
+              - generic [ref=f15e167]: Weapon
+              - generic [ref=f15e168]: Range
+              - generic [ref=f15e169]: "1"
+              - generic [ref=f15e170]: "2"
+              - generic [ref=f15e171]: "3"
+              - generic [ref=f15e172]: "4"
+              - generic [ref=f15e173]: "1"
+              - generic [ref=f15e174]: "2"
+              - generic [ref=f15e175]: "3"
+              - generic [ref=f15e176]: "4"
+              - generic [ref=f15e177]: "5"
+              - generic [ref=f15e178]: "6"
+              - generic [ref=f15e179]: "7"
+              - generic [ref=f15e180]: "1"
+              - generic [ref=f15e181]: "2"
+              - generic [ref=f15e182]: "3"
+              - generic [ref=f15e183]: Arc
+            - generic [ref=f15e185]:
+              - generic [ref=f15e186]: 3x Twin Blaster Cannon
+              - generic [ref=f15e189]: "6"
+              - generic [ref=f15e190]: 7/1
+              - generic [ref=f15e191]: 6/1
+              - generic [ref=f15e192]: 5/1
+              - generic [ref=f15e193]: 4/1
+              - generic [ref=f15e194]: 4/1
+              - generic [ref=f15e195]: 3/1
+              - generic [ref=f15e196]: 2/1
+              - generic [ref=f15e197]: 1/1
+              - generic [ref=f15e201]: 2/1
+              - generic [ref=f15e202]: 1/1
+              - generic [ref=f15e204]: Turret
+            - generic [ref=f15e332]:
+              - generic [ref=f15e333]: 🖤
+              - generic [ref=f15e334]: "1"

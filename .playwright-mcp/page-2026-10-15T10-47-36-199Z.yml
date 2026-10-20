@@ -1,0 +1,109 @@
+- generic [ref=f10e3]:
+  - banner [ref=f10e4]:
+    - generic [ref=f10e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f10e6]
+      - group [ref=f10e7]:
+        - button "Army Builder" [active] [pressed] [ref=f10e8] [cursor=pointer]
+        - button "Admin" [ref=f10e11] [cursor=pointer]
+      - generic [ref=f10e6125]: 43/110 Punkte
+  - generic [ref=f10e6127]:
+    - alert [ref=f10e6128]:
+      - generic [ref=f10e6132]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=f10e6133]:
+      - generic [ref=f10e6134]:
+        - heading "Armeen" [level=6] [ref=f10e6136]
+        - separator [ref=f10e6137]
+        - generic [ref=f10e6138]:
+          - generic [ref=f10e6139]:
+            - generic [ref=f10e6140]:
+              - generic: Game System
+              - generic [ref=f10e6141]:
+                - combobox "Game System" [ref=f10e6142] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=f10e6143]:
+              - generic: Bloc
+              - generic [ref=f10e6144]:
+                - combobox "Bloc" [ref=f10e6145] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=f10e6146]:
+              - button "Aktualisieren" [ref=f10e6147] [cursor=pointer]
+              - button "Neue Armee" [ref=f10e6148] [cursor=pointer]
+              - button "Löschen" [ref=f10e6149] [cursor=pointer]
+          - list [ref=f10e6150]:
+            - button "Star Wars Droiden Armee 43/110 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=f10e6151] [cursor=pointer]:
+              - generic [ref=f10e6152]:
+                - generic [ref=f10e6153]: Star Wars Droiden Armee
+                - paragraph [ref=f10e6154]: 43/110 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=f10e6155] [cursor=pointer]:
+              - generic [ref=f10e6156]:
+                - generic [ref=f10e6157]: Star Wars Clone Army
+                - paragraph [ref=f10e6158]: 52/100 Punkte • Star Wars Republik (Star Wars)
+            - button "Space Marine Ziel 62/100 Punkte • Imperium (Warhammer 40k)" [ref=f10e6159] [cursor=pointer]:
+              - generic [ref=f10e6160]:
+                - generic [ref=f10e6161]: Space Marine Ziel
+                - paragraph [ref=f10e6162]: 62/100 Punkte • Imperium (Warhammer 40k)
+            - button "Space Marine Aktuell 143/100 Punkte • Imperium (Warhammer 40k)" [ref=f10e6163] [cursor=pointer]:
+              - generic [ref=f10e6164]:
+                - generic [ref=f10e6165]: Space Marine Aktuell
+                - paragraph [ref=f10e6166]: 143/100 Punkte • Imperium (Warhammer 40k)
+            - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=f10e6167] [cursor=pointer]:
+              - generic [ref=f10e6168]:
+                - generic [ref=f10e6169]: next stepp
+                - paragraph [ref=f10e6170]: 107/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friezillas 114/100 Punkte • Imperium (Warhammer 40k)" [ref=f10e6171] [cursor=pointer]:
+              - generic [ref=f10e6172]:
+                - generic [ref=f10e6173]: Friezillas
+                - paragraph [ref=f10e6174]: 114/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friedas Rache 182/100 Punkte • Imperium (Warhammer 40k)" [ref=f10e6175] [cursor=pointer]:
+              - generic [ref=f10e6176]:
+                - generic [ref=f10e6177]: Friedas Rache
+                - paragraph [ref=f10e6178]: 182/100 Punkte • Imperium (Warhammer 40k)
+            - button "Dust SSU 38/100 Punkte • SSU (Dust 1947)" [ref=f10e6179] [cursor=pointer]:
+              - generic [ref=f10e6180]:
+                - generic [ref=f10e6181]: Dust SSU
+                - paragraph [ref=f10e6182]: 38/100 Punkte • SSU (Dust 1947)
+            - button "Andreas Verteidiger 105/100 Punkte • Aeldari (Warhammer 40k)" [ref=f10e6183] [cursor=pointer]:
+              - generic [ref=f10e6184]:
+                - generic [ref=f10e6185]: Andreas Verteidiger
+                - paragraph [ref=f10e6186]: 105/100 Punkte • Aeldari (Warhammer 40k)
+            - button "Aeldari 44/100 Punkte • Aeldari (Warhammer 40k)" [ref=f10e6187] [cursor=pointer]:
+              - generic [ref=f10e6188]:
+                - generic [ref=f10e6189]: Aeldari
+                - paragraph [ref=f10e6190]: 44/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=f10e6191]:
+        - 'heading "Armee: Star Wars Droiden Armee (Konföderation unabhängiger Systeme • Star Wars)" [level=6] [ref=f10e6193]'
+        - separator [ref=f10e6194]
+        - generic [ref=f10e6195]:
+          - generic [ref=f10e6196]:
+            - button "Bearbeiten" [ref=f10e6197] [cursor=pointer]
+            - button "Klonen" [ref=f10e6198] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=f10e6199] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=f10e6200] [cursor=pointer]
+          - paragraph [ref=f10e6201]: Platoons
+          - alert [ref=f10e6203]:
+            - generic [ref=f10e6207]:
+              - strong [ref=f10e6208]: Faction Force
+              - text: "• 43/110 AP • Bonus: 0/10 AP"
+          - generic [ref=f10e6209]:
+            - paragraph [ref=f10e6210]: Freie Einheiten
+            - list [ref=f10e6211]:
+              - listitem [ref=f10e6212]:
+                - button "3× Droideka 3 × 13 AP = 39 AP" [ref=f10e6213] [cursor=pointer]:
+                  - generic [ref=f10e6214]:
+                    - generic [ref=f10e6215]: 3× Droideka
+                    - paragraph [ref=f10e6216]: 3 × 13 AP = 39 AP
+                - button "Entfernen" [ref=f10e6218] [cursor=pointer]
+              - listitem [ref=f10e6219]:
+                - button "1× B1 Battle Droid Combat Squad 1 × 4 AP = 4 AP" [ref=f10e6220] [cursor=pointer]:
+                  - generic [ref=f10e6221]:
+                    - generic [ref=f10e6222]: 1× B1 Battle Droid Combat Squad
+                    - paragraph [ref=f10e6223]: 1 × 4 AP = 4 AP
+                - button "Entfernen" [ref=f10e6225] [cursor=pointer]
+      - generic [ref=f10e6226]:
+        - heading "Details" [level=6] [ref=f10e6228]
+        - separator [ref=f10e6229]
+        - paragraph [ref=f10e6231]: Einheit auswählen…

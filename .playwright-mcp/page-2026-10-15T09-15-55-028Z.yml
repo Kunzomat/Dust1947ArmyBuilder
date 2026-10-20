@@ -1,0 +1,3668 @@
+- generic [ref=f6e1]:
+  - generic [ref=f6e3]:
+    - banner [ref=f6e4]:
+      - generic [ref=f6e5]:
+        - heading [level=6] [ref=f6e6102]: Dust 1947 – Army Builder
+        - group [ref=f6e7]:
+          - button [ref=f6e6103] [cursor=pointer]: Army Builder
+          - button [pressed] [ref=f6e6104] [cursor=pointer]: Admin
+    - generic [ref=f6e15]:
+      - heading [level=4] [ref=f6e6105]: ⚙️ Admin Panel - Daten Verwaltung
+      - paragraph [ref=f6e17]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+      - tablist [ref=f6e21]:
+        - tab [ref=f6e6106] [cursor=pointer]: 🎮 Game Systems
+        - tab [ref=f6e6107] [cursor=pointer]: 🏴 Blocs
+        - tab [ref=f6e6108] [cursor=pointer]: 🎖️ Factions
+        - tab [ref=f6e6109] [cursor=pointer]: ⚔️ Units
+        - tab [selected] [ref=f6e6110] [cursor=pointer]: 🔫 Weapons
+        - tab [ref=f6e6111] [cursor=pointer]: 📜 Rules
+        - tab [ref=f6e6112] [cursor=pointer]: 🪖 Platoons
+      - tabpanel [ref=f6e30]:
+        - generic [ref=f6e32]:
+          - generic [ref=f6e33]:
+            - heading [level=6] [ref=f6e6113]: Weapons (262)
+            - generic [ref=f6e35]:
+              - generic [ref=f6e36]:
+                - generic: Waffe suchen
+                - generic [ref=f6e37]:
+                  - textbox [ref=f6e6114]:
+                    - /placeholder: Contains (ab 1 Zeichen)
+                  - group [aria-hidden]:
+                    - generic: Waffe suchen
+              - generic [ref=f6e39]:
+                - generic: Game System
+                - generic [ref=f6e40]:
+                  - combobox [ref=f6e6115] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Game System
+              - generic [ref=f6e42]:
+                - generic: Faction
+                - generic [ref=f6e43]:
+                  - combobox [ref=f6e6116] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Faction
+              - button [ref=f6e6117] [cursor=pointer]: Neue Waffe
+          - table [ref=f6e50]:
+            - rowgroup [ref=f6e51]:
+              - row [ref=f6e6118]:
+                - columnheader [ref=f6e6119]:
+                  - button [ref=f6e6120] [cursor=pointer]: ID
+                - columnheader [ref=f6e6121]:
+                  - button [ref=f6e6122] [cursor=pointer]: Name
+                - columnheader [ref=f6e6123]:
+                  - button [ref=f6e6124] [cursor=pointer]: Game System
+                - columnheader [ref=f6e6125]:
+                  - button [ref=f6e6126] [cursor=pointer]: Reichweite
+                - columnheader [ref=f6e6127]:
+                  - button [ref=f6e6128] [cursor=pointer]: Einmalwaffe
+                - columnheader [ref=f6e6129]: Aktionen
+            - rowgroup [ref=f6e75]:
+              - row [ref=f6e6130]:
+                - cell [ref=f6e6131]: "1"
+                - cell [ref=f6e6132]:
+                  - strong [ref=f6e80]: Bolt Pistol
+                - cell [ref=f6e6133]: Warhammer 40k
+                - cell [ref=f6e6134]: "2"
+                - cell [ref=f6e6135]:
+                  - generic [ref=f6e84]: Nein
+                - cell [ref=f6e86]:
+                  - button [ref=f6e6136] [cursor=pointer]
+                  - button [ref=f6e6137] [cursor=pointer]
+                  - button [ref=f6e6138] [cursor=pointer]
+                  - button [ref=f6e6139] [cursor=pointer]
+              - row [ref=f6e6140]:
+                - cell [ref=f6e6141]: "2"
+                - cell [ref=f6e6142]:
+                  - strong [ref=f6e103]: Energie Fist
+                - cell [ref=f6e6143]: Warhammer 40k
+                - cell [ref=f6e6144]: C
+                - cell [ref=f6e6145]:
+                  - generic [ref=f6e107]: Nein
+                - cell [ref=f6e109]:
+                  - button [ref=f6e6146] [cursor=pointer]
+                  - button [ref=f6e6147] [cursor=pointer]
+                  - button [ref=f6e6148] [cursor=pointer]
+                  - button [ref=f6e6149] [cursor=pointer]
+              - row [ref=f6e6150]:
+                - cell [ref=f6e6151]: "3"
+                - cell [ref=f6e6152]:
+                  - strong [ref=f6e126]: Boltgun
+                - cell [ref=f6e6153]: Warhammer 40k
+                - cell [ref=f6e6154]: "4"
+                - cell [ref=f6e6155]:
+                  - generic [ref=f6e130]: Nein
+                - cell [ref=f6e132]:
+                  - button [ref=f6e6156] [cursor=pointer]
+                  - button [ref=f6e6157] [cursor=pointer]
+                  - button [ref=f6e6158] [cursor=pointer]
+                  - button [ref=f6e6159] [cursor=pointer]
+              - row [ref=f6e6160]:
+                - cell [ref=f6e6161]: "4"
+                - cell [ref=f6e6162]:
+                  - strong [ref=f6e149]: Plasma Pistol
+                - cell [ref=f6e6163]: Warhammer 40k
+                - cell [ref=f6e6164]: "2"
+                - cell [ref=f6e6165]:
+                  - generic [ref=f6e153]: Nein
+                - cell [ref=f6e155]:
+                  - button [ref=f6e6166] [cursor=pointer]
+                  - button [ref=f6e6167] [cursor=pointer]
+                  - button [ref=f6e6168] [cursor=pointer]
+                  - button [ref=f6e6169] [cursor=pointer]
+              - row [ref=f6e6170]:
+                - cell [ref=f6e6171]: "5"
+                - cell [ref=f6e6172]:
+                  - strong [ref=f6e172]: Energie Sword
+                - cell [ref=f6e6173]: Warhammer 40k
+                - cell [ref=f6e6174]: C
+                - cell [ref=f6e6175]:
+                  - generic [ref=f6e176]: Nein
+                - cell [ref=f6e178]:
+                  - button [ref=f6e6176] [cursor=pointer]
+                  - button [ref=f6e6177] [cursor=pointer]
+                  - button [ref=f6e6178] [cursor=pointer]
+                  - button [ref=f6e6179] [cursor=pointer]
+              - row [ref=f6e6180]:
+                - cell [ref=f6e6181]: "6"
+                - cell [ref=f6e6182]:
+                  - strong [ref=f6e195]: Flamer
+                - cell [ref=f6e6183]: Warhammer 40k
+                - cell [ref=f6e6184]: "1"
+                - cell [ref=f6e6185]:
+                  - generic [ref=f6e199]: Nein
+                - cell [ref=f6e201]:
+                  - button [ref=f6e6186] [cursor=pointer]
+                  - button [ref=f6e6187] [cursor=pointer]
+                  - button [ref=f6e6188] [cursor=pointer]
+                  - button [ref=f6e6189] [cursor=pointer]
+              - row [ref=f6e6190]:
+                - cell [ref=f6e6191]: "7"
+                - cell [ref=f6e6192]:
+                  - strong [ref=f6e218]: Meltagun
+                - cell [ref=f6e6193]: Warhammer 40k
+                - cell [ref=f6e6194]: "3"
+                - cell [ref=f6e6195]:
+                  - generic [ref=f6e222]: Nein
+                - cell [ref=f6e224]:
+                  - button [ref=f6e6196] [cursor=pointer]
+                  - button [ref=f6e6197] [cursor=pointer]
+                  - button [ref=f6e6198] [cursor=pointer]
+                  - button [ref=f6e6199] [cursor=pointer]
+              - row [ref=f6e6200]:
+                - cell [ref=f6e6201]: "8"
+                - cell [ref=f6e6202]:
+                  - strong [ref=f6e241]: Chainsword
+                - cell [ref=f6e6203]: Warhammer 40k
+                - cell [ref=f6e6204]: C
+                - cell [ref=f6e6205]:
+                  - generic [ref=f6e245]: Nein
+                - cell [ref=f6e247]:
+                  - button [ref=f6e6206] [cursor=pointer]
+                  - button [ref=f6e6207] [cursor=pointer]
+                  - button [ref=f6e6208] [cursor=pointer]
+                  - button [ref=f6e6209] [cursor=pointer]
+              - row [ref=f6e6210]:
+                - cell [ref=f6e6211]: "9"
+                - cell [ref=f6e6212]:
+                  - strong [ref=f6e264]: Missile Launcher
+                - cell [ref=f6e6213]: Warhammer 40k
+                - cell [ref=f6e6214]: "8"
+                - cell [ref=f6e6215]:
+                  - generic [ref=f6e268]: Nein
+                - cell [ref=f6e270]:
+                  - button [ref=f6e6216] [cursor=pointer]
+                  - button [ref=f6e6217] [cursor=pointer]
+                  - button [ref=f6e6218] [cursor=pointer]
+                  - button [ref=f6e6219] [cursor=pointer]
+              - row [ref=f6e6220]:
+                - cell [ref=f6e6221]: "10"
+                - cell [ref=f6e6222]:
+                  - strong [ref=f6e287]: Twin Lascannon
+                - cell [ref=f6e6223]: Warhammer 40k
+                - cell [ref=f6e6224]: "12"
+                - cell [ref=f6e6225]:
+                  - generic [ref=f6e291]: Nein
+                - cell [ref=f6e293]:
+                  - button [ref=f6e6226] [cursor=pointer]
+                  - button [ref=f6e6227] [cursor=pointer]
+                  - button [ref=f6e6228] [cursor=pointer]
+                  - button [ref=f6e6229] [cursor=pointer]
+              - row [ref=f6e6230]:
+                - cell [ref=f6e6231]: "11"
+                - cell [ref=f6e6232]:
+                  - strong [ref=f6e310]: Lascannon
+                - cell [ref=f6e6233]: Warhammer 40k
+                - cell [ref=f6e6234]: "12"
+                - cell [ref=f6e6235]:
+                  - generic [ref=f6e314]: Nein
+                - cell [ref=f6e316]:
+                  - button [ref=f6e6236] [cursor=pointer]
+                  - button [ref=f6e6237] [cursor=pointer]
+                  - button [ref=f6e6238] [cursor=pointer]
+                  - button [ref=f6e6239] [cursor=pointer]
+              - row [ref=f6e6240]:
+                - cell [ref=f6e6241]: "44"
+                - cell [ref=f6e6242]:
+                  - strong [ref=f6e333]: Predator Autocannon
+                - cell [ref=f6e6243]: Warhammer 40k
+                - cell [ref=f6e6244]: "12"
+                - cell [ref=f6e6245]:
+                  - generic [ref=f6e337]: Nein
+                - cell [ref=f6e339]:
+                  - button [ref=f6e6246] [cursor=pointer]
+                  - button [ref=f6e6247] [cursor=pointer]
+                  - button [ref=f6e6248] [cursor=pointer]
+                  - button [ref=f6e6249] [cursor=pointer]
+              - row [ref=f6e6250]:
+                - cell [ref=f6e6251]: "45"
+                - cell [ref=f6e6252]:
+                  - strong [ref=f6e356]: Heavy Bolter
+                - cell [ref=f6e6253]: Warhammer 40k
+                - cell [ref=f6e6254]: "9"
+                - cell [ref=f6e6255]:
+                  - generic [ref=f6e360]: Nein
+                - cell [ref=f6e362]:
+                  - button [ref=f6e6256] [cursor=pointer]
+                  - button [ref=f6e6257] [cursor=pointer]
+                  - button [ref=f6e6258] [cursor=pointer]
+                  - button [ref=f6e6259] [cursor=pointer]
+              - row [ref=f6e6260]:
+                - cell [ref=f6e6261]: "100"
+                - cell [ref=f6e6262]:
+                  - strong [ref=f6e379]: Singing spear
+                - cell [ref=f6e6263]: Warhammer 40k
+                - cell [ref=f6e6264]: C
+                - cell [ref=f6e6265]:
+                  - generic [ref=f6e383]: Nein
+                - cell [ref=f6e385]:
+                  - button [ref=f6e6266] [cursor=pointer]
+                  - button [ref=f6e6267] [cursor=pointer]
+                  - button [ref=f6e6268] [cursor=pointer]
+                  - button [ref=f6e6269] [cursor=pointer]
+              - row [ref=f6e6270]:
+                - cell [ref=f6e6271]: "101"
+                - cell [ref=f6e6272]:
+                  - strong [ref=f6e402]: Star Glaive
+                - cell [ref=f6e6273]: Warhammer 40k
+                - cell [ref=f6e6274]: C
+                - cell [ref=f6e6275]:
+                  - generic [ref=f6e406]: Nein
+                - cell [ref=f6e408]:
+                  - button [ref=f6e6276] [cursor=pointer]
+                  - button [ref=f6e6277] [cursor=pointer]
+                  - button [ref=f6e6278] [cursor=pointer]
+                  - button [ref=f6e6279] [cursor=pointer]
+              - row [ref=f6e6280]:
+                - cell [ref=f6e6281]: "102"
+                - cell [ref=f6e6282]:
+                  - strong [ref=f6e425]: Shuriken cannon
+                - cell [ref=f6e6283]: Warhammer 40k
+                - cell [ref=f6e6284]: "8"
+                - cell [ref=f6e6285]:
+                  - generic [ref=f6e429]: Nein
+                - cell [ref=f6e431]:
+                  - button [ref=f6e6286] [cursor=pointer]
+                  - button [ref=f6e6287] [cursor=pointer]
+                  - button [ref=f6e6288] [cursor=pointer]
+                  - button [ref=f6e6289] [cursor=pointer]
+              - row [ref=f6e6290]:
+                - cell [ref=f6e6291]: "103"
+                - cell [ref=f6e6292]:
+                  - strong [ref=f6e448]: Bright lance
+                - cell [ref=f6e6293]: Warhammer 40k
+                - cell [ref=f6e6294]: "12"
+                - cell [ref=f6e6295]:
+                  - generic [ref=f6e452]: Nein
+                - cell [ref=f6e454]:
+                  - button [ref=f6e6296] [cursor=pointer]
+                  - button [ref=f6e6297] [cursor=pointer]
+                  - button [ref=f6e6298] [cursor=pointer]
+                  - button [ref=f6e6299] [cursor=pointer]
+              - row [ref=f6e6300]:
+                - cell [ref=f6e6301]: "104"
+                - cell [ref=f6e6302]:
+                  - strong [ref=f6e471]: Reaper Launcher
+                - cell [ref=f6e6303]: Warhammer 40k
+                - cell [ref=f6e6304]: "12"
+                - cell [ref=f6e6305]:
+                  - generic [ref=f6e475]: Nein
+                - cell [ref=f6e477]:
+                  - button [ref=f6e6306] [cursor=pointer]
+                  - button [ref=f6e6307] [cursor=pointer]
+                  - button [ref=f6e6308] [cursor=pointer]
+                  - button [ref=f6e6309] [cursor=pointer]
+              - row [ref=f6e6310]:
+                - cell [ref=f6e6311]: "105"
+                - cell [ref=f6e6312]:
+                  - strong [ref=f6e494]: Tempest Launcher
+                - cell [ref=f6e6313]: Warhammer 40k
+                - cell [ref=f6e6314]: "12"
+                - cell [ref=f6e6315]:
+                  - generic [ref=f6e498]: Nein
+                - cell [ref=f6e500]:
+                  - button [ref=f6e6316] [cursor=pointer]
+                  - button [ref=f6e6317] [cursor=pointer]
+                  - button [ref=f6e6318] [cursor=pointer]
+                  - button [ref=f6e6319] [cursor=pointer]
+              - row [ref=f6e6320]:
+                - cell [ref=f6e6321]: "106"
+                - cell [ref=f6e6322]:
+                  - strong [ref=f6e517]: Twin Shuriken Catapult
+                - cell [ref=f6e6323]: Warhammer 40k
+                - cell [ref=f6e6324]: "4"
+                - cell [ref=f6e6325]:
+                  - generic [ref=f6e521]: Nein
+                - cell [ref=f6e523]:
+                  - button [ref=f6e6326] [cursor=pointer]
+                  - button [ref=f6e6327] [cursor=pointer]
+                  - button [ref=f6e6328] [cursor=pointer]
+                  - button [ref=f6e6329] [cursor=pointer]
+              - row [ref=f6e6330]:
+                - cell [ref=f6e6331]: "107"
+                - cell [ref=f6e6332]:
+                  - strong [ref=f6e540]: Dual Bright Lance
+                - cell [ref=f6e6333]: Warhammer 40k
+                - cell [ref=f6e6334]: "12"
+                - cell [ref=f6e6335]:
+                  - generic [ref=f6e544]: Nein
+                - cell [ref=f6e546]:
+                  - button [ref=f6e6336] [cursor=pointer]
+                  - button [ref=f6e6337] [cursor=pointer]
+                  - button [ref=f6e6338] [cursor=pointer]
+                  - button [ref=f6e6339] [cursor=pointer]
+              - row [ref=f6e6340]:
+                - cell [ref=f6e6341]: "108"
+                - cell [ref=f6e6342]:
+                  - strong [ref=f6e563]: Shuriken Catapult
+                - cell [ref=f6e6343]: Warhammer 40k
+                - cell [ref=f6e6344]: "4"
+                - cell [ref=f6e6345]:
+                  - generic [ref=f6e567]: Nein
+                - cell [ref=f6e569]:
+                  - button [ref=f6e6346] [cursor=pointer]
+                  - button [ref=f6e6347] [cursor=pointer]
+                  - button [ref=f6e6348] [cursor=pointer]
+                  - button [ref=f6e6349] [cursor=pointer]
+              - row [ref=f6e6350]:
+                - cell [ref=f6e6351]: "109"
+                - cell [ref=f6e6352]:
+                  - strong [ref=f6e586]: Plasma Grenades
+                - cell [ref=f6e6353]: Warhammer 40k
+                - cell [ref=f6e6354]: C
+                - cell [ref=f6e6355]:
+                  - generic [ref=f6e590]: Ja
+                - cell [ref=f6e592]:
+                  - button [ref=f6e6356] [cursor=pointer]
+                  - button [ref=f6e6357] [cursor=pointer]
+                  - button [ref=f6e6358] [cursor=pointer]
+                  - button [ref=f6e6359] [cursor=pointer]
+              - row [ref=f6e6360]:
+                - cell [ref=f6e6361]: "110"
+                - cell [ref=f6e6362]:
+                  - strong [ref=f6e609]: Shuriken Pistol
+                - cell [ref=f6e6363]: Warhammer 40k
+                - cell [ref=f6e6364]: "2"
+                - cell [ref=f6e6365]:
+                  - generic [ref=f6e613]: Nein
+                - cell [ref=f6e615]:
+                  - button [ref=f6e6366] [cursor=pointer]
+                  - button [ref=f6e6367] [cursor=pointer]
+                  - button [ref=f6e6368] [cursor=pointer]
+                  - button [ref=f6e6369] [cursor=pointer]
+              - row [ref=f6e6370]:
+                - cell [ref=f6e6371]: "111"
+                - cell [ref=f6e6372]:
+                  - strong [ref=f6e632]: Witchblade
+                - cell [ref=f6e6373]: Warhammer 40k
+                - cell [ref=f6e6374]: C
+                - cell [ref=f6e6375]:
+                  - generic [ref=f6e636]: Nein
+                - cell [ref=f6e638]:
+                  - button [ref=f6e6376] [cursor=pointer]
+                  - button [ref=f6e6377] [cursor=pointer]
+                  - button [ref=f6e6378] [cursor=pointer]
+                  - button [ref=f6e6379] [cursor=pointer]
+              - row [ref=f6e6380]:
+                - cell [ref=f6e6381]: "112"
+                - cell [ref=f6e6382]:
+                  - strong [ref=f6e655]: Scorpion chainsword
+                - cell [ref=f6e6383]: Warhammer 40k
+                - cell [ref=f6e6384]: C
+                - cell [ref=f6e6385]:
+                  - generic [ref=f6e659]: Nein
+                - cell [ref=f6e661]:
+                  - button [ref=f6e6386] [cursor=pointer]
+                  - button [ref=f6e6387] [cursor=pointer]
+                  - button [ref=f6e6388] [cursor=pointer]
+                  - button [ref=f6e6389] [cursor=pointer]
+              - row [ref=f6e6390]:
+                - cell [ref=f6e6391]: "113"
+                - cell [ref=f6e6392]:
+                  - strong [ref=f6e678]: Biting Blade
+                - cell [ref=f6e6393]: Warhammer 40k
+                - cell [ref=f6e6394]: C
+                - cell [ref=f6e6395]:
+                  - generic [ref=f6e682]: Nein
+                - cell [ref=f6e684]:
+                  - button [ref=f6e6396] [cursor=pointer]
+                  - button [ref=f6e6397] [cursor=pointer]
+                  - button [ref=f6e6398] [cursor=pointer]
+                  - button [ref=f6e6399] [cursor=pointer]
+              - row [ref=f6e6400]:
+                - cell [ref=f6e6401]: "114"
+                - cell [ref=f6e6402]:
+                  - strong [ref=f6e701]: Banshee blade
+                - cell [ref=f6e6403]: Warhammer 40k
+                - cell [ref=f6e6404]: C
+                - cell [ref=f6e6405]:
+                  - generic [ref=f6e705]: Nein
+                - cell [ref=f6e707]:
+                  - button [ref=f6e6406] [cursor=pointer]
+                  - button [ref=f6e6407] [cursor=pointer]
+                  - button [ref=f6e6408] [cursor=pointer]
+                  - button [ref=f6e6409] [cursor=pointer]
+              - row [ref=f6e6410]:
+                - cell [ref=f6e6411]: "115"
+                - cell [ref=f6e6412]:
+                  - strong [ref=f6e724]: Dual Banshee blade
+                - cell [ref=f6e6413]: Warhammer 40k
+                - cell [ref=f6e6414]: C
+                - cell [ref=f6e6415]:
+                  - generic [ref=f6e728]: Nein
+                - cell [ref=f6e730]:
+                  - button [ref=f6e6416] [cursor=pointer]
+                  - button [ref=f6e6417] [cursor=pointer]
+                  - button [ref=f6e6418] [cursor=pointer]
+                  - button [ref=f6e6419] [cursor=pointer]
+              - row [ref=f6e6420]:
+                - cell [ref=f6e6421]: "200"
+                - cell [ref=f6e6422]:
+                  - strong [ref=f6e747]: Laspistol
+                - cell [ref=f6e6423]: Warhammer 40k
+                - cell [ref=f6e6424]: "2"
+                - cell [ref=f6e6425]:
+                  - generic [ref=f6e751]: Nein
+                - cell [ref=f6e753]:
+                  - button [ref=f6e6426] [cursor=pointer]
+                  - button [ref=f6e6427] [cursor=pointer]
+                  - button [ref=f6e6428] [cursor=pointer]
+                  - button [ref=f6e6429] [cursor=pointer]
+              - row [ref=f6e6430]:
+                - cell [ref=f6e6431]: "201"
+                - cell [ref=f6e6432]:
+                  - strong [ref=f6e770]: Lasgun
+                - cell [ref=f6e6433]: Warhammer 40k
+                - cell [ref=f6e6434]: "5"
+                - cell [ref=f6e6435]:
+                  - generic [ref=f6e774]: Nein
+                - cell [ref=f6e776]:
+                  - button [ref=f6e6436] [cursor=pointer]
+                  - button [ref=f6e6437] [cursor=pointer]
+                  - button [ref=f6e6438] [cursor=pointer]
+                  - button [ref=f6e6439] [cursor=pointer]
+              - row [ref=f6e6440]:
+                - cell [ref=f6e6441]: "202"
+                - cell [ref=f6e6442]:
+                  - strong [ref=f6e793]: Force stave
+                - cell [ref=f6e6443]: Warhammer 40k
+                - cell [ref=f6e6444]: C
+                - cell [ref=f6e6445]:
+                  - generic [ref=f6e797]: Nein
+                - cell [ref=f6e799]:
+                  - button [ref=f6e6446] [cursor=pointer]
+                  - button [ref=f6e6447] [cursor=pointer]
+                  - button [ref=f6e6448] [cursor=pointer]
+                  - button [ref=f6e6449] [cursor=pointer]
+              - row [ref=f6e6450]:
+                - cell [ref=f6e6451]: "203"
+                - cell [ref=f6e6452]:
+                  - strong [ref=f6e816]: Autocannon
+                - cell [ref=f6e6453]: Warhammer 40k
+                - cell [ref=f6e6454]: "12"
+                - cell [ref=f6e6455]:
+                  - generic [ref=f6e820]: Nein
+                - cell [ref=f6e822]:
+                  - button [ref=f6e6456] [cursor=pointer]
+                  - button [ref=f6e6457] [cursor=pointer]
+                  - button [ref=f6e6458] [cursor=pointer]
+                  - button [ref=f6e6459] [cursor=pointer]
+              - row [ref=f6e6460]:
+                - cell [ref=f6e6461]: "204"
+                - cell [ref=f6e6462]:
+                  - strong [ref=f6e839]: Mortar
+                - cell [ref=f6e6463]: Warhammer 40k
+                - cell [ref=f6e6464]: "12"
+                - cell [ref=f6e6465]:
+                  - generic [ref=f6e843]: Nein
+                - cell [ref=f6e845]:
+                  - button [ref=f6e6466] [cursor=pointer]
+                  - button [ref=f6e6467] [cursor=pointer]
+                  - button [ref=f6e6468] [cursor=pointer]
+                  - button [ref=f6e6469] [cursor=pointer]
+              - row [ref=f6e6470]:
+                - cell [ref=f6e6471]: "206"
+                - cell [ref=f6e6472]:
+                  - strong [ref=f6e862]: Demolisher cannon
+                - cell [ref=f6e6473]: Warhammer 40k
+                - cell [ref=f6e6474]: "6"
+                - cell [ref=f6e6475]:
+                  - generic [ref=f6e866]: Nein
+                - cell [ref=f6e868]:
+                  - button [ref=f6e6476] [cursor=pointer]
+                  - button [ref=f6e6477] [cursor=pointer]
+                  - button [ref=f6e6478] [cursor=pointer]
+                  - button [ref=f6e6479] [cursor=pointer]
+              - row [ref=f6e6480]:
+                - cell [ref=f6e6481]: "207"
+                - cell [ref=f6e6482]:
+                  - strong [ref=f6e885]: Vanquisher Cannon
+                - cell [ref=f6e6483]: Warhammer 40k
+                - cell [ref=f6e6484]: "18"
+                - cell [ref=f6e6485]:
+                  - generic [ref=f6e889]: Nein
+                - cell [ref=f6e891]:
+                  - button [ref=f6e6486] [cursor=pointer]
+                  - button [ref=f6e6487] [cursor=pointer]
+                  - button [ref=f6e6488] [cursor=pointer]
+                  - button [ref=f6e6489] [cursor=pointer]
+              - row [ref=f6e6490]:
+                - cell [ref=f6e6491]: "208"
+                - cell [ref=f6e6492]:
+                  - strong [ref=f6e908]: Flamethrower
+                - cell [ref=f6e6493]: Dust 1947
+                - cell [ref=f6e6494]: "1"
+                - cell [ref=f6e6495]:
+                  - generic [ref=f6e912]: Nein
+                - cell [ref=f6e914]:
+                  - button [ref=f6e6496] [cursor=pointer]
+                  - button [ref=f6e6497] [cursor=pointer]
+                  - button [ref=f6e6498] [cursor=pointer]
+                  - button [ref=f6e6499] [cursor=pointer]
+              - row [ref=f6e6500]:
+                - cell [ref=f6e6501]: "209"
+                - cell [ref=f6e6502]:
+                  - strong [ref=f6e931]: .45 ACP Pistol
+                - cell [ref=f6e6503]: Dust 1947
+                - cell [ref=f6e6504]: "2"
+                - cell [ref=f6e6505]:
+                  - generic [ref=f6e935]: Nein
+                - cell [ref=f6e937]:
+                  - button [ref=f6e6506] [cursor=pointer]
+                  - button [ref=f6e6507] [cursor=pointer]
+                  - button [ref=f6e6508] [cursor=pointer]
+                  - button [ref=f6e6509] [cursor=pointer]
+              - row [ref=f6e6510]:
+                - cell [ref=f6e6511]: "210"
+                - cell [ref=f6e6512]:
+                  - strong [ref=f6e954]: Abomination's Bite
+                - cell [ref=f6e6513]: Dust 1947
+                - cell [ref=f6e6514]: C
+                - cell [ref=f6e6515]:
+                  - generic [ref=f6e958]: Nein
+                - cell [ref=f6e960]:
+                  - button [ref=f6e6516] [cursor=pointer]
+                  - button [ref=f6e6517] [cursor=pointer]
+                  - button [ref=f6e6518] [cursor=pointer]
+                  - button [ref=f6e6519] [cursor=pointer]
+              - row [ref=f6e6520]:
+                - cell [ref=f6e6521]: "211"
+                - cell [ref=f6e6522]:
+                  - strong [ref=f6e977]: Anti-Aircraft Gun (Turret)
+                - cell [ref=f6e6523]: Dust 1947
+                - cell [ref=f6e6524]: "8"
+                - cell [ref=f6e6525]:
+                  - generic [ref=f6e981]: Nein
+                - cell [ref=f6e983]:
+                  - button [ref=f6e6526] [cursor=pointer]
+                  - button [ref=f6e6527] [cursor=pointer]
+                  - button [ref=f6e6528] [cursor=pointer]
+                  - button [ref=f6e6529] [cursor=pointer]
+              - row [ref=f6e6530]:
+                - cell [ref=f6e6531]: "212"
+                - cell [ref=f6e6532]:
+                  - strong [ref=f6e1000]: Anti-Tank Gun
+                - cell [ref=f6e6533]: Dust 1947
+                - cell [ref=f6e6534]: "12"
+                - cell [ref=f6e6535]:
+                  - generic [ref=f6e1004]: Nein
+                - cell [ref=f6e1006]:
+                  - button [ref=f6e6536] [cursor=pointer]
+                  - button [ref=f6e6537] [cursor=pointer]
+                  - button [ref=f6e6538] [cursor=pointer]
+                  - button [ref=f6e6539] [cursor=pointer]
+              - row [ref=f6e6540]:
+                - cell [ref=f6e6541]: "215"
+                - cell [ref=f6e6542]:
+                  - strong [ref=f6e1023]: Anti-Tank Gun
+                - cell [ref=f6e6543]: Dust 1947
+                - cell [ref=f6e6544]: "18"
+                - cell [ref=f6e6545]:
+                  - generic [ref=f6e1027]: Nein
+                - cell [ref=f6e1029]:
+                  - button [ref=f6e6546] [cursor=pointer]
+                  - button [ref=f6e6547] [cursor=pointer]
+                  - button [ref=f6e6548] [cursor=pointer]
+                  - button [ref=f6e6549] [cursor=pointer]
+              - row [ref=f6e6550]:
+                - cell [ref=f6e6551]: "219"
+                - cell [ref=f6e6552]:
+                  - strong [ref=f6e1046]: Anti-Tank Gun (Turret) [variant 1]
+                - cell [ref=f6e6553]: Dust 1947
+                - cell [ref=f6e6554]: "14"
+                - cell [ref=f6e6555]:
+                  - generic [ref=f6e1050]: Nein
+                - cell [ref=f6e1052]:
+                  - button [ref=f6e6556] [cursor=pointer]
+                  - button [ref=f6e6557] [cursor=pointer]
+                  - button [ref=f6e6558] [cursor=pointer]
+                  - button [ref=f6e6559] [cursor=pointer]
+              - row [ref=f6e6560]:
+                - cell [ref=f6e6561]: "221"
+                - cell [ref=f6e6562]:
+                  - strong [ref=f6e1069]: Antitank Gun (Turret)
+                - cell [ref=f6e6563]: Dust 1947
+                - cell [ref=f6e6564]: "16"
+                - cell [ref=f6e6565]:
+                  - generic [ref=f6e1073]: Nein
+                - cell [ref=f6e1075]:
+                  - button [ref=f6e6566] [cursor=pointer]
+                  - button [ref=f6e6567] [cursor=pointer]
+                  - button [ref=f6e6568] [cursor=pointer]
+                  - button [ref=f6e6569] [cursor=pointer]
+              - row [ref=f6e6570]:
+                - cell [ref=f6e6571]: "222"
+                - cell [ref=f6e6572]:
+                  - strong [ref=f6e1092]: Assault Phaser Gun (Front)
+                - cell [ref=f6e6573]: Dust 1947
+                - cell [ref=f6e6574]: "8"
+                - cell [ref=f6e6575]:
+                  - generic [ref=f6e1096]: Nein
+                - cell [ref=f6e1098]:
+                  - button [ref=f6e6576] [cursor=pointer]
+                  - button [ref=f6e6577] [cursor=pointer]
+                  - button [ref=f6e6578] [cursor=pointer]
+                  - button [ref=f6e6579] [cursor=pointer]
+              - row [ref=f6e6580]:
+                - cell [ref=f6e6581]: "223"
+                - cell [ref=f6e6582]:
+                  - strong [ref=f6e1115]: Assault Rifle
+                - cell [ref=f6e6583]: Dust 1947
+                - cell [ref=f6e6584]: "4"
+                - cell [ref=f6e6585]:
+                  - generic [ref=f6e1119]: Nein
+                - cell [ref=f6e1121]:
+                  - button [ref=f6e6586] [cursor=pointer]
+                  - button [ref=f6e6587] [cursor=pointer]
+                  - button [ref=f6e6588] [cursor=pointer]
+                  - button [ref=f6e6589] [cursor=pointer]
+              - row [ref=f6e6590]:
+                - cell [ref=f6e6591]: "224"
+                - cell [ref=f6e6592]:
+                  - strong [ref=f6e1138]: Auto Grenade Launcher
+                - cell [ref=f6e6593]: Dust 1947
+                - cell [ref=f6e6594]: "3"
+                - cell [ref=f6e6595]:
+                  - generic [ref=f6e1142]: Nein
+                - cell [ref=f6e1144]:
+                  - button [ref=f6e6596] [cursor=pointer]
+                  - button [ref=f6e6597] [cursor=pointer]
+                  - button [ref=f6e6598] [cursor=pointer]
+                  - button [ref=f6e6599] [cursor=pointer]
+              - row [ref=f6e6600]:
+                - cell [ref=f6e6601]: "225"
+                - cell [ref=f6e6602]:
+                  - strong [ref=f6e1161]: Autogun
+                - cell [ref=f6e6603]: Dust 1947
+                - cell [ref=f6e6604]: "8"
+                - cell [ref=f6e6605]:
+                  - generic [ref=f6e1165]: Nein
+                - cell [ref=f6e1167]:
+                  - button [ref=f6e6606] [cursor=pointer]
+                  - button [ref=f6e6607] [cursor=pointer]
+                  - button [ref=f6e6608] [cursor=pointer]
+                  - button [ref=f6e6609] [cursor=pointer]
+              - row [ref=f6e6610]:
+                - cell [ref=f6e6611]: "226"
+                - cell [ref=f6e6612]:
+                  - strong [ref=f6e1184]: Automatic Bazooka
+                - cell [ref=f6e6613]: Dust 1947
+                - cell [ref=f6e6614]: "4"
+                - cell [ref=f6e6615]:
+                  - generic [ref=f6e1188]: Nein
+                - cell [ref=f6e1190]:
+                  - button [ref=f6e6616] [cursor=pointer]
+                  - button [ref=f6e6617] [cursor=pointer]
+                  - button [ref=f6e6618] [cursor=pointer]
+                  - button [ref=f6e6619] [cursor=pointer]
+              - row [ref=f6e6620]:
+                - cell [ref=f6e6621]: "227"
+                - cell [ref=f6e6622]:
+                  - strong [ref=f6e1207]: Automatic Rifle
+                - cell [ref=f6e6623]: Dust 1947
+                - cell [ref=f6e6624]: "4"
+                - cell [ref=f6e6625]:
+                  - generic [ref=f6e1211]: Nein
+                - cell [ref=f6e1213]:
+                  - button [ref=f6e6626] [cursor=pointer]
+                  - button [ref=f6e6627] [cursor=pointer]
+                  - button [ref=f6e6628] [cursor=pointer]
+                  - button [ref=f6e6629] [cursor=pointer]
+              - row [ref=f6e6630]:
+                - cell [ref=f6e6631]: "228"
+                - cell [ref=f6e6632]:
+                  - strong [ref=f6e1230]: Automatic Rifle
+                - cell [ref=f6e6633]: Dust 1947
+                - cell [ref=f6e6634]: "6"
+                - cell [ref=f6e6635]:
+                  - generic [ref=f6e1234]: Nein
+                - cell [ref=f6e1236]:
+                  - button [ref=f6e6636] [cursor=pointer]
+                  - button [ref=f6e6637] [cursor=pointer]
+                  - button [ref=f6e6638] [cursor=pointer]
+                  - button [ref=f6e6639] [cursor=pointer]
+              - row [ref=f6e6640]:
+                - cell [ref=f6e6641]: "229"
+                - cell [ref=f6e6642]:
+                  - strong [ref=f6e1253]: BAR Automatic Rifle
+                - cell [ref=f6e6643]: Dust 1947
+                - cell [ref=f6e6644]: "6"
+                - cell [ref=f6e6645]:
+                  - generic [ref=f6e1257]: Nein
+                - cell [ref=f6e1259]:
+                  - button [ref=f6e6646] [cursor=pointer]
+                  - button [ref=f6e6647] [cursor=pointer]
+                  - button [ref=f6e6648] [cursor=pointer]
+                  - button [ref=f6e6649] [cursor=pointer]
+              - row [ref=f6e6650]:
+                - cell [ref=f6e6651]: "230"
+                - cell [ref=f6e6652]:
+                  - strong [ref=f6e1276]: Bare Knuckles
+                - cell [ref=f6e6653]: Dust 1947
+                - cell [ref=f6e6654]: C
+                - cell [ref=f6e6655]:
+                  - generic [ref=f6e1280]: Nein
+                - cell [ref=f6e1282]:
+                  - button [ref=f6e6656] [cursor=pointer]
+                  - button [ref=f6e6657] [cursor=pointer]
+                  - button [ref=f6e6658] [cursor=pointer]
+                  - button [ref=f6e6659] [cursor=pointer]
+              - row [ref=f6e6660]:
+                - cell [ref=f6e6661]: "231"
+                - cell [ref=f6e6662]:
+                  - strong [ref=f6e1299]: Bazooka
+                - cell [ref=f6e6663]: Dust 1947
+                - cell [ref=f6e6664]: "4"
+                - cell [ref=f6e6665]:
+                  - generic [ref=f6e1303]: Nein
+                - cell [ref=f6e1305]:
+                  - button [ref=f6e6666] [cursor=pointer]
+                  - button [ref=f6e6667] [cursor=pointer]
+                  - button [ref=f6e6668] [cursor=pointer]
+                  - button [ref=f6e6669] [cursor=pointer]
+              - row [ref=f6e6670]:
+                - cell [ref=f6e6671]: "234"
+                - cell [ref=f6e6672]:
+                  - strong [ref=f6e1322]: Blutkreuz
+                - cell [ref=f6e6673]: Dust 1947
+                - cell [ref=f6e6674]: C
+                - cell [ref=f6e6675]:
+                  - generic [ref=f6e1326]: Nein
+                - cell [ref=f6e1328]:
+                  - button [ref=f6e6676] [cursor=pointer]
+                  - button [ref=f6e6677] [cursor=pointer]
+                  - button [ref=f6e6678] [cursor=pointer]
+                  - button [ref=f6e6679] [cursor=pointer]
+              - row [ref=f6e6680]:
+                - cell [ref=f6e6681]: "235"
+                - cell [ref=f6e6682]:
+                  - strong [ref=f6e1345]: Bomb (Front)
+                - cell [ref=f6e6683]: Dust 1947
+                - cell [ref=f6e6684]: "2"
+                - cell [ref=f6e6685]:
+                  - generic [ref=f6e1349]: Nein
+                - cell [ref=f6e1351]:
+                  - button [ref=f6e6686] [cursor=pointer]
+                  - button [ref=f6e6687] [cursor=pointer]
+                  - button [ref=f6e6688] [cursor=pointer]
+                  - button [ref=f6e6689] [cursor=pointer]
+              - row [ref=f6e6690]:
+                - cell [ref=f6e6691]: "236"
+                - cell [ref=f6e6692]:
+                  - strong [ref=f6e1368]: Chainsaw
+                - cell [ref=f6e6693]: Dust 1947
+                - cell [ref=f6e6694]: C
+                - cell [ref=f6e6695]:
+                  - generic [ref=f6e1372]: Nein
+                - cell [ref=f6e1374]:
+                  - button [ref=f6e6696] [cursor=pointer]
+                  - button [ref=f6e6697] [cursor=pointer]
+                  - button [ref=f6e6698] [cursor=pointer]
+                  - button [ref=f6e6699] [cursor=pointer]
+              - row [ref=f6e6700]:
+                - cell [ref=f6e6701]: "237"
+                - cell [ref=f6e6702]:
+                  - strong [ref=f6e1391]: Circular Saw
+                - cell [ref=f6e6703]: Dust 1947
+                - cell [ref=f6e6704]: C
+                - cell [ref=f6e6705]:
+                  - generic [ref=f6e1395]: Nein
+                - cell [ref=f6e1397]:
+                  - button [ref=f6e6706] [cursor=pointer]
+                  - button [ref=f6e6707] [cursor=pointer]
+                  - button [ref=f6e6708] [cursor=pointer]
+                  - button [ref=f6e6709] [cursor=pointer]
+              - row [ref=f6e6710]:
+                - cell [ref=f6e6711]: "238"
+                - cell [ref=f6e6712]:
+                  - strong [ref=f6e1414]: Claws
+                - cell [ref=f6e6713]: Dust 1947
+                - cell [ref=f6e6714]: C
+                - cell [ref=f6e6715]:
+                  - generic [ref=f6e1418]: Nein
+                - cell [ref=f6e1420]:
+                  - button [ref=f6e6716] [cursor=pointer]
+                  - button [ref=f6e6717] [cursor=pointer]
+                  - button [ref=f6e6718] [cursor=pointer]
+                  - button [ref=f6e6719] [cursor=pointer]
+              - row [ref=f6e6720]:
+                - cell [ref=f6e6721]: "241"
+                - cell [ref=f6e6722]:
+                  - strong [ref=f6e1437]: Claymore
+                - cell [ref=f6e6723]: Dust 1947
+                - cell [ref=f6e6724]: C
+                - cell [ref=f6e6725]:
+                  - generic [ref=f6e1441]: Nein
+                - cell [ref=f6e1443]:
+                  - button [ref=f6e6726] [cursor=pointer]
+                  - button [ref=f6e6727] [cursor=pointer]
+                  - button [ref=f6e6728] [cursor=pointer]
+                  - button [ref=f6e6729] [cursor=pointer]
+              - row [ref=f6e6730]:
+                - cell [ref=f6e6731]: "242"
+                - cell [ref=f6e6732]:
+                  - strong [ref=f6e1460]: Combat Claw (Front)
+                - cell [ref=f6e6733]: Dust 1947
+                - cell [ref=f6e6734]: C
+                - cell [ref=f6e6735]:
+                  - generic [ref=f6e1464]: Nein
+                - cell [ref=f6e1466]:
+                  - button [ref=f6e6736] [cursor=pointer]
+                  - button [ref=f6e6737] [cursor=pointer]
+                  - button [ref=f6e6738] [cursor=pointer]
+                  - button [ref=f6e6739] [cursor=pointer]
+              - row [ref=f6e6740]:
+                - cell [ref=f6e6741]: "243"
+                - cell [ref=f6e6742]:
+                  - strong [ref=f6e1483]: Crossbow
+                - cell [ref=f6e6743]: Dust 1947
+                - cell [ref=f6e6744]: "4"
+                - cell [ref=f6e6745]:
+                  - generic [ref=f6e1487]: Nein
+                - cell [ref=f6e1489]:
+                  - button [ref=f6e6746] [cursor=pointer]
+                  - button [ref=f6e6747] [cursor=pointer]
+                  - button [ref=f6e6748] [cursor=pointer]
+                  - button [ref=f6e6749] [cursor=pointer]
+              - row [ref=f6e6750]:
+                - cell [ref=f6e6751]: "244"
+                - cell [ref=f6e6752]:
+                  - strong [ref=f6e1506]: Deadly Punch
+                - cell [ref=f6e6753]: Dust 1947
+                - cell [ref=f6e6754]: C
+                - cell [ref=f6e6755]:
+                  - generic [ref=f6e1510]: Nein
+                - cell [ref=f6e1512]:
+                  - button [ref=f6e6756] [cursor=pointer]
+                  - button [ref=f6e6757] [cursor=pointer]
+                  - button [ref=f6e6758] [cursor=pointer]
+                  - button [ref=f6e6759] [cursor=pointer]
+              - row [ref=f6e6760]:
+                - cell [ref=f6e6761]: "245"
+                - cell [ref=f6e6762]:
+                  - strong [ref=f6e1529]: Demo Charge
+                - cell [ref=f6e6763]: Dust 1947
+                - cell [ref=f6e6764]: C
+                - cell [ref=f6e6765]:
+                  - generic [ref=f6e1533]: Nein
+                - cell [ref=f6e1535]:
+                  - button [ref=f6e6766] [cursor=pointer]
+                  - button [ref=f6e6767] [cursor=pointer]
+                  - button [ref=f6e6768] [cursor=pointer]
+                  - button [ref=f6e6769] [cursor=pointer]
+              - row [ref=f6e6770]:
+                - cell [ref=f6e6771]: "246"
+                - cell [ref=f6e6772]:
+                  - strong [ref=f6e1552]: Dog Bite
+                - cell [ref=f6e6773]: Dust 1947
+                - cell [ref=f6e6774]: C
+                - cell [ref=f6e6775]:
+                  - generic [ref=f6e1556]: Nein
+                - cell [ref=f6e1558]:
+                  - button [ref=f6e6776] [cursor=pointer]
+                  - button [ref=f6e6777] [cursor=pointer]
+                  - button [ref=f6e6778] [cursor=pointer]
+                  - button [ref=f6e6779] [cursor=pointer]
+              - row [ref=f6e6780]:
+                - cell [ref=f6e6781]: "247"
+                - cell [ref=f6e6782]:
+                  - strong [ref=f6e1575]: Dual Anti-Aircraft Guns
+                - cell [ref=f6e6783]: Dust 1947
+                - cell [ref=f6e6784]: "12"
+                - cell [ref=f6e6785]:
+                  - generic [ref=f6e1579]: Nein
+                - cell [ref=f6e1581]:
+                  - button [ref=f6e6786] [cursor=pointer]
+                  - button [ref=f6e6787] [cursor=pointer]
+                  - button [ref=f6e6788] [cursor=pointer]
+                  - button [ref=f6e6789] [cursor=pointer]
+              - row [ref=f6e6790]:
+                - cell [ref=f6e6791]: "248"
+                - cell [ref=f6e6792]:
+                  - strong [ref=f6e1598]: Dual Anti-Aircraft Guns (Turret)
+                - cell [ref=f6e6793]: Dust 1947
+                - cell [ref=f6e6794]: "12"
+                - cell [ref=f6e6795]:
+                  - generic [ref=f6e1602]: Nein
+                - cell [ref=f6e1604]:
+                  - button [ref=f6e6796] [cursor=pointer]
+                  - button [ref=f6e6797] [cursor=pointer]
+                  - button [ref=f6e6798] [cursor=pointer]
+                  - button [ref=f6e6799] [cursor=pointer]
+              - row [ref=f6e6800]:
+                - cell [ref=f6e6801]: "250"
+                - cell [ref=f6e6802]:
+                  - strong [ref=f6e1621]: Dual Anti-Tank Guns
+                - cell [ref=f6e6803]: Dust 1947
+                - cell [ref=f6e6804]: "14"
+                - cell [ref=f6e6805]:
+                  - generic [ref=f6e1625]: Nein
+                - cell [ref=f6e1627]:
+                  - button [ref=f6e6806] [cursor=pointer]
+                  - button [ref=f6e6807] [cursor=pointer]
+                  - button [ref=f6e6808] [cursor=pointer]
+                  - button [ref=f6e6809] [cursor=pointer]
+              - row [ref=f6e6810]:
+                - cell [ref=f6e6811]: "251"
+                - cell [ref=f6e6812]:
+                  - strong [ref=f6e1644]: Dual Anti-Tank Guns (Front)
+                - cell [ref=f6e6813]: Dust 1947
+                - cell [ref=f6e6814]: "16"
+                - cell [ref=f6e6815]:
+                  - generic [ref=f6e1648]: Nein
+                - cell [ref=f6e1650]:
+                  - button [ref=f6e6816] [cursor=pointer]
+                  - button [ref=f6e6817] [cursor=pointer]
+                  - button [ref=f6e6818] [cursor=pointer]
+                  - button [ref=f6e6819] [cursor=pointer]
+              - row [ref=f6e6820]:
+                - cell [ref=f6e6821]: "254"
+                - cell [ref=f6e6822]:
+                  - strong [ref=f6e1667]: Dual Autocannons (Turret)
+                - cell [ref=f6e6823]: Dust 1947
+                - cell [ref=f6e6824]: "3"
+                - cell [ref=f6e6825]:
+                  - generic [ref=f6e1671]: Nein
+                - cell [ref=f6e1673]:
+                  - button [ref=f6e6826] [cursor=pointer]
+                  - button [ref=f6e6827] [cursor=pointer]
+                  - button [ref=f6e6828] [cursor=pointer]
+                  - button [ref=f6e6829] [cursor=pointer]
+              - row [ref=f6e6830]:
+                - cell [ref=f6e6831]: "255"
+                - cell [ref=f6e6832]:
+                  - strong [ref=f6e1690]: Dual Blowtorches
+                - cell [ref=f6e6833]: Dust 1947
+                - cell [ref=f6e6834]: "1"
+                - cell [ref=f6e6835]:
+                  - generic [ref=f6e1694]: Nein
+                - cell [ref=f6e1696]:
+                  - button [ref=f6e6836] [cursor=pointer]
+                  - button [ref=f6e6837] [cursor=pointer]
+                  - button [ref=f6e6838] [cursor=pointer]
+                  - button [ref=f6e6839] [cursor=pointer]
+              - row [ref=f6e6840]:
+                - cell [ref=f6e6841]: "256"
+                - cell [ref=f6e6842]:
+                  - strong [ref=f6e1713]: Dual Chainsaws
+                - cell [ref=f6e6843]: Dust 1947
+                - cell [ref=f6e6844]: C
+                - cell [ref=f6e6845]:
+                  - generic [ref=f6e1717]: Nein
+                - cell [ref=f6e1719]:
+                  - button [ref=f6e6846] [cursor=pointer]
+                  - button [ref=f6e6847] [cursor=pointer]
+                  - button [ref=f6e6848] [cursor=pointer]
+                  - button [ref=f6e6849] [cursor=pointer]
+              - row [ref=f6e6850]:
+                - cell [ref=f6e6851]: "257"
+                - cell [ref=f6e6852]:
+                  - strong [ref=f6e1736]: Dual Claws
+                - cell [ref=f6e6853]: Dust 1947
+                - cell [ref=f6e6854]: C
+                - cell [ref=f6e6855]:
+                  - generic [ref=f6e1740]: Nein
+                - cell [ref=f6e1742]:
+                  - button [ref=f6e6856] [cursor=pointer]
+                  - button [ref=f6e6857] [cursor=pointer]
+                  - button [ref=f6e6858] [cursor=pointer]
+                  - button [ref=f6e6859] [cursor=pointer]
+              - row [ref=f6e6860]:
+                - cell [ref=f6e6861]: "258"
+                - cell [ref=f6e6862]:
+                  - strong [ref=f6e1759]: Dual Combat Claw (Front)
+                - cell [ref=f6e6863]: Dust 1947
+                - cell [ref=f6e6864]: C
+                - cell [ref=f6e6865]:
+                  - generic [ref=f6e1763]: Nein
+                - cell [ref=f6e1765]:
+                  - button [ref=f6e6866] [cursor=pointer]
+                  - button [ref=f6e6867] [cursor=pointer]
+                  - button [ref=f6e6868] [cursor=pointer]
+                  - button [ref=f6e6869] [cursor=pointer]
+              - row [ref=f6e6870]:
+                - cell [ref=f6e6871]: "259"
+                - cell [ref=f6e6872]:
+                  - strong [ref=f6e1782]: Dual Gatling Gun
+                - cell [ref=f6e6873]: Dust 1947
+                - cell [ref=f6e6874]: "10"
+                - cell [ref=f6e6875]:
+                  - generic [ref=f6e1786]: Nein
+                - cell [ref=f6e1788]:
+                  - button [ref=f6e6876] [cursor=pointer]
+                  - button [ref=f6e6877] [cursor=pointer]
+                  - button [ref=f6e6878] [cursor=pointer]
+                  - button [ref=f6e6879] [cursor=pointer]
+              - row [ref=f6e6880]:
+                - cell [ref=f6e6881]: "260"
+                - cell [ref=f6e6882]:
+                  - strong [ref=f6e1805]: Dual Gatling Gun (Front)
+                - cell [ref=f6e6883]: Dust 1947
+                - cell [ref=f6e6884]: "12"
+                - cell [ref=f6e6885]:
+                  - generic [ref=f6e1809]: Nein
+                - cell [ref=f6e1811]:
+                  - button [ref=f6e6886] [cursor=pointer]
+                  - button [ref=f6e6887] [cursor=pointer]
+                  - button [ref=f6e6888] [cursor=pointer]
+                  - button [ref=f6e6889] [cursor=pointer]
+              - row [ref=f6e6890]:
+                - cell [ref=f6e6891]: "262"
+                - cell [ref=f6e6892]:
+                  - strong [ref=f6e1828]: Dual Heavy Flamethrower
+                - cell [ref=f6e6893]: Dust 1947
+                - cell [ref=f6e6894]: "2"
+                - cell [ref=f6e6895]:
+                  - generic [ref=f6e1832]: Nein
+                - cell [ref=f6e1834]:
+                  - button [ref=f6e6896] [cursor=pointer]
+                  - button [ref=f6e6897] [cursor=pointer]
+                  - button [ref=f6e6898] [cursor=pointer]
+                  - button [ref=f6e6899] [cursor=pointer]
+              - row [ref=f6e6900]:
+                - cell [ref=f6e6901]: "264"
+                - cell [ref=f6e6902]:
+                  - strong [ref=f6e1851]: Dual Heavy Machinegun (Front)
+                - cell [ref=f6e6903]: Dust 1947
+                - cell [ref=f6e6904]: "8"
+                - cell [ref=f6e6905]:
+                  - generic [ref=f6e1855]: Nein
+                - cell [ref=f6e1857]:
+                  - button [ref=f6e6906] [cursor=pointer]
+                  - button [ref=f6e6907] [cursor=pointer]
+                  - button [ref=f6e6908] [cursor=pointer]
+                  - button [ref=f6e6909] [cursor=pointer]
+              - row [ref=f6e6910]:
+                - cell [ref=f6e6911]: "265"
+                - cell [ref=f6e6912]:
+                  - strong [ref=f6e1874]: Dual Heavy Machineguns (Turret)
+                - cell [ref=f6e6913]: Dust 1947
+                - cell [ref=f6e6914]: "8"
+                - cell [ref=f6e6915]:
+                  - generic [ref=f6e1878]: Nein
+                - cell [ref=f6e1880]:
+                  - button [ref=f6e6916] [cursor=pointer]
+                  - button [ref=f6e6917] [cursor=pointer]
+                  - button [ref=f6e6918] [cursor=pointer]
+                  - button [ref=f6e6919] [cursor=pointer]
+              - row [ref=f6e6920]:
+                - cell [ref=f6e6921]: "266"
+                - cell [ref=f6e6922]:
+                  - strong [ref=f6e1897]: Dual Heavy Rocket Punch
+                - cell [ref=f6e6923]: Dust 1947
+                - cell [ref=f6e6924]: C
+                - cell [ref=f6e6925]:
+                  - generic [ref=f6e1901]: Nein
+                - cell [ref=f6e1903]:
+                  - button [ref=f6e6926] [cursor=pointer]
+                  - button [ref=f6e6927] [cursor=pointer]
+                  - button [ref=f6e6928] [cursor=pointer]
+                  - button [ref=f6e6929] [cursor=pointer]
+              - row [ref=f6e6930]:
+                - cell [ref=f6e6931]: "267"
+                - cell [ref=f6e6932]:
+                  - strong [ref=f6e1920]: Dual Howitzers
+                - cell [ref=f6e6933]: Dust 1947
+                - cell [ref=f6e6934]: "6"
+                - cell [ref=f6e6935]:
+                  - generic [ref=f6e1924]: Nein
+                - cell [ref=f6e1926]:
+                  - button [ref=f6e6936] [cursor=pointer]
+                  - button [ref=f6e6937] [cursor=pointer]
+                  - button [ref=f6e6938] [cursor=pointer]
+                  - button [ref=f6e6939] [cursor=pointer]
+              - row [ref=f6e6940]:
+                - cell [ref=f6e6941]: "269"
+                - cell [ref=f6e6942]:
+                  - strong [ref=f6e1943]: Dual Knives
+                - cell [ref=f6e6943]: Dust 1947
+                - cell [ref=f6e6944]: C
+                - cell [ref=f6e6945]:
+                  - generic [ref=f6e1947]: Nein
+                - cell [ref=f6e1949]:
+                  - button [ref=f6e6946] [cursor=pointer]
+                  - button [ref=f6e6947] [cursor=pointer]
+                  - button [ref=f6e6948] [cursor=pointer]
+                  - button [ref=f6e6949] [cursor=pointer]
+              - row [ref=f6e6950]:
+                - cell [ref=f6e6951]: "270"
+                - cell [ref=f6e6952]:
+                  - strong [ref=f6e1966]: Dual Laser Gun
+                - cell [ref=f6e6953]: Dust 1947
+                - cell [ref=f6e6954]: "10"
+                - cell [ref=f6e6955]:
+                  - generic [ref=f6e1970]: Nein
+                - cell [ref=f6e1972]:
+                  - button [ref=f6e6956] [cursor=pointer]
+                  - button [ref=f6e6957] [cursor=pointer]
+                  - button [ref=f6e6958] [cursor=pointer]
+                  - button [ref=f6e6959] [cursor=pointer]
+              - row [ref=f6e6960]:
+                - cell [ref=f6e6961]: "274"
+                - cell [ref=f6e6962]:
+                  - strong [ref=f6e1989]: Dual Light Tesla Gun (Front)
+                - cell [ref=f6e6963]: Dust 1947
+                - cell [ref=f6e6964]: "8"
+                - cell [ref=f6e6965]:
+                  - generic [ref=f6e1993]: Nein
+                - cell [ref=f6e1995]:
+                  - button [ref=f6e6966] [cursor=pointer]
+                  - button [ref=f6e6967] [cursor=pointer]
+                  - button [ref=f6e6968] [cursor=pointer]
+                  - button [ref=f6e6969] [cursor=pointer]
+              - row [ref=f6e6970]:
+                - cell [ref=f6e6971]: "275"
+                - cell [ref=f6e6972]:
+                  - strong [ref=f6e2012]: Dual Machetes
+                - cell [ref=f6e6973]: Dust 1947
+                - cell [ref=f6e6974]: C
+                - cell [ref=f6e6975]:
+                  - generic [ref=f6e2016]: Nein
+                - cell [ref=f6e2018]:
+                  - button [ref=f6e6976] [cursor=pointer]
+                  - button [ref=f6e6977] [cursor=pointer]
+                  - button [ref=f6e6978] [cursor=pointer]
+                  - button [ref=f6e6979] [cursor=pointer]
+              - row [ref=f6e6980]:
+                - cell [ref=f6e6981]: "276"
+                - cell [ref=f6e6982]:
+                  - strong [ref=f6e2035]: Dual Machinegun
+                - cell [ref=f6e6983]: Dust 1947
+                - cell [ref=f6e6984]: "6"
+                - cell [ref=f6e6985]:
+                  - generic [ref=f6e2039]: Nein
+                - cell [ref=f6e2041]:
+                  - button [ref=f6e6986] [cursor=pointer]
+                  - button [ref=f6e6987] [cursor=pointer]
+                  - button [ref=f6e6988] [cursor=pointer]
+                  - button [ref=f6e6989] [cursor=pointer]
+              - row [ref=f6e6990]:
+                - cell [ref=f6e6991]: "280"
+                - cell [ref=f6e6992]:
+                  - strong [ref=f6e2058]: Dual Machineguns
+                - cell [ref=f6e6993]: Dust 1947
+                - cell [ref=f6e6994]: "6"
+                - cell [ref=f6e6995]:
+                  - generic [ref=f6e2062]: Nein
+                - cell [ref=f6e2064]:
+                  - button [ref=f6e6996] [cursor=pointer]
+                  - button [ref=f6e6997] [cursor=pointer]
+                  - button [ref=f6e6998] [cursor=pointer]
+                  - button [ref=f6e6999] [cursor=pointer]
+              - row [ref=f6e7000]:
+                - cell [ref=f6e7001]: "281"
+                - cell [ref=f6e7002]:
+                  - strong [ref=f6e2081]: Dual Machineguns (Turret)
+                - cell [ref=f6e7003]: Dust 1947
+                - cell [ref=f6e7004]: "6"
+                - cell [ref=f6e7005]:
+                  - generic [ref=f6e2085]: Nein
+                - cell [ref=f6e2087]:
+                  - button [ref=f6e7006] [cursor=pointer]
+                  - button [ref=f6e7007] [cursor=pointer]
+                  - button [ref=f6e7008] [cursor=pointer]
+                  - button [ref=f6e7009] [cursor=pointer]
+              - row [ref=f6e7010]:
+                - cell [ref=f6e7011]: "283"
+                - cell [ref=f6e7012]:
+                  - strong [ref=f6e2104]: Dual Machineguns [variant 2]
+                - cell [ref=f6e7013]: Dust 1947
+                - cell [ref=f6e7014]: "6"
+                - cell [ref=f6e7015]:
+                  - generic [ref=f6e2108]: Nein
+                - cell [ref=f6e2110]:
+                  - button [ref=f6e7016] [cursor=pointer]
+                  - button [ref=f6e7017] [cursor=pointer]
+                  - button [ref=f6e7018] [cursor=pointer]
+                  - button [ref=f6e7019] [cursor=pointer]
+              - row [ref=f6e7020]:
+                - cell [ref=f6e7021]: "284"
+                - cell [ref=f6e7022]:
+                  - strong [ref=f6e2127]: Dual Medium Guns (Front)
+                - cell [ref=f6e7023]: Dust 1947
+                - cell [ref=f6e7024]: "3"
+                - cell [ref=f6e7025]:
+                  - generic [ref=f6e2131]: Nein
+                - cell [ref=f6e2133]:
+                  - button [ref=f6e7026] [cursor=pointer]
+                  - button [ref=f6e7027] [cursor=pointer]
+                  - button [ref=f6e7028] [cursor=pointer]
+                  - button [ref=f6e7029] [cursor=pointer]
+              - row [ref=f6e7030]:
+                - cell [ref=f6e7031]: "285"
+                - cell [ref=f6e7032]:
+                  - strong [ref=f6e2150]: Dual Medium Phaser Guns (Front)
+                - cell [ref=f6e7033]: Dust 1947
+                - cell [ref=f6e7034]: "8"
+                - cell [ref=f6e7035]:
+                  - generic [ref=f6e2154]: Nein
+                - cell [ref=f6e2156]:
+                  - button [ref=f6e7036] [cursor=pointer]
+                  - button [ref=f6e7037] [cursor=pointer]
+                  - button [ref=f6e7038] [cursor=pointer]
+                  - button [ref=f6e7039] [cursor=pointer]
+              - row [ref=f6e7040]:
+                - cell [ref=f6e7041]: "286"
+                - cell [ref=f6e7042]:
+                  - strong [ref=f6e2173]: Dual Phaser Gun
+                - cell [ref=f6e7043]: Dust 1947
+                - cell [ref=f6e7044]: "12"
+                - cell [ref=f6e7045]:
+                  - generic [ref=f6e2177]: Nein
+                - cell [ref=f6e2179]:
+                  - button [ref=f6e7046] [cursor=pointer]
+                  - button [ref=f6e7047] [cursor=pointer]
+                  - button [ref=f6e7048] [cursor=pointer]
+                  - button [ref=f6e7049] [cursor=pointer]
+              - row [ref=f6e7050]:
+                - cell [ref=f6e7051]: "287"
+                - cell [ref=f6e7052]:
+                  - strong [ref=f6e2196]: Dual Quad Grenade Launchers
+                - cell [ref=f6e7053]: Dust 1947
+                - cell [ref=f6e7054]: "8"
+                - cell [ref=f6e7055]:
+                  - generic [ref=f6e2200]: Nein
+                - cell [ref=f6e2202]:
+                  - button [ref=f6e7056] [cursor=pointer]
+                  - button [ref=f6e7057] [cursor=pointer]
+                  - button [ref=f6e7058] [cursor=pointer]
+                  - button [ref=f6e7059] [cursor=pointer]
+              - row [ref=f6e7060]:
+                - cell [ref=f6e7061]: "288"
+                - cell [ref=f6e7062]:
+                  - strong [ref=f6e2219]: Dual Quad Heavy Machineguns (Front)
+                - cell [ref=f6e7063]: Dust 1947
+                - cell [ref=f6e7064]: "8"
+                - cell [ref=f6e7065]:
+                  - generic [ref=f6e2223]: Nein
+                - cell [ref=f6e2225]:
+                  - button [ref=f6e7066] [cursor=pointer]
+                  - button [ref=f6e7067] [cursor=pointer]
+                  - button [ref=f6e7068] [cursor=pointer]
+                  - button [ref=f6e7069] [cursor=pointer]
+              - row [ref=f6e7070]:
+                - cell [ref=f6e7071]: "289"
+                - cell [ref=f6e7072]:
+                  - strong [ref=f6e2242]: Dual Rocket Launcher
+                - cell [ref=f6e7073]: Dust 1947
+                - cell [ref=f6e7074]: "3"
+                - cell [ref=f6e7075]:
+                  - generic [ref=f6e2246]: Nein
+                - cell [ref=f6e2248]:
+                  - button [ref=f6e7076] [cursor=pointer]
+                  - button [ref=f6e7077] [cursor=pointer]
+                  - button [ref=f6e7078] [cursor=pointer]
+                  - button [ref=f6e7079] [cursor=pointer]
+              - row [ref=f6e7080]:
+                - cell [ref=f6e7081]: "292"
+                - cell [ref=f6e7082]:
+                  - strong [ref=f6e2265]: Dual Rocket Punch
+                - cell [ref=f6e7083]: Dust 1947
+                - cell [ref=f6e7084]: C
+                - cell [ref=f6e7085]:
+                  - generic [ref=f6e2269]: Nein
+                - cell [ref=f6e2271]:
+                  - button [ref=f6e7086] [cursor=pointer]
+                  - button [ref=f6e7087] [cursor=pointer]
+                  - button [ref=f6e7088] [cursor=pointer]
+                  - button [ref=f6e7089] [cursor=pointer]
+              - row [ref=f6e7090]:
+                - cell [ref=f6e7091]: "293"
+                - cell [ref=f6e7092]:
+                  - strong [ref=f6e2288]: Dual Steel Fists
+                - cell [ref=f6e7093]: Dust 1947
+                - cell [ref=f6e7094]: C
+                - cell [ref=f6e7095]:
+                  - generic [ref=f6e2292]: Nein
+                - cell [ref=f6e2294]:
+                  - button [ref=f6e7096] [cursor=pointer]
+                  - button [ref=f6e7097] [cursor=pointer]
+                  - button [ref=f6e7098] [cursor=pointer]
+                  - button [ref=f6e7099] [cursor=pointer]
+              - row [ref=f6e7100]:
+                - cell [ref=f6e7101]: "294"
+                - cell [ref=f6e7102]:
+                  - strong [ref=f6e2311]: Dual Triple Recoilless Guns (Turret)
+                - cell [ref=f6e7103]: Dust 1947
+                - cell [ref=f6e7104]: "12"
+                - cell [ref=f6e7105]:
+                  - generic [ref=f6e2315]: Nein
+                - cell [ref=f6e2317]:
+                  - button [ref=f6e7106] [cursor=pointer]
+                  - button [ref=f6e7107] [cursor=pointer]
+                  - button [ref=f6e7108] [cursor=pointer]
+                  - button [ref=f6e7109] [cursor=pointer]
+              - row [ref=f6e7110]:
+                - cell [ref=f6e7111]: "295"
+                - cell [ref=f6e7112]:
+                  - strong [ref=f6e2334]: Dual Triple RPG
+                - cell [ref=f6e7113]: Dust 1947
+                - cell [ref=f6e7114]: "4"
+                - cell [ref=f6e7115]:
+                  - generic [ref=f6e2338]: Nein
+                - cell [ref=f6e2340]:
+                  - button [ref=f6e7116] [cursor=pointer]
+                  - button [ref=f6e7117] [cursor=pointer]
+                  - button [ref=f6e7118] [cursor=pointer]
+                  - button [ref=f6e7119] [cursor=pointer]
+              - row [ref=f6e7120]:
+                - cell [ref=f6e7121]: "296"
+                - cell [ref=f6e7122]:
+                  - strong [ref=f6e2357]: Dynamite
+                - cell [ref=f6e7123]: Dust 1947
+                - cell [ref=f6e7124]: C
+                - cell [ref=f6e7125]:
+                  - generic [ref=f6e2361]: Nein
+                - cell [ref=f6e2363]:
+                  - button [ref=f6e7126] [cursor=pointer]
+                  - button [ref=f6e7127] [cursor=pointer]
+                  - button [ref=f6e7128] [cursor=pointer]
+                  - button [ref=f6e7129] [cursor=pointer]
+              - row [ref=f6e7130]:
+                - cell [ref=f6e7131]: "297"
+                - cell [ref=f6e7132]:
+                  - strong [ref=f6e2380]: Eldritch Fire (Turret)
+                - cell [ref=f6e7133]: Dust 1947
+                - cell [ref=f6e7134]: "3"
+                - cell [ref=f6e7135]:
+                  - generic [ref=f6e2384]: Nein
+                - cell [ref=f6e2386]:
+                  - button [ref=f6e7136] [cursor=pointer]
+                  - button [ref=f6e7137] [cursor=pointer]
+                  - button [ref=f6e7138] [cursor=pointer]
+                  - button [ref=f6e7139] [cursor=pointer]
+              - row [ref=f6e7140]:
+                - cell [ref=f6e7141]: "298"
+                - cell [ref=f6e7142]:
+                  - strong [ref=f6e2403]: Field Laser Gun (Turret)
+                - cell [ref=f6e7143]: Dust 1947
+                - cell [ref=f6e7144]: "14"
+                - cell [ref=f6e7145]:
+                  - generic [ref=f6e2407]: Nein
+                - cell [ref=f6e2409]:
+                  - button [ref=f6e7146] [cursor=pointer]
+                  - button [ref=f6e7147] [cursor=pointer]
+                  - button [ref=f6e7148] [cursor=pointer]
+                  - button [ref=f6e7149] [cursor=pointer]
+              - row [ref=f6e7150]:
+                - cell [ref=f6e7151]: "299"
+                - cell [ref=f6e7152]:
+                  - strong [ref=f6e2426]: Flamethrower
+                - cell [ref=f6e7153]: Dust 1947
+                - cell [ref=f6e7154]: "1"
+                - cell [ref=f6e7155]:
+                  - generic [ref=f6e2430]: Nein
+                - cell [ref=f6e2432]:
+                  - button [ref=f6e7156] [cursor=pointer]
+                  - button [ref=f6e7157] [cursor=pointer]
+                  - button [ref=f6e7158] [cursor=pointer]
+                  - button [ref=f6e7159] [cursor=pointer]
+              - row [ref=f6e7160]:
+                - cell [ref=f6e7161]: "300"
+                - cell [ref=f6e7162]:
+                  - strong [ref=f6e2449]: Flamethrower
+                - cell [ref=f6e7163]: Dust 1947
+                - cell [ref=f6e7164]: "2"
+                - cell [ref=f6e7165]:
+                  - generic [ref=f6e2453]: Nein
+                - cell [ref=f6e2455]:
+                  - button [ref=f6e7166] [cursor=pointer]
+                  - button [ref=f6e7167] [cursor=pointer]
+                  - button [ref=f6e7168] [cursor=pointer]
+                  - button [ref=f6e7169] [cursor=pointer]
+              - row [ref=f6e7170]:
+                - cell [ref=f6e7171]: "303"
+                - cell [ref=f6e7172]:
+                  - strong [ref=f6e2472]: Flammfaust
+                - cell [ref=f6e7173]: Dust 1947
+                - cell [ref=f6e7174]: "3"
+                - cell [ref=f6e7175]:
+                  - generic [ref=f6e2476]: Nein
+                - cell [ref=f6e2478]:
+                  - button [ref=f6e7176] [cursor=pointer]
+                  - button [ref=f6e7177] [cursor=pointer]
+                  - button [ref=f6e7178] [cursor=pointer]
+                  - button [ref=f6e7179] [cursor=pointer]
+              - row [ref=f6e7180]:
+                - cell [ref=f6e7181]: "304"
+                - cell [ref=f6e7182]:
+                  - strong [ref=f6e2495]: Fungi From Yuggoth
+                - cell [ref=f6e7183]: Dust 1947
+                - cell [ref=f6e7184]: "1"
+                - cell [ref=f6e7185]:
+                  - generic [ref=f6e2499]: Nein
+                - cell [ref=f6e2501]:
+                  - button [ref=f6e7186] [cursor=pointer]
+                  - button [ref=f6e7187] [cursor=pointer]
+                  - button [ref=f6e7188] [cursor=pointer]
+                  - button [ref=f6e7189] [cursor=pointer]
+              - row [ref=f6e7190]:
+                - cell [ref=f6e7191]: "305"
+                - cell [ref=f6e7192]:
+                  - strong [ref=f6e2518]: Gliding Bomb (Front)
+                - cell [ref=f6e7193]: Dust 1947
+                - cell [ref=f6e7194]: "6"
+                - cell [ref=f6e7195]:
+                  - generic [ref=f6e2522]: Nein
+                - cell [ref=f6e2524]:
+                  - button [ref=f6e7196] [cursor=pointer]
+                  - button [ref=f6e7197] [cursor=pointer]
+                  - button [ref=f6e7198] [cursor=pointer]
+                  - button [ref=f6e7199] [cursor=pointer]
+              - row [ref=f6e7200]:
+                - cell [ref=f6e7201]: "306"
+                - cell [ref=f6e7202]:
+                  - strong [ref=f6e2541]: Grenade Launcher
+                - cell [ref=f6e7203]: Dust 1947
+                - cell [ref=f6e7204]: "3"
+                - cell [ref=f6e7205]:
+                  - generic [ref=f6e2545]: Nein
+                - cell [ref=f6e2547]:
+                  - button [ref=f6e7206] [cursor=pointer]
+                  - button [ref=f6e7207] [cursor=pointer]
+                  - button [ref=f6e7208] [cursor=pointer]
+                  - button [ref=f6e7209] [cursor=pointer]
+              - row [ref=f6e7210]:
+                - cell [ref=f6e7211]: "307"
+                - cell [ref=f6e7212]:
+                  - strong [ref=f6e2564]: Grenade Pistol
+                - cell [ref=f6e7213]: Dust 1947
+                - cell [ref=f6e7214]: "2"
+                - cell [ref=f6e7215]:
+                  - generic [ref=f6e2568]: Nein
+                - cell [ref=f6e2570]:
+                  - button [ref=f6e7216] [cursor=pointer]
+                  - button [ref=f6e7217] [cursor=pointer]
+                  - button [ref=f6e7218] [cursor=pointer]
+                  - button [ref=f6e7219] [cursor=pointer]
+              - row [ref=f6e7220]:
+                - cell [ref=f6e7221]: "308"
+                - cell [ref=f6e7222]:
+                  - strong [ref=f6e2587]: Guandao
+                - cell [ref=f6e7223]: Dust 1947
+                - cell [ref=f6e7224]: C
+                - cell [ref=f6e7225]:
+                  - generic [ref=f6e2591]: Nein
+                - cell [ref=f6e2593]:
+                  - button [ref=f6e7226] [cursor=pointer]
+                  - button [ref=f6e7227] [cursor=pointer]
+                  - button [ref=f6e7228] [cursor=pointer]
+                  - button [ref=f6e7229] [cursor=pointer]
+              - row [ref=f6e7230]:
+                - cell [ref=f6e7231]: "309"
+                - cell [ref=f6e7232]:
+                  - strong [ref=f6e2610]: Heavy Assault Laser
+                - cell [ref=f6e7233]: Dust 1947
+                - cell [ref=f6e7234]: "6"
+                - cell [ref=f6e7235]:
+                  - generic [ref=f6e2614]: Nein
+                - cell [ref=f6e2616]:
+                  - button [ref=f6e7236] [cursor=pointer]
+                  - button [ref=f6e7237] [cursor=pointer]
+                  - button [ref=f6e7238] [cursor=pointer]
+                  - button [ref=f6e7239] [cursor=pointer]
+              - row [ref=f6e7240]:
+                - cell [ref=f6e7241]: "310"
+                - cell [ref=f6e7242]:
+                  - strong [ref=f6e2633]: Heavy Assault Rifle
+                - cell [ref=f6e7243]: Dust 1947
+                - cell [ref=f6e7244]: "6"
+                - cell [ref=f6e7245]:
+                  - generic [ref=f6e2637]: Nein
+                - cell [ref=f6e2639]:
+                  - button [ref=f6e7246] [cursor=pointer]
+                  - button [ref=f6e7247] [cursor=pointer]
+                  - button [ref=f6e7248] [cursor=pointer]
+                  - button [ref=f6e7249] [cursor=pointer]
+              - row [ref=f6e7250]:
+                - cell [ref=f6e7251]: "311"
+                - cell [ref=f6e7252]:
+                  - strong [ref=f6e2656]: Heavy Bomb (Front)
+                - cell [ref=f6e7253]: Dust 1947
+                - cell [ref=f6e7254]: "2"
+                - cell [ref=f6e7255]:
+                  - generic [ref=f6e2660]: Nein
+                - cell [ref=f6e2662]:
+                  - button [ref=f6e7256] [cursor=pointer]
+                  - button [ref=f6e7257] [cursor=pointer]
+                  - button [ref=f6e7258] [cursor=pointer]
+                  - button [ref=f6e7259] [cursor=pointer]
+              - row [ref=f6e7260]:
+                - cell [ref=f6e7261]: "312"
+                - cell [ref=f6e7262]:
+                  - strong [ref=f6e2679]: Heavy Flamethrower
+                - cell [ref=f6e7263]: Dust 1947
+                - cell [ref=f6e7264]: "2"
+                - cell [ref=f6e7265]:
+                  - generic [ref=f6e2683]: Nein
+                - cell [ref=f6e2685]:
+                  - button [ref=f6e7266] [cursor=pointer]
+                  - button [ref=f6e7267] [cursor=pointer]
+                  - button [ref=f6e7268] [cursor=pointer]
+                  - button [ref=f6e7269] [cursor=pointer]
+              - row [ref=f6e7270]:
+                - cell [ref=f6e7271]: "313"
+                - cell [ref=f6e7272]:
+                  - strong [ref=f6e2702]: Heavy Gun
+                - cell [ref=f6e7273]: Dust 1947
+                - cell [ref=f6e7274]: "18"
+                - cell [ref=f6e7275]:
+                  - generic [ref=f6e2706]: Nein
+                - cell [ref=f6e2708]:
+                  - button [ref=f6e7276] [cursor=pointer]
+                  - button [ref=f6e7277] [cursor=pointer]
+                  - button [ref=f6e7278] [cursor=pointer]
+                  - button [ref=f6e7279] [cursor=pointer]
+              - row [ref=f6e7280]:
+                - cell [ref=f6e7281]: "314"
+                - cell [ref=f6e7282]:
+                  - strong [ref=f6e2725]: Heavy Howitzer (Turret)
+                - cell [ref=f6e7283]: Dust 1947
+                - cell [ref=f6e7284]: 4-16
+                - cell [ref=f6e7285]:
+                  - generic [ref=f6e2729]: Nein
+                - cell [ref=f6e2731]:
+                  - button [ref=f6e7286] [cursor=pointer]
+                  - button [ref=f6e7287] [cursor=pointer]
+                  - button [ref=f6e7288] [cursor=pointer]
+                  - button [ref=f6e7289] [cursor=pointer]
+              - row [ref=f6e7290]:
+                - cell [ref=f6e7291]: "315"
+                - cell [ref=f6e7292]:
+                  - strong [ref=f6e2748]: Heavy Machinegun
+                - cell [ref=f6e7293]: Dust 1947
+                - cell [ref=f6e7294]: "10"
+                - cell [ref=f6e7295]:
+                  - generic [ref=f6e2752]: Nein
+                - cell [ref=f6e2754]:
+                  - button [ref=f6e7296] [cursor=pointer]
+                  - button [ref=f6e7297] [cursor=pointer]
+                  - button [ref=f6e7298] [cursor=pointer]
+                  - button [ref=f6e7299] [cursor=pointer]
+              - row [ref=f6e7300]:
+                - cell [ref=f6e7301]: "316"
+                - cell [ref=f6e7302]:
+                  - strong [ref=f6e2771]: Heavy Machinegun
+                - cell [ref=f6e7303]: Dust 1947
+                - cell [ref=f6e7304]: "8"
+                - cell [ref=f6e7305]:
+                  - generic [ref=f6e2775]: Nein
+                - cell [ref=f6e2777]:
+                  - button [ref=f6e7306] [cursor=pointer]
+                  - button [ref=f6e7307] [cursor=pointer]
+                  - button [ref=f6e7308] [cursor=pointer]
+                  - button [ref=f6e7309] [cursor=pointer]
+              - row [ref=f6e7310]:
+                - cell [ref=f6e7311]: "329"
+                - cell [ref=f6e7312]:
+                  - strong [ref=f6e2794]: Heavy Mortar
+                - cell [ref=f6e7313]: Dust 1947
+                - cell [ref=f6e7314]: 4-12
+                - cell [ref=f6e7315]:
+                  - generic [ref=f6e2798]: Nein
+                - cell [ref=f6e2800]:
+                  - button [ref=f6e7316] [cursor=pointer]
+                  - button [ref=f6e7317] [cursor=pointer]
+                  - button [ref=f6e7318] [cursor=pointer]
+                  - button [ref=f6e7319] [cursor=pointer]
+              - row [ref=f6e7320]:
+                - cell [ref=f6e7321]: "331"
+                - cell [ref=f6e7322]:
+                  - strong [ref=f6e2817]: Heavy Mortar (Turret)
+                - cell [ref=f6e7323]: Dust 1947
+                - cell [ref=f6e7324]: 4-12
+                - cell [ref=f6e7325]:
+                  - generic [ref=f6e2821]: Nein
+                - cell [ref=f6e2823]:
+                  - button [ref=f6e7326] [cursor=pointer]
+                  - button [ref=f6e7327] [cursor=pointer]
+                  - button [ref=f6e7328] [cursor=pointer]
+                  - button [ref=f6e7329] [cursor=pointer]
+              - row [ref=f6e7330]:
+                - cell [ref=f6e7331]: "333"
+                - cell [ref=f6e7332]:
+                  - strong [ref=f6e2840]: Heavy Napalm Thrower (Front)
+                - cell [ref=f6e7333]: Dust 1947
+                - cell [ref=f6e7334]: "3"
+                - cell [ref=f6e7335]:
+                  - generic [ref=f6e2844]: Nein
+                - cell [ref=f6e2846]:
+                  - button [ref=f6e7336] [cursor=pointer]
+                  - button [ref=f6e7337] [cursor=pointer]
+                  - button [ref=f6e7338] [cursor=pointer]
+                  - button [ref=f6e7339] [cursor=pointer]
+              - row [ref=f6e7340]:
+                - cell [ref=f6e7341]: "334"
+                - cell [ref=f6e7342]:
+                  - strong [ref=f6e2863]: Heavy Panzer Gloves
+                - cell [ref=f6e7343]: Dust 1947
+                - cell [ref=f6e7344]: C
+                - cell [ref=f6e7345]:
+                  - generic [ref=f6e2867]: Nein
+                - cell [ref=f6e2869]:
+                  - button [ref=f6e7346] [cursor=pointer]
+                  - button [ref=f6e7347] [cursor=pointer]
+                  - button [ref=f6e7348] [cursor=pointer]
+                  - button [ref=f6e7349] [cursor=pointer]
+              - row [ref=f6e7350]:
+                - cell [ref=f6e7351]: "335"
+                - cell [ref=f6e7352]:
+                  - strong [ref=f6e2886]: Heavy Phaser (Turret)
+                - cell [ref=f6e7353]: Dust 1947
+                - cell [ref=f6e7354]: "10"
+                - cell [ref=f6e7355]:
+                  - generic [ref=f6e2890]: Nein
+                - cell [ref=f6e2892]:
+                  - button [ref=f6e7356] [cursor=pointer]
+                  - button [ref=f6e7357] [cursor=pointer]
+                  - button [ref=f6e7358] [cursor=pointer]
+                  - button [ref=f6e7359] [cursor=pointer]
+              - row [ref=f6e7360]:
+                - cell [ref=f6e7361]: "336"
+                - cell [ref=f6e7362]:
+                  - strong [ref=f6e2909]: Heavy Piat (Front)
+                - cell [ref=f6e7363]: Dust 1947
+                - cell [ref=f6e7364]: "4"
+                - cell [ref=f6e7365]:
+                  - generic [ref=f6e2913]: Nein
+                - cell [ref=f6e2915]:
+                  - button [ref=f6e7366] [cursor=pointer]
+                  - button [ref=f6e7367] [cursor=pointer]
+                  - button [ref=f6e7368] [cursor=pointer]
+                  - button [ref=f6e7369] [cursor=pointer]
+              - row [ref=f6e7370]:
+                - cell [ref=f6e7371]: "337"
+                - cell [ref=f6e7372]:
+                  - strong [ref=f6e2932]: Heavy Rocket Punch
+                - cell [ref=f6e7373]: Dust 1947
+                - cell [ref=f6e7374]: C
+                - cell [ref=f6e7375]:
+                  - generic [ref=f6e2936]: Nein
+                - cell [ref=f6e2938]:
+                  - button [ref=f6e7376] [cursor=pointer]
+                  - button [ref=f6e7377] [cursor=pointer]
+                  - button [ref=f6e7378] [cursor=pointer]
+                  - button [ref=f6e7379] [cursor=pointer]
+              - row [ref=f6e7380]:
+                - cell [ref=f6e7381]: "338"
+                - cell [ref=f6e7382]:
+                  - strong [ref=f6e2955]: Heavy Shotgun
+                - cell [ref=f6e7383]: Dust 1947
+                - cell [ref=f6e7384]: "4"
+                - cell [ref=f6e7385]:
+                  - generic [ref=f6e2959]: Nein
+                - cell [ref=f6e2961]:
+                  - button [ref=f6e7386] [cursor=pointer]
+                  - button [ref=f6e7387] [cursor=pointer]
+                  - button [ref=f6e7388] [cursor=pointer]
+                  - button [ref=f6e7389] [cursor=pointer]
+              - row [ref=f6e7390]:
+                - cell [ref=f6e7391]: "339"
+                - cell [ref=f6e7392]:
+                  - strong [ref=f6e2978]: Heavy Sniper Rifle
+                - cell [ref=f6e7393]: Dust 1947
+                - cell [ref=f6e7394]: "10"
+                - cell [ref=f6e7395]:
+                  - generic [ref=f6e2982]: Nein
+                - cell [ref=f6e2984]:
+                  - button [ref=f6e7396] [cursor=pointer]
+                  - button [ref=f6e7397] [cursor=pointer]
+                  - button [ref=f6e7398] [cursor=pointer]
+                  - button [ref=f6e7399] [cursor=pointer]
+              - row [ref=f6e7400]:
+                - cell [ref=f6e7401]: "340"
+                - cell [ref=f6e7402]:
+                  - strong [ref=f6e3001]: Heavy Tesla Gun
+                - cell [ref=f6e7403]: Dust 1947
+                - cell [ref=f6e7404]: "10"
+                - cell [ref=f6e7405]:
+                  - generic [ref=f6e3005]: Nein
+                - cell [ref=f6e3007]:
+                  - button [ref=f6e7406] [cursor=pointer]
+                  - button [ref=f6e7407] [cursor=pointer]
+                  - button [ref=f6e7408] [cursor=pointer]
+                  - button [ref=f6e7409] [cursor=pointer]
+              - row [ref=f6e7410]:
+                - cell [ref=f6e7411]: "342"
+                - cell [ref=f6e7412]:
+                  - strong [ref=f6e3024]: Howitzer
+                - cell [ref=f6e7413]: Dust 1947
+                - cell [ref=f6e7414]: "6"
+                - cell [ref=f6e7415]:
+                  - generic [ref=f6e3028]: Nein
+                - cell [ref=f6e3030]:
+                  - button [ref=f6e7416] [cursor=pointer]
+                  - button [ref=f6e7417] [cursor=pointer]
+                  - button [ref=f6e7418] [cursor=pointer]
+                  - button [ref=f6e7419] [cursor=pointer]
+              - row [ref=f6e7420]:
+                - cell [ref=f6e7421]: "343"
+                - cell [ref=f6e7422]:
+                  - strong [ref=f6e3047]: Howitzer (Front)
+                - cell [ref=f6e7423]: Dust 1947
+                - cell [ref=f6e7424]: "8"
+                - cell [ref=f6e7425]:
+                  - generic [ref=f6e3051]: Nein
+                - cell [ref=f6e3053]:
+                  - button [ref=f6e7426] [cursor=pointer]
+                  - button [ref=f6e7427] [cursor=pointer]
+                  - button [ref=f6e7428] [cursor=pointer]
+                  - button [ref=f6e7429] [cursor=pointer]
+              - row [ref=f6e7430]:
+                - cell [ref=f6e7431]: "344"
+                - cell [ref=f6e7432]:
+                  - strong [ref=f6e3070]: Hyena Bite
+                - cell [ref=f6e7433]: Dust 1947
+                - cell [ref=f6e7434]: C
+                - cell [ref=f6e7435]:
+                  - generic [ref=f6e3074]: Nein
+                - cell [ref=f6e3076]:
+                  - button [ref=f6e7436] [cursor=pointer]
+                  - button [ref=f6e7437] [cursor=pointer]
+                  - button [ref=f6e7438] [cursor=pointer]
+                  - button [ref=f6e7439] [cursor=pointer]
+              - row [ref=f6e7440]:
+                - cell [ref=f6e7441]: "345"
+                - cell [ref=f6e7442]:
+                  - strong [ref=f6e3093]: Izzy's Bite
+                - cell [ref=f6e7443]: Dust 1947
+                - cell [ref=f6e7444]: C
+                - cell [ref=f6e7445]:
+                  - generic [ref=f6e3097]: Nein
+                - cell [ref=f6e3099]:
+                  - button [ref=f6e7446] [cursor=pointer]
+                  - button [ref=f6e7447] [cursor=pointer]
+                  - button [ref=f6e7448] [cursor=pointer]
+                  - button [ref=f6e7449] [cursor=pointer]
+              - row [ref=f6e7450]:
+                - cell [ref=f6e7451]: "346"
+                - cell [ref=f6e7452]:
+                  - strong [ref=f6e3116]: Jackhammer
+                - cell [ref=f6e7453]: Dust 1947
+                - cell [ref=f6e7454]: C
+                - cell [ref=f6e7455]:
+                  - generic [ref=f6e3120]: Nein
+                - cell [ref=f6e3122]:
+                  - button [ref=f6e7456] [cursor=pointer]
+                  - button [ref=f6e7457] [cursor=pointer]
+                  - button [ref=f6e7458] [cursor=pointer]
+                  - button [ref=f6e7459] [cursor=pointer]
+              - row [ref=f6e7460]:
+                - cell [ref=f6e7461]: "347"
+                - cell [ref=f6e7462]:
+                  - strong [ref=f6e3139]: Kitchen Knives
+                - cell [ref=f6e7463]: Dust 1947
+                - cell [ref=f6e7464]: C
+                - cell [ref=f6e7465]:
+                  - generic [ref=f6e3143]: Nein
+                - cell [ref=f6e3145]:
+                  - button [ref=f6e7466] [cursor=pointer]
+                  - button [ref=f6e7467] [cursor=pointer]
+                  - button [ref=f6e7468] [cursor=pointer]
+                  - button [ref=f6e7469] [cursor=pointer]
+              - row [ref=f6e7470]:
+                - cell [ref=f6e7471]: "348"
+                - cell [ref=f6e7472]:
+                  - strong [ref=f6e3162]: Laser Gun
+                - cell [ref=f6e7473]: Dust 1947
+                - cell [ref=f6e7474]: "10"
+                - cell [ref=f6e7475]:
+                  - generic [ref=f6e3166]: Nein
+                - cell [ref=f6e3168]:
+                  - button [ref=f6e7476] [cursor=pointer]
+                  - button [ref=f6e7477] [cursor=pointer]
+                  - button [ref=f6e7478] [cursor=pointer]
+                  - button [ref=f6e7479] [cursor=pointer]
+              - row [ref=f6e7480]:
+                - cell [ref=f6e7481]: "351"
+                - cell [ref=f6e7482]:
+                  - strong [ref=f6e3185]: Laser Pistol
+                - cell [ref=f6e7483]: Dust 1947
+                - cell [ref=f6e7484]: "3"
+                - cell [ref=f6e7485]:
+                  - generic [ref=f6e3189]: Nein
+                - cell [ref=f6e3191]:
+                  - button [ref=f6e7486] [cursor=pointer]
+                  - button [ref=f6e7487] [cursor=pointer]
+                  - button [ref=f6e7488] [cursor=pointer]
+                  - button [ref=f6e7489] [cursor=pointer]
+              - row [ref=f6e7490]:
+                - cell [ref=f6e7491]: "352"
+                - cell [ref=f6e7492]:
+                  - strong [ref=f6e3208]: Laser Rifle
+                - cell [ref=f6e7493]: Dust 1947
+                - cell [ref=f6e7494]: "4"
+                - cell [ref=f6e7495]:
+                  - generic [ref=f6e3212]: Nein
+                - cell [ref=f6e3214]:
+                  - button [ref=f6e7496] [cursor=pointer]
+                  - button [ref=f6e7497] [cursor=pointer]
+                  - button [ref=f6e7498] [cursor=pointer]
+                  - button [ref=f6e7499] [cursor=pointer]
+              - row [ref=f6e7500]:
+                - cell [ref=f6e7501]: "353"
+                - cell [ref=f6e7502]:
+                  - strong [ref=f6e3231]: Laser-Antitank Gun
+                - cell [ref=f6e7503]: Dust 1947
+                - cell [ref=f6e7504]: "10"
+                - cell [ref=f6e7505]:
+                  - generic [ref=f6e3235]: Nein
+                - cell [ref=f6e3237]:
+                  - button [ref=f6e7506] [cursor=pointer]
+                  - button [ref=f6e7507] [cursor=pointer]
+                  - button [ref=f6e7508] [cursor=pointer]
+                  - button [ref=f6e7509] [cursor=pointer]
+              - row [ref=f6e7510]:
+                - cell [ref=f6e7511]: "354"
+                - cell [ref=f6e7512]:
+                  - strong [ref=f6e3254]: Light Bomb (Front)
+                - cell [ref=f6e7513]: Dust 1947
+                - cell [ref=f6e7514]: "2"
+                - cell [ref=f6e7515]:
+                  - generic [ref=f6e3258]: Nein
+                - cell [ref=f6e3260]:
+                  - button [ref=f6e7516] [cursor=pointer]
+                  - button [ref=f6e7517] [cursor=pointer]
+                  - button [ref=f6e7518] [cursor=pointer]
+                  - button [ref=f6e7519] [cursor=pointer]
+              - row [ref=f6e7520]:
+                - cell [ref=f6e7521]: "355"
+                - cell [ref=f6e7522]:
+                  - strong [ref=f6e3277]: Light Gun (Front)
+                - cell [ref=f6e7523]: Dust 1947
+                - cell [ref=f6e7524]: "12"
+                - cell [ref=f6e7525]:
+                  - generic [ref=f6e3281]: Nein
+                - cell [ref=f6e3283]:
+                  - button [ref=f6e7526] [cursor=pointer]
+                  - button [ref=f6e7527] [cursor=pointer]
+                  - button [ref=f6e7528] [cursor=pointer]
+                  - button [ref=f6e7529] [cursor=pointer]
+              - row [ref=f6e7530]:
+                - cell [ref=f6e7531]: "356"
+                - cell [ref=f6e7532]:
+                  - strong [ref=f6e3300]: Light Laser Gun (Turret)
+                - cell [ref=f6e7533]: Dust 1947
+                - cell [ref=f6e7534]: "8"
+                - cell [ref=f6e7535]:
+                  - generic [ref=f6e3304]: Nein
+                - cell [ref=f6e3306]:
+                  - button [ref=f6e7536] [cursor=pointer]
+                  - button [ref=f6e7537] [cursor=pointer]
+                  - button [ref=f6e7538] [cursor=pointer]
+                  - button [ref=f6e7539] [cursor=pointer]
+              - row [ref=f6e7540]:
+                - cell [ref=f6e7541]: "357"
+                - cell [ref=f6e7542]:
+                  - strong [ref=f6e3323]: Light Submachine Gun
+                - cell [ref=f6e7543]: Dust 1947
+                - cell [ref=f6e7544]: "2"
+                - cell [ref=f6e7545]:
+                  - generic [ref=f6e3327]: Nein
+                - cell [ref=f6e3329]:
+                  - button [ref=f6e7546] [cursor=pointer]
+                  - button [ref=f6e7547] [cursor=pointer]
+                  - button [ref=f6e7548] [cursor=pointer]
+                  - button [ref=f6e7549] [cursor=pointer]
+              - row [ref=f6e7550]:
+                - cell [ref=f6e7551]: "358"
+                - cell [ref=f6e7552]:
+                  - strong [ref=f6e3346]: Light Tesla Gun
+                - cell [ref=f6e7553]: Dust 1947
+                - cell [ref=f6e7554]: "8"
+                - cell [ref=f6e7555]:
+                  - generic [ref=f6e3350]: Nein
+                - cell [ref=f6e3352]:
+                  - button [ref=f6e7556] [cursor=pointer]
+                  - button [ref=f6e7557] [cursor=pointer]
+                  - button [ref=f6e7558] [cursor=pointer]
+                  - button [ref=f6e7559] [cursor=pointer]
+              - row [ref=f6e7560]:
+                - cell [ref=f6e7561]: "359"
+                - cell [ref=f6e7562]:
+                  - strong [ref=f6e3369]: M1 Howitzer (Turret)
+                - cell [ref=f6e7563]: Dust 1947
+                - cell [ref=f6e7564]: "8"
+                - cell [ref=f6e7565]:
+                  - generic [ref=f6e3373]: Nein
+                - cell [ref=f6e3375]:
+                  - button [ref=f6e7566] [cursor=pointer]
+                  - button [ref=f6e7567] [cursor=pointer]
+                  - button [ref=f6e7568] [cursor=pointer]
+                  - button [ref=f6e7569] [cursor=pointer]
+              - row [ref=f6e7570]:
+                - cell [ref=f6e7571]: "360"
+                - cell [ref=f6e7572]:
+                  - strong [ref=f6e3392]: M2 Long Tom Gun (Turret)
+                - cell [ref=f6e7573]: Dust 1947
+                - cell [ref=f6e7574]: 4-18
+                - cell [ref=f6e7575]:
+                  - generic [ref=f6e3396]: Nein
+                - cell [ref=f6e3398]:
+                  - button [ref=f6e7576] [cursor=pointer]
+                  - button [ref=f6e7577] [cursor=pointer]
+                  - button [ref=f6e7578] [cursor=pointer]
+                  - button [ref=f6e7579] [cursor=pointer]
+              - row [ref=f6e7580]:
+                - cell [ref=f6e7581]: "361"
+                - cell [ref=f6e7582]:
+                  - strong [ref=f6e3415]: Machette & Dagger
+                - cell [ref=f6e7583]: Dust 1947
+                - cell [ref=f6e7584]: C
+                - cell [ref=f6e7585]:
+                  - generic [ref=f6e3419]: Nein
+                - cell [ref=f6e3421]:
+                  - button [ref=f6e7586] [cursor=pointer]
+                  - button [ref=f6e7587] [cursor=pointer]
+                  - button [ref=f6e7588] [cursor=pointer]
+                  - button [ref=f6e7589] [cursor=pointer]
+              - row [ref=f6e7590]:
+                - cell [ref=f6e7591]: "362"
+                - cell [ref=f6e7592]:
+                  - strong [ref=f6e3438]: Machinegun
+                - cell [ref=f6e7593]: Dust 1947
+                - cell [ref=f6e7594]: "6"
+                - cell [ref=f6e7595]:
+                  - generic [ref=f6e3442]: Nein
+                - cell [ref=f6e3444]:
+                  - button [ref=f6e7596] [cursor=pointer]
+                  - button [ref=f6e7597] [cursor=pointer]
+                  - button [ref=f6e7598] [cursor=pointer]
+                  - button [ref=f6e7599] [cursor=pointer]
+              - row [ref=f6e7600]:
+                - cell [ref=f6e7601]: "363"
+                - cell [ref=f6e7602]:
+                  - strong [ref=f6e3461]: Machinegun
+                - cell [ref=f6e7603]: Dust 1947
+                - cell [ref=f6e7604]: "6"
+                - cell [ref=f6e7605]:
+                  - generic [ref=f6e3465]: Nein
+                - cell [ref=f6e3467]:
+                  - button [ref=f6e7606] [cursor=pointer]
+                  - button [ref=f6e7607] [cursor=pointer]
+                  - button [ref=f6e7608] [cursor=pointer]
+                  - button [ref=f6e7609] [cursor=pointer]
+              - row [ref=f6e7610]:
+                - cell [ref=f6e7611]: "379"
+                - cell [ref=f6e7612]:
+                  - strong [ref=f6e3484]: Mechanics' Tools
+                - cell [ref=f6e7613]: Dust 1947
+                - cell [ref=f6e7614]: C
+                - cell [ref=f6e7615]:
+                  - generic [ref=f6e3488]: Nein
+                - cell [ref=f6e3490]:
+                  - button [ref=f6e7616] [cursor=pointer]
+                  - button [ref=f6e7617] [cursor=pointer]
+                  - button [ref=f6e7618] [cursor=pointer]
+                  - button [ref=f6e7619] [cursor=pointer]
+              - row [ref=f6e7620]:
+                - cell [ref=f6e7621]: "380"
+                - cell [ref=f6e7622]:
+                  - strong [ref=f6e3507]: Medium Rockets (Front)
+                - cell [ref=f6e7623]: Dust 1947
+                - cell [ref=f6e7624]: "3"
+                - cell [ref=f6e7625]:
+                  - generic [ref=f6e3511]: Nein
+                - cell [ref=f6e3513]:
+                  - button [ref=f6e7626] [cursor=pointer]
+                  - button [ref=f6e7627] [cursor=pointer]
+                  - button [ref=f6e7628] [cursor=pointer]
+                  - button [ref=f6e7629] [cursor=pointer]
+              - row [ref=f6e7630]:
+                - cell [ref=f6e7631]: "381"
+                - cell [ref=f6e7632]:
+                  - strong [ref=f6e3530]: Mine
+                - cell [ref=f6e7633]: Dust 1947
+                - cell [ref=f6e7634]: C
+                - cell [ref=f6e7635]:
+                  - generic [ref=f6e3534]: Nein
+                - cell [ref=f6e3536]:
+                  - button [ref=f6e7636] [cursor=pointer]
+                  - button [ref=f6e7637] [cursor=pointer]
+                  - button [ref=f6e7638] [cursor=pointer]
+                  - button [ref=f6e7639] [cursor=pointer]
+              - row [ref=f6e7640]:
+                - cell [ref=f6e7641]: "382"
+                - cell [ref=f6e7642]:
+                  - strong [ref=f6e3553]: Modified Assault Rifle
+                - cell [ref=f6e7643]: Dust 1947
+                - cell [ref=f6e7644]: "6"
+                - cell [ref=f6e7645]:
+                  - generic [ref=f6e3557]: Nein
+                - cell [ref=f6e3559]:
+                  - button [ref=f6e7646] [cursor=pointer]
+                  - button [ref=f6e7647] [cursor=pointer]
+                  - button [ref=f6e7648] [cursor=pointer]
+                  - button [ref=f6e7649] [cursor=pointer]
+              - row [ref=f6e7650]:
+                - cell [ref=f6e7651]: "383"
+                - cell [ref=f6e7652]:
+                  - strong [ref=f6e3576]: Molotov Cocktail
+                - cell [ref=f6e7653]: Dust 1947
+                - cell [ref=f6e7654]: C
+                - cell [ref=f6e7655]:
+                  - generic [ref=f6e3580]: Ja
+                - cell [ref=f6e3582]:
+                  - button [ref=f6e7656] [cursor=pointer]
+                  - button [ref=f6e7657] [cursor=pointer]
+                  - button [ref=f6e7658] [cursor=pointer]
+                  - button [ref=f6e7659] [cursor=pointer]
+              - row [ref=f6e7660]:
+                - cell [ref=f6e7661]: "384"
+                - cell [ref=f6e7662]:
+                  - strong [ref=f6e3599]: Mortar
+                - cell [ref=f6e7663]: Dust 1947
+                - cell [ref=f6e7664]: 4-12
+                - cell [ref=f6e7665]:
+                  - generic [ref=f6e3603]: Nein
+                - cell [ref=f6e3605]:
+                  - button [ref=f6e7666] [cursor=pointer]
+                  - button [ref=f6e7667] [cursor=pointer]
+                  - button [ref=f6e7668] [cursor=pointer]
+                  - button [ref=f6e7669] [cursor=pointer]
+              - row [ref=f6e7670]:
+                - cell [ref=f6e7671]: "385"
+                - cell [ref=f6e7672]:
+                  - strong [ref=f6e3622]: Napalm Bomb (Front)
+                - cell [ref=f6e7673]: Dust 1947
+                - cell [ref=f6e7674]: "2"
+                - cell [ref=f6e7675]:
+                  - generic [ref=f6e3626]: Nein
+                - cell [ref=f6e3628]:
+                  - button [ref=f6e7676] [cursor=pointer]
+                  - button [ref=f6e7677] [cursor=pointer]
+                  - button [ref=f6e7678] [cursor=pointer]
+                  - button [ref=f6e7679] [cursor=pointer]
+              - row [ref=f6e7680]:
+                - cell [ref=f6e7681]: "386"
+                - cell [ref=f6e7682]:
+                  - strong [ref=f6e3645]: Napalm Thrower (Turret)
+                - cell [ref=f6e7683]: Dust 1947
+                - cell [ref=f6e7684]: "2"
+                - cell [ref=f6e7685]:
+                  - generic [ref=f6e3649]: Nein
+                - cell [ref=f6e3651]:
+                  - button [ref=f6e7686] [cursor=pointer]
+                  - button [ref=f6e7687] [cursor=pointer]
+                  - button [ref=f6e7688] [cursor=pointer]
+                  - button [ref=f6e7689] [cursor=pointer]
+              - row [ref=f6e7690]:
+                - cell [ref=f6e7691]: "387"
+                - cell [ref=f6e7692]:
+                  - strong [ref=f6e3668]: Old Submachine Gun
+                - cell [ref=f6e7693]: Dust 1947
+                - cell [ref=f6e7694]: "3"
+                - cell [ref=f6e7695]:
+                  - generic [ref=f6e3672]: Nein
+                - cell [ref=f6e3674]:
+                  - button [ref=f6e7696] [cursor=pointer]
+                  - button [ref=f6e7697] [cursor=pointer]
+                  - button [ref=f6e7698] [cursor=pointer]
+                  - button [ref=f6e7699] [cursor=pointer]
+              - row [ref=f6e7700]:
+                - cell [ref=f6e7701]: "388"
+                - cell [ref=f6e7702]:
+                  - strong [ref=f6e3691]: Paired Claws (Front)
+                - cell [ref=f6e7703]: Dust 1947
+                - cell [ref=f6e7704]: C
+                - cell [ref=f6e7705]:
+                  - generic [ref=f6e3695]: Nein
+                - cell [ref=f6e3697]:
+                  - button [ref=f6e7706] [cursor=pointer]
+                  - button [ref=f6e7707] [cursor=pointer]
+                  - button [ref=f6e7708] [cursor=pointer]
+                  - button [ref=f6e7709] [cursor=pointer]
+              - row [ref=f6e7710]:
+                - cell [ref=f6e7711]: "389"
+                - cell [ref=f6e7712]:
+                  - strong [ref=f6e3714]: Paired Deadly Punch
+                - cell [ref=f6e7713]: Dust 1947
+                - cell [ref=f6e7714]: C
+                - cell [ref=f6e7715]:
+                  - generic [ref=f6e3718]: Nein
+                - cell [ref=f6e3720]:
+                  - button [ref=f6e7716] [cursor=pointer]
+                  - button [ref=f6e7717] [cursor=pointer]
+                  - button [ref=f6e7718] [cursor=pointer]
+                  - button [ref=f6e7719] [cursor=pointer]
+              - row [ref=f6e7720]:
+                - cell [ref=f6e7721]: "390"
+                - cell [ref=f6e7722]:
+                  - strong [ref=f6e3737]: Paired Katana
+                - cell [ref=f6e7723]: Dust 1947
+                - cell [ref=f6e7724]: C
+                - cell [ref=f6e7725]:
+                  - generic [ref=f6e3741]: Nein
+                - cell [ref=f6e3743]:
+                  - button [ref=f6e7726] [cursor=pointer]
+                  - button [ref=f6e7727] [cursor=pointer]
+                  - button [ref=f6e7728] [cursor=pointer]
+                  - button [ref=f6e7729] [cursor=pointer]
+              - row [ref=f6e7730]:
+                - cell [ref=f6e7731]: "391"
+                - cell [ref=f6e7732]:
+                  - strong [ref=f6e3760]: Paired Light Submachine Gun
+                - cell [ref=f6e7733]: Dust 1947
+                - cell [ref=f6e7734]: "2"
+                - cell [ref=f6e7735]:
+                  - generic [ref=f6e3764]: Nein
+                - cell [ref=f6e3766]:
+                  - button [ref=f6e7736] [cursor=pointer]
+                  - button [ref=f6e7737] [cursor=pointer]
+                  - button [ref=f6e7738] [cursor=pointer]
+                  - button [ref=f6e7739] [cursor=pointer]
+              - row [ref=f6e7740]:
+                - cell [ref=f6e7741]: "392"
+                - cell [ref=f6e7742]:
+                  - strong [ref=f6e3783]: Paired Meat Cleavers
+                - cell [ref=f6e7743]: Dust 1947
+                - cell [ref=f6e7744]: C
+                - cell [ref=f6e7745]:
+                  - generic [ref=f6e3787]: Nein
+                - cell [ref=f6e3789]:
+                  - button [ref=f6e7746] [cursor=pointer]
+                  - button [ref=f6e7747] [cursor=pointer]
+                  - button [ref=f6e7748] [cursor=pointer]
+                  - button [ref=f6e7749] [cursor=pointer]
+              - row [ref=f6e7750]:
+                - cell [ref=f6e7751]: "393"
+                - cell [ref=f6e7752]:
+                  - strong [ref=f6e3806]: Panzer Gloves
+                - cell [ref=f6e7753]: Dust 1947
+                - cell [ref=f6e7754]: C
+                - cell [ref=f6e7755]:
+                  - generic [ref=f6e3810]: Nein
+                - cell [ref=f6e3812]:
+                  - button [ref=f6e7756] [cursor=pointer]
+                  - button [ref=f6e7757] [cursor=pointer]
+                  - button [ref=f6e7758] [cursor=pointer]
+                  - button [ref=f6e7759] [cursor=pointer]
+              - row [ref=f6e7760]:
+                - cell [ref=f6e7761]: "394"
+                - cell [ref=f6e7762]:
+                  - strong [ref=f6e3829]: Panzerfaust
+                - cell [ref=f6e7763]: Dust 1947
+                - cell [ref=f6e7764]: "3"
+                - cell [ref=f6e7765]:
+                  - generic [ref=f6e3833]: Nein
+                - cell [ref=f6e3835]:
+                  - button [ref=f6e7766] [cursor=pointer]
+                  - button [ref=f6e7767] [cursor=pointer]
+                  - button [ref=f6e7768] [cursor=pointer]
+                  - button [ref=f6e7769] [cursor=pointer]
+              - row [ref=f6e7770]:
+                - cell [ref=f6e7771]: "395"
+                - cell [ref=f6e7772]:
+                  - strong [ref=f6e3852]: Panzerfaust 100
+                - cell [ref=f6e7773]: Dust 1947
+                - cell [ref=f6e7774]: "3"
+                - cell [ref=f6e7775]:
+                  - generic [ref=f6e3856]: Nein
+                - cell [ref=f6e3858]:
+                  - button [ref=f6e7776] [cursor=pointer]
+                  - button [ref=f6e7777] [cursor=pointer]
+                  - button [ref=f6e7778] [cursor=pointer]
+                  - button [ref=f6e7779] [cursor=pointer]
+              - row [ref=f6e7780]:
+                - cell [ref=f6e7781]: "396"
+                - cell [ref=f6e7782]:
+                  - strong [ref=f6e3875]: Petard Mortar (Turret)
+                - cell [ref=f6e7783]: Dust 1947
+                - cell [ref=f6e7784]: "4"
+                - cell [ref=f6e7785]:
+                  - generic [ref=f6e3879]: Nein
+                - cell [ref=f6e3881]:
+                  - button [ref=f6e7786] [cursor=pointer]
+                  - button [ref=f6e7787] [cursor=pointer]
+                  - button [ref=f6e7788] [cursor=pointer]
+                  - button [ref=f6e7789] [cursor=pointer]
+              - row [ref=f6e7790]:
+                - cell [ref=f6e7791]: "397"
+                - cell [ref=f6e7792]:
+                  - strong [ref=f6e3898]: Phaser Gun
+                - cell [ref=f6e7793]: Dust 1947
+                - cell [ref=f6e7794]: "12"
+                - cell [ref=f6e7795]:
+                  - generic [ref=f6e3902]: Nein
+                - cell [ref=f6e3904]:
+                  - button [ref=f6e7796] [cursor=pointer]
+                  - button [ref=f6e7797] [cursor=pointer]
+                  - button [ref=f6e7798] [cursor=pointer]
+                  - button [ref=f6e7799] [cursor=pointer]
+              - row [ref=f6e7800]:
+                - cell [ref=f6e7801]: "400"
+                - cell [ref=f6e7802]:
+                  - strong [ref=f6e3921]: Phaser Rifle
+                - cell [ref=f6e7803]: Dust 1947
+                - cell [ref=f6e7804]: "6"
+                - cell [ref=f6e7805]:
+                  - generic [ref=f6e3925]: Nein
+                - cell [ref=f6e3927]:
+                  - button [ref=f6e7806] [cursor=pointer]
+                  - button [ref=f6e7807] [cursor=pointer]
+                  - button [ref=f6e7808] [cursor=pointer]
+                  - button [ref=f6e7809] [cursor=pointer]
+              - row [ref=f6e7810]:
+                - cell [ref=f6e7811]: "401"
+                - cell [ref=f6e7812]:
+                  - strong [ref=f6e3944]: Phaser Submachine Gun
+                - cell [ref=f6e7813]: Dust 1947
+                - cell [ref=f6e7814]: "4"
+                - cell [ref=f6e7815]:
+                  - generic [ref=f6e3948]: Nein
+                - cell [ref=f6e3950]:
+                  - button [ref=f6e7816] [cursor=pointer]
+                  - button [ref=f6e7817] [cursor=pointer]
+                  - button [ref=f6e7818] [cursor=pointer]
+                  - button [ref=f6e7819] [cursor=pointer]
+              - row [ref=f6e7820]:
+                - cell [ref=f6e7821]: "402"
+                - cell [ref=f6e7822]:
+                  - strong [ref=f6e3967]: Pincer
+                - cell [ref=f6e7823]: Dust 1947
+                - cell [ref=f6e7824]: C
+                - cell [ref=f6e7825]:
+                  - generic [ref=f6e3971]: Nein
+                - cell [ref=f6e3973]:
+                  - button [ref=f6e7826] [cursor=pointer]
+                  - button [ref=f6e7827] [cursor=pointer]
+                  - button [ref=f6e7828] [cursor=pointer]
+                  - button [ref=f6e7829] [cursor=pointer]
+              - row [ref=f6e7830]:
+                - cell [ref=f6e7831]: "403"
+                - cell [ref=f6e7832]:
+                  - strong [ref=f6e3990]: Pistol [variant 1]
+                - cell [ref=f6e7833]: Dust 1947
+                - cell [ref=f6e7834]: "2"
+                - cell [ref=f6e7835]:
+                  - generic [ref=f6e3994]: Nein
+                - cell [ref=f6e3996]:
+                  - button [ref=f6e7836] [cursor=pointer]
+                  - button [ref=f6e7837] [cursor=pointer]
+                  - button [ref=f6e7838] [cursor=pointer]
+                  - button [ref=f6e7839] [cursor=pointer]
+              - row [ref=f6e7840]:
+                - cell [ref=f6e7841]: "404"
+                - cell [ref=f6e7842]:
+                  - strong [ref=f6e4013]: Pistol [variant 2]
+                - cell [ref=f6e7843]: Dust 1947
+                - cell [ref=f6e7844]: "2"
+                - cell [ref=f6e7845]:
+                  - generic [ref=f6e4017]: Nein
+                - cell [ref=f6e4019]:
+                  - button [ref=f6e7846] [cursor=pointer]
+                  - button [ref=f6e7847] [cursor=pointer]
+                  - button [ref=f6e7848] [cursor=pointer]
+                  - button [ref=f6e7849] [cursor=pointer]
+              - row [ref=f6e7850]:
+                - cell [ref=f6e7851]: "405"
+                - cell [ref=f6e7852]:
+                  - strong [ref=f6e4036]: Power Cutter
+                - cell [ref=f6e7853]: Dust 1947
+                - cell [ref=f6e7854]: C
+                - cell [ref=f6e7855]:
+                  - generic [ref=f6e4040]: Nein
+                - cell [ref=f6e4042]:
+                  - button [ref=f6e7856] [cursor=pointer]
+                  - button [ref=f6e7857] [cursor=pointer]
+                  - button [ref=f6e7858] [cursor=pointer]
+                  - button [ref=f6e7859] [cursor=pointer]
+              - row [ref=f6e7860]:
+                - cell [ref=f6e7861]: "406"
+                - cell [ref=f6e7862]:
+                  - strong [ref=f6e4059]: Power Drill
+                - cell [ref=f6e7863]: Dust 1947
+                - cell [ref=f6e7864]: C
+                - cell [ref=f6e7865]:
+                  - generic [ref=f6e4063]: Nein
+                - cell [ref=f6e4065]:
+                  - button [ref=f6e7866] [cursor=pointer]
+                  - button [ref=f6e7867] [cursor=pointer]
+                  - button [ref=f6e7868] [cursor=pointer]
+                  - button [ref=f6e7869] [cursor=pointer]
+              - row [ref=f6e7870]:
+                - cell [ref=f6e7871]: "407"
+                - cell [ref=f6e7872]:
+                  - strong [ref=f6e4082]: Psychic Scream (Turret)
+                - cell [ref=f6e7873]: Dust 1947
+                - cell [ref=f6e7874]: "3"
+                - cell [ref=f6e7875]:
+                  - generic [ref=f6e4086]: Nein
+                - cell [ref=f6e4088]:
+                  - button [ref=f6e7876] [cursor=pointer]
+                  - button [ref=f6e7877] [cursor=pointer]
+                  - button [ref=f6e7878] [cursor=pointer]
+                  - button [ref=f6e7879] [cursor=pointer]
+              - row [ref=f6e7880]:
+                - cell [ref=f6e7881]: "408"
+                - cell [ref=f6e7882]:
+                  - strong [ref=f6e4105]: Quad Anti-Aircraft Guns
+                - cell [ref=f6e7883]: Dust 1947
+                - cell [ref=f6e7884]: "10"
+                - cell [ref=f6e7885]:
+                  - generic [ref=f6e4109]: Nein
+                - cell [ref=f6e4111]:
+                  - button [ref=f6e7886] [cursor=pointer]
+                  - button [ref=f6e7887] [cursor=pointer]
+                  - button [ref=f6e7888] [cursor=pointer]
+                  - button [ref=f6e7889] [cursor=pointer]
+              - row [ref=f6e7890]:
+                - cell [ref=f6e7891]: "412"
+                - cell [ref=f6e7892]:
+                  - strong [ref=f6e4128]: Quad Anti-Aircraft Guns
+                - cell [ref=f6e7893]: Dust 1947
+                - cell [ref=f6e7894]: "14"
+                - cell [ref=f6e7895]:
+                  - generic [ref=f6e4132]: Nein
+                - cell [ref=f6e4134]:
+                  - button [ref=f6e7896] [cursor=pointer]
+                  - button [ref=f6e7897] [cursor=pointer]
+                  - button [ref=f6e7898] [cursor=pointer]
+                  - button [ref=f6e7899] [cursor=pointer]
+              - row [ref=f6e7900]:
+                - cell [ref=f6e7901]: "413"
+                - cell [ref=f6e7902]:
+                  - strong [ref=f6e4151]: Quad Autocannons (Front)
+                - cell [ref=f6e7903]: Dust 1947
+                - cell [ref=f6e7904]: "2"
+                - cell [ref=f6e7905]:
+                  - generic [ref=f6e4155]: Nein
+                - cell [ref=f6e4157]:
+                  - button [ref=f6e7906] [cursor=pointer]
+                  - button [ref=f6e7907] [cursor=pointer]
+                  - button [ref=f6e7908] [cursor=pointer]
+                  - button [ref=f6e7909] [cursor=pointer]
+              - row [ref=f6e7910]:
+                - cell [ref=f6e7911]: "414"
+                - cell [ref=f6e7912]:
+                  - strong [ref=f6e4174]: Quad Heavy Machinegun
+                - cell [ref=f6e7913]: Dust 1947
+                - cell [ref=f6e7914]: "2"
+                - cell [ref=f6e7915]:
+                  - generic [ref=f6e4178]: Nein
+                - cell [ref=f6e4180]:
+                  - button [ref=f6e7916] [cursor=pointer]
+                  - button [ref=f6e7917] [cursor=pointer]
+                  - button [ref=f6e7918] [cursor=pointer]
+                  - button [ref=f6e7919] [cursor=pointer]
+              - row [ref=f6e7920]:
+                - cell [ref=f6e7921]: "416"
+                - cell [ref=f6e7922]:
+                  - strong [ref=f6e4197]: Quad Laser Gun (Front)
+                - cell [ref=f6e7923]: Dust 1947
+                - cell [ref=f6e7924]: "10"
+                - cell [ref=f6e7925]:
+                  - generic [ref=f6e4201]: Nein
+                - cell [ref=f6e4203]:
+                  - button [ref=f6e7926] [cursor=pointer]
+                  - button [ref=f6e7927] [cursor=pointer]
+                  - button [ref=f6e7928] [cursor=pointer]
+                  - button [ref=f6e7929] [cursor=pointer]
+              - row [ref=f6e7930]:
+                - cell [ref=f6e7931]: "417"
+                - cell [ref=f6e7932]:
+                  - strong [ref=f6e4220]: Radiation Beam
+                - cell [ref=f6e7933]: Dust 1947
+                - cell [ref=f6e7934]: "4"
+                - cell [ref=f6e7935]:
+                  - generic [ref=f6e4224]: Nein
+                - cell [ref=f6e4226]:
+                  - button [ref=f6e7936] [cursor=pointer]
+                  - button [ref=f6e7937] [cursor=pointer]
+                  - button [ref=f6e7938] [cursor=pointer]
+                  - button [ref=f6e7939] [cursor=pointer]
+              - row [ref=f6e7940]:
+                - cell [ref=f6e7941]: "418"
+                - cell [ref=f6e7942]:
+                  - strong [ref=f6e4243]: Rapid-Fire Phaser Gun (Turret)
+                - cell [ref=f6e7943]: Dust 1947
+                - cell [ref=f6e7944]: "10"
+                - cell [ref=f6e7945]:
+                  - generic [ref=f6e4247]: Nein
+                - cell [ref=f6e4249]:
+                  - button [ref=f6e7946] [cursor=pointer]
+                  - button [ref=f6e7947] [cursor=pointer]
+                  - button [ref=f6e7948] [cursor=pointer]
+                  - button [ref=f6e7949] [cursor=pointer]
+              - row [ref=f6e7950]:
+                - cell [ref=f6e7951]: "419"
+                - cell [ref=f6e7952]:
+                  - strong [ref=f6e4266]: Recoilless Gun (Front)
+                - cell [ref=f6e7953]: Dust 1947
+                - cell [ref=f6e7954]: "10"
+                - cell [ref=f6e7955]:
+                  - generic [ref=f6e4270]: Nein
+                - cell [ref=f6e4272]:
+                  - button [ref=f6e7956] [cursor=pointer]
+                  - button [ref=f6e7957] [cursor=pointer]
+                  - button [ref=f6e7958] [cursor=pointer]
+                  - button [ref=f6e7959] [cursor=pointer]
+              - row [ref=f6e7960]:
+                - cell [ref=f6e7961]: "420"
+                - cell [ref=f6e7962]:
+                  - strong [ref=f6e4289]: Recoilless Gun (Front)
+                - cell [ref=f6e7963]: Dust 1947
+                - cell [ref=f6e7964]: "8"
+                - cell [ref=f6e7965]:
+                  - generic [ref=f6e4293]: Nein
+                - cell [ref=f6e4295]:
+                  - button [ref=f6e7966] [cursor=pointer]
+                  - button [ref=f6e7967] [cursor=pointer]
+                  - button [ref=f6e7968] [cursor=pointer]
+                  - button [ref=f6e7969] [cursor=pointer]
+              - row [ref=f6e7970]:
+                - cell [ref=f6e7971]: "421"
+                - cell [ref=f6e7972]:
+                  - strong [ref=f6e4312]: Recoilless Rifle
+                - cell [ref=f6e7973]: Dust 1947
+                - cell [ref=f6e7974]: "8"
+                - cell [ref=f6e7975]:
+                  - generic [ref=f6e4316]: Nein
+                - cell [ref=f6e4318]:
+                  - button [ref=f6e7976] [cursor=pointer]
+                  - button [ref=f6e7977] [cursor=pointer]
+                  - button [ref=f6e7978] [cursor=pointer]
+                  - button [ref=f6e7979] [cursor=pointer]
+              - row [ref=f6e7980]:
+                - cell [ref=f6e7981]: "424"
+                - cell [ref=f6e7982]:
+                  - strong [ref=f6e4335]: Recoilless Rocket Launcher
+                - cell [ref=f6e7983]: Dust 1947
+                - cell [ref=f6e7984]: "12"
+                - cell [ref=f6e7985]:
+                  - generic [ref=f6e4339]: Nein
+                - cell [ref=f6e4341]:
+                  - button [ref=f6e7986] [cursor=pointer]
+                  - button [ref=f6e7987] [cursor=pointer]
+                  - button [ref=f6e7988] [cursor=pointer]
+                  - button [ref=f6e7989] [cursor=pointer]
+              - row [ref=f6e7990]:
+                - cell [ref=f6e7991]: "425"
+                - cell [ref=f6e7992]:
+                  - strong [ref=f6e4358]: Revolver
+                - cell [ref=f6e7993]: Dust 1947
+                - cell [ref=f6e7994]: "2"
+                - cell [ref=f6e7995]:
+                  - generic [ref=f6e4362]: Nein
+                - cell [ref=f6e4364]:
+                  - button [ref=f6e7996] [cursor=pointer]
+                  - button [ref=f6e7997] [cursor=pointer]
+                  - button [ref=f6e7998] [cursor=pointer]
+                  - button [ref=f6e7999] [cursor=pointer]
+              - row [ref=f6e8000]:
+                - cell [ref=f6e8001]: "426"
+                - cell [ref=f6e8002]:
+                  - strong [ref=f6e4381]: Rocket (Turret)
+                - cell [ref=f6e8003]: Dust 1947
+                - cell [ref=f6e8004]: "6"
+                - cell [ref=f6e8005]:
+                  - generic [ref=f6e4385]: Nein
+                - cell [ref=f6e4387]:
+                  - button [ref=f6e8006] [cursor=pointer]
+                  - button [ref=f6e8007] [cursor=pointer]
+                  - button [ref=f6e8008] [cursor=pointer]
+                  - button [ref=f6e8009] [cursor=pointer]
+              - row [ref=f6e8010]:
+                - cell [ref=f6e8011]: "427"
+                - cell [ref=f6e8012]:
+                  - strong [ref=f6e4404]: Rocket Launcher
+                - cell [ref=f6e8013]: Dust 1947
+                - cell [ref=f6e8014]: "10"
+                - cell [ref=f6e8015]:
+                  - generic [ref=f6e4408]: Nein
+                - cell [ref=f6e4410]:
+                  - button [ref=f6e8016] [cursor=pointer]
+                  - button [ref=f6e8017] [cursor=pointer]
+                  - button [ref=f6e8018] [cursor=pointer]
+                  - button [ref=f6e8019] [cursor=pointer]
+              - row [ref=f6e8020]:
+                - cell [ref=f6e8021]: "430"
+                - cell [ref=f6e8022]:
+                  - strong [ref=f6e4427]: Rocket Pod (Front)
+                - cell [ref=f6e8023]: Dust 1947
+                - cell [ref=f6e8024]: "3"
+                - cell [ref=f6e8025]:
+                  - generic [ref=f6e4431]: Nein
+                - cell [ref=f6e4433]:
+                  - button [ref=f6e8026] [cursor=pointer]
+                  - button [ref=f6e8027] [cursor=pointer]
+                  - button [ref=f6e8028] [cursor=pointer]
+                  - button [ref=f6e8029] [cursor=pointer]
+              - row [ref=f6e8030]:
+                - cell [ref=f6e8031]: "431"
+                - cell [ref=f6e8032]:
+                  - strong [ref=f6e4450]: Rocket Punch
+                - cell [ref=f6e8033]: Dust 1947
+                - cell [ref=f6e8034]: C
+                - cell [ref=f6e8035]:
+                  - generic [ref=f6e4454]: Nein
+                - cell [ref=f6e4456]:
+                  - button [ref=f6e8036] [cursor=pointer]
+                  - button [ref=f6e8037] [cursor=pointer]
+                  - button [ref=f6e8038] [cursor=pointer]
+                  - button [ref=f6e8039] [cursor=pointer]
+              - row [ref=f6e8040]:
+                - cell [ref=f6e8041]: "432"
+                - cell [ref=f6e8042]:
+                  - strong [ref=f6e4473]: RPG
+                - cell [ref=f6e8043]: Dust 1947
+                - cell [ref=f6e8044]: "3"
+                - cell [ref=f6e8045]:
+                  - generic [ref=f6e4477]: Ja
+                - cell [ref=f6e4479]:
+                  - button [ref=f6e8046] [cursor=pointer]
+                  - button [ref=f6e8047] [cursor=pointer]
+                  - button [ref=f6e8048] [cursor=pointer]
+                  - button [ref=f6e8049] [cursor=pointer]
+              - row [ref=f6e8050]:
+                - cell [ref=f6e8051]: "433"
+                - cell [ref=f6e8052]:
+                  - strong [ref=f6e4496]: RPG-12
+                - cell [ref=f6e8053]: Dust 1947
+                - cell [ref=f6e8054]: "4"
+                - cell [ref=f6e8055]:
+                  - generic [ref=f6e4500]: Nein
+                - cell [ref=f6e4502]:
+                  - button [ref=f6e8056] [cursor=pointer]
+                  - button [ref=f6e8057] [cursor=pointer]
+                  - button [ref=f6e8058] [cursor=pointer]
+                  - button [ref=f6e8059] [cursor=pointer]
+              - row [ref=f6e8060]:
+                - cell [ref=f6e8061]: "434"
+                - cell [ref=f6e8062]:
+                  - strong [ref=f6e4519]: RPG-15
+                - cell [ref=f6e8063]: Dust 1947
+                - cell [ref=f6e8064]: "3"
+                - cell [ref=f6e8065]:
+                  - generic [ref=f6e4523]: Nein
+                - cell [ref=f6e4525]:
+                  - button [ref=f6e8066] [cursor=pointer]
+                  - button [ref=f6e8067] [cursor=pointer]
+                  - button [ref=f6e8068] [cursor=pointer]
+                  - button [ref=f6e8069] [cursor=pointer]
+              - row [ref=f6e8070]:
+                - cell [ref=f6e8071]: "435"
+                - cell [ref=f6e8072]:
+                  - strong [ref=f6e4542]: Sacrificial Dagger
+                - cell [ref=f6e8073]: Dust 1947
+                - cell [ref=f6e8074]: C
+                - cell [ref=f6e8075]:
+                  - generic [ref=f6e4546]: Nein
+                - cell [ref=f6e4548]:
+                  - button [ref=f6e8076] [cursor=pointer]
+                  - button [ref=f6e8077] [cursor=pointer]
+                  - button [ref=f6e8078] [cursor=pointer]
+                  - button [ref=f6e8079] [cursor=pointer]
+              - row [ref=f6e8080]:
+                - cell [ref=f6e8081]: "436"
+                - cell [ref=f6e8082]:
+                  - strong [ref=f6e4565]: Sextuple Anti-Aircraft Guns (Turret)
+                - cell [ref=f6e8083]: Dust 1947
+                - cell [ref=f6e8084]: "8"
+                - cell [ref=f6e8085]:
+                  - generic [ref=f6e4569]: Nein
+                - cell [ref=f6e4571]:
+                  - button [ref=f6e8086] [cursor=pointer]
+                  - button [ref=f6e8087] [cursor=pointer]
+                  - button [ref=f6e8088] [cursor=pointer]
+                  - button [ref=f6e8089] [cursor=pointer]
+              - row [ref=f6e8090]:
+                - cell [ref=f6e8091]: "437"
+                - cell [ref=f6e8092]:
+                  - strong [ref=f6e4588]: Sextuple Heavy Machineguns (Front)
+                - cell [ref=f6e8093]: Dust 1947
+                - cell [ref=f6e8094]: "2"
+                - cell [ref=f6e8095]:
+                  - generic [ref=f6e4592]: Nein
+                - cell [ref=f6e4594]:
+                  - button [ref=f6e8096] [cursor=pointer]
+                  - button [ref=f6e8097] [cursor=pointer]
+                  - button [ref=f6e8098] [cursor=pointer]
+                  - button [ref=f6e8099] [cursor=pointer]
+              - row [ref=f6e8100]:
+                - cell [ref=f6e8101]: "438"
+                - cell [ref=f6e8102]:
+                  - strong [ref=f6e4611]: Sextuple Recoilless Guns (Turret)
+                - cell [ref=f6e8103]: Dust 1947
+                - cell [ref=f6e8104]: "12"
+                - cell [ref=f6e8105]:
+                  - generic [ref=f6e4615]: Nein
+                - cell [ref=f6e4617]:
+                  - button [ref=f6e8106] [cursor=pointer]
+                  - button [ref=f6e8107] [cursor=pointer]
+                  - button [ref=f6e8108] [cursor=pointer]
+                  - button [ref=f6e8109] [cursor=pointer]
+              - row [ref=f6e8110]:
+                - cell [ref=f6e8111]: "439"
+                - cell [ref=f6e8112]:
+                  - strong [ref=f6e4634]: Shotgun
+                - cell [ref=f6e8113]: Dust 1947
+                - cell [ref=f6e8114]: "2"
+                - cell [ref=f6e8115]:
+                  - generic [ref=f6e4638]: Nein
+                - cell [ref=f6e4640]:
+                  - button [ref=f6e8116] [cursor=pointer]
+                  - button [ref=f6e8117] [cursor=pointer]
+                  - button [ref=f6e8118] [cursor=pointer]
+                  - button [ref=f6e8119] [cursor=pointer]
+              - row [ref=f6e8120]:
+                - cell [ref=f6e8121]: "440"
+                - cell [ref=f6e8122]:
+                  - strong [ref=f6e4657]: Sniper Rifle
+                - cell [ref=f6e8123]: Dust 1947
+                - cell [ref=f6e8124]: "8"
+                - cell [ref=f6e8125]:
+                  - generic [ref=f6e4661]: Nein
+                - cell [ref=f6e4663]:
+                  - button [ref=f6e8126] [cursor=pointer]
+                  - button [ref=f6e8127] [cursor=pointer]
+                  - button [ref=f6e8128] [cursor=pointer]
+                  - button [ref=f6e8129] [cursor=pointer]
+              - row [ref=f6e8130]:
+                - cell [ref=f6e8131]: "442"
+                - cell [ref=f6e8132]:
+                  - strong [ref=f6e4680]: Steel Glove
+                - cell [ref=f6e8133]: Dust 1947
+                - cell [ref=f6e8134]: C
+                - cell [ref=f6e8135]:
+                  - generic [ref=f6e4684]: Nein
+                - cell [ref=f6e4686]:
+                  - button [ref=f6e8136] [cursor=pointer]
+                  - button [ref=f6e8137] [cursor=pointer]
+                  - button [ref=f6e8138] [cursor=pointer]
+                  - button [ref=f6e8139] [cursor=pointer]
+              - row [ref=f6e8140]:
+                - cell [ref=f6e8141]: "443"
+                - cell [ref=f6e8142]:
+                  - strong [ref=f6e4703]: Submachine Gun
+                - cell [ref=f6e8143]: Dust 1947
+                - cell [ref=f6e8144]: "3"
+                - cell [ref=f6e8145]:
+                  - generic [ref=f6e4707]: Nein
+                - cell [ref=f6e4709]:
+                  - button [ref=f6e8146] [cursor=pointer]
+                  - button [ref=f6e8147] [cursor=pointer]
+                  - button [ref=f6e8148] [cursor=pointer]
+                  - button [ref=f6e8149] [cursor=pointer]
+              - row [ref=f6e8150]:
+                - cell [ref=f6e8151]: "444"
+                - cell [ref=f6e8152]:
+                  - strong [ref=f6e4726]: Submachine Gun
+                - cell [ref=f6e8153]: Dust 1947
+                - cell [ref=f6e8154]: "3"
+                - cell [ref=f6e8155]:
+                  - generic [ref=f6e4730]: Nein
+                - cell [ref=f6e4732]:
+                  - button [ref=f6e8156] [cursor=pointer]
+                  - button [ref=f6e8157] [cursor=pointer]
+                  - button [ref=f6e8158] [cursor=pointer]
+                  - button [ref=f6e8159] [cursor=pointer]
+              - row [ref=f6e8160]:
+                - cell [ref=f6e8161]: "445"
+                - cell [ref=f6e8162]:
+                  - strong [ref=f6e4749]: Submachine Gun
+                - cell [ref=f6e8163]: Dust 1947
+                - cell [ref=f6e8164]: "3"
+                - cell [ref=f6e8165]:
+                  - generic [ref=f6e4753]: Nein
+                - cell [ref=f6e4755]:
+                  - button [ref=f6e8166] [cursor=pointer]
+                  - button [ref=f6e8167] [cursor=pointer]
+                  - button [ref=f6e8168] [cursor=pointer]
+                  - button [ref=f6e8169] [cursor=pointer]
+              - row [ref=f6e8170]:
+                - cell [ref=f6e8171]: "449"
+                - cell [ref=f6e8172]:
+                  - strong [ref=f6e4772]: Submachine-Gun
+                - cell [ref=f6e8173]: Dust 1947
+                - cell [ref=f6e8174]: "2"
+                - cell [ref=f6e8175]:
+                  - generic [ref=f6e4776]: Nein
+                - cell [ref=f6e4778]:
+                  - button [ref=f6e8176] [cursor=pointer]
+                  - button [ref=f6e8177] [cursor=pointer]
+                  - button [ref=f6e8178] [cursor=pointer]
+                  - button [ref=f6e8179] [cursor=pointer]
+              - row [ref=f6e8180]:
+                - cell [ref=f6e8181]: "450"
+                - cell [ref=f6e8182]:
+                  - strong [ref=f6e4795]: Sucker Punch
+                - cell [ref=f6e8183]: Dust 1947
+                - cell [ref=f6e8184]: C
+                - cell [ref=f6e8185]:
+                  - generic [ref=f6e4799]: Nein
+                - cell [ref=f6e4801]:
+                  - button [ref=f6e8186] [cursor=pointer]
+                  - button [ref=f6e8187] [cursor=pointer]
+                  - button [ref=f6e8188] [cursor=pointer]
+                  - button [ref=f6e8189] [cursor=pointer]
+              - row [ref=f6e8190]:
+                - cell [ref=f6e8191]: "451"
+                - cell [ref=f6e8192]:
+                  - strong [ref=f6e4818]: Tesla Gun
+                - cell [ref=f6e8193]: Dust 1947
+                - cell [ref=f6e8194]: "6"
+                - cell [ref=f6e8195]:
+                  - generic [ref=f6e4822]: Nein
+                - cell [ref=f6e4824]:
+                  - button [ref=f6e8196] [cursor=pointer]
+                  - button [ref=f6e8197] [cursor=pointer]
+                  - button [ref=f6e8198] [cursor=pointer]
+                  - button [ref=f6e8199] [cursor=pointer]
+              - row [ref=f6e8200]:
+                - cell [ref=f6e8201]: "452"
+                - cell [ref=f6e8202]:
+                  - strong [ref=f6e4841]: Thompson SMG
+                - cell [ref=f6e8203]: Dust 1947
+                - cell [ref=f6e8204]: "4"
+                - cell [ref=f6e8205]:
+                  - generic [ref=f6e4845]: Nein
+                - cell [ref=f6e4847]:
+                  - button [ref=f6e8206] [cursor=pointer]
+                  - button [ref=f6e8207] [cursor=pointer]
+                  - button [ref=f6e8208] [cursor=pointer]
+                  - button [ref=f6e8209] [cursor=pointer]
+              - row [ref=f6e8210]:
+                - cell [ref=f6e8211]: "453"
+                - cell [ref=f6e8212]:
+                  - strong [ref=f6e4864]: Triple Anti-Aircraft Guns (Turret)
+                - cell [ref=f6e8213]: Dust 1947
+                - cell [ref=f6e8214]: "12"
+                - cell [ref=f6e8215]:
+                  - generic [ref=f6e4868]: Nein
+                - cell [ref=f6e4870]:
+                  - button [ref=f6e8216] [cursor=pointer]
+                  - button [ref=f6e8217] [cursor=pointer]
+                  - button [ref=f6e8218] [cursor=pointer]
+                  - button [ref=f6e8219] [cursor=pointer]
+              - row [ref=f6e8220]:
+                - cell [ref=f6e8221]: "454"
+                - cell [ref=f6e8222]:
+                  - strong [ref=f6e4887]: Triple Assault Laser
+                - cell [ref=f6e8223]: Dust 1947
+                - cell [ref=f6e8224]: "-"
+                - cell [ref=f6e8225]:
+                  - generic [ref=f6e4891]: Nein
+                - cell [ref=f6e4893]:
+                  - button [ref=f6e8226] [cursor=pointer]
+                  - button [ref=f6e8227] [cursor=pointer]
+                  - button [ref=f6e8228] [cursor=pointer]
+                  - button [ref=f6e8229] [cursor=pointer]
+              - row [ref=f6e8230]:
+                - cell [ref=f6e8231]: "455"
+                - cell [ref=f6e8232]:
+                  - strong [ref=f6e4910]: Twin Heavy Machinegun (Front)
+                - cell [ref=f6e8233]: Dust 1947
+                - cell [ref=f6e8234]: "6"
+                - cell [ref=f6e8235]:
+                  - generic [ref=f6e4914]: Nein
+                - cell [ref=f6e4916]:
+                  - button [ref=f6e8236] [cursor=pointer]
+                  - button [ref=f6e8237] [cursor=pointer]
+                  - button [ref=f6e8238] [cursor=pointer]
+                  - button [ref=f6e8239] [cursor=pointer]
+              - row [ref=f6e8240]:
+                - cell [ref=f6e8241]: "456"
+                - cell [ref=f6e8242]:
+                  - strong [ref=f6e4933]: Twin Heavy Machinegun (Turret)
+                - cell [ref=f6e8243]: Dust 1947
+                - cell [ref=f6e8244]: "6"
+                - cell [ref=f6e8245]:
+                  - generic [ref=f6e4937]: Nein
+                - cell [ref=f6e4939]:
+                  - button [ref=f6e8246] [cursor=pointer]
+                  - button [ref=f6e8247] [cursor=pointer]
+                  - button [ref=f6e8248] [cursor=pointer]
+                  - button [ref=f6e8249] [cursor=pointer]
+              - row [ref=f6e8250]:
+                - cell [ref=f6e8251]: "457"
+                - cell [ref=f6e8252]:
+                  - strong [ref=f6e4956]: Twin Heavy Machinegun (Turret)
+                - cell [ref=f6e8253]: Dust 1947
+                - cell [ref=f6e8254]: "8"
+                - cell [ref=f6e8255]:
+                  - generic [ref=f6e4960]: Nein
+                - cell [ref=f6e4962]:
+                  - button [ref=f6e8256] [cursor=pointer]
+                  - button [ref=f6e8257] [cursor=pointer]
+                  - button [ref=f6e8258] [cursor=pointer]
+                  - button [ref=f6e8259] [cursor=pointer]
+              - row [ref=f6e8260]:
+                - cell [ref=f6e8261]: "458"
+                - cell [ref=f6e8262]:
+                  - strong [ref=f6e4979]: Twin Recoilless Guns (Front)
+                - cell [ref=f6e8263]: Dust 1947
+                - cell [ref=f6e8264]: "8"
+                - cell [ref=f6e8265]:
+                  - generic [ref=f6e4983]: Nein
+                - cell [ref=f6e4985]:
+                  - button [ref=f6e8266] [cursor=pointer]
+                  - button [ref=f6e8267] [cursor=pointer]
+                  - button [ref=f6e8268] [cursor=pointer]
+                  - button [ref=f6e8269] [cursor=pointer]
+              - row [ref=f6e8270]:
+                - cell [ref=f6e8271]: "459"
+                - cell [ref=f6e8272]:
+                  - strong [ref=f6e5002]: Twin Tesla Gun
+                - cell [ref=f6e8273]: Dust 1947
+                - cell [ref=f6e8274]: "10"
+                - cell [ref=f6e8275]:
+                  - generic [ref=f6e5006]: Nein
+                - cell [ref=f6e5008]:
+                  - button [ref=f6e8276] [cursor=pointer]
+                  - button [ref=f6e8277] [cursor=pointer]
+                  - button [ref=f6e8278] [cursor=pointer]
+                  - button [ref=f6e8279] [cursor=pointer]
+              - row [ref=f6e8280]:
+                - cell [ref=f6e8281]: "461"
+                - cell [ref=f6e8282]:
+                  - strong [ref=f6e5025]: Twin Tesla Guns (Front)
+                - cell [ref=f6e8283]: Dust 1947
+                - cell [ref=f6e8284]: "8"
+                - cell [ref=f6e8285]:
+                  - generic [ref=f6e5029]: Nein
+                - cell [ref=f6e5031]:
+                  - button [ref=f6e8286] [cursor=pointer]
+                  - button [ref=f6e8287] [cursor=pointer]
+                  - button [ref=f6e8288] [cursor=pointer]
+                  - button [ref=f6e8289] [cursor=pointer]
+              - row [ref=f6e8290]:
+                - cell [ref=f6e8291]: "462"
+                - cell [ref=f6e8292]:
+                  - strong [ref=f6e5048]: Under-Barrel Grenade Launcher
+                - cell [ref=f6e8293]: Dust 1947
+                - cell [ref=f6e8294]: "3"
+                - cell [ref=f6e8295]:
+                  - generic [ref=f6e5052]: Ja
+                - cell [ref=f6e5054]:
+                  - button [ref=f6e8296] [cursor=pointer]
+                  - button [ref=f6e8297] [cursor=pointer]
+                  - button [ref=f6e8298] [cursor=pointer]
+                  - button [ref=f6e8299] [cursor=pointer]
+              - row [ref=f6e8300]:
+                - cell [ref=f6e8301]: "463"
+                - cell [ref=f6e8302]:
+                  - strong [ref=f6e5071]: VK Howitzer
+                - cell [ref=f6e8303]: Dust 1947
+                - cell [ref=f6e8304]: "6"
+                - cell [ref=f6e8305]:
+                  - generic [ref=f6e5075]: Nein
+                - cell [ref=f6e5077]:
+                  - button [ref=f6e8306] [cursor=pointer]
+                  - button [ref=f6e8307] [cursor=pointer]
+                  - button [ref=f6e8308] [cursor=pointer]
+                  - button [ref=f6e8309] [cursor=pointer]
+              - row [ref=f6e8310]:
+                - cell [ref=f6e8311]: "464"
+                - cell [ref=f6e8312]:
+                  - strong [ref=f6e5094]: VK Pistol
+                - cell [ref=f6e8313]: Dust 1947
+                - cell [ref=f6e8314]: "3"
+                - cell [ref=f6e8315]:
+                  - generic [ref=f6e5098]: Nein
+                - cell [ref=f6e5100]:
+                  - button [ref=f6e8316] [cursor=pointer]
+                  - button [ref=f6e8317] [cursor=pointer]
+                  - button [ref=f6e8318] [cursor=pointer]
+                  - button [ref=f6e8319] [cursor=pointer]
+              - row [ref=f6e8320]:
+                - cell [ref=f6e8321]: "465"
+                - cell [ref=f6e8322]:
+                  - strong [ref=f6e5117]: Wrench
+                - cell [ref=f6e8323]: Dust 1947
+                - cell [ref=f6e8324]: C
+                - cell [ref=f6e8325]:
+                  - generic [ref=f6e5121]: Nein
+                - cell [ref=f6e5123]:
+                  - button [ref=f6e8326] [cursor=pointer]
+                  - button [ref=f6e8327] [cursor=pointer]
+                  - button [ref=f6e8328] [cursor=pointer]
+                  - button [ref=f6e8329] [cursor=pointer]
+              - row [ref=f6e8330]:
+                - cell [ref=f6e8331]: "466"
+                - cell [ref=f6e8332]:
+                  - strong [ref=f6e5140]: Wrench
+                - cell [ref=f6e8333]: Dust 1947
+                - cell [ref=f6e8334]: C
+                - cell [ref=f6e8335]:
+                  - generic [ref=f6e5144]: Nein
+                - cell [ref=f6e5146]:
+                  - button [ref=f6e8336] [cursor=pointer]
+                  - button [ref=f6e8337] [cursor=pointer]
+                  - button [ref=f6e8338] [cursor=pointer]
+                  - button [ref=f6e8339] [cursor=pointer]
+              - row [ref=f6e8340]:
+                - cell [ref=f6e8341]: "467"
+                - cell [ref=f6e8342]:
+                  - strong [ref=f6e5163]: X-4 Missile (Front)
+                - cell [ref=f6e8343]: Dust 1947
+                - cell [ref=f6e8344]: "4"
+                - cell [ref=f6e8345]:
+                  - generic [ref=f6e5167]: Nein
+                - cell [ref=f6e5169]:
+                  - button [ref=f6e8346] [cursor=pointer]
+                  - button [ref=f6e8347] [cursor=pointer]
+                  - button [ref=f6e8348] [cursor=pointer]
+                  - button [ref=f6e8349] [cursor=pointer]
+              - row [ref=f6e8350]:
+                - cell [ref=f6e8351]: "468"
+                - cell [ref=f6e8352]:
+                  - strong [ref=f6e5186]: Heavy Machinegun 1
+                - cell [ref=f6e8353]: Dust 1947
+                - cell [ref=f6e8354]: "6"
+                - cell [ref=f6e8355]:
+                  - generic [ref=f6e5190]: Nein
+                - cell [ref=f6e5192]:
+                  - button [ref=f6e8356] [cursor=pointer]
+                  - button [ref=f6e8357] [cursor=pointer]
+                  - button [ref=f6e8358] [cursor=pointer]
+                  - button [ref=f6e8359] [cursor=pointer]
+              - row [ref=f6e8360]:
+                - cell [ref=f6e8361]: "469"
+                - cell [ref=f6e8362]:
+                  - strong [ref=f6e5209]: Heavy Machinegun (Kopie)
+                - cell [ref=f6e8363]: Dust 1947
+                - cell [ref=f6e8364]: "6"
+                - cell [ref=f6e8365]:
+                  - generic [ref=f6e5213]: Nein
+                - cell [ref=f6e5215]:
+                  - button [ref=f6e8366] [cursor=pointer]
+                  - button [ref=f6e8367] [cursor=pointer]
+                  - button [ref=f6e8368] [cursor=pointer]
+                  - button [ref=f6e8369] [cursor=pointer]
+              - row [ref=f6e8370]:
+                - cell [ref=f6e8371]: "470"
+                - cell [ref=f6e8372]:
+                  - strong [ref=f6e5232]: Heavy Machinegun (Kopie) (Kopie)
+                - cell [ref=f6e8373]: Dust 1947
+                - cell [ref=f6e8374]: C
+                - cell [ref=f6e8375]:
+                  - generic [ref=f6e5236]: Nein
+                - cell [ref=f6e5238]:
+                  - button [ref=f6e8376] [cursor=pointer]
+                  - button [ref=f6e8377] [cursor=pointer]
+                  - button [ref=f6e8378] [cursor=pointer]
+                  - button [ref=f6e8379] [cursor=pointer]
+              - row [ref=f6e8380]:
+                - cell [ref=f6e8381]: "471"
+                - cell [ref=f6e8382]:
+                  - strong [ref=f6e5255]: Flamethrower
+                - cell [ref=f6e8383]: Dust 1947
+                - cell [ref=f6e8384]: "2"
+                - cell [ref=f6e8385]:
+                  - generic [ref=f6e5259]: Nein
+                - cell [ref=f6e5261]:
+                  - button [ref=f6e8386] [cursor=pointer]
+                  - button [ref=f6e8387] [cursor=pointer]
+                  - button [ref=f6e8388] [cursor=pointer]
+                  - button [ref=f6e8389] [cursor=pointer]
+              - row [ref=f6e8390]:
+                - cell [ref=f6e8391]: "472"
+                - cell [ref=f6e8392]:
+                  - strong [ref=f6e5278]: Twin Tesla Gun
+                - cell [ref=f6e8393]: Dust 1947
+                - cell [ref=f6e8394]: "10"
+                - cell [ref=f6e8395]:
+                  - generic [ref=f6e5282]: Nein
+                - cell [ref=f6e5284]:
+                  - button [ref=f6e8396] [cursor=pointer]
+                  - button [ref=f6e8397] [cursor=pointer]
+                  - button [ref=f6e8398] [cursor=pointer]
+                  - button [ref=f6e8399] [cursor=pointer]
+              - row [ref=f6e8400]:
+                - cell [ref=f6e8401]: "473"
+                - cell [ref=f6e8402]:
+                  - strong [ref=f6e5301]: Heavy Anti-Tank Gun
+                - cell [ref=f6e8403]: Dust 1947
+                - cell [ref=f6e8404]: "18"
+                - cell [ref=f6e8405]:
+                  - generic [ref=f6e5305]: Nein
+                - cell [ref=f6e5307]:
+                  - button [ref=f6e8406] [cursor=pointer]
+                  - button [ref=f6e8407] [cursor=pointer]
+                  - button [ref=f6e8408] [cursor=pointer]
+                  - button [ref=f6e8409] [cursor=pointer]
+              - row [ref=f6e8410]:
+                - cell [ref=f6e8411]: "474"
+                - cell [ref=f6e8412]:
+                  - strong [ref=f6e5324]: E-5 Blaster Rifle
+                - cell [ref=f6e8413]: Star Wars
+                - cell [ref=f6e8414]: "4"
+                - cell [ref=f6e8415]:
+                  - generic [ref=f6e5328]: Nein
+                - cell [ref=f6e5330]:
+                  - button [ref=f6e8416] [cursor=pointer]
+                  - button [ref=f6e8417] [cursor=pointer]
+                  - button [ref=f6e8418] [cursor=pointer]
+                  - button [ref=f6e8419] [cursor=pointer]
+              - row [ref=f6e8420]:
+                - cell [ref=f6e8421]: "475"
+                - cell [ref=f6e8422]:
+                  - strong [ref=f6e5347]: E-5C Heavy Blaster Rifle
+                - cell [ref=f6e8423]: Star Wars
+                - cell [ref=f6e8424]: "6"
+                - cell [ref=f6e8425]:
+                  - generic [ref=f6e5351]: Nein
+                - cell [ref=f6e5353]:
+                  - button [ref=f6e8426] [cursor=pointer]
+                  - button [ref=f6e8427] [cursor=pointer]
+                  - button [ref=f6e8428] [cursor=pointer]
+                  - button [ref=f6e8429] [cursor=pointer]
+              - row [ref=f6e8430]:
+                - cell [ref=f6e8431]: "476"
+                - cell [ref=f6e8432]:
+                  - strong [ref=f6e5370]: E-60R Rocket Launcher
+                - cell [ref=f6e8433]: Star Wars
+                - cell [ref=f6e8434]: "8"
+                - cell [ref=f6e8435]:
+                  - generic [ref=f6e5374]: Nein
+                - cell [ref=f6e5376]:
+                  - button [ref=f6e8436] [cursor=pointer]
+                  - button [ref=f6e8437] [cursor=pointer]
+                  - button [ref=f6e8438] [cursor=pointer]
+                  - button [ref=f6e8439] [cursor=pointer]
+              - row [ref=f6e8440]:
+                - cell [ref=f6e8441]: "477"
+                - cell [ref=f6e8442]:
+                  - strong [ref=f6e5393]: E-5s Sniper Rifle
+                - cell [ref=f6e8443]: Star Wars
+                - cell [ref=f6e8444]: "10"
+                - cell [ref=f6e8445]:
+                  - generic [ref=f6e5397]: Nein
+                - cell [ref=f6e5399]:
+                  - button [ref=f6e8446] [cursor=pointer]
+                  - button [ref=f6e8447] [cursor=pointer]
+                  - button [ref=f6e8448] [cursor=pointer]
+                  - button [ref=f6e8449] [cursor=pointer]
+              - row [ref=f6e8450]:
+                - cell [ref=f6e8451]: "478"
+                - cell [ref=f6e8452]:
+                  - strong [ref=f6e5416]: Radiation Cannon
+                - cell [ref=f6e8453]: Star Wars
+                - cell [ref=f6e8454]: "8"
+                - cell [ref=f6e8455]:
+                  - generic [ref=f6e5420]: Nein
+                - cell [ref=f6e5422]:
+                  - button [ref=f6e8456] [cursor=pointer]
+                  - button [ref=f6e8457] [cursor=pointer]
+                  - button [ref=f6e8458] [cursor=pointer]
+                  - button [ref=f6e8459] [cursor=pointer]
+              - row [ref=f6e8460]:
+                - cell [ref=f6e8461]: "479"
+                - cell [ref=f6e8462]:
+                  - strong [ref=f6e5439]: Wrist Blaster
+                - cell [ref=f6e8463]: Star Wars
+                - cell [ref=f6e8464]: "4"
+                - cell [ref=f6e8465]:
+                  - generic [ref=f6e5443]: Nein
+                - cell [ref=f6e5445]:
+                  - button [ref=f6e8466] [cursor=pointer]
+                  - button [ref=f6e8467] [cursor=pointer]
+                  - button [ref=f6e8468] [cursor=pointer]
+                  - button [ref=f6e8469] [cursor=pointer]
+              - row [ref=f6e8470]:
+                - cell [ref=f6e8471]: "480"
+                - cell [ref=f6e8472]:
+                  - strong [ref=f6e5462]: Twin Blaster Cannon
+                - cell [ref=f6e8473]: Star Wars
+                - cell [ref=f6e8474]: "6"
+                - cell [ref=f6e8475]:
+                  - generic [ref=f6e5466]: Nein
+                - cell [ref=f6e5468]:
+                  - button [ref=f6e8476] [cursor=pointer]
+                  - button [ref=f6e8477] [cursor=pointer]
+                  - button [ref=f6e8478] [cursor=pointer]
+                  - button [ref=f6e8479] [cursor=pointer]
+              - row [ref=f6e8480]:
+                - cell [ref=f6e8481]: "481"
+                - cell [ref=f6e8482]:
+                  - strong [ref=f6e5485]: Blaster Pistol
+                - cell [ref=f6e8483]: Star Wars
+                - cell [ref=f6e8484]: "3"
+                - cell [ref=f6e8485]:
+                  - generic [ref=f6e5489]: Nein
+                - cell [ref=f6e5491]:
+                  - button [ref=f6e8486] [cursor=pointer]
+                  - button [ref=f6e8487] [cursor=pointer]
+                  - button [ref=f6e8488] [cursor=pointer]
+                  - button [ref=f6e8489] [cursor=pointer]
+              - row [ref=f6e8490]:
+                - cell [ref=f6e8491]: "482"
+                - cell [ref=f6e8492]:
+                  - strong [ref=f6e5508]: Electrostaff
+                - cell [ref=f6e8493]: Star Wars
+                - cell [ref=f6e8494]: C
+                - cell [ref=f6e8495]:
+                  - generic [ref=f6e5512]: Nein
+                - cell [ref=f6e5514]:
+                  - button [ref=f6e8496] [cursor=pointer]
+                  - button [ref=f6e8497] [cursor=pointer]
+                  - button [ref=f6e8498] [cursor=pointer]
+                  - button [ref=f6e8499] [cursor=pointer]
+              - row [ref=f6e8500]:
+                - cell [ref=f6e8501]: "483"
+                - cell [ref=f6e8502]:
+                  - strong [ref=f6e5531]: Lightsabers
+                - cell [ref=f6e8503]: Star Wars
+                - cell [ref=f6e8504]: C
+                - cell [ref=f6e8505]:
+                  - generic [ref=f6e5535]: Nein
+                - cell [ref=f6e5537]:
+                  - button [ref=f6e8506] [cursor=pointer]
+                  - button [ref=f6e8507] [cursor=pointer]
+                  - button [ref=f6e8508] [cursor=pointer]
+                  - button [ref=f6e8509] [cursor=pointer]
+              - row [ref=f6e8510]:
+                - cell [ref=f6e8511]: "484"
+                - cell [ref=f6e8512]:
+                  - strong [ref=f6e5554]: Heavy Laser Cannon
+                - cell [ref=f6e8513]: Star Wars
+                - cell [ref=f6e8514]: "10"
+                - cell [ref=f6e8515]:
+                  - generic [ref=f6e5558]: Nein
+                - cell [ref=f6e5560]:
+                  - button [ref=f6e8516] [cursor=pointer]
+                  - button [ref=f6e8517] [cursor=pointer]
+                  - button [ref=f6e8518] [cursor=pointer]
+                  - button [ref=f6e8519] [cursor=pointer]
+              - row [ref=f6e8520]:
+                - cell [ref=f6e8521]: "485"
+                - cell [ref=f6e8522]:
+                  - strong [ref=f6e5577]: Twin Laser Cannons
+                - cell [ref=f6e8523]: Star Wars
+                - cell [ref=f6e8524]: "8"
+                - cell [ref=f6e8525]:
+                  - generic [ref=f6e5581]: Nein
+                - cell [ref=f6e5583]:
+                  - button [ref=f6e8526] [cursor=pointer]
+                  - button [ref=f6e8527] [cursor=pointer]
+                  - button [ref=f6e8528] [cursor=pointer]
+                  - button [ref=f6e8529] [cursor=pointer]
+              - row [ref=f6e8530]:
+                - cell [ref=f6e8531]: "486"
+                - cell [ref=f6e8532]:
+                  - strong [ref=f6e5600]: Projectile Launchers
+                - cell [ref=f6e8533]: Star Wars
+                - cell [ref=f6e8534]: "6"
+                - cell [ref=f6e8535]:
+                  - generic [ref=f6e5604]: Nein
+                - cell [ref=f6e5606]:
+                  - button [ref=f6e8536] [cursor=pointer]
+                  - button [ref=f6e8537] [cursor=pointer]
+                  - button [ref=f6e8538] [cursor=pointer]
+                  - button [ref=f6e8539] [cursor=pointer]
+              - row [ref=f6e8540]:
+                - cell [ref=f6e8541]: "487"
+                - cell [ref=f6e8542]:
+                  - strong [ref=f6e5623]: Laser Cannon SW
+                - cell [ref=f6e8543]: Star Wars
+                - cell [ref=f6e8544]: "8"
+                - cell [ref=f6e8545]:
+                  - generic [ref=f6e5627]: Nein
+                - cell [ref=f6e5629]:
+                  - button [ref=f6e8546] [cursor=pointer]
+                  - button [ref=f6e8547] [cursor=pointer]
+                  - button [ref=f6e8548] [cursor=pointer]
+                  - button [ref=f6e8549] [cursor=pointer]
+              - row [ref=f6e8550]:
+                - cell [ref=f6e8551]: "488"
+                - cell [ref=f6e8552]:
+                  - strong [ref=f6e5646]: Twin Hailfire Missile Launchers
+                - cell [ref=f6e8553]: Star Wars
+                - cell [ref=f6e8554]: "10"
+                - cell [ref=f6e8555]:
+                  - generic [ref=f6e5650]: Nein
+                - cell [ref=f6e5652]:
+                  - button [ref=f6e8556] [cursor=pointer]
+                  - button [ref=f6e8557] [cursor=pointer]
+                  - button [ref=f6e8558] [cursor=pointer]
+                  - button [ref=f6e8559] [cursor=pointer]
+              - row [ref=f6e8560]:
+                - cell [ref=f6e8561]: "489"
+                - cell [ref=f6e8562]:
+                  - strong [ref=f6e5669]: Twin Auto-Blaster
+                - cell [ref=f6e8563]: Star Wars
+                - cell [ref=f6e8564]: "6"
+                - cell [ref=f6e8565]:
+                  - generic [ref=f6e5673]: Nein
+                - cell [ref=f6e5675]:
+                  - button [ref=f6e8566] [cursor=pointer]
+                  - button [ref=f6e8567] [cursor=pointer]
+                  - button [ref=f6e8568] [cursor=pointer]
+                  - button [ref=f6e8569] [cursor=pointer]
+              - row [ref=f6e8570]:
+                - cell [ref=f6e8571]: "491"
+                - cell [ref=f6e8572]:
+                  - strong [ref=f6e5692]: DC-15A Blaster Rifle
+                - cell [ref=f6e8573]: Star Wars
+                - cell [ref=f6e8574]: "6"
+                - cell [ref=f6e8575]:
+                  - generic [ref=f6e5696]: Nein
+                - cell [ref=f6e5698]:
+                  - button [ref=f6e8576] [cursor=pointer]
+                  - button [ref=f6e8577] [cursor=pointer]
+                  - button [ref=f6e8578] [cursor=pointer]
+                  - button [ref=f6e8579] [cursor=pointer]
+              - row [ref=f6e8580]:
+                - cell [ref=f6e8581]: "492"
+                - cell [ref=f6e8582]:
+                  - strong [ref=f6e5715]: DC-15S Blaster Carbine
+                - cell [ref=f6e8583]: Star Wars
+                - cell [ref=f6e8584]: "4"
+                - cell [ref=f6e8585]:
+                  - generic [ref=f6e5719]: Nein
+                - cell [ref=f6e5721]:
+                  - button [ref=f6e8586] [cursor=pointer]
+                  - button [ref=f6e8587] [cursor=pointer]
+                  - button [ref=f6e8588] [cursor=pointer]
+                  - button [ref=f6e8589] [cursor=pointer]
+              - row [ref=f6e8590]:
+                - cell [ref=f6e8591]: "493"
+                - cell [ref=f6e8592]:
+                  - strong [ref=f6e5738]: Z-6 Rotary Blaster Cannon
+                - cell [ref=f6e8593]: Star Wars
+                - cell [ref=f6e8594]: "6"
+                - cell [ref=f6e8595]:
+                  - generic [ref=f6e5742]: Nein
+                - cell [ref=f6e5744]:
+                  - button [ref=f6e8596] [cursor=pointer]
+                  - button [ref=f6e8597] [cursor=pointer]
+                  - button [ref=f6e8598] [cursor=pointer]
+                  - button [ref=f6e8599] [cursor=pointer]
+              - row [ref=f6e8600]:
+                - cell [ref=f6e8601]: "494"
+                - cell [ref=f6e8602]:
+                  - strong [ref=f6e5761]: RPS-6 Rocket Launcher
+                - cell [ref=f6e8603]: Star Wars
+                - cell [ref=f6e8604]: "4"
+                - cell [ref=f6e8605]:
+                  - generic [ref=f6e5765]: Nein
+                - cell [ref=f6e5767]:
+                  - button [ref=f6e8606] [cursor=pointer]
+                  - button [ref=f6e8607] [cursor=pointer]
+                  - button [ref=f6e8608] [cursor=pointer]
+                  - button [ref=f6e8609] [cursor=pointer]
+              - row [ref=f6e8610]:
+                - cell [ref=f6e8611]: "495"
+                - cell [ref=f6e8612]:
+                  - strong [ref=f6e5784]: DC-17 Blaster Pistol
+                - cell [ref=f6e8613]: Star Wars
+                - cell [ref=f6e8614]: "2"
+                - cell [ref=f6e8615]:
+                  - generic [ref=f6e5788]: Nein
+                - cell [ref=f6e5790]:
+                  - button [ref=f6e8616] [cursor=pointer]
+                  - button [ref=f6e8617] [cursor=pointer]
+                  - button [ref=f6e8618] [cursor=pointer]
+                  - button [ref=f6e8619] [cursor=pointer]
+              - row [ref=f6e8620]:
+                - cell [ref=f6e8621]: "497"
+                - cell [ref=f6e8622]:
+                  - strong [ref=f6e5807]: Twin Light Blaster Cannons
+                - cell [ref=f6e8623]: Star Wars
+                - cell [ref=f6e8624]: "6"
+                - cell [ref=f6e8625]:
+                  - generic [ref=f6e5811]: Nein
+                - cell [ref=f6e5813]:
+                  - button [ref=f6e8626] [cursor=pointer]
+                  - button [ref=f6e8627] [cursor=pointer]
+                  - button [ref=f6e8628] [cursor=pointer]
+                  - button [ref=f6e8629] [cursor=pointer]
+              - row [ref=f6e8630]:
+                - cell [ref=f6e8631]: "498"
+                - cell [ref=f6e8632]:
+                  - strong [ref=f6e5830]: Medium Blaster
+                - cell [ref=f6e8633]: Star Wars
+                - cell [ref=f6e8634]: "6"
+                - cell [ref=f6e8635]:
+                  - generic [ref=f6e5834]: Nein
+                - cell [ref=f6e5836]:
+                  - button [ref=f6e8636] [cursor=pointer]
+                  - button [ref=f6e8637] [cursor=pointer]
+                  - button [ref=f6e8638] [cursor=pointer]
+                  - button [ref=f6e8639] [cursor=pointer]
+              - row [ref=f6e8640]:
+                - cell [ref=f6e8641]: "499"
+                - cell [ref=f6e8642]:
+                  - strong [ref=f6e5853]: Lightsaber
+                - cell [ref=f6e8643]: Star Wars
+                - cell [ref=f6e8644]: C
+                - cell [ref=f6e8645]:
+                  - generic [ref=f6e5857]: Nein
+                - cell [ref=f6e5859]:
+                  - button [ref=f6e8646] [cursor=pointer]
+                  - button [ref=f6e8647] [cursor=pointer]
+                  - button [ref=f6e8648] [cursor=pointer]
+                  - button [ref=f6e8649] [cursor=pointer]
+              - row [ref=f6e8650]:
+                - cell [ref=f6e8651]: "500"
+                - cell [ref=f6e8652]:
+                  - strong [ref=f6e5876]: Tesla Club
+                - cell [ref=f6e8653]: Dust 1947
+                - cell [ref=f6e8654]: C
+                - cell [ref=f6e8655]:
+                  - generic [ref=f6e5880]: Nein
+                - cell [ref=f6e5882]:
+                  - button [ref=f6e8656] [cursor=pointer]
+                  - button [ref=f6e8657] [cursor=pointer]
+                  - button [ref=f6e8658] [cursor=pointer]
+                  - button [ref=f6e8659] [cursor=pointer]
+              - row [ref=f6e8660]:
+                - cell [ref=f6e8661]: "501"
+                - cell [ref=f6e8662]:
+                  - strong [ref=f6e5899]: Plasma Cannon
+                - cell [ref=f6e8663]: Warhammer 40k
+                - cell [ref=f6e8664]: "6"
+                - cell [ref=f6e8665]:
+                  - generic [ref=f6e5903]: Nein
+                - cell [ref=f6e5905]:
+                  - button [ref=f6e8666] [cursor=pointer]
+                  - button [ref=f6e8667] [cursor=pointer]
+                  - button [ref=f6e8668] [cursor=pointer]
+                  - button [ref=f6e8669] [cursor=pointer]
+              - row [ref=f6e8670]:
+                - cell [ref=f6e8671]: "502"
+                - cell [ref=f6e8672]:
+                  - strong [ref=f6e5922]: Assault Cannon
+                - cell [ref=f6e8673]: Warhammer 40k
+                - cell [ref=f6e8674]: "4"
+                - cell [ref=f6e8675]:
+                  - generic [ref=f6e5926]: Nein
+                - cell [ref=f6e5928]:
+                  - button [ref=f6e8676] [cursor=pointer]
+                  - button [ref=f6e8677] [cursor=pointer]
+                  - button [ref=f6e8678] [cursor=pointer]
+                  - button [ref=f6e8679] [cursor=pointer]
+              - row [ref=f6e8680]:
+                - cell [ref=f6e8681]: "503"
+                - cell [ref=f6e8682]:
+                  - strong [ref=f6e5945]: Storm Bolter
+                - cell [ref=f6e8683]: Warhammer 40k
+                - cell [ref=f6e8684]: "4"
+                - cell [ref=f6e8685]:
+                  - generic [ref=f6e5949]: Nein
+                - cell [ref=f6e5951]:
+                  - button [ref=f6e8686] [cursor=pointer]
+                  - button [ref=f6e8687] [cursor=pointer]
+                  - button [ref=f6e8688] [cursor=pointer]
+                  - button [ref=f6e8689] [cursor=pointer]
+              - row [ref=f6e8690]:
+                - cell [ref=f6e8691]: "504"
+                - cell [ref=f6e8692]:
+                  - strong [ref=f6e5968]: Power Fist
+                - cell [ref=f6e8693]: Warhammer 40k
+                - cell [ref=f6e8694]: C
+                - cell [ref=f6e8695]:
+                  - generic [ref=f6e5972]: Nein
+                - cell [ref=f6e5974]:
+                  - button [ref=f6e8696] [cursor=pointer]
+                  - button [ref=f6e8697] [cursor=pointer]
+                  - button [ref=f6e8698] [cursor=pointer]
+                  - button [ref=f6e8699] [cursor=pointer]
+              - row [ref=f6e8700]:
+                - cell [ref=f6e8701]: "505"
+                - cell [ref=f6e8702]:
+                  - strong [ref=f6e5991]: Twin Boltgun
+                - cell [ref=f6e8703]: Warhammer 40k
+                - cell [ref=f6e8704]: "4"
+                - cell [ref=f6e8705]:
+                  - generic [ref=f6e5995]: Nein
+                - cell [ref=f6e5997]:
+                  - button [ref=f6e8706] [cursor=pointer]
+                  - button [ref=f6e8707] [cursor=pointer]
+                  - button [ref=f6e8708] [cursor=pointer]
+                  - button [ref=f6e8709] [cursor=pointer]
+              - row [ref=f6e8710]:
+                - cell [ref=f6e8711]: "506"
+                - cell [ref=f6e8712]:
+                  - strong [ref=f6e6014]: Plasma Gun
+                - cell [ref=f6e8713]: Warhammer 40k
+                - cell [ref=f6e8714]: "4"
+                - cell [ref=f6e8715]:
+                  - generic [ref=f6e6018]: Nein
+                - cell [ref=f6e6020]:
+                  - button [ref=f6e8716] [cursor=pointer]
+                  - button [ref=f6e8717] [cursor=pointer]
+                  - button [ref=f6e8718] [cursor=pointer]
+                  - button [ref=f6e8719] [cursor=pointer]
+              - row [ref=f6e8720]:
+                - cell [ref=f6e8721]: "507"
+                - cell [ref=f6e8722]:
+                  - strong [ref=f6e6037]: Twin Plasma Gun
+                - cell [ref=f6e8723]: Warhammer 40k
+                - cell [ref=f6e8724]: "4"
+                - cell [ref=f6e8725]:
+                  - generic [ref=f6e6041]: Nein
+                - cell [ref=f6e6043]:
+                  - button [ref=f6e8726] [cursor=pointer]
+                  - button [ref=f6e8727] [cursor=pointer]
+                  - button [ref=f6e8728] [cursor=pointer]
+                  - button [ref=f6e8729] [cursor=pointer]
+              - row [ref=f6e8730]:
+                - cell [ref=f6e8731]: "508"
+                - cell [ref=f6e8732]:
+                  - strong [ref=f6e6060]: Death spinner
+                - cell [ref=f6e8733]: Warhammer 40k
+                - cell [ref=f6e8734]: "2"
+                - cell [ref=f6e8735]:
+                  - generic [ref=f6e6064]: Nein
+                - cell [ref=f6e6066]:
+                  - button [ref=f6e8736] [cursor=pointer]
+                  - button [ref=f6e8737] [cursor=pointer]
+                  - button [ref=f6e8738] [cursor=pointer]
+                  - button [ref=f6e8739] [cursor=pointer]
+              - row [ref=f6e8740]:
+                - cell [ref=f6e8741]: "513"
+                - cell [ref=f6e8742]:
+                  - strong [ref=f6e6083]: Dragon fusion gun
+                - cell [ref=f6e8743]: Warhammer 40k
+                - cell [ref=f6e8744]: "2"
+                - cell [ref=f6e8745]:
+                  - generic [ref=f6e6087]: Nein
+                - cell [ref=f6e6089]:
+                  - button [ref=f6e8746] [cursor=pointer]
+                  - button [ref=f6e8747] [cursor=pointer]
+                  - button [ref=f6e8748] [cursor=pointer]
+                  - button [ref=f6e8749] [cursor=pointer]
+  - dialog [ref=f6e8752]:
+    - heading "Waffe klonen" [level=2] [ref=f6e8753]
+    - generic [ref=f6e8755]:
+      - generic [ref=f6e8756]:
+        - generic [ref=f6e8757]: Name
+        - generic [ref=f6e8758]:
+          - textbox "Name" [ref=f6e8759]: Vanquisher Cannon (Kopie)
+          - group [aria-hidden]:
+            - generic: Name
+        - paragraph [ref=f6e8760]: z.B. 'Laser Grenade Launcher', 'Panzerfaust'
+      - generic [ref=f6e8761]:
+        - generic [ref=f6e8762]: Game System (optional)
+        - generic [ref=f6e8763]:
+          - combobox "Game System (optional) Warhammer 40k" [ref=f6e8764] [cursor=pointer]: Warhammer 40k
+          - textbox [aria-hidden]: "2"
+          - group [aria-hidden]:
+            - generic: Game System (optional)
+      - generic [ref=f6e8765]:
+        - generic [ref=f6e8766]: Faction (optional)
+        - generic [ref=f6e8767]:
+          - combobox "Faction (optional) Steel Legion" [ref=f6e8768] [cursor=pointer]: Steel Legion
+          - textbox [aria-hidden]: "3"
+          - group [aria-hidden]:
+            - generic: Faction (optional)
+      - generic [ref=f6e8769]:
+        - generic [ref=f6e8770]: Reichweite
+        - generic [ref=f6e8771]:
+          - textbox "Reichweite" [ref=f6e8772]: "18"
+          - group [aria-hidden]:
+            - generic: Reichweite
+        - paragraph [ref=f6e8773]: z.B. '0-24', '12-48', '0-6'
+      - generic [ref=f6e8774] [cursor=pointer]:
+        - checkbox "Einmalwaffe (nach Benutzung verbraucht)" [ref=f6e8776]
+        - generic [ref=f6e8779]: Einmalwaffe (nach Benutzung verbraucht)
+      - tablist [ref=f6e8782]:
+        - tab "🎯 Stats" [selected] [ref=f6e8783] [cursor=pointer]
+        - tab "📜 Regeln" [ref=f6e8784] [cursor=pointer]
+      - tabpanel [ref=f6e8786]:
+        - generic [ref=f6e8787]:
+          - heading "Weapon Stats (Nur nicht-leere Werte werden gespeichert)" [level=6] [ref=f6e8788]
+          - table [ref=f6e8790]:
+            - rowgroup [ref=f6e8791]:
+              - row [ref=f6e8792]:
+                - columnheader "Target Type" [ref=f6e8793]
+                - columnheader "Level 1" [ref=f6e8794]
+                - columnheader "Level 2" [ref=f6e8795]
+                - columnheader "Level 3" [ref=f6e8796]
+                - columnheader "Level 4" [ref=f6e8797]
+                - columnheader "Level 5" [ref=f6e8798]
+                - columnheader "Level 6" [ref=f6e8799]
+                - columnheader "Level 7" [ref=f6e8800]
+            - rowgroup [ref=f6e8801]:
+              - row [ref=f6e8802]:
+                - cell "I Infantry" [ref=f6e8803]:
+                  - strong [ref=f6e8804]: I
+                  - generic [ref=f6e8805]: Infantry
+                - cell "4 / 1" [ref=f6e8806]:
+                  - generic [ref=f6e8807]:
+                    - generic [ref=f6e8809]:
+                      - textbox "D" [ref=f6e8810]: "4"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8811]: /
+                    - generic [ref=f6e8813]:
+                      - textbox "DMG" [ref=f6e8814]: "1"
+                      - group [aria-hidden]
+                - cell "3 / 1" [ref=f6e8815]:
+                  - generic [ref=f6e8816]:
+                    - generic [ref=f6e8818]:
+                      - textbox "D" [ref=f6e8819]: "3"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8820]: /
+                    - generic [ref=f6e8822]:
+                      - textbox "DMG" [ref=f6e8823]: "1"
+                      - group [aria-hidden]
+                - cell "3 / 1" [ref=f6e8824]:
+                  - generic [ref=f6e8825]:
+                    - generic [ref=f6e8827]:
+                      - textbox "D" [ref=f6e8828]: "3"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8829]: /
+                    - generic [ref=f6e8831]:
+                      - textbox "DMG" [ref=f6e8832]: "1"
+                      - group [aria-hidden]
+                - cell "2 / 1" [ref=f6e8833]:
+                  - generic [ref=f6e8834]:
+                    - generic [ref=f6e8836]:
+                      - textbox "D" [ref=f6e8837]: "2"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8838]: /
+                    - generic [ref=f6e8840]:
+                      - textbox "DMG" [ref=f6e8841]: "1"
+                      - group [aria-hidden]
+                - cell [ref=f6e8842]
+                - cell [ref=f6e8843]
+                - cell [ref=f6e8844]
+              - row [ref=f6e8845]:
+                - cell "V Vehicle" [ref=f6e8846]:
+                  - strong [ref=f6e8847]: V
+                  - generic [ref=f6e8848]: Vehicle
+                - 'cell "1 / #" [ref=f6e8849]':
+                  - generic [ref=f6e8850]:
+                    - generic [ref=f6e8852]:
+                      - textbox "D" [ref=f6e8853]: "1"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8854]: /
+                    - generic [ref=f6e8856]:
+                      - textbox "DMG" [ref=f6e8857]: "#"
+                      - group [aria-hidden]
+                - 'cell "1 / #" [ref=f6e8858]':
+                  - generic [ref=f6e8859]:
+                    - generic [ref=f6e8861]:
+                      - textbox "D" [ref=f6e8862]: "1"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8863]: /
+                    - generic [ref=f6e8865]:
+                      - textbox "DMG" [ref=f6e8866]: "#"
+                      - group [aria-hidden]
+                - 'cell "1 / #" [ref=f6e8867]':
+                  - generic [ref=f6e8868]:
+                    - generic [ref=f6e8870]:
+                      - textbox "D" [ref=f6e8871]: "1"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8872]: /
+                    - generic [ref=f6e8874]:
+                      - textbox "DMG" [ref=f6e8875]: "#"
+                      - group [aria-hidden]
+                - 'cell "1 / #" [ref=f6e8876]':
+                  - generic [ref=f6e8877]:
+                    - generic [ref=f6e8879]:
+                      - textbox "D" [ref=f6e8880]: "1"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8881]: /
+                    - generic [ref=f6e8883]:
+                      - textbox "DMG" [ref=f6e8884]: "#"
+                      - group [aria-hidden]
+                - 'cell "1 / #" [ref=f6e8885]':
+                  - generic [ref=f6e8886]:
+                    - generic [ref=f6e8888]:
+                      - textbox "D" [ref=f6e8889]: "1"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8890]: /
+                    - generic [ref=f6e8892]:
+                      - textbox "DMG" [ref=f6e8893]: "#"
+                      - group [aria-hidden]
+                - cell "1 / 5" [ref=f6e8894]:
+                  - generic [ref=f6e8895]:
+                    - generic [ref=f6e8897]:
+                      - textbox "D" [ref=f6e8898]: "1"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8899]: /
+                    - generic [ref=f6e8901]:
+                      - textbox "DMG" [ref=f6e8902]: "5"
+                      - group [aria-hidden]
+                - cell "1 / 4" [ref=f6e8903]:
+                  - generic [ref=f6e8904]:
+                    - generic [ref=f6e8906]:
+                      - textbox "D" [ref=f6e8907]: "1"
+                      - group [aria-hidden]
+                    - generic [ref=f6e8908]: /
+                    - generic [ref=f6e8910]:
+                      - textbox "DMG" [ref=f6e8911]: "4"
+                      - group [aria-hidden]
+              - row [ref=f6e8912]:
+                - cell "A Aircraft" [ref=f6e8913]:
+                  - strong [ref=f6e8914]: A
+                  - generic [ref=f6e8915]: Aircraft
+                - cell "/" [ref=f6e8916]:
+                  - generic [ref=f6e8917]:
+                    - generic [ref=f6e8919]:
+                      - textbox "D" [ref=f6e8920]
+                      - group [aria-hidden]
+                    - generic [ref=f6e8921]: /
+                    - generic [ref=f6e8923]:
+                      - textbox "DMG" [ref=f6e8924]
+                      - group [aria-hidden]
+                - cell "/" [ref=f6e8925]:
+                  - generic [ref=f6e8926]:
+                    - generic [ref=f6e8928]:
+                      - textbox "D" [ref=f6e8929]
+                      - group [aria-hidden]
+                    - generic [ref=f6e8930]: /
+                    - generic [ref=f6e8932]:
+                      - textbox "DMG" [ref=f6e8933]
+                      - group [aria-hidden]
+                - cell "/" [ref=f6e8934]:
+                  - generic [ref=f6e8935]:
+                    - generic [ref=f6e8937]:
+                      - textbox "D" [ref=f6e8938]
+                      - group [aria-hidden]
+                    - generic [ref=f6e8939]: /
+                    - generic [ref=f6e8941]:
+                      - textbox "DMG" [ref=f6e8942]
+                      - group [aria-hidden]
+                - cell [ref=f6e8943]
+                - cell [ref=f6e8944]
+                - cell [ref=f6e8945]
+                - cell [ref=f6e8946]
+          - generic [ref=f6e8947]: "Format: Dice / Damage (z.B. \"3\" / \"2\" für 3 Würfel mit 2 Schaden)"
+    - generic [ref=f6e8948]:
+      - button "Abbrechen" [ref=f6e8949] [cursor=pointer]
+      - button "Speichern" [ref=f6e8950] [cursor=pointer]

@@ -70,6 +70,7 @@ function loadUnitDefinitions(mysqli $conn, array $unitIds): array {
             f.bloc_id,
             f.name AS faction_name,
             u.type,
+            u.is_unique,
             u.points,
             u.level,
             u.health,
@@ -79,7 +80,7 @@ function loadUnitDefinitions(mysqli $conn, array $unitIds): array {
         LEFT JOIN unit_rules ur ON ur.unit_id = u.id
         LEFT JOIN rules r ON r.id = ur.unit_rule_id
         WHERE u.id IN ($idList)
-        GROUP BY u.id, u.name, u.faction_id, f.bloc_id, f.name, u.type, u.points, u.level, u.health
+        GROUP BY u.id, u.name, u.faction_id, f.bloc_id, f.name, u.type, u.is_unique, u.points, u.level, u.health
     ";
 
     $result = $conn->query($sql);
@@ -95,6 +96,7 @@ function loadUnitDefinitions(mysqli $conn, array $unitIds): array {
             'bloc_id' => (int)$row['bloc_id'],
             'faction_name' => $row['faction_name'],
             'type' => $row['type'],
+            'is_unique' => (int)$row['is_unique'],
             'points' => (int)$row['points'],
             'level' => $row['level'] !== null ? (int)$row['level'] : null,
             'health' => $row['health'] !== null ? (int)$row['health'] : null,
@@ -233,6 +235,7 @@ $action = $_GET['action'] ?? '';
  * POST ?action=armies.create  {name,bloc_id,points_limit}
  * PUT  ?action=armies.update&id=1 {name?points_limit?}
  * POST ?action=armies.delete&id=1
+ * POST ?action=armies.clone {id}
  */
  
 if ($action === 'unit.list') {
@@ -319,6 +322,7 @@ if ($action === 'unit.get') {
       u.name AS unit_name,
       u.notes,
       u.type,
+      u.is_unique,
       u.level,
       u.speed,
       u.march_speed,
@@ -384,6 +388,7 @@ if ($action === 'unit.get') {
 					'id' => $unitId,
 					'name' => $row['unit_name'],
 					'type' => $row['type'],
+					'is_unique' => (int)$row['is_unique'],
 					'level' => $row['level'],
 					'notes' => $row['notes'],
 					'speed' => $row['speed'],
@@ -554,6 +559,120 @@ if ($action === 'armies.delete') {
     ok(["ok" => true]);
 }
 
+if ($action === 'armies.clone') {
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        fail("Use POST", 405);
+    }
+
+    $body = jsonBody();
+    $sourceArmyId = requireInt($body['id'] ?? null, 'id');
+
+    try {
+        $conn->begin_transaction();
+
+        // Lock the source while its complete roster is copied. This avoids a
+        // clone containing only part of a concurrent roster edit.
+        $sourceArmy = $conn->prepare("
+            SELECT name, bloc_id, points_limit
+            FROM armies
+            WHERE id = ?
+            FOR UPDATE
+        ");
+        $sourceArmy->bind_param("i", $sourceArmyId);
+        $sourceArmy->execute();
+        $army = $sourceArmy->get_result()->fetch_assoc();
+        if (!$army) {
+            $conn->rollback();
+            fail("Army not found", 404);
+        }
+
+        $copyName = $army['name'] . " (Copy)";
+        $createArmy = $conn->prepare(
+            "INSERT INTO armies (name, bloc_id, points_limit) VALUES (?, ?, ?)"
+        );
+        $blocId = (int)$army['bloc_id'];
+        $pointsLimit = (int)$army['points_limit'];
+        $createArmy->bind_param("sii", $copyName, $blocId, $pointsLimit);
+        $createArmy->execute();
+        $newArmyId = (int)$conn->insert_id;
+
+        // Keep a source army_platoon id -> cloned army_platoon id map so
+        // army unit assignments point only to the newly-created platoons.
+        $sourcePlatoons = $conn->prepare("
+            SELECT id, platoon_id
+            FROM army_platoons
+            WHERE army_id = ?
+            ORDER BY id ASC
+        ");
+        $sourcePlatoons->bind_param("i", $sourceArmyId);
+        $sourcePlatoons->execute();
+        $platoonResult = $sourcePlatoons->get_result();
+
+        $createPlatoon = $conn->prepare(
+            "INSERT INTO army_platoons (army_id, platoon_id) VALUES (?, ?)"
+        );
+        $platoonIdMap = [];
+        while ($sourcePlatoon = $platoonResult->fetch_assoc()) {
+            $platoonId = (int)$sourcePlatoon['platoon_id'];
+            $createPlatoon->bind_param("ii", $newArmyId, $platoonId);
+            $createPlatoon->execute();
+            $platoonIdMap[(int)$sourcePlatoon['id']] = (int)$conn->insert_id;
+        }
+
+        $sourceUnits = $conn->prepare("
+            SELECT unit_id, quantity, army_platoon_id, platoon_unit_id
+            FROM army_units
+            WHERE army_id = ?
+            ORDER BY id ASC
+        ");
+        $sourceUnits->bind_param("i", $sourceArmyId);
+        $sourceUnits->execute();
+        $unitResult = $sourceUnits->get_result();
+
+        $createUnit = $conn->prepare("
+            INSERT INTO army_units
+                (army_id, unit_id, quantity, army_platoon_id, platoon_unit_id)
+            VALUES (?, ?, ?, ?, ?)
+        ");
+        while ($sourceUnit = $unitResult->fetch_assoc()) {
+            $unitId = (int)$sourceUnit['unit_id'];
+            $quantity = (int)$sourceUnit['quantity'];
+            $sourcePlatoonId = $sourceUnit['army_platoon_id'] !== null
+                ? (int)$sourceUnit['army_platoon_id']
+                : null;
+            $newPlatoonId = $sourcePlatoonId !== null
+                ? ($platoonIdMap[$sourcePlatoonId] ?? null)
+                : null;
+            if ($sourcePlatoonId !== null && $newPlatoonId === null) {
+                throw new RuntimeException("Invalid army platoon assignment");
+            }
+            $platoonUnitId = $sourceUnit['platoon_unit_id'] !== null
+                ? (int)$sourceUnit['platoon_unit_id']
+                : null;
+            $createUnit->bind_param(
+                "iiiii",
+                $newArmyId,
+                $unitId,
+                $quantity,
+                $newPlatoonId,
+                $platoonUnitId
+            );
+            $createUnit->execute();
+        }
+
+        $conn->commit();
+        ok(["id" => $newArmyId], 201);
+    } catch (Throwable $e) {
+        try {
+            $conn->rollback();
+        } catch (Throwable $rollbackError) {
+            // The original failure is the useful error to surface.
+        }
+        error_log("Army clone failed: " . $e->getMessage());
+        fail("Unable to clone army", 500);
+    }
+}
+
 if ($action === 'factions.list') {
 	if ($_SERVER['REQUEST_METHOD'] !== 'GET') fail("Use GET", 405);
     $sql = "SELECT id, name, symbol_url FROM factions ORDER BY name";
@@ -561,6 +680,12 @@ if ($action === 'factions.list') {
     if (!$res) fail("Database error", 500);
 
     ok(["factions" => $res->fetch_all(MYSQLI_ASSOC)]);
+}
+
+if ($action === 'game_systems.list') {
+    if ($_SERVER['REQUEST_METHOD'] !== 'GET') fail("Use GET", 405);
+    $res = $conn->query("SELECT id, name FROM game_systems ORDER BY name");
+    ok(["game_systems" => $res->fetch_all(MYSQLI_ASSOC)]);
 }
 
 if ($action === 'blocs.list') {
@@ -733,9 +858,11 @@ if ($action === 'army.units.add') {
 }
 
 if ($action === 'army.units.update') {
-    if ($_SERVER['REQUEST_METHOD'] !== 'PUT') fail("Use PUT", 405);
-    $id = requireInt($_GET['id'] ?? null, 'id');
+    if ($_SERVER['REQUEST_METHOD'] !== 'PUT' && $_SERVER['REQUEST_METHOD'] !== 'POST') fail("Use PUT or POST", 405);
     $body = jsonBody();
+    // POST is used by the frontend so the row id and the new quantity can
+    // travel in the same JSON payload; retain the original PUT query API.
+    $id = requireInt($_GET['id'] ?? ($body['id'] ?? null), 'id');
     $qty = isset($body['quantity']) ? max(1, (int)$body['quantity']) : null;
     if ($qty === null) fail("Missing quantity", 400);
 
@@ -769,7 +896,7 @@ if ($action === 'platoon.units.list') {
     $platoonId = requireInt($_GET['platoon_id'] ?? null, 'platoon_id');
 
     $stmt = $conn->prepare("
-        SELECT pu.id, pu.platoon_id, pu.slot, pu.unit_id, u.name AS unit_name, u.points AS unit_points, f.name AS faction_name
+        SELECT pu.id, pu.platoon_id, pu.slot, pu.unit_id, u.name AS unit_name, u.points AS unit_points, u.is_unique, f.name AS faction_name
         FROM platoon_units pu
         JOIN units u ON u.id = pu.unit_id
 		LEFT JOIN factions f ON u.faction_id = f.id

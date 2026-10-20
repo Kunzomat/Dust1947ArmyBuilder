@@ -28,6 +28,7 @@ import {
   TableSortLabel
 } from '@mui/material';
 import { Edit, Delete, Add, Link as LinkIcon } from '@mui/icons-material';
+import useSessionStorageState from '../../hooks/useSessionStorageState';
 
 // Admin API uses different base URL than army_api
 const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
@@ -79,7 +80,20 @@ export default function PlatoonManager() {
     slot: '',
     unit_id: ''
   });
-  const [filterGameSystemId, setFilterGameSystemId] = useState('');
+  const [filters, setFilters] = useSessionStorageState(
+    'dust1947.filters.v1.admin.platoons',
+    { filterGameSystemId: '' }
+  );
+  const { filterGameSystemId } = filters;
+  const setFilterGameSystemId = (value) =>
+    setFilters((previous) => ({ ...previous, filterGameSystemId: value }));
+
+  useEffect(() => {
+    if (filterGameSystemId && gameSystems.length > 0
+      && !gameSystems.some((system) => String(system.id) === String(filterGameSystemId))) {
+      setFilters((previous) => ({ ...previous, filterGameSystemId: '' }));
+    }
+  }, [filterGameSystemId, gameSystems, setFilters]);
   const [sortBy, setSortBy] = useState('id');
   const [sortDirection, setSortDirection] = useState('asc');
 
@@ -690,4 +704,3 @@ export default function PlatoonManager() {
     </Box>
   );
 }
-

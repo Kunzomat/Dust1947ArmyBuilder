@@ -24,6 +24,7 @@ import {
 } from '@mui/material';
 import { Edit, Delete, Add } from '@mui/icons-material';
 import { getImageUrl } from '../../imageHelper';
+import useSessionStorageState from '../../hooks/useSessionStorageState';
 
 // Admin API uses different base URL than army_api
 const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
@@ -104,8 +105,15 @@ export default function FactionManager() {
   const [sortDirection, setSortDirection] = useState('asc');
   const [blocs, setBlocs] = useState([]);
   const [gameSystems, setGameSystems] = useState([]);
-  const [selectedGameSystemId, setSelectedGameSystemId] = useState('');
-  const [selectedBlocId, setSelectedBlocId] = useState('');
+  const [filters, setFilters] = useSessionStorageState(
+    'dust1947.filters.v1.admin.factions',
+    { selectedGameSystemId: '', selectedBlocId: '' }
+  );
+  const { selectedGameSystemId, selectedBlocId } = filters;
+  const setSelectedGameSystemId = (value) =>
+    setFilters((previous) => ({ ...previous, selectedGameSystemId: value }));
+  const setSelectedBlocId = (value) =>
+    setFilters((previous) => ({ ...previous, selectedBlocId: value }));
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingFaction, setEditingFaction] = useState(null);
   const [imageOptions, setImageOptions] = useState([]);
@@ -287,6 +295,17 @@ export default function FactionManager() {
     if (!selectedGameSystemId) return true;
     return String(bloc.game_system_id ?? '') === String(selectedGameSystemId);
   });
+
+  useEffect(() => {
+    if (selectedGameSystemId && gameSystems.length > 0
+      && !gameSystems.some((system) => String(system.id) === String(selectedGameSystemId))) {
+      setFilters((previous) => ({ ...previous, selectedGameSystemId: '' }));
+    }
+    if (selectedBlocId && blocs.length > 0
+      && !availableBlocs.some((bloc) => String(bloc.id) === String(selectedBlocId))) {
+      setFilters((previous) => ({ ...previous, selectedBlocId: '' }));
+    }
+  }, [availableBlocs, blocs.length, gameSystems, selectedBlocId, selectedGameSystemId, setFilters]);
 
   const filteredFactions = factions.filter((faction) => {
     if (selectedGameSystemId && String(faction.game_system_id ?? '') !== String(selectedGameSystemId)) {
@@ -593,4 +612,3 @@ export default function FactionManager() {
     </Box>
   );
 }
-

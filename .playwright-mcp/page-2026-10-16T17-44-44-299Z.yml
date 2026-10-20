@@ -1,0 +1,574 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading [level=6] [ref=e24065]: Dust 1947 – Army Builder
+        - group [ref=e7]:
+          - button [ref=e24066] [cursor=pointer]: Army Builder
+          - button [pressed] [ref=e24067] [cursor=pointer]: Admin
+    - generic [ref=e127]:
+      - heading [level=4] [ref=e24068]: ⚙️ Admin Panel - Daten Verwaltung
+      - paragraph [ref=e129]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+      - tablist [ref=e133]:
+        - tab [ref=e24069] [cursor=pointer]: 🎮 Game Systems
+        - tab [ref=e24070] [cursor=pointer]: 🏴 Blocs
+        - tab [ref=e24071] [cursor=pointer]: 🎖️ Factions
+        - tab [ref=e24072] [cursor=pointer]: ⚔️ Units
+        - tab [selected] [ref=e24073] [cursor=pointer]: 🔫 Weapons
+        - tab [ref=e24074] [cursor=pointer]: 📜 Rules
+        - tab [ref=e24075] [cursor=pointer]: 🪖 Platoons
+      - tabpanel [ref=e17968]:
+        - generic [ref=e17970]:
+          - generic [ref=e17971]:
+            - heading [level=6] [ref=e24076]: Weapons (24)
+            - generic [ref=e17973]:
+              - generic [ref=e17974]:
+                - generic: Waffe suchen
+                - generic [ref=e17975]:
+                  - textbox [ref=e24077]:
+                    - /placeholder: Contains (ab 1 Zeichen)
+                  - group [aria-hidden]:
+                    - generic: Waffe suchen
+              - generic [ref=e17977]:
+                - generic [ref=e24063]: Game System
+                - generic [ref=e17978]:
+                  - combobox [ref=e24078] [cursor=pointer]: Star Wars
+                  - textbox [aria-hidden]: "3"
+                  - group [aria-hidden]:
+                    - generic: Game System
+              - generic [ref=e17980]:
+                - generic: Faction
+                - generic [ref=e17981]:
+                  - combobox [ref=e24079] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Faction
+              - button [ref=e24080] [cursor=pointer]: Neue Waffe
+          - table [ref=e17988]:
+            - rowgroup [ref=e17989]:
+              - row [ref=e24081]:
+                - columnheader [ref=e24082]:
+                  - button [ref=e24083] [cursor=pointer]: ID
+                - columnheader [ref=e24084]:
+                  - button [ref=e24085] [cursor=pointer]: Name
+                - columnheader [ref=e24086]:
+                  - button [ref=e24087] [cursor=pointer]: Game System
+                - columnheader [ref=e24088]:
+                  - button [ref=e24089] [cursor=pointer]: Reichweite
+                - columnheader [ref=e24090]:
+                  - button [ref=e24091] [cursor=pointer]: Einmalwaffe
+                - columnheader [ref=e24092]: Aktionen
+            - rowgroup [ref=e18012]:
+              - row [ref=e24093]:
+                - cell [ref=e24094]: "474"
+                - cell [ref=e24095]:
+                  - strong [ref=e24097]: E-5 Blaster Rifle
+                - cell [ref=e24098]: Star Wars
+                - cell [ref=e24099]: "4"
+                - cell [ref=e24100]:
+                  - generic [ref=e24101]: Nein
+                - cell [ref=e24103]:
+                  - button [ref=e24104] [cursor=pointer]
+                  - button [ref=e24107] [cursor=pointer]
+                  - button [ref=e24110] [cursor=pointer]
+                  - button [ref=e24113] [cursor=pointer]
+              - row [ref=e24116]:
+                - cell [ref=e24117]: "475"
+                - cell [ref=e24118]:
+                  - strong [ref=e24120]: E-5C Heavy Blaster Rifle
+                - cell [ref=e24121]: Star Wars
+                - cell [ref=e24122]: "6"
+                - cell [ref=e24123]:
+                  - generic [ref=e24124]: Nein
+                - cell [ref=e24126]:
+                  - button [ref=e24127] [cursor=pointer]
+                  - button [ref=e24130] [cursor=pointer]
+                  - button [ref=e24133] [cursor=pointer]
+                  - button [ref=e24136] [cursor=pointer]
+              - row [ref=e24139]:
+                - cell [ref=e24140]: "476"
+                - cell [ref=e24141]:
+                  - strong [ref=e24143]: E-60R Rocket Launcher
+                - cell [ref=e24144]: Star Wars
+                - cell [ref=e24145]: "8"
+                - cell [ref=e24146]:
+                  - generic [ref=e24147]: Nein
+                - cell [ref=e24149]:
+                  - button [ref=e24150] [cursor=pointer]
+                  - button [ref=e24153] [cursor=pointer]
+                  - button [ref=e24156] [cursor=pointer]
+                  - button [ref=e24159] [cursor=pointer]
+              - row [ref=e24162]:
+                - cell [ref=e24163]: "477"
+                - cell [ref=e24164]:
+                  - strong [ref=e24166]: E-5s Sniper Rifle
+                - cell [ref=e24167]: Star Wars
+                - cell [ref=e24168]: "10"
+                - cell [ref=e24169]:
+                  - generic [ref=e24170]: Nein
+                - cell [ref=e24172]:
+                  - button [ref=e24173] [cursor=pointer]
+                  - button [ref=e24176] [cursor=pointer]
+                  - button [ref=e24179] [cursor=pointer]
+                  - button [ref=e24182] [cursor=pointer]
+              - row [ref=e24185]:
+                - cell [ref=e24186]: "478"
+                - cell [ref=e24187]:
+                  - strong [ref=e24189]: Radiation Cannon
+                - cell [ref=e24190]: Star Wars
+                - cell [ref=e24191]: "8"
+                - cell [ref=e24192]:
+                  - generic [ref=e24193]: Nein
+                - cell [ref=e24195]:
+                  - button [ref=e24196] [cursor=pointer]
+                  - button [ref=e24199] [cursor=pointer]
+                  - button [ref=e24202] [cursor=pointer]
+                  - button [ref=e24205] [cursor=pointer]
+              - row [ref=e24208]:
+                - cell [ref=e24209]: "479"
+                - cell [ref=e24210]:
+                  - strong [ref=e24212]: Wrist Blaster
+                - cell [ref=e24213]: Star Wars
+                - cell [ref=e24214]: "4"
+                - cell [ref=e24215]:
+                  - generic [ref=e24216]: Nein
+                - cell [ref=e24218]:
+                  - button [ref=e24219] [cursor=pointer]
+                  - button [ref=e24222] [cursor=pointer]
+                  - button [ref=e24225] [cursor=pointer]
+                  - button [ref=e24228] [cursor=pointer]
+              - row [ref=e24231]:
+                - cell [ref=e24232]: "480"
+                - cell [ref=e24233]:
+                  - strong [ref=e24235]: Twin Blaster Cannon
+                - cell [ref=e24236]: Star Wars
+                - cell [ref=e24237]: "6"
+                - cell [ref=e24238]:
+                  - generic [ref=e24239]: Nein
+                - cell [ref=e24241]:
+                  - button [ref=e24242] [cursor=pointer]
+                  - button [ref=e24245] [cursor=pointer]
+                  - button [ref=e24248] [cursor=pointer]
+                  - button [ref=e24251] [cursor=pointer]
+              - row [ref=e24254]:
+                - cell [ref=e24255]: "481"
+                - cell [ref=e24256]:
+                  - strong [ref=e24258]: Blaster Pistol
+                - cell [ref=e24259]: Star Wars
+                - cell [ref=e24260]: "3"
+                - cell [ref=e24261]:
+                  - generic [ref=e24262]: Nein
+                - cell [ref=e24264]:
+                  - button [ref=e24265] [cursor=pointer]
+                  - button [ref=e24268] [cursor=pointer]
+                  - button [ref=e24271] [cursor=pointer]
+                  - button [ref=e24274] [cursor=pointer]
+              - row [ref=e24277]:
+                - cell [ref=e24278]: "482"
+                - cell [ref=e24279]:
+                  - strong [ref=e24281]: Electrostaff
+                - cell [ref=e24282]: Star Wars
+                - cell [ref=e24283]: C
+                - cell [ref=e24284]:
+                  - generic [ref=e24285]: Nein
+                - cell [ref=e24287]:
+                  - button [ref=e24288] [cursor=pointer]
+                  - button [ref=e24291] [cursor=pointer]
+                  - button [ref=e24294] [cursor=pointer]
+                  - button [ref=e24297] [cursor=pointer]
+              - row [ref=e24300]:
+                - cell [ref=e24301]: "483"
+                - cell [ref=e24302]:
+                  - strong [ref=e24304]: Lightsabers
+                - cell [ref=e24305]: Star Wars
+                - cell [ref=e24306]: C
+                - cell [ref=e24307]:
+                  - generic [ref=e24308]: Nein
+                - cell [ref=e24310]:
+                  - button [ref=e24311] [cursor=pointer]
+                  - button [ref=e24314] [cursor=pointer]
+                  - button [ref=e24317] [cursor=pointer]
+                  - button [ref=e24320] [cursor=pointer]
+              - row [ref=e24323]:
+                - cell [ref=e24324]: "484"
+                - cell [ref=e24325]:
+                  - strong [ref=e24327]: Heavy Laser Cannon
+                - cell [ref=e24328]: Star Wars
+                - cell [ref=e24329]: "10"
+                - cell [ref=e24330]:
+                  - generic [ref=e24331]: Nein
+                - cell [ref=e24333]:
+                  - button [ref=e24334] [cursor=pointer]
+                  - button [ref=e24337] [cursor=pointer]
+                  - button [ref=e24340] [cursor=pointer]
+                  - button [ref=e24343] [cursor=pointer]
+              - row [ref=e24346]:
+                - cell [ref=e24347]: "485"
+                - cell [ref=e24348]:
+                  - strong [ref=e24350]: Twin Laser Cannons
+                - cell [ref=e24351]: Star Wars
+                - cell [ref=e24352]: "8"
+                - cell [ref=e24353]:
+                  - generic [ref=e24354]: Nein
+                - cell [ref=e24356]:
+                  - button [ref=e24357] [cursor=pointer]
+                  - button [ref=e24360] [cursor=pointer]
+                  - button [ref=e24363] [cursor=pointer]
+                  - button [ref=e24366] [cursor=pointer]
+              - row [ref=e24369]:
+                - cell [ref=e24370]: "486"
+                - cell [ref=e24371]:
+                  - strong [ref=e24373]: Projectile Launchers
+                - cell [ref=e24374]: Star Wars
+                - cell [ref=e24375]: "6"
+                - cell [ref=e24376]:
+                  - generic [ref=e24377]: Nein
+                - cell [ref=e24379]:
+                  - button [ref=e24380] [cursor=pointer]
+                  - button [ref=e24383] [cursor=pointer]
+                  - button [ref=e24386] [cursor=pointer]
+                  - button [ref=e24389] [cursor=pointer]
+              - row [ref=e24392]:
+                - cell [ref=e24393]: "487"
+                - cell [ref=e24394]:
+                  - strong [ref=e24396]: Laser Cannon SW
+                - cell [ref=e24397]: Star Wars
+                - cell [ref=e24398]: "8"
+                - cell [ref=e24399]:
+                  - generic [ref=e24400]: Nein
+                - cell [ref=e24402]:
+                  - button [ref=e24403] [cursor=pointer]
+                  - button [ref=e24406] [cursor=pointer]
+                  - button [ref=e24409] [cursor=pointer]
+                  - button [ref=e24412] [cursor=pointer]
+              - row [ref=e24415]:
+                - cell [ref=e24416]: "488"
+                - cell [ref=e24417]:
+                  - strong [ref=e24419]: Twin Hailfire Missile Launchers
+                - cell [ref=e24420]: Star Wars
+                - cell [ref=e24421]: "10"
+                - cell [ref=e24422]:
+                  - generic [ref=e24423]: Nein
+                - cell [ref=e24425]:
+                  - button [ref=e24426] [cursor=pointer]
+                  - button [ref=e24429] [cursor=pointer]
+                  - button [ref=e24432] [cursor=pointer]
+                  - button [ref=e24435] [cursor=pointer]
+              - row [ref=e24438]:
+                - cell [ref=e24439]: "489"
+                - cell [ref=e24440]:
+                  - strong [ref=e24442]: Twin Auto-Blaster
+                - cell [ref=e24443]: Star Wars
+                - cell [ref=e24444]: "6"
+                - cell [ref=e24445]:
+                  - generic [ref=e24446]: Nein
+                - cell [ref=e24448]:
+                  - button [ref=e24449] [cursor=pointer]
+                  - button [ref=e24452] [cursor=pointer]
+                  - button [ref=e24455] [cursor=pointer]
+                  - button [ref=e24458] [cursor=pointer]
+              - row [ref=e24461]:
+                - cell [ref=e24462]: "491"
+                - cell [ref=e24463]:
+                  - strong [ref=e24465]: DC-15A Blaster Rifle
+                - cell [ref=e24466]: Star Wars
+                - cell [ref=e24467]: "6"
+                - cell [ref=e24468]:
+                  - generic [ref=e24469]: Nein
+                - cell [ref=e24471]:
+                  - button [ref=e24472] [cursor=pointer]
+                  - button [ref=e24475] [cursor=pointer]
+                  - button [ref=e24478] [cursor=pointer]
+                  - button [ref=e24481] [cursor=pointer]
+              - row [ref=e24484]:
+                - cell [ref=e24485]: "492"
+                - cell [ref=e24486]:
+                  - strong [ref=e24488]: DC-15S Blaster Carbine
+                - cell [ref=e24489]: Star Wars
+                - cell [ref=e24490]: "4"
+                - cell [ref=e24491]:
+                  - generic [ref=e24492]: Nein
+                - cell [ref=e24494]:
+                  - button [ref=e24495] [cursor=pointer]
+                  - button [ref=e24498] [cursor=pointer]
+                  - button [ref=e24501] [cursor=pointer]
+                  - button [ref=e24504] [cursor=pointer]
+              - row [ref=e24507]:
+                - cell [ref=e24508]: "493"
+                - cell [ref=e24509]:
+                  - strong [ref=e24511]: Z-6 Rotary Blaster Cannon
+                - cell [ref=e24512]: Star Wars
+                - cell [ref=e24513]: "6"
+                - cell [ref=e24514]:
+                  - generic [ref=e24515]: Nein
+                - cell [ref=e24517]:
+                  - button [ref=e24518] [cursor=pointer]
+                  - button [ref=e24521] [cursor=pointer]
+                  - button [ref=e24524] [cursor=pointer]
+                  - button [ref=e24527] [cursor=pointer]
+              - row [ref=e24530]:
+                - cell [ref=e24531]: "494"
+                - cell [ref=e24532]:
+                  - strong [ref=e24534]: RPS-6 Rocket Launcher
+                - cell [ref=e24535]: Star Wars
+                - cell [ref=e24536]: "4"
+                - cell [ref=e24537]:
+                  - generic [ref=e24538]: Nein
+                - cell [ref=e24540]:
+                  - button [ref=e24541] [cursor=pointer]
+                  - button [ref=e24544] [cursor=pointer]
+                  - button [ref=e24547] [cursor=pointer]
+                  - button [ref=e24550] [cursor=pointer]
+              - row [ref=e24553]:
+                - cell [ref=e24554]: "495"
+                - cell [ref=e24555]:
+                  - strong [ref=e24557]: DC-17 Blaster Pistol
+                - cell [ref=e24558]: Star Wars
+                - cell [ref=e24559]: "2"
+                - cell [ref=e24560]:
+                  - generic [ref=e24561]: Nein
+                - cell [ref=e24563]:
+                  - button [ref=e24564] [cursor=pointer]
+                  - button [ref=e24567] [cursor=pointer]
+                  - button [ref=e24570] [cursor=pointer]
+                  - button [ref=e24573] [cursor=pointer]
+              - row [ref=e24576]:
+                - cell [ref=e24577]: "497"
+                - cell [ref=e24578]:
+                  - strong [ref=e24580]: Twin Light Blaster Cannons
+                - cell [ref=e24581]: Star Wars
+                - cell [ref=e24582]: "6"
+                - cell [ref=e24583]:
+                  - generic [ref=e24584]: Nein
+                - cell [ref=e24586]:
+                  - button [ref=e24587] [cursor=pointer]
+                  - button [ref=e24590] [cursor=pointer]
+                  - button [ref=e24593] [cursor=pointer]
+                  - button [ref=e24596] [cursor=pointer]
+              - row [ref=e24599]:
+                - cell [ref=e24600]: "498"
+                - cell [ref=e24601]:
+                  - strong [ref=e24603]: Medium Blaster
+                - cell [ref=e24604]: Star Wars
+                - cell [ref=e24605]: "6"
+                - cell [ref=e24606]:
+                  - generic [ref=e24607]: Nein
+                - cell [ref=e24609]:
+                  - button [ref=e24610] [cursor=pointer]
+                  - button [ref=e24613] [cursor=pointer]
+                  - button [ref=e24616] [cursor=pointer]
+                  - button [ref=e24619] [cursor=pointer]
+              - row [ref=e24622]:
+                - cell [ref=e24623]: "499"
+                - cell [ref=e24624]:
+                  - strong [ref=e24626]: Lightsaber
+                - cell [ref=e24627]: Star Wars
+                - cell [ref=e24628]: C
+                - cell [ref=e24629]:
+                  - generic [ref=e24630]: Nein
+                - cell [ref=e24632]:
+                  - button [ref=e24633] [cursor=pointer]
+                  - button [ref=e24636] [cursor=pointer]
+                  - button [ref=e24639] [cursor=pointer]
+                  - button [ref=e24642] [cursor=pointer]
+  - dialog [ref=e24647]:
+    - heading "Waffe klonen" [level=2] [ref=e24648]
+    - generic [ref=e24650]:
+      - generic [ref=e24651]:
+        - generic [ref=e24652]: Name
+        - generic [ref=e24653]:
+          - textbox "Name" [ref=e24654]: E-5 Blaster Rifle (Kopie)
+          - group [aria-hidden]:
+            - generic: Name
+        - paragraph [ref=e24655]: z.B. 'Laser Grenade Launcher', 'Panzerfaust'
+      - generic [ref=e24656]:
+        - generic [ref=e24657]: Game System (optional)
+        - generic [ref=e24658]:
+          - combobox "Game System (optional) Star Wars" [ref=e24659] [cursor=pointer]: Star Wars
+          - textbox [aria-hidden]: "3"
+          - group [aria-hidden]:
+            - generic: Game System (optional)
+      - generic [ref=e24660]:
+        - generic: Faction (optional)
+        - generic [ref=e24661]:
+          - combobox "Faction (optional)" [ref=e24662] [cursor=pointer]
+          - textbox [aria-hidden]
+          - group [aria-hidden]:
+            - generic: Faction (optional)
+      - generic [ref=e24663]:
+        - generic [ref=e24664]: Reichweite
+        - generic [ref=e24665]:
+          - textbox "Reichweite" [ref=e24666]: "4"
+          - group [aria-hidden]:
+            - generic: Reichweite
+        - paragraph [ref=e24667]: z.B. '0-24', '12-48', '0-6'
+      - generic [ref=e24668] [cursor=pointer]:
+        - checkbox "Einmalwaffe (nach Benutzung verbraucht)" [ref=e24670]
+        - generic [ref=e24673]: Einmalwaffe (nach Benutzung verbraucht)
+      - tablist [ref=e24676]:
+        - tab "🎯 Stats" [selected] [ref=e24677] [cursor=pointer]
+        - tab "📜 Regeln" [ref=e24678] [cursor=pointer]
+      - tabpanel [ref=e24680]:
+        - generic [ref=e24681]:
+          - heading "Weapon Stats (Nur nicht-leere Werte werden gespeichert)" [level=6] [ref=e24682]
+          - table [ref=e24684]:
+            - rowgroup [ref=e24685]:
+              - row [ref=e24686]:
+                - columnheader "Target Type" [ref=e24687]
+                - columnheader "Level 1" [ref=e24688]
+                - columnheader "Level 2" [ref=e24689]
+                - columnheader "Level 3" [ref=e24690]
+                - columnheader "Level 4" [ref=e24691]
+                - columnheader "Level 5" [ref=e24692]
+                - columnheader "Level 6" [ref=e24693]
+                - columnheader "Level 7" [ref=e24694]
+            - rowgroup [ref=e24695]:
+              - row [ref=e24696]:
+                - cell "I Infantry" [ref=e24697]:
+                  - strong [ref=e24698]: I
+                  - generic [ref=e24699]: Infantry
+                - cell "3 / 1" [ref=e24700]:
+                  - generic [ref=e24701]:
+                    - generic [ref=e24703]:
+                      - textbox "D" [ref=e24704]: "3"
+                      - group [aria-hidden]
+                    - generic [ref=e24705]: /
+                    - generic [ref=e24707]:
+                      - textbox "DMG" [ref=e24708]: "1"
+                      - group [aria-hidden]
+                - cell "2 / 1" [ref=e24709]:
+                  - generic [ref=e24710]:
+                    - generic [ref=e24712]:
+                      - textbox "D" [ref=e24713]: "2"
+                      - group [aria-hidden]
+                    - generic [ref=e24714]: /
+                    - generic [ref=e24716]:
+                      - textbox "DMG" [ref=e24717]: "1"
+                      - group [aria-hidden]
+                - cell "1 / 1" [ref=e24718]:
+                  - generic [ref=e24719]:
+                    - generic [ref=e24721]:
+                      - textbox "D" [ref=e24722]: "1"
+                      - group [aria-hidden]
+                    - generic [ref=e24723]: /
+                    - generic [ref=e24725]:
+                      - textbox "DMG" [ref=e24726]: "1"
+                      - group [aria-hidden]
+                - cell "1 / 1" [ref=e24727]:
+                  - generic [ref=e24728]:
+                    - generic [ref=e24730]:
+                      - textbox "D" [ref=e24731]: "1"
+                      - group [aria-hidden]
+                    - generic [ref=e24732]: /
+                    - generic [ref=e24734]:
+                      - textbox "DMG" [ref=e24735]: "1"
+                      - group [aria-hidden]
+                - cell [ref=e24736]
+                - cell [ref=e24737]
+                - cell [ref=e24738]
+              - row [ref=e24739]:
+                - cell "V Vehicle" [ref=e24740]:
+                  - strong [ref=e24741]: V
+                  - generic [ref=e24742]: Vehicle
+                - cell "1 / 1" [ref=e24743]:
+                  - generic [ref=e24744]:
+                    - generic [ref=e24746]:
+                      - textbox "D" [ref=e24747]: "1"
+                      - group [aria-hidden]
+                    - generic [ref=e24748]: /
+                    - generic [ref=e24750]:
+                      - textbox "DMG" [ref=e24751]: "1"
+                      - group [aria-hidden]
+                - cell "/" [ref=e24752]:
+                  - generic [ref=e24753]:
+                    - generic [ref=e24755]:
+                      - textbox "D" [ref=e24756]
+                      - group [aria-hidden]
+                    - generic [ref=e24757]: /
+                    - generic [ref=e24759]:
+                      - textbox "DMG" [ref=e24760]
+                      - group [aria-hidden]
+                - cell "/" [ref=e24761]:
+                  - generic [ref=e24762]:
+                    - generic [ref=e24764]:
+                      - textbox "D" [ref=e24765]
+                      - group [aria-hidden]
+                    - generic [ref=e24766]: /
+                    - generic [ref=e24768]:
+                      - textbox "DMG" [ref=e24769]
+                      - group [aria-hidden]
+                - cell "/" [ref=e24770]:
+                  - generic [ref=e24771]:
+                    - generic [ref=e24773]:
+                      - textbox "D" [ref=e24774]
+                      - group [aria-hidden]
+                    - generic [ref=e24775]: /
+                    - generic [ref=e24777]:
+                      - textbox "DMG" [ref=e24778]
+                      - group [aria-hidden]
+                - cell "/" [ref=e24779]:
+                  - generic [ref=e24780]:
+                    - generic [ref=e24782]:
+                      - textbox "D" [ref=e24783]
+                      - group [aria-hidden]
+                    - generic [ref=e24784]: /
+                    - generic [ref=e24786]:
+                      - textbox "DMG" [ref=e24787]
+                      - group [aria-hidden]
+                - cell "/" [ref=e24788]:
+                  - generic [ref=e24789]:
+                    - generic [ref=e24791]:
+                      - textbox "D" [ref=e24792]
+                      - group [aria-hidden]
+                    - generic [ref=e24793]: /
+                    - generic [ref=e24795]:
+                      - textbox "DMG" [ref=e24796]
+                      - group [aria-hidden]
+                - cell "/" [ref=e24797]:
+                  - generic [ref=e24798]:
+                    - generic [ref=e24800]:
+                      - textbox "D" [ref=e24801]
+                      - group [aria-hidden]
+                    - generic [ref=e24802]: /
+                    - generic [ref=e24804]:
+                      - textbox "DMG" [ref=e24805]
+                      - group [aria-hidden]
+              - row [ref=e24806]:
+                - cell "A Aircraft" [ref=e24807]:
+                  - strong [ref=e24808]: A
+                  - generic [ref=e24809]: Aircraft
+                - cell "/" [ref=e24810]:
+                  - generic [ref=e24811]:
+                    - generic [ref=e24813]:
+                      - textbox "D" [ref=e24814]
+                      - group [aria-hidden]
+                    - generic [ref=e24815]: /
+                    - generic [ref=e24817]:
+                      - textbox "DMG" [ref=e24818]
+                      - group [aria-hidden]
+                - cell "/" [ref=e24819]:
+                  - generic [ref=e24820]:
+                    - generic [ref=e24822]:
+                      - textbox "D" [ref=e24823]
+                      - group [aria-hidden]
+                    - generic [ref=e24824]: /
+                    - generic [ref=e24826]:
+                      - textbox "DMG" [ref=e24827]
+                      - group [aria-hidden]
+                - cell "/" [ref=e24828]:
+                  - generic [ref=e24829]:
+                    - generic [ref=e24831]:
+                      - textbox "D" [ref=e24832]
+                      - group [aria-hidden]
+                    - generic [ref=e24833]: /
+                    - generic [ref=e24835]:
+                      - textbox "DMG" [ref=e24836]
+                      - group [aria-hidden]
+                - cell [ref=e24837]
+                - cell [ref=e24838]
+                - cell [ref=e24839]
+                - cell [ref=e24840]
+          - generic [ref=e24841]: "Format: Dice / Damage (z.B. \"3\" / \"2\" für 3 Würfel mit 2 Schaden)"
+    - generic [ref=e24842]:
+      - button "Abbrechen" [ref=e24843] [cursor=pointer]
+      - button "Speichern" [ref=e24844] [cursor=pointer]

@@ -1,0 +1,80 @@
+- generic [ref=f6e1]:
+  - generic [ref=f6e3]:
+    - banner [ref=f6e4]:
+      - generic [ref=f6e5]:
+        - heading [level=6] [ref=f6e231]: Dust 1947 – Army Builder
+        - group [ref=f6e7]:
+          - button [pressed] [ref=f6e232] [cursor=pointer]: Army Builder
+          - button [ref=f6e233] [cursor=pointer]: Admin
+        - generic [ref=f6e59]: 43/110 Punkte
+    - generic [ref=f6e14]:
+      - alert [ref=f6e15]:
+        - generic [ref=f6e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+      - generic [ref=f6e20]:
+        - generic [ref=f6e21]:
+          - heading [level=6] [ref=f6e234]: Armeen
+          - separator [ref=f6e24]
+          - generic [ref=f6e25]:
+            - generic [ref=f6e26]:
+              - generic [ref=f6e27]:
+                - generic [ref=f6e128]: Game System
+                - generic [ref=f6e28]:
+                  - combobox [expanded] [ref=f6e235] [cursor=pointer]: Star Wars
+                  - textbox [aria-hidden]: "3"
+                  - group [aria-hidden]:
+                    - generic: Game System
+              - generic [ref=f6e30]:
+                - generic [ref=f6e187]: Bloc
+                - generic [ref=f6e31]:
+                  - combobox [ref=f6e236] [cursor=pointer]: Konföderation unabhängiger Systeme
+                  - textbox [aria-hidden]: "5"
+                  - group [aria-hidden]:
+                    - generic: Bloc
+              - generic [ref=f6e33]:
+                - button [ref=f6e237] [cursor=pointer]: Aktualisieren
+                - button [ref=f6e238] [cursor=pointer]: Neue Armee
+                - button [ref=f6e239] [cursor=pointer]: Löschen
+            - list [ref=f6e62]:
+              - button [ref=f6e240] [cursor=pointer]:
+                - generic [ref=f6e64]:
+                  - generic [ref=f6e65]: Star Wars Droiden Armee
+                  - paragraph [ref=f6e66]: 43/110 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+        - generic [ref=f6e39]:
+          - heading [level=6] [ref=f6e241]: "Armee: Star Wars Droiden Armee (Konföderation unabhängiger Systeme • Star Wars)"
+          - separator [ref=f6e42]
+          - generic [ref=f6e43]:
+            - generic [ref=f6e44]:
+              - button [ref=f6e242] [cursor=pointer]: Bearbeiten
+              - button [ref=f6e243] [cursor=pointer]: Klonen
+              - button [ref=f6e244] [cursor=pointer]: Platoon hinzufügen
+              - button [ref=f6e245] [cursor=pointer]: Einheit hinzufügen
+            - paragraph [ref=f6e49]: Platoons
+            - alert [ref=f6e101]:
+              - generic [ref=f6e105]:
+                - strong [ref=f6e106]: Faction Force
+                - text: "• 43/110 AP • Bonus: 0/10 AP"
+            - generic [ref=f6e107]:
+              - paragraph [ref=f6e108]: Freie Einheiten
+              - list [ref=f6e109]:
+                - listitem [ref=f6e110]:
+                  - button [ref=f6e246] [cursor=pointer]:
+                    - generic [ref=f6e112]:
+                      - generic [ref=f6e113]: 3× Droideka
+                      - paragraph [ref=f6e114]: 3 × 13 AP = 39 AP
+                  - button [ref=f6e247] [cursor=pointer]: Entfernen
+                - listitem [ref=f6e117]:
+                  - button [ref=f6e248] [cursor=pointer]:
+                    - generic [ref=f6e119]:
+                      - generic [ref=f6e120]: 1× B1 Battle Droid Combat Squad
+                      - paragraph [ref=f6e121]: 1 × 4 AP = 4 AP
+                  - button [ref=f6e249] [cursor=pointer]: Entfernen
+        - generic [ref=f6e53]:
+          - heading [level=6] [ref=f6e250]: Details
+          - separator [ref=f6e56]
+          - paragraph [ref=f6e58]: Einheit auswählen…
+  - listbox "Game System" [ref=f6e253]:
+    - option "All Game Systems" [ref=f6e254] [cursor=pointer]
+    - option "Dune" [ref=f6e255] [cursor=pointer]
+    - option "Dust 1947" [ref=f6e256] [cursor=pointer]
+    - option "Star Wars" [active] [selected] [ref=f6e257] [cursor=pointer]
+    - option "Warhammer 40k" [ref=f6e258] [cursor=pointer]

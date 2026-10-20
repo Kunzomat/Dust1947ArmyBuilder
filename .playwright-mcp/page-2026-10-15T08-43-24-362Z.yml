@@ -1,0 +1,1696 @@
+- generic [ref=f1e3]:
+  - banner [ref=f1e4]:
+    - generic [ref=f1e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f1e3721]
+      - group [ref=f1e7]:
+        - button "Army Builder" [ref=f1e3722] [cursor=pointer]
+        - button "Admin" [pressed] [ref=f1e3723] [cursor=pointer]
+  - generic [ref=f1e15]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=f1e3724]
+    - paragraph [ref=f1e17]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+    - tablist [ref=f1e21]:
+      - tab "🎮 Game Systems" [ref=f1e3725] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=f1e3726] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=f1e3727] [cursor=pointer]
+      - tab "⚔️ Units" [ref=f1e3728] [cursor=pointer]
+      - tab "🔫 Weapons" [ref=f1e3729] [cursor=pointer]
+      - tab "📜 Rules" [selected] [ref=f1e3730] [cursor=pointer]
+      - tab "🪖 Platoons" [ref=f1e3731] [cursor=pointer]
+    - tabpanel [ref=f1e30]:
+      - generic [ref=f1e32]:
+        - generic [ref=f1e33]:
+          - heading "Rules (150)" [level=6] [ref=f1e3732]
+          - generic [ref=f1e35]:
+            - generic [ref=f1e36]:
+              - generic: Game System
+              - generic [ref=f1e37]:
+                - combobox "Game System" [ref=f1e3733] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - button [ref=f1e3734] [cursor=pointer]
+        - table [ref=f1e44]:
+          - rowgroup [ref=f1e45]:
+            - row [ref=f1e3735]:
+              - columnheader [ref=f1e3736]:
+                - button "ID" [ref=f1e3737] [cursor=pointer]
+              - columnheader [ref=f1e3738]:
+                - button "Name" [ref=f1e3739] [cursor=pointer]
+              - columnheader [ref=f1e3740]:
+                - button "Game System" [ref=f1e3741] [cursor=pointer]
+              - columnheader [ref=f1e3742]:
+                - button "Kurzbeschreibung" [ref=f1e3743] [cursor=pointer]
+              - columnheader [ref=f1e3744]:
+                - button "Volltext" [ref=f1e3745] [cursor=pointer]
+              - columnheader "Aktionen" [ref=f1e3746]
+          - rowgroup [ref=f1e69]:
+            - row [ref=f1e3747]:
+              - cell "1" [ref=f1e3748]
+              - cell [ref=f1e3749]:
+                - strong [ref=f1e73]: ARMOR 3
+              - cell "Alle" [ref=f1e3750]
+              - cell "Reduziert Schaden" [ref=f1e3751]
+              - cell "Diese Einheit ignoriert x Schaden von Angriffen." [ref=f1e3752]
+              - cell [ref=f1e77]:
+                - button [ref=f1e78] [cursor=pointer]
+                - button "Regel klonen" [active] [ref=f1e3753] [cursor=pointer]
+                - button [ref=f1e84] [cursor=pointer]
+            - row [ref=f1e3754]:
+              - cell "2" [ref=f1e3755]
+              - cell [ref=f1e3756]:
+                - strong [ref=f1e90]: FAST
+              - cell "Alle" [ref=f1e3757]
+              - cell "Zusätzliche Bewegung" [ref=f1e3758]
+              - cell "Diese Einheit darf sich zusätzliche Felder bewegen." [ref=f1e3759]
+              - cell [ref=f1e94]:
+                - button [ref=f1e95] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3760] [cursor=pointer]
+                - button [ref=f1e101] [cursor=pointer]
+            - row [ref=f1e3761]:
+              - cell "3" [ref=f1e3762]
+              - cell [ref=f1e3763]:
+                - strong [ref=f1e107]: AIR TRAFFIC CONTROL
+              - cell "Alle" [ref=f1e3764]
+              - cell "Re-activate aircraft" [ref=f1e3765]
+              - cell "This unit may take an AIR TRAFFIC CONTROL special action by selecting a friendly aircraft that has already activated this turn. Roll a die, on that aircraft ends their activation and immediately activates again. A unit may only be reactivated once per turn." [ref=f1e3766]
+              - cell [ref=f1e111]:
+                - button [ref=f1e112] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3767] [cursor=pointer]
+                - button [ref=f1e118] [cursor=pointer]
+            - row [ref=f1e3768]:
+              - cell "4" [ref=f1e3769]
+              - cell [ref=f1e3770]:
+                - strong [ref=f1e124]: AMMO REPLENISH
+              - cell "Alle" [ref=f1e3771]
+              - cell "Replenish ammo" [ref=f1e3772]
+              - cell "An infantry unit within LOS and range 1 of scenery with this skill can execute an AMMO REPLENISH special action to replenish all limited ammo weapons. A vehicle unit within LOS and range 1 of the scenery with this skill can spend 2 actions to replenish all limited ammo weapons." [ref=f1e3773]
+              - cell [ref=f1e128]:
+                - button [ref=f1e129] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3774] [cursor=pointer]
+                - button [ref=f1e135] [cursor=pointer]
+            - row [ref=f1e3775]:
+              - cell "5" [ref=f1e3776]
+              - cell [ref=f1e3777]:
+                - strong [ref=f1e141]: AMPHIBIOUS
+              - cell "Alle" [ref=f1e3778]
+              - cell "Move through water/swamp" [ref=f1e3779]
+              - cell "This vehicle can enter and move through water and swamp as if it were open terrain." [ref=f1e3780]
+              - cell [ref=f1e145]:
+                - button [ref=f1e146] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3781] [cursor=pointer]
+                - button [ref=f1e152] [cursor=pointer]
+            - row [ref=f1e3782]:
+              - cell "6" [ref=f1e3783]
+              - cell [ref=f1e3784]:
+                - strong [ref=f1e158]: AND STAY DOWN
+              - cell "Alle" [ref=f1e3785]
+              - cell "Apply suppression on hit" [ref=f1e3786]
+              - cell "Any unit hit by this unit???s ranged weapons automatically gains a suppression token if it does not already have one. This skill is not shared with any unit a hero joins." [ref=f1e3787]
+              - cell [ref=f1e162]:
+                - button [ref=f1e163] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3788] [cursor=pointer]
+                - button [ref=f1e169] [cursor=pointer]
+            - row [ref=f1e3789]:
+              - cell "7" [ref=f1e3790]
+              - cell [ref=f1e3791]:
+                - strong [ref=f1e175]: ARTILLERY OBSERVER
+              - cell "Alle" [ref=f1e3792]
+              - cell "Can shoot at a target in Line of Sight with an Artillery Weapon from another Unit that has not yet Activated, even if the other Unit does not have Line of Sight. The other Unit is counted as Activated after making its Attack." [ref=f1e3793]
+              - cell "When this performs an ATTACK or SUSTAINED ATTACK action, they may use the artillery weapons of a friendly unit that has not yet activated, rather than their own weapons. The artillery unit immediately activates and performs an ATTACK, SUSTAINED ATTACK, or fires smoke (whichever the artillery observer is performing) with its artillery weapons." [ref=f1e3794]
+              - cell [ref=f1e179]:
+                - button [ref=f1e180] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3795] [cursor=pointer]
+                - button [ref=f1e186] [cursor=pointer]
+            - row [ref=f1e3796]:
+              - cell "8" [ref=f1e3797]
+              - cell [ref=f1e3798]:
+                - strong [ref=f1e192]: ASSAULT SHIELD
+              - cell "Alle" [ref=f1e3799]
+              - cell "Unit leader protection" [ref=f1e3800]
+              - cell "An assault shield is equipment that gives access to the skill of the same name, carried by the unit leader, who protects the rest of the unit squad with it. You can elect to assign the leader hits during a CC attack. If the assault shield roll fails, the leader and the assault shield is lost." [ref=f1e3801]
+              - cell [ref=f1e196]:
+                - button [ref=f1e197] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3802] [cursor=pointer]
+                - button [ref=f1e203] [cursor=pointer]
+            - row [ref=f1e3803]:
+              - cell "9" [ref=f1e3804]
+              - cell [ref=f1e3805]:
+                - strong [ref=f1e209]: ASSAULT VEHICLE
+              - cell "Alle" [ref=f1e3806]
+              - cell "Disembark anytime" [ref=f1e3807]
+              - cell "Passengers in this vehicle (or aircraft) can disembark from it even if the vehicle (or aircraft) has already activated in the current turn." [ref=f1e3808]
+              - cell [ref=f1e213]:
+                - button [ref=f1e214] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3809] [cursor=pointer]
+                - button [ref=f1e220] [cursor=pointer]
+            - row [ref=f1e3810]:
+              - cell "10" [ref=f1e3811]
+              - cell [ref=f1e3812]:
+                - strong [ref=f1e226]: ASSASSIN
+              - cell "Alle" [ref=f1e3813]
+              - cell "Control hit assignment" [ref=f1e3814]
+              - cell "This hero chooses which enemy soldiers are assigned hits when performing an ATTACK action with CC weapons. However, the assassin cannot target the unit leader unless it is a hero or the last remaining soldier in the target unit. This skill is not shared with any unit a hero joins." [ref=f1e3815]
+              - cell [ref=f1e230]:
+                - button [ref=f1e231] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3816] [cursor=pointer]
+                - button [ref=f1e237] [cursor=pointer]
+            - row [ref=f1e3817]:
+              - cell "11" [ref=f1e3818]
+              - cell [ref=f1e3819]:
+                - strong [ref=f1e243]: AT THE DOUBLE
+              - cell "Alle" [ref=f1e3820]
+              - cell "Free move after march" [ref=f1e3821]
+              - cell "This unit (and any unit it has joined or hero that has joined it) may perform a free MOVE action immediately after performing a MARCH MOVE action." [ref=f1e3822]
+              - cell [ref=f1e247]:
+                - button [ref=f1e248] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3823] [cursor=pointer]
+                - button [ref=f1e254] [cursor=pointer]
+            - row [ref=f1e3824]:
+              - cell "12" [ref=f1e3825]
+              - cell [ref=f1e3826]:
+                - strong [ref=f1e260]: BERSERK
+              - cell "Dust 1947" [ref=f1e3827]
+              - cell "When hero hits with a close-combat weapon, roll again scoring another hit on [Symbol]. Continue rolling until fail to hit. Does not apply to units joined." [ref=f1e3828]
+              - cell "When hero hits with a close-combat weapon, roll again scoring another hit on [Symbol]. Continue rolling until fail to hit. Does not apply to units joined." [ref=f1e3829]
+              - cell [ref=f1e264]:
+                - button [ref=f1e265] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3830] [cursor=pointer]
+                - button [ref=f1e271] [cursor=pointer]
+            - row [ref=f1e3831]:
+              - cell "13" [ref=f1e3832]
+              - cell [ref=f1e3833]:
+                - strong [ref=f1e277]: BLACK OPS
+              - cell "Alle" [ref=f1e3834]
+              - cell "Extra initiative dice" [ref=f1e3835]
+              - cell "If your force has a hero with this skill, roll 4 dice for initiative rolls." [ref=f1e3836]
+              - cell [ref=f1e281]:
+                - button [ref=f1e282] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3837] [cursor=pointer]
+                - button [ref=f1e288] [cursor=pointer]
+            - row [ref=f1e3838]:
+              - cell "14" [ref=f1e3839]
+              - cell [ref=f1e3840]:
+                - strong [ref=f1e294]: BLUTKREUZ
+              - cell "Alle" [ref=f1e3841]
+              - cell "Buff nearby zombies" [ref=f1e3842]
+              - cell "All Mindless Zombie units within range 1 of this hero at the start of their Activation increase their MOVE to 3 or their MARCH MOVE to 4, and gain the Charge skill. This skill is not shared with any unit a hero joins." [ref=f1e3843]
+              - cell [ref=f1e298]:
+                - button [ref=f1e299] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3844] [cursor=pointer]
+                - button [ref=f1e305] [cursor=pointer]
+            - row [ref=f1e3845]:
+              - cell "15" [ref=f1e3846]
+              - cell [ref=f1e3847]:
+                - strong [ref=f1e311]: BRAVE
+              - cell "Dust 1947" [ref=f1e3848]
+              - cell "Roll three dice when rolling to remove Under Fire or Suppression tokens." [ref=f1e3849]
+              - cell "This unit rolls 3 dice instead of 2 when rolling to remove under fire or suppression tokens." [ref=f1e3850]
+              - cell [ref=f1e315]:
+                - button [ref=f1e316] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3851] [cursor=pointer]
+                - button [ref=f1e322] [cursor=pointer]
+            - row [ref=f1e3852]:
+              - cell "16" [ref=f1e3853]
+              - cell [ref=f1e3854]:
+                - strong [ref=f1e328]: CAMOUFLAGE
+              - cell "Dust 1947" [ref=f1e3855]
+              - cell "Take Camouflage Special Action. Unit cannot be attacked at Range 3 or higher. Ends if Unit takes any Action other than a Move or Nothing Action. Starts the game Camouflaged. Does not Share it with any Unit Joined." [ref=f1e3856]
+              - cell "This unit may take a CAMOUFLAGE special action. If it does, it cannot be attacked at range 3 or higher. This benefit ends if the camouflaged unit takes any action other than MOVE or NOTHING (artillery observers can use their skill to attack with an artillery unit as well). The unit starts the game camouflaged. This skill is not shared with any unit a hero joins." [ref=f1e3857]
+              - cell [ref=f1e332]:
+                - button [ref=f1e333] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3858] [cursor=pointer]
+                - button [ref=f1e339] [cursor=pointer]
+            - row [ref=f1e3859]:
+              - cell "17" [ref=f1e3860]
+              - cell [ref=f1e3861]:
+                - strong [ref=f1e345]: CHARGE
+              - cell "Dust 1947" [ref=f1e3862]
+              - cell "May take a free Close-Combat Action after performing a March Move Action." [ref=f1e3863]
+              - cell "May take a free Close-Combat Action after performing a March Move Action." [ref=f1e3864]
+              - cell [ref=f1e349]:
+                - button [ref=f1e350] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3865] [cursor=pointer]
+                - button [ref=f1e356] [cursor=pointer]
+            - row [ref=f1e3866]:
+              - cell "18" [ref=f1e3867]
+              - cell [ref=f1e3868]:
+                - strong [ref=f1e362]: CHEAT DEATH
+              - cell "Alle" [ref=f1e3869]
+              - cell "Survive lethal hit once" [ref=f1e3870]
+              - cell "If this hero is eliminated, roll a die after resolving the attack that eliminated it. On or , the hero removes 1 point of damage and survives, but gains a stunned token. A hero can only cheat death once per game. A stunned unit cannot fight, including fighting back if attacked in CC. Any time a stunned unit activates, it must perform a NOTHING action as its first action, then remove any stunned tokens. If a stunned unit attempts a reactive attack, it rolls 1 die rather than 2 to see if it can make a reactive attack." [ref=f1e3871]
+              - cell [ref=f1e366]:
+                - button [ref=f1e367] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3872] [cursor=pointer]
+                - button [ref=f1e373] [cursor=pointer]
+            - row [ref=f1e3873]:
+              - cell "19" [ref=f1e3874]
+              - cell [ref=f1e3875]:
+                - strong [ref=f1e379]: COMMAND SQUAD
+              - cell "Dust 1947" [ref=f1e3876]
+              - cell "May perform Special Actions with its Officer, Medic, or Mechanic, to reactivate, heal, repair, or rearm Units." [ref=f1e3877]
+              - cell "May perform special actions with its officer, medic, or mechanic to reactivate, rally, heal, repair, or rearm units." [ref=f1e3878]
+              - cell [ref=f1e383]:
+                - button [ref=f1e384] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3879] [cursor=pointer]
+                - button [ref=f1e390] [cursor=pointer]
+            - row [ref=f1e3880]:
+              - cell "20" [ref=f1e3881]
+              - cell [ref=f1e3882]:
+                - strong [ref=f1e396]: COMMAND VEHICLE
+              - cell "Alle" [ref=f1e3883]
+              - cell "Extra operator & reroll" [ref=f1e3884]
+              - cell "This vehicle provides any command squad mounted in it with an additional radio operator. In addition, officers, mechanics, and medics mounted in the command vehicle can re-roll failed COMMAND SQUAD special actions." [ref=f1e3885]
+              - cell [ref=f1e400]:
+                - button [ref=f1e401] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3886] [cursor=pointer]
+                - button [ref=f1e407] [cursor=pointer]
+            - row [ref=f1e3887]:
+              - cell "21" [ref=f1e3888]
+              - cell [ref=f1e3889]:
+                - strong [ref=f1e413]: COMMISSAR
+              - cell "Alle" [ref=f1e3890]
+              - cell "Join infantry, boost suppression roll" [ref=f1e3891]
+              - cell [ref=f1e3892]
+              - cell [ref=f1e417]:
+                - button [ref=f1e418] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3893] [cursor=pointer]
+                - button [ref=f1e424] [cursor=pointer]
+            - row [ref=f1e3894]:
+              - cell "22" [ref=f1e3895]
+              - cell [ref=f1e3896]:
+                - strong [ref=f1e430]: DAMAGE RESILIENT
+              - cell "Alle" [ref=f1e3897]
+              - cell "Roll one die for each point of Damage the Unit Takes, negating one point for each [symbol] rolled. Does not apply to Units Joined." [ref=f1e3898]
+              - cell "When this infantry, vehicle, or hero unit is the target of an attack that rolls successful hits, first roll for any saves, then determine the final damage. Roll 1 die for each point of damage, negating 1 point for each. The unit takes any remaining damage. This skill is not shared with any unit a hero or unit joins." [ref=f1e3899]
+              - cell [ref=f1e434]:
+                - button [ref=f1e435] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3900] [cursor=pointer]
+                - button [ref=f1e441] [cursor=pointer]
+            - row [ref=f1e3901]:
+              - cell "23" [ref=f1e3902]
+              - cell [ref=f1e3903]:
+                - strong [ref=f1e447]: DEFENSIVE TACTICS
+              - cell "Alle" [ref=f1e3904]
+              - cell "Gain Damage Resilient in cover" [ref=f1e3905]
+              - cell "This unit (and any unit it has joined or hero that has joined it) gains the Damage Resilient skill when in cover (even against weapons that negate cover and CC attacks)." [ref=f1e3906]
+              - cell [ref=f1e451]:
+                - button [ref=f1e452] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3907] [cursor=pointer]
+                - button [ref=f1e458] [cursor=pointer]
+            - row [ref=f1e3908]:
+              - cell "24" [ref=f1e3909]
+              - cell [ref=f1e3910]:
+                - strong [ref=f1e464]: DESERT FOX
+              - cell "Alle" [ref=f1e3911]
+              - cell "Grant At The Double when reactivated" [ref=f1e3912]
+              - cell "Any unit reactivated by a unit with this skill using Get Moving You Monkeys gains the At The Double skill for that activation." [ref=f1e3913]
+              - cell [ref=f1e468]:
+                - button [ref=f1e469] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3914] [cursor=pointer]
+                - button [ref=f1e475] [cursor=pointer]
+            - row [ref=f1e3915]:
+              - cell "25" [ref=f1e3916]
+              - cell [ref=f1e3917]:
+                - strong [ref=f1e481]: DEVOUR
+              - cell "Alle" [ref=f1e3918]
+              - cell "Heal 1 HP per CC damage" [ref=f1e3919]
+              - cell "Each time this unit inflicts 1 point of damage in close combat, it heals 1 health. This unit can???t have more health than the maximum on its unit card. Since close combat is simultaneous (except against First Strike), this unit can heal itself while taking damage." [ref=f1e3920]
+              - cell [ref=f1e485]:
+                - button [ref=f1e486] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3921] [cursor=pointer]
+                - button [ref=f1e492] [cursor=pointer]
+            - row [ref=f1e3922]:
+              - cell "26" [ref=f1e3923]
+              - cell [ref=f1e3924]:
+                - strong [ref=f1e498]: DOZER BLADE
+              - cell "Alle" [ref=f1e3925]
+              - cell "Dig in & gain cover, perform ENGINEERING actions" [ref=f1e3926]
+              - cell "A vehicle equipped with a dozer blade can perform a DOZER special action to dig in and gain cover from any angle until it performs a MOVE or MARCH MOVE action. A vehicle with a dozer blade can also perform ENGINEERING special actions." [ref=f1e3927]
+              - cell [ref=f1e502]:
+                - button [ref=f1e503] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3928] [cursor=pointer]
+                - button [ref=f1e509] [cursor=pointer]
+            - row [ref=f1e3929]:
+              - cell "27" [ref=f1e3930]
+              - cell [ref=f1e3931]:
+                - strong [ref=f1e515]: ENGINEER VEHICLE
+              - cell "Alle" [ref=f1e3932]
+              - cell "Has improved Engineering Action." [ref=f1e3933]
+              - cell "Has improved Engineering Action." [ref=f1e3934]
+              - cell [ref=f1e519]:
+                - button [ref=f1e520] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3935] [cursor=pointer]
+                - button [ref=f1e526] [cursor=pointer]
+            - row [ref=f1e3936]:
+              - cell "28" [ref=f1e3937]
+              - cell [ref=f1e3938]:
+                - strong [ref=f1e532]: EXECUTE
+              - cell "Alle" [ref=f1e3939]
+              - cell "Execute stunned soldier within range" [ref=f1e3940]
+              - cell "This unit can take an EXECUTE special action to choose and eliminate a soldier that is part of a unit with a stunned token (including a hero) within range 1." [ref=f1e3941]
+              - cell [ref=f1e536]:
+                - button [ref=f1e537] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3942] [cursor=pointer]
+                - button [ref=f1e543] [cursor=pointer]
+            - row [ref=f1e3943]:
+              - cell "29" [ref=f1e3944]
+              - cell [ref=f1e3945]:
+                - strong [ref=f1e549]: EXPERT
+              - cell "Alle" [ref=f1e3946]
+              - cell "Hit more reliably with specific weapon" [ref=f1e3947]
+              - cell "A hero with this skill hits on as well as when making an ATTACK or SUSTAINED ATTACK action with the specified weapon. If a vehicle is equipped with the weapons mentioned, the skill applies. This skill is not shared with any unit a hero joins." [ref=f1e3948]
+              - cell [ref=f1e553]:
+                - button [ref=f1e554] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3949] [cursor=pointer]
+                - button [ref=f1e560] [cursor=pointer]
+            - row [ref=f1e3950]:
+              - cell "30" [ref=f1e3951]
+              - cell [ref=f1e3952]:
+                - strong [ref=f1e566]: FIGHTING SPIRIT
+              - cell "Alle" [ref=f1e3953]
+              - cell "Boost attack once per game" [ref=f1e3954]
+              - cell "Once per game, this unit (and any unit it has joined or hero that has joined it) hits on as well as SUSTAINED ATTACK action." [ref=f1e3955]
+              - cell [ref=f1e570]:
+                - button [ref=f1e571] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3956] [cursor=pointer]
+                - button [ref=f1e577] [cursor=pointer]
+            - row [ref=f1e3957]:
+              - cell "31" [ref=f1e3958]
+              - cell [ref=f1e3959]:
+                - strong [ref=f1e583]: FLAME BURST
+              - cell "Alle" [ref=f1e3960]
+              - cell "Fireball damages ground units & applies suppression" [ref=f1e3961]
+              - cell "When making an ATTACK, this shoots a fireball of intense heat, attacking all ground units in 1 target square. Units hit by these weapons gain a suppression token (removing an under fire token if the unit had one) and do not receive an infantry or cover save." [ref=f1e3962]
+              - cell [ref=f1e587]:
+                - button [ref=f1e588] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3963] [cursor=pointer]
+                - button [ref=f1e594] [cursor=pointer]
+            - row [ref=f1e3964]:
+              - cell "32" [ref=f1e3965]
+              - cell [ref=f1e3966]:
+                - strong [ref=f1e600]: FIRST STRIKE
+              - cell "Alle" [ref=f1e3967]
+              - cell "Resolves Close-Combat Attacks before target resolves theirs." [ref=f1e3968]
+              - cell "Resolves Close-Combat Attacks before target resolves theirs." [ref=f1e3969]
+              - cell [ref=f1e604]:
+                - button [ref=f1e605] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3970] [cursor=pointer]
+                - button [ref=f1e611] [cursor=pointer]
+            - row [ref=f1e3971]:
+              - cell "33" [ref=f1e3972]
+              - cell [ref=f1e3973]:
+                - strong [ref=f1e617]: FLYING
+              - cell "Alle" [ref=f1e3974]
+              - cell "Pass over units/terrain, only flying units can join" [ref=f1e3975]
+              - cell "This unit can pass over any unit, and over any terrain as if it were open terrain, provided that it ends its MOVE or MARCH MOVE action in a place it could normally occupy. Only a flying unit can join a flying unit." [ref=f1e3976]
+              - cell [ref=f1e621]:
+                - button [ref=f1e622] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3977] [cursor=pointer]
+                - button [ref=f1e628] [cursor=pointer]
+            - row [ref=f1e3978]:
+              - cell "34" [ref=f1e3979]
+              - cell [ref=f1e3980]:
+                - strong [ref=f1e634]: FOLLOW ME
+              - cell "Alle" [ref=f1e3981]
+              - cell "Force nearby infantry to move immediately" [ref=f1e3982]
+              - cell "This unit can take a FOLLOW ME special action once per turn. All friendly infantry units with armor 1 or 2 within range 2 and in LOS roll a die. On a success they take an immediate MOVE action with a rating of 2." [ref=f1e3983]
+              - cell [ref=f1e638]:
+                - button [ref=f1e639] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3984] [cursor=pointer]
+                - button [ref=f1e645] [cursor=pointer]
+            - row [ref=f1e3985]:
+              - cell "35" [ref=f1e3986]
+              - cell [ref=f1e3987]:
+                - strong [ref=f1e651]: GENERAL
+              - cell "Alle" [ref=f1e3988]
+              - cell "When joined to a Command Squad, this hero rolls one extra dice when attempting Officer Special Actions." [ref=f1e3989]
+              - cell "When joined to a Command Squad, this hero rolls one extra dice when attempting Officer Special Actions." [ref=f1e3990]
+              - cell [ref=f1e655]:
+                - button [ref=f1e656] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3991] [cursor=pointer]
+                - button [ref=f1e662] [cursor=pointer]
+            - row [ref=f1e3992]:
+              - cell "36" [ref=f1e3993]
+              - cell [ref=f1e3994]:
+                - strong [ref=f1e668]: GORILLA
+              - cell "Alle" [ref=f1e3995]
+              - cell "Only gorilla heroes can join gorilla units" [ref=f1e3996]
+              - cell "Only a gorilla hero may join a gorilla unit. Gorilla heroes cannot join units that are not gorillas." [ref=f1e3997]
+              - cell [ref=f1e672]:
+                - button [ref=f1e673] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e3998] [cursor=pointer]
+                - button [ref=f1e679] [cursor=pointer]
+            - row [ref=f1e3999]:
+              - cell "37" [ref=f1e4000]
+              - cell [ref=f1e4001]:
+                - strong [ref=f1e685]: GRAPPLE
+              - cell "Alle" [ref=f1e4002]
+              - cell "Targets Hit by this weapon gain a Stunned Token." [ref=f1e4003]
+              - cell "Targets Hit by this weapon gain a Stunned Token." [ref=f1e4004]
+              - cell [ref=f1e689]:
+                - button [ref=f1e690] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4005] [cursor=pointer]
+                - button [ref=f1e696] [cursor=pointer]
+            - row [ref=f1e4006]:
+              - cell "38" [ref=f1e4007]
+              - cell [ref=f1e4008]:
+                - strong [ref=f1e702]: HALF-TRACKED MOVE
+              - cell "Alle" [ref=f1e4009]
+              - cell "Movement affected by terrain" [ref=f1e4010]
+              - cell "MOVE and MARCH MOVE actions by this unit are affected by the type of terrain being crossed as indicated in the terrain table." [ref=f1e4011]
+              - cell [ref=f1e706]:
+                - button [ref=f1e707] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4012] [cursor=pointer]
+                - button [ref=f1e713] [cursor=pointer]
+            - row [ref=f1e4013]:
+              - cell "39" [ref=f1e4014]
+              - cell [ref=f1e4015]:
+                - strong [ref=f1e719]: HELICOPTER
+              - cell "Alle" [ref=f1e4016]
+              - cell "Hover & perform SUSTAINED ATTACKs" [ref=f1e4017]
+              - cell "A helicopter can hover and therefore does not have to take a MOVE action as its first action allowing it to be assigned SUSTAINED ATTACK actions." [ref=f1e4018]
+              - cell [ref=f1e723]:
+                - button [ref=f1e724] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4019] [cursor=pointer]
+                - button [ref=f1e730] [cursor=pointer]
+            - row [ref=f1e4020]:
+              - cell "40" [ref=f1e4021]
+              - cell [ref=f1e4022]:
+                - strong [ref=f1e736]: INFANTRY ACE
+              - cell "Alle" [ref=f1e4023]
+              - cell "Gain third action on die roll" [ref=f1e4024]
+              - 'cell "This hero rolls a die when it activates: on a success this hero (and any unit it has joined or hero that has joined it) gains a third action for this activation." [ref=f1e4025]'
+              - cell [ref=f1e740]:
+                - button [ref=f1e741] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4026] [cursor=pointer]
+                - button [ref=f1e747] [cursor=pointer]
+            - row [ref=f1e4027]:
+              - cell "41" [ref=f1e4028]
+              - cell [ref=f1e4029]:
+                - strong [ref=f1e753]: INTERROGATE
+              - cell "Alle" [ref=f1e4030]
+              - cell "Roll initiative after killing hero/officer" [ref=f1e4031]
+              - cell "If a unit with this skill (or a unit joined) uses a CC weapon to eliminate a hero or officer, or execute a hero or officer, roll 4 dice for initiative at the start of each turn for the rest of the game." [ref=f1e4032]
+              - cell [ref=f1e757]:
+                - button [ref=f1e758] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4033] [cursor=pointer]
+                - button [ref=f1e764] [cursor=pointer]
+            - row [ref=f1e4034]:
+              - cell "42" [ref=f1e4035]
+              - cell [ref=f1e4036]:
+                - strong [ref=f1e770]: JAMMER
+              - cell "Alle" [ref=f1e4037]
+              - cell "Force enemies to re-roll dice within range 6" [ref=f1e4038]
+              - cell "All successful dice rolls for actions performed by an enemy unit using a radio within range 6 of a unit equipped with a jammer are re-rolled. Enemies in command vehicles must re-roll successful dice rolls for each attempt to perform an action using a radio. Jammer also affects ATTACK actions and SUSTAINED ATTACK actions triggered by artillery observers, causing them to re-roll successful dice rolls." [ref=f1e4039]
+              - cell [ref=f1e774]:
+                - button [ref=f1e775] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4040] [cursor=pointer]
+                - button [ref=f1e781] [cursor=pointer]
+            - row [ref=f1e4041]:
+              - cell "43" [ref=f1e4042]
+              - cell [ref=f1e4043]:
+                - strong [ref=f1e787]: KILLING SPREE
+              - cell "Alle" [ref=f1e4044]
+              - cell "Chain extra hits until miss" [ref=f1e4045]
+              - cell "When this hero scores a hit with a ranged weapon, roll another die scoring a further hit on success. Continue scoring hits and rolling an additional die for each hit until it rolls a miss. If the hero has a special rule that allows it to hit on a specific number, rolls of that number only count as a hit for the first roll. This skill is not shared with any unit a hero joins." [ref=f1e4046]
+              - cell [ref=f1e791]:
+                - button [ref=f1e792] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4047] [cursor=pointer]
+                - button [ref=f1e798] [cursor=pointer]
+            - row [ref=f1e4048]:
+              - cell "44" [ref=f1e4049]
+              - cell [ref=f1e4050]:
+                - strong [ref=f1e804]: LARGE ORDNANCE
+              - cell "Alle" [ref=f1e4051]
+              - cell "Affects target + 3 adjacent squares" [ref=f1e4052]
+              - cell "When this weapon is assigned an ATTACK or SUSTAINED ATTACK action, choose a target point within the weapon???s fire arc, range, and LOS. The explosion includes the square of the target point plus 3 chosen adjacent squares that form a 2x2 larger square. The adjacent squares do not need to be in range or LOS of the weapon." [ref=f1e4053]
+              - cell [ref=f1e808]:
+                - button [ref=f1e809] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4054] [cursor=pointer]
+                - button [ref=f1e815] [cursor=pointer]
+            - row [ref=f1e4055]:
+              - cell "45" [ref=f1e4056]
+              - cell [ref=f1e4057]:
+                - strong [ref=f1e821]: LASER WEAPONS
+              - cell "Alle" [ref=f1e4058]
+              - cell "Re-roll misses on sustained attack" [ref=f1e4059]
+              - cell "When a laser weapon makes a SUSTAINED ATTACK, re-roll misses on the initial roll. Additional rolls gained through the Laser Weapons special rule are not re-rolled." [ref=f1e4060]
+              - cell [ref=f1e825]:
+                - button [ref=f1e826] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4061] [cursor=pointer]
+                - button [ref=f1e832] [cursor=pointer]
+            - row [ref=f1e4062]:
+              - cell "46" [ref=f1e4063]
+              - cell [ref=f1e4064]:
+                - strong [ref=f1e838]: LESSER MYTHOS CREATURES
+              - cell "Alle" [ref=f1e4065]
+              - cell "Immune to command actions" [ref=f1e4066]
+              - cell "This unit can never be the target of any command squad, officer, or medic special actions." [ref=f1e4067]
+              - cell [ref=f1e842]:
+                - button [ref=f1e843] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4068] [cursor=pointer]
+                - button [ref=f1e849] [cursor=pointer]
+            - row [ref=f1e4069]:
+              - cell "47" [ref=f1e4070]
+              - cell [ref=f1e4071]:
+                - strong [ref=f1e855]: LONER
+              - cell "Alle" [ref=f1e4072]
+              - cell "Cannot join a unit" [ref=f1e4073]
+              - cell "This hero may not join a unit." [ref=f1e4074]
+              - cell [ref=f1e859]:
+                - button [ref=f1e860] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4075] [cursor=pointer]
+                - button [ref=f1e866] [cursor=pointer]
+            - row [ref=f1e4076]:
+              - cell "48" [ref=f1e4077]
+              - cell [ref=f1e4078]:
+                - strong [ref=f1e872]: LUCKY
+              - cell "Alle" [ref=f1e4079]
+              - cell "One-time re-roll of failed attacks" [ref=f1e4080]
+              - cell "Once per game, this hero may re-roll any dice that failed to hit with any of their weapons when making an ATTACK or SUSTAINED ATTACK action. This hero does not share this skill with any unit they join. You do not need to declare the use of this skill prior to the original roll." [ref=f1e4081]
+              - cell [ref=f1e876]:
+                - button [ref=f1e877] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4082] [cursor=pointer]
+                - button [ref=f1e883] [cursor=pointer]
+            - row [ref=f1e4083]:
+              - cell "49" [ref=f1e4084]
+              - cell [ref=f1e4085]:
+                - strong [ref=f1e889]: MAKESHIFT REPAIR
+              - cell "Alle" [ref=f1e4086]
+              - cell "Repair self within range 1 of scenery" [ref=f1e4087]
+              - cell "A vehicle unit within LOS and range 1 of scenery with this skill can spend 2 actions to perform a MAKESHIFT REPAIR on itself only." [ref=f1e4088]
+              - cell [ref=f1e893]:
+                - button [ref=f1e894] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4089] [cursor=pointer]
+                - button [ref=f1e900] [cursor=pointer]
+            - row [ref=f1e4090]:
+              - cell "50" [ref=f1e4091]
+              - cell [ref=f1e4092]:
+                - strong [ref=f1e906]: MECHANIC
+              - cell "Alle" [ref=f1e4093]
+              - cell "Can use Makeshift Repair Action." [ref=f1e4094]
+              - cell "Can use Makeshift Repair Action." [ref=f1e4095]
+              - cell [ref=f1e910]:
+                - button [ref=f1e911] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4096] [cursor=pointer]
+                - button [ref=f1e917] [cursor=pointer]
+            - row [ref=f1e4097]:
+              - cell "51" [ref=f1e4098]
+              - cell [ref=f1e4099]:
+                - strong [ref=f1e923]: MEDEVAC
+              - cell "Alle" [ref=f1e4100]
+              - cell "Return eliminated infantry within range 1" [ref=f1e4101]
+              - cell "This vehicle can perform a MEDEVAC special action. If it does, select an infantry unit within range 1 and roll a die for each soldier eliminated from the unit. Each returns 1 of the eliminated soldiers to the unit." [ref=f1e4102]
+              - cell [ref=f1e927]:
+                - button [ref=f1e928] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4103] [cursor=pointer]
+                - button [ref=f1e934] [cursor=pointer]
+            - row [ref=f1e4104]:
+              - cell "52" [ref=f1e4105]
+              - cell [ref=f1e4106]:
+                - strong [ref=f1e940]: MERCENARY
+              - cell "Alle" [ref=f1e4107]
+              - cell "Fieldable by any bloc" [ref=f1e4108]
+              - cell "This unit can be fielded by any bloc." [ref=f1e4109]
+              - cell [ref=f1e944]:
+                - button [ref=f1e945] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4110] [cursor=pointer]
+                - button [ref=f1e951] [cursor=pointer]
+            - row [ref=f1e4111]:
+              - cell "53" [ref=f1e4112]
+              - cell [ref=f1e4113]:
+                - strong [ref=f1e957]: MINDLESS
+              - cell "Alle" [ref=f1e4114]
+              - cell "Zombies, immune to suppression, contest objectives" [ref=f1e4115]
+              - cell "These are zombies that can be led by a hero equipped with the Blutkreuz skill. Mindless zombies cannot take or hold objectives but may contest them (applies to units joined) and are immune to suppression (both of these rules apply to units joined). Mindless Zombies can be joined by a zombie hero or a hero equipped with a Blutkreuz." [ref=f1e4116]
+              - cell [ref=f1e961]:
+                - button [ref=f1e962] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4117] [cursor=pointer]
+                - button [ref=f1e968] [cursor=pointer]
+            - row [ref=f1e4118]:
+              - cell "54" [ref=f1e4119]
+              - cell [ref=f1e4120]:
+                - strong [ref=f1e974]: MOVE AND FIRE
+              - cell "Alle" [ref=f1e4121]
+              - cell "Move and attack freely around action" [ref=f1e4122]
+              - cell "This unit (and any unit it has joined or hero that has joined it) may either perform a free MOVE action immediately before or after performing a SUSTAINED ATTACK action using ranged weapons, or a free ATTACK action using ranged weapons immediately before or after taking a MARCH MOVE action." [ref=f1e4123]
+              - cell [ref=f1e978]:
+                - button [ref=f1e979] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4124] [cursor=pointer]
+                - button [ref=f1e985] [cursor=pointer]
+            - row [ref=f1e4125]:
+              - cell "55" [ref=f1e4126]
+              - cell [ref=f1e4127]:
+                - strong [ref=f1e991]: MYTHOS CREATURE
+              - cell "Alle" [ref=f1e4128]
+              - cell "Immune to suppression and critical hits" [ref=f1e4129]
+              - cell "Immune to suppression and critical hits." [ref=f1e4130]
+              - cell [ref=f1e995]:
+                - button [ref=f1e996] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4131] [cursor=pointer]
+                - button [ref=f1e1002] [cursor=pointer]
+            - row [ref=f1e4132]:
+              - cell "56" [ref=f1e4133]
+              - cell [ref=f1e4134]:
+                - strong [ref=f1e1008]: NAVAL UNIT
+              - cell "Alle" [ref=f1e4135]
+              - cell "Water is open terrain, can attack after march" [ref=f1e4136]
+              - cell "This unit treats water as open terrain, but cannot enter any other type of terrain. A naval unit may take a free ATTACK action immediately after it performs a MARCH MOVE action. An eliminated naval unit becomes water terrain." [ref=f1e4137]
+              - cell [ref=f1e1012]:
+                - button [ref=f1e1013] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4138] [cursor=pointer]
+                - button [ref=f1e1019] [cursor=pointer]
+            - row [ref=f1e4139]:
+              - cell "57" [ref=f1e4140]
+              - cell [ref=f1e4141]:
+                - strong [ref=f1e1025]: NOTHIN???S EASY
+              - cell "Alle" [ref=f1e4142]
+              - cell "Joined units ignore suppression" [ref=f1e4143]
+              - cell "Any unit joined by this hero cannot gain under fire or suppression tokens." [ref=f1e4144]
+              - cell [ref=f1e1029]:
+                - button [ref=f1e1030] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4145] [cursor=pointer]
+                - button [ref=f1e1036] [cursor=pointer]
+            - row [ref=f1e4146]:
+              - cell "58" [ref=f1e4147]
+              - cell [ref=f1e4148]:
+                - strong [ref=f1e1042]: OFFICER
+              - cell "Alle" [ref=f1e4149]
+              - cell "May take Officer Special Actions to reactivate or rearm their troops." [ref=f1e4150]
+              - cell "May take Officer Special Actions to reactivate or rearm their troops." [ref=f1e4151]
+              - cell [ref=f1e1046]:
+                - button [ref=f1e1047] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4152] [cursor=pointer]
+                - button [ref=f1e1053] [cursor=pointer]
+            - row [ref=f1e4153]:
+              - cell "59" [ref=f1e4154]
+              - cell [ref=f1e4155]:
+                - strong [ref=f1e1059]: PASSENGERS
+              - cell "Alle" [ref=f1e4156]
+              - cell "Transport infantry units" [ref=f1e4157]
+              - 'cell "This vehicle can transport infantry units. # is the number of passenger spaces available inside the vehicle." [ref=f1e4158]'
+              - cell [ref=f1e1063]:
+                - button [ref=f1e1064] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4159] [cursor=pointer]
+                - button [ref=f1e1070] [cursor=pointer]
+            - row [ref=f1e4160]:
+              - cell "60" [ref=f1e4161]
+              - cell [ref=f1e4162]:
+                - strong [ref=f1e1076]: PILOT
+              - cell "Alle" [ref=f1e4163]
+              - cell "Vehicle requires specific pilot" [ref=f1e4164]
+              - cell "A vehicle with this attribute can only be piloted by the named hero. The vehicle can still be fielded without a pilot. This vehicle is unique, so only one may be included in any player???s force." [ref=f1e4165]
+              - cell [ref=f1e1080]:
+                - button [ref=f1e1081] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4166] [cursor=pointer]
+                - button [ref=f1e1087] [cursor=pointer]
+            - row [ref=f1e4167]:
+              - cell "61" [ref=f1e4168]
+              - cell [ref=f1e4169]:
+                - strong [ref=f1e1093]: PSYCHIC SCREAM
+              - cell "Alle" [ref=f1e4170]
+              - cell "Area attack ignoring LOS and saves" [ref=f1e4171]
+              - cell "Once per game, this unit may execute the PSYCHIC SCREAM free action to attack all units (friend or foe) within a range 3 radius. Ignores LOS, infantry saves, and cover saves." [ref=f1e4172]
+              - cell [ref=f1e1097]:
+                - button [ref=f1e1098] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4173] [cursor=pointer]
+                - button [ref=f1e1104] [cursor=pointer]
+            - row [ref=f1e4174]:
+              - cell "62" [ref=f1e4175]
+              - cell [ref=f1e4176]:
+                - strong [ref=f1e1110]: RADIATION
+              - cell "Alle" [ref=f1e4177]
+              - cell "Forces re-rolls of saves" [ref=f1e4178]
+              - cell "Targets must re-roll successful saves against this weapon." [ref=f1e4179]
+              - cell [ref=f1e1114]:
+                - button [ref=f1e1115] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4180] [cursor=pointer]
+                - button [ref=f1e1121] [cursor=pointer]
+            - row [ref=f1e4181]:
+              - cell "63" [ref=f1e4182]
+              - cell [ref=f1e4183]:
+                - strong [ref=f1e1127]: RED BANNER
+              - cell "Alle" [ref=f1e4184]
+              - cell "Boosts friendly infantry rally rolls" [ref=f1e4185]
+              - cell "All friendly infantry units within range 2 and with LOS to this unit roll 3 dice when rallying." [ref=f1e4186]
+              - cell [ref=f1e1131]:
+                - button [ref=f1e1132] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4187] [cursor=pointer]
+                - button [ref=f1e1138] [cursor=pointer]
+            - row [ref=f1e4188]:
+              - cell "64" [ref=f1e4189]
+              - cell [ref=f1e4190]:
+                - strong [ref=f1e1144]: RESURRECTION
+              - cell "Alle" [ref=f1e4191]
+              - cell "Revive zombies within range 1" [ref=f1e4192]
+              - cell "A hero equipped with a Blutkreuz may take a RESURRECTION special action. Select a mindless zombie unit within range 1. Roll a die for each zombie soldier eliminated from the unit. Each returns one of the eliminated soldiers to the unit." [ref=f1e4193]
+              - cell [ref=f1e1148]:
+                - button [ref=f1e1149] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4194] [cursor=pointer]
+                - button [ref=f1e1155] [cursor=pointer]
+            - row [ref=f1e4195]:
+              - cell "65" [ref=f1e4196]
+              - cell [ref=f1e4197]:
+                - strong [ref=f1e1161]: SAVAGE ANIMAL
+              - cell "Alle" [ref=f1e4198]
+              - cell "Hits on SCOUT and gains extra action after march" [ref=f1e4199]
+              - cell "This unit hits on SCOUT as well as specified with the weapon. If this unit (and any unit it has joined or hero that has joined it) performs a MARCH MOVE action during its first action of the game, it gains a third action for this activation." [ref=f1e4200]
+              - cell [ref=f1e1165]:
+                - button [ref=f1e1166] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4201] [cursor=pointer]
+                - button [ref=f1e1172] [cursor=pointer]
+            - row [ref=f1e4202]:
+              - cell "66" [ref=f1e4203]
+              - cell [ref=f1e4204]:
+                - strong [ref=f1e1178]: SEALIFTER
+              - cell "Alle" [ref=f1e4205]
+              - cell "Naval units can transport others" [ref=f1e4206]
+              - cell "These are naval units that are equipped to carry units into battle." [ref=f1e4207]
+              - cell [ref=f1e1182]:
+                - button [ref=f1e1183] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4208] [cursor=pointer]
+                - button [ref=f1e1189] [cursor=pointer]
+            - row [ref=f1e4209]:
+              - cell "67" [ref=f1e4210]
+              - cell [ref=f1e4211]:
+                - strong [ref=f1e1195]: SMALL VEHICLES
+              - cell "Alle" [ref=f1e4212]
+              - cell "Small vehicles treated as infantry for LOS" [ref=f1e4213]
+              - cell "Small vehicles always receive cover. When in cover, they do not gain an improved save. They determine and affect LOS as if they were infantry units, but do block LOS for other small vehicles." [ref=f1e4214]
+              - cell [ref=f1e1199]:
+                - button [ref=f1e1200] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4215] [cursor=pointer]
+                - button [ref=f1e1206] [cursor=pointer]
+            - row [ref=f1e4216]:
+              - cell "68" [ref=f1e4217]
+              - cell [ref=f1e4218]:
+                - strong [ref=f1e1212]: SMOKE LAUNCHERS
+              - cell "Alle" [ref=f1e4219]
+              - cell "Once per game, take a Free Smoke Launcher Action to place Smoke on Unit." [ref=f1e4220]
+              - cell "Once per game, this vehicle may take a free LAUNCH SMOKE special action to place a smoke screen on itself. This covers any 1 square occupied by the vehicle plus 3 adjacent squares that form a larger 2x2 square. The adjacent squares are chosen by the player using the smoke launcher and do not need to be in LOS of the vehicle." [ref=f1e4221]
+              - cell [ref=f1e1216]:
+                - button [ref=f1e1217] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4222] [cursor=pointer]
+                - button [ref=f1e1223] [cursor=pointer]
+            - row [ref=f1e4223]:
+              - cell "69" [ref=f1e4224]
+              - cell [ref=f1e4225]:
+                - strong [ref=f1e1229]: SPY
+              - cell "Alle" [ref=f1e4226]
+              - cell "Can deploy off-field and perform SPY REVEALED! actions" [ref=f1e4227]
+              - 'cell "A unit with this skill can choose to: Enter or be deployed on the battlefield like any other unit. Stay off the battlefield for as long as desired. If it does so, the unit only does NOTHING actions, can pass, and counts towards the number of units in play. Execute a SPY REVEALED! activation, if the unit is not already on the battlefield. Roll 2 dice: If you score 1, the unit is immediately placed within range 1 of an enemy unit and it has 1 action for this activation. If you score 2, the unit is immediately placed within range 1 of an enemy unit and it has 2 actions for this activation. If you don???t score any, the unit is not placed on the battlefield and may only perform NOTHING actions this activation. It can try another SPY REVEALED! for its next activation. A unit that is not on the battlefield cannot be the target of command actions. This skill is not shared with a unit joined." [ref=f1e4228]'
+              - cell [ref=f1e1233]:
+                - button [ref=f1e1234] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4229] [cursor=pointer]
+                - button [ref=f1e1240] [cursor=pointer]
+            - row [ref=f1e4230]:
+              - cell "70" [ref=f1e4231]
+              - cell [ref=f1e4232]:
+                - strong [ref=f1e1246]: SPORES (FUNGI FROM YUGGOTH)
+              - cell "Alle" [ref=f1e4233]
+              - cell "Area attack ignoring cover save for infantry" [ref=f1e4234]
+              - cell "Attacks all units within range 1 around the unit. Target infantry receive no cover save (but still have an infantry save)." [ref=f1e4235]
+              - cell [ref=f1e1250]:
+                - button [ref=f1e1251] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4236] [cursor=pointer]
+                - button [ref=f1e1257] [cursor=pointer]
+            - row [ref=f1e4237]:
+              - cell "71" [ref=f1e4238]
+              - cell [ref=f1e4239]:
+                - strong [ref=f1e1263]: STEEL GUARD
+              - cell "Alle" [ref=f1e4240]
+              - cell "Always passes infantry save, exclusive hero/unit rule" [ref=f1e4241]
+              - cell "This unit never has a cover save, but always passes their infantry save on a roll of as well as specified. Only a Steel Guard hero may join a Steel Guard unit, and join only units that are Steel Guard. A unit with this skill also gains the Damage Resilient skill." [ref=f1e4242]
+              - cell [ref=f1e1267]:
+                - button [ref=f1e1268] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4243] [cursor=pointer]
+                - button [ref=f1e1274] [cursor=pointer]
+            - row [ref=f1e4244]:
+              - cell "72" [ref=f1e4245]
+              - cell [ref=f1e4246]:
+                - strong [ref=f1e1280]: STRONGPOINT
+              - cell "Alle" [ref=f1e4247]
+              - cell "Must be deployed in strongpoint or bunker" [ref=f1e4248]
+              - cell "A strongpoint unit must be deployed in a strongpoint or bunker." [ref=f1e4249]
+              - cell [ref=f1e1284]:
+                - button [ref=f1e1285] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4250] [cursor=pointer]
+                - button [ref=f1e1291] [cursor=pointer]
+            - row [ref=f1e4251]:
+              - cell "73" [ref=f1e4252]
+              - cell [ref=f1e4253]:
+                - strong [ref=f1e1297]: SUPERHUMANS
+              - cell "Alle" [ref=f1e4254]
+              - cell "Passes Infantry Save on [Symbol] as well as [Symbol] and can benefit from Cover, but not at the same time. May not Join a Unit." [ref=f1e4255]
+              - cell "Passes Infantry Save on [Symbol] as well as [Symbol] and can benefit from Cover, but not at the same time. May not Join a Unit." [ref=f1e4256]
+              - cell [ref=f1e1301]:
+                - button [ref=f1e1302] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4257] [cursor=pointer]
+                - button [ref=f1e1308] [cursor=pointer]
+            - row [ref=f1e4258]:
+              - cell "74" [ref=f1e4259]
+              - cell [ref=f1e4260]:
+                - strong [ref=f1e1314]: SUPPORT WEAPON
+              - cell "Alle" [ref=f1e4261]
+              - cell "Multi-soldier unit with separate weapon actions" [ref=f1e4262]
+              - cell "Support weapon units have several soldiers on the same base; treat them as if every miniature is on a separate base. If they???ve sustained damage, they have 1 soldier left for each point remaining on their damage track. Every time the unit loses 1 miniature, it loses 1 appropriate weapon. These units use a 2-man team to fire the support weapon. Only the third or fourth soldiers of the unit can fire other weapons if the support weapon fires. Each time you attack with a support weapon, choose which weapons the crew are using." [ref=f1e4263]
+              - cell [ref=f1e1318]:
+                - button [ref=f1e1319] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4264] [cursor=pointer]
+                - button [ref=f1e1325] [cursor=pointer]
+            - row [ref=f1e4265]:
+              - cell "75" [ref=f1e4266]
+              - cell [ref=f1e4267]:
+                - strong [ref=f1e1331]: TAKE AIM
+              - cell "Alle" [ref=f1e4268]
+              - cell "Improves hero ranged attack rolls" [ref=f1e4269]
+              - cell "This hero hits on rolls of as well as specified when making a SUSTAINED ATTACK action with ranged weapons. This skill is not shared with any unit a hero joins." [ref=f1e4270]
+              - cell [ref=f1e1335]:
+                - button [ref=f1e1336] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4271] [cursor=pointer]
+                - button [ref=f1e1342] [cursor=pointer]
+            - row [ref=f1e4272]:
+              - cell "76" [ref=f1e4273]
+              - cell [ref=f1e4274]:
+                - strong [ref=f1e1348]: TRACKED
+              - cell "Alle" [ref=f1e4275]
+              - cell "Can be affected by type of Terrain crossed. (See Terrain Table)" [ref=f1e4276]
+              - cell "Can be affected by type of Terrain crossed. (See Terrain Table)" [ref=f1e4277]
+              - cell [ref=f1e1352]:
+                - button [ref=f1e1353] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4278] [cursor=pointer]
+                - button [ref=f1e1359] [cursor=pointer]
+            - row [ref=f1e4279]:
+              - cell "77" [ref=f1e4280]
+              - cell [ref=f1e4281]:
+                - strong [ref=f1e1365]: TRAILBLAZER
+              - cell "Alle" [ref=f1e4282]
+              - cell "Can move through enemy units" [ref=f1e4283]
+              - cell "This unit (and any unit it has joined or hero that has joined it) can move through enemy units." [ref=f1e4284]
+              - cell [ref=f1e1369]:
+                - button [ref=f1e1370] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4285] [cursor=pointer]
+                - button [ref=f1e1376] [cursor=pointer]
+            - row [ref=f1e4286]:
+              - cell "78" [ref=f1e4287]
+              - cell [ref=f1e4288]:
+                - strong [ref=f1e1382]: WHEELED
+              - cell "Dust 1947" [ref=f1e4289]
+              - cell "Can be affected by type of Terrain crossed. (See Terrain Table)" [ref=f1e4290]
+              - cell "Can be affected by type of Terrain crossed. (See Terrain Table)" [ref=f1e4291]
+              - cell [ref=f1e1386]:
+                - button [ref=f1e1387] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4292] [cursor=pointer]
+                - button [ref=f1e1393] [cursor=pointer]
+            - row [ref=f1e4293]:
+              - cell "79" [ref=f1e4294]
+              - cell [ref=f1e4295]:
+                - strong [ref=f1e1399]: ZOMBIE
+              - cell "Alle" [ref=f1e4296]
+              - cell "Ignores cover saves, only zombie heroes may join" [ref=f1e4297]
+              - cell "This unit never makes cover saves, but always passes its infantry saves on a roll of as well as specified. An officer, medic, or mechanic cannot target a zombie with their COMMAND SQUAD special actions. A zombie unit can never mount a vehicle or aircraft as passengers. Only a zombie hero may join a zombie unit. Zombie heroes cannot join units that are not zombies." [ref=f1e4298]
+              - cell [ref=f1e1403]:
+                - button [ref=f1e1404] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4299] [cursor=pointer]
+                - button [ref=f1e1410] [cursor=pointer]
+            - row [ref=f1e4300]:
+              - cell "80" [ref=f1e4301]
+              - cell [ref=f1e4302]:
+                - strong [ref=f1e1416]: LARGE VEHICLES
+              - cell "Alle" [ref=f1e4303]
+              - cell "-" [ref=f1e4304]
+              - cell "-" [ref=f1e4305]
+              - cell [ref=f1e1420]:
+                - button [ref=f1e1421] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4306] [cursor=pointer]
+                - button [ref=f1e1427] [cursor=pointer]
+            - row [ref=f1e4307]:
+              - cell "81" [ref=f1e4308]
+              - cell [ref=f1e4309]:
+                - strong [ref=f1e1433]: HUGE VEHICLES
+              - cell "Alle" [ref=f1e4310]
+              - cell "-" [ref=f1e4311]
+              - cell "-" [ref=f1e4312]
+              - cell [ref=f1e1437]:
+                - button [ref=f1e1438] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4313] [cursor=pointer]
+                - button [ref=f1e1444] [cursor=pointer]
+            - row [ref=f1e4314]:
+              - cell "82" [ref=f1e4315]
+              - cell [ref=f1e4316]:
+                - strong [ref=f1e1450]: PHASER WEAPONS
+              - cell "Alle" [ref=f1e4317]
+              - cell "Units hit by phaser weapons do not receive a cover save, but infantry units retain their infantry save." [ref=f1e4318]
+              - cell "Units hit by phaser weapons do not receive a cover save, but infantry units retain their infantry save." [ref=f1e4319]
+              - cell [ref=f1e1454]:
+                - button [ref=f1e1455] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4320] [cursor=pointer]
+                - button [ref=f1e1461] [cursor=pointer]
+            - row [ref=f1e4321]:
+              - cell "84" [ref=f1e4322]
+              - cell [ref=f1e4323]:
+                - strong [ref=f1e1467]: ARTILLERY WEAPONS
+              - cell "Alle" [ref=f1e4324]
+              - cell "Artillery can either fire at a target point they can see, or be fired remotely by an artillery observer unit with LOS to the target polnt. They may shoot over buildings, vehicles, walls, and other terrain, but they cannot be fired from inside buildings or" [ref=f1e4325]
+              - cell "-" [ref=f1e4326]
+              - cell [ref=f1e1471]:
+                - button [ref=f1e1472] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4327] [cursor=pointer]
+                - button [ref=f1e1478] [cursor=pointer]
+            - row [ref=f1e4328]:
+              - cell "85" [ref=f1e4329]
+              - cell [ref=f1e4330]:
+                - strong [ref=f1e1484]: PSYKER
+              - cell "Alle" [ref=f1e4331]
+              - cell "Can perform PSYKER actions" [ref=f1e4332]
+              - cell "-" [ref=f1e4333]
+              - cell [ref=f1e1488]:
+                - button [ref=f1e1489] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4334] [cursor=pointer]
+                - button [ref=f1e1495] [cursor=pointer]
+            - row [ref=f1e4335]:
+              - cell "2147483733" [ref=f1e4336]
+              - cell [ref=f1e4337]:
+                - strong [ref=f1e1501]: TESLA
+              - cell "Dust 1947" [ref=f1e4338]
+              - cell "Place Stunned Token on Unit hit by this weapon. Unit must perform a Nothing Action as its first Action next Activation, removing all Stunned tokens." [ref=f1e4339]
+              - cell "Place Stunned Token on Unit hit by this weapon. Unit must perform a Nothing Action as its first Action next Activation, removing all Stunned tokens." [ref=f1e4340]
+              - cell [ref=f1e1505]:
+                - button [ref=f1e1506] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4341] [cursor=pointer]
+                - button [ref=f1e1512] [cursor=pointer]
+            - row [ref=f1e4342]:
+              - cell "2147483734" [ref=f1e4343]
+              - cell [ref=f1e4344]:
+                - strong [ref=f1e1518]: LARGE VEHICLE
+              - cell "Dust 1947" [ref=f1e4345]
+              - cell "Large vehicle" [ref=f1e4346]
+              - cell "-" [ref=f1e4347]
+              - cell [ref=f1e1522]:
+                - button [ref=f1e1523] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4348] [cursor=pointer]
+                - button [ref=f1e1529] [cursor=pointer]
+            - row [ref=f1e4349]:
+              - cell "2147483735" [ref=f1e4350]
+              - cell [ref=f1e4351]:
+                - strong [ref=f1e1535]: HUGE VEHICLE
+              - cell "Dust 1947" [ref=f1e4352]
+              - cell "Huge vehicle" [ref=f1e4353]
+              - cell "-" [ref=f1e4354]
+              - cell [ref=f1e1539]:
+                - button [ref=f1e1540] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4355] [cursor=pointer]
+                - button [ref=f1e1546] [cursor=pointer]
+            - row [ref=f1e4356]:
+              - cell "2147483736" [ref=f1e4357]
+              - cell [ref=f1e4358]:
+                - strong [ref=f1e1552]: ADVANCED REACTIVE FIRE
+              - cell "Dust 1947" [ref=f1e4359]
+              - cell "Can attempt a Reactive Attack at up to Range 6, counting [Shield Symbol] as [Hit Symbol] when rolling for number of actions. Does not apply to units joined." [ref=f1e4360]
+              - cell "Can attempt a Reactive Attack at up to Range 6, counting [Shield Symbol] as [Hit Symbol] when rolling for number of actions. Does not apply to units joined." [ref=f1e4361]
+              - cell [ref=f1e1556]:
+                - button [ref=f1e1557] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4362] [cursor=pointer]
+                - button [ref=f1e1563] [cursor=pointer]
+            - row [ref=f1e4363]:
+              - cell "2147483737" [ref=f1e4364]
+              - cell [ref=f1e4365]:
+                - strong [ref=f1e1569]: AIRMOBILE
+              - cell "Dust 1947" [ref=f1e4366]
+              - cell "Can be carried by Airlifter" [ref=f1e4367]
+              - cell "Can be carried by an Airlifter." [ref=f1e4368]
+              - cell [ref=f1e1573]:
+                - button [ref=f1e1574] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4369] [cursor=pointer]
+                - button [ref=f1e1580] [cursor=pointer]
+            - row [ref=f1e4370]:
+              - cell "2147483738" [ref=f1e4371]
+              - cell [ref=f1e4372]:
+                - strong [ref=f1e1586]: COMBAT MEDIC
+              - cell "Dust 1947" [ref=f1e4373]
+              - cell "Medic special actions" [ref=f1e4374]
+              - cell "Can use the Medic Special Actions like a Command Squad Medic. Can be used on a unit joined." [ref=f1e4375]
+              - cell [ref=f1e1590]:
+                - button [ref=f1e1591] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4376] [cursor=pointer]
+                - button [ref=f1e1597] [cursor=pointer]
+            - row [ref=f1e4377]:
+              - cell "2147483739" [ref=f1e4378]
+              - cell [ref=f1e4379]:
+                - strong [ref=f1e1603]: FLAME
+              - cell "Dust 1947" [ref=f1e4380]
+              - cell "Target gets no saves from this weapon and is suppressed." [ref=f1e4381]
+              - cell "Target gets no saves from this weapon and is suppressed." [ref=f1e4382]
+              - cell [ref=f1e1607]:
+                - button [ref=f1e1608] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4383] [cursor=pointer]
+                - button [ref=f1e1614] [cursor=pointer]
+            - row [ref=f1e4384]:
+              - cell "2147483740" [ref=f1e4385]
+              - cell [ref=f1e4386]:
+                - strong [ref=f1e1620]: RAID
+              - cell "Dust 1947" [ref=f1e4387]
+              - cell "Move + attack + move" [ref=f1e4388]
+              - cell "The vehicle can spend all its Actions to do a Raid Special Action. It can do MOVE + ATTACK + MOVE in this Activation, but cannot be reactivated for this turn." [ref=f1e4389]
+              - cell [ref=f1e1624]:
+                - button [ref=f1e1625] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4390] [cursor=pointer]
+                - button [ref=f1e1631] [cursor=pointer]
+            - row [ref=f1e4391]:
+              - cell "2147483741" [ref=f1e4392]
+              - cell [ref=f1e4393]:
+                - strong [ref=f1e1637]: PASSENGERS (2)
+              - cell "Dust 1947" [ref=f1e4394]
+              - cell "Transport capacity 2" [ref=f1e4395]
+              - cell "Can carry two Infantry with Armour 1 or 2 or one Infantry with Armour 3 or 4." [ref=f1e4396]
+              - cell [ref=f1e1641]:
+                - button [ref=f1e1642] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4397] [cursor=pointer]
+                - button [ref=f1e1648] [cursor=pointer]
+            - row [ref=f1e4398]:
+              - cell "2147483742" [ref=f1e4399]
+              - cell [ref=f1e4400]:
+                - strong [ref=f1e1654]: SPORES
+              - cell "Dust 1947" [ref=f1e4401]
+              - cell "Range 1 area attack" [ref=f1e4402]
+              - cell "Attacks all Units in Range 1 around the Unit. Target Infantry get no Cover Save from this weapon (but still have an Infantry Save)." [ref=f1e4403]
+              - cell [ref=f1e1658]:
+                - button [ref=f1e1659] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4404] [cursor=pointer]
+                - button [ref=f1e1665] [cursor=pointer]
+            - row [ref=f1e4405]:
+              - cell "2147483743" [ref=f1e4406]
+              - cell [ref=f1e4407]:
+                - strong [ref=f1e1671]: PASSENGERS (18)
+              - cell "Dust 1947" [ref=f1e4408]
+              - cell "Transport capacity 18" [ref=f1e4409]
+              - cell "Can carry eighteen Infantry with Armour 1 or 2 or nine Infantry with Armour 3 or 4." [ref=f1e4410]
+              - cell [ref=f1e1675]:
+                - button [ref=f1e1676] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4411] [cursor=pointer]
+                - button [ref=f1e1682] [cursor=pointer]
+            - row [ref=f1e4412]:
+              - cell "2147483744" [ref=f1e4413]
+              - cell [ref=f1e4414]:
+                - strong [ref=f1e1688]: Ace Air Pilot
+              - cell "Dust 1947" [ref=f1e4415]
+              - cell "-" [ref=f1e4416]
+              - cell "May mount an Aircraft, using his skills while mounted. Roll one die when the Aircraft Activates gaining a third action on a [bloc] or [crosshair]." [ref=f1e4417]
+              - cell [ref=f1e1692]:
+                - button [ref=f1e1693] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4418] [cursor=pointer]
+                - button [ref=f1e1699] [cursor=pointer]
+            - row [ref=f1e4419]:
+              - cell "2147483745" [ref=f1e4420]
+              - cell [ref=f1e4421]:
+                - strong [ref=f1e1705]: Ace Gunner
+              - cell "Dust 1947" [ref=f1e4422]
+              - cell "-" [ref=f1e4423]
+              - cell "Any Vehicle this Hero pilots gains Expert on all Weapons." [ref=f1e4424]
+              - cell [ref=f1e1709]:
+                - button [ref=f1e1710] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4425] [cursor=pointer]
+                - button [ref=f1e1716] [cursor=pointer]
+            - row [ref=f1e4426]:
+              - cell "2147483746" [ref=f1e4427]
+              - cell [ref=f1e4428]:
+                - strong [ref=f1e1722]: Ace Pilot
+              - cell "Dust 1947" [ref=f1e4429]
+              - cell "-" [ref=f1e4430]
+              - cell "May mount a Vehicle, using his skills while mounted. Roll one die when Vehicle Activates gaining a third action on a [bloc] or a [crosshair]." [ref=f1e4431]
+              - cell [ref=f1e1726]:
+                - button [ref=f1e1727] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4432] [cursor=pointer]
+                - button [ref=f1e1733] [cursor=pointer]
+            - row [ref=f1e4433]:
+              - cell "2147483747" [ref=f1e4434]
+              - cell [ref=f1e4435]:
+                - strong [ref=f1e1739]: Air Alert
+              - cell "Dust 1947" [ref=f1e4436]
+              - cell "-" [ref=f1e4437]
+              - cell "Take Air Alert Special Action to select an Aircraft in Line of Sight. On a [bloc], friendly Units attacking it hit on [crosshair] as well as [bloc] for the remainder of the turn." [ref=f1e4438]
+              - cell [ref=f1e1743]:
+                - button [ref=f1e1744] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4439] [cursor=pointer]
+                - button [ref=f1e1750] [cursor=pointer]
+            - row [ref=f1e4440]:
+              - cell "2147483748" [ref=f1e4441]
+              - cell [ref=f1e4442]:
+                - strong [ref=f1e1756]: Air Assault
+              - cell "Dust 1947" [ref=f1e4443]
+              - cell "Can be carried by an Airlifter and Activate after the Airlifter carrying it to dismount and Move." [ref=f1e4444]
+              - cell "Can be carried by an Airlifter and Activate after the Airlifter carrying it to dismount and Move." [ref=f1e4445]
+              - cell [ref=f1e1760]:
+                - button [ref=f1e1761] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4446] [cursor=pointer]
+                - button [ref=f1e1767] [cursor=pointer]
+            - row [ref=f1e4447]:
+              - cell "2147483749" [ref=f1e4448]
+              - cell [ref=f1e4449]:
+                - strong [ref=f1e1773]: Airborne
+              - cell "Dust 1947" [ref=f1e4450]
+              - cell "-" [ref=f1e4451]
+              - cell "Airborne units are dropped anywhere on the table, but not closer than range 2 to any objective in the game. The Unit's first Action must by a Nothing Action. Player rolls one die and on a roll of [bloc] or [crosshair] the player may take a second action. Unit may not capture objectives on the first turn placed." [ref=f1e4452]
+              - cell [ref=f1e1777]:
+                - button [ref=f1e1778] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4453] [cursor=pointer]
+                - button [ref=f1e1784] [cursor=pointer]
+            - row [ref=f1e4454]:
+              - cell "2147483750" [ref=f1e4455]
+              - cell [ref=f1e4456]:
+                - strong [ref=f1e1790]: Airlifter
+              - cell "Dust 1947" [ref=f1e4457]
+              - cell "-" [ref=f1e4458]
+              - cell "Can carry an Air Assault or Airmobile Unit." [ref=f1e4459]
+              - cell [ref=f1e1794]:
+                - button [ref=f1e1795] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4460] [cursor=pointer]
+                - button [ref=f1e1801] [cursor=pointer]
+            - row [ref=f1e4461]:
+              - cell "2147483751" [ref=f1e4462]
+              - cell [ref=f1e4463]:
+                - strong [ref=f1e1807]: Artillery
+              - cell "Dust 1947" [ref=f1e4464]
+              - cell "-" [ref=f1e4465]
+              - cell "Can fire under control of an Artillery Observer. Ignores infantry save." [ref=f1e4466]
+              - cell [ref=f1e1811]:
+                - button [ref=f1e1812] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4467] [cursor=pointer]
+                - button [ref=f1e1818] [cursor=pointer]
+            - row [ref=f1e4468]:
+              - cell "2147483752" [ref=f1e4469]
+              - cell [ref=f1e4470]:
+                - strong [ref=f1e1824]: Crazy Jimmy
+              - cell "Dust 1947" [ref=f1e4471]
+              - cell "-" [ref=f1e4472]
+              - cell "If this Hero performs a March Move with the Vehicle he is piloting it receives a Cover Save until his next Activation." [ref=f1e4473]
+              - cell [ref=f1e1828]:
+                - button [ref=f1e1829] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4474] [cursor=pointer]
+                - button [ref=f1e1835] [cursor=pointer]
+            - row [ref=f1e4475]:
+              - cell "2147483753" [ref=f1e4476]
+              - cell [ref=f1e4477]:
+                - strong [ref=f1e1841]: Cutting
+              - cell "Dust 1947" [ref=f1e4478]
+              - cell "When weapon hits, roll again scoring another hit on a [Symbol]. Keep rolling until failing to hit." [ref=f1e4479]
+              - cell "When weapon hits, roll again scoring another hit on a [Symbol]. Keep rolling until failing to hit." [ref=f1e4480]
+              - cell [ref=f1e1845]:
+                - button [ref=f1e1846] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4481] [cursor=pointer]
+                - button [ref=f1e1852] [cursor=pointer]
+            - row [ref=f1e4482]:
+              - cell "2147483754" [ref=f1e4483]
+              - cell [ref=f1e4484]:
+                - strong [ref=f1e1858]: Get Moving You...
+              - cell "Dust 1947" [ref=f1e4485]
+              - cell "Succeeds on [Symbol] as well as [Symbol] when using Get Moving You Monkeys on a Spetsnaz Unit." [ref=f1e4486]
+              - cell "Succeeds on [Symbol] as well as [Symbol] when using Get Moving You Monkeys on a Spetsnaz Unit." [ref=f1e4487]
+              - cell [ref=f1e1862]:
+                - button [ref=f1e1863] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4488] [cursor=pointer]
+                - button [ref=f1e1869] [cursor=pointer]
+            - row [ref=f1e4489]:
+              - cell "2147483755" [ref=f1e4490]
+              - cell [ref=f1e4491]:
+                - strong [ref=f1e1875]: GRENADE
+              - cell "Dust 1947" [ref=f1e4492]
+              - cell "Target Infantry receive no Cover Save from this weapon but still receive Infantry Save." [ref=f1e4493]
+              - cell "Target Infantry receive no Cover Save from this weapon but still receive Infantry Save." [ref=f1e4494]
+              - cell [ref=f1e1879]:
+                - button [ref=f1e1880] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4495] [cursor=pointer]
+                - button [ref=f1e1886] [cursor=pointer]
+            - row [ref=f1e4496]:
+              - cell "2147483756" [ref=f1e4497]
+              - cell [ref=f1e4498]:
+                - strong [ref=f1e1892]: Half-Tracked
+              - cell "Dust 1947" [ref=f1e4499]
+              - cell "-" [ref=f1e4500]
+              - cell "Can be affected by type of Terrain crossed. (See Terrain Table)" [ref=f1e4501]
+              - cell [ref=f1e1896]:
+                - button [ref=f1e1897] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4502] [cursor=pointer]
+                - button [ref=f1e1903] [cursor=pointer]
+            - row [ref=f1e4503]:
+              - cell "2147483757" [ref=f1e4504]
+              - cell [ref=f1e4505]:
+                - strong [ref=f1e1909]: Head Shot
+              - cell "Dust 1947" [ref=f1e4506]
+              - cell "-" [ref=f1e4507]
+              - cell "Choose the enemy soldiers hit with this weapon. Place stunned token on unit hit by this weapon." [ref=f1e4508]
+              - cell [ref=f1e1913]:
+                - button [ref=f1e1914] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4509] [cursor=pointer]
+                - button [ref=f1e1920] [cursor=pointer]
+            - row [ref=f1e4510]:
+              - cell "2147483758" [ref=f1e4511]
+              - cell [ref=f1e4512]:
+                - strong [ref=f1e1926]: Laser
+              - cell "Dust 1947" [ref=f1e4513]
+              - cell "-" [ref=f1e4514]
+              - cell "When weapon hits, roll again scoring another hit on a [bloc]. Keep rolling until failing to hit." [ref=f1e4515]
+              - cell [ref=f1e1930]:
+                - button [ref=f1e1931] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4516] [cursor=pointer]
+                - button [ref=f1e1937] [cursor=pointer]
+            - row [ref=f1e4517]:
+              - cell "2147483759" [ref=f1e4518]
+              - cell [ref=f1e4519]:
+                - strong [ref=f1e1943]: Mechanic Crew
+              - cell "Dust 1947" [ref=f1e4520]
+              - cell "-" [ref=f1e4521]
+              - cell "Perform a Makeshift repair Action to roll one die for each Miniature in the Unit. Cancel one point of damage on an adjacent vehicle for each [bloc] rolled. Does not apply to Units Joined." [ref=f1e4522]
+              - cell [ref=f1e1947]:
+                - button [ref=f1e1948] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4523] [cursor=pointer]
+                - button [ref=f1e1954] [cursor=pointer]
+            - row [ref=f1e4524]:
+              - cell "2147483760" [ref=f1e4525]
+              - cell [ref=f1e4526]:
+                - strong [ref=f1e1960]: Nothin's Easy
+              - cell "Dust 1947" [ref=f1e4527]
+              - cell "-" [ref=f1e4528]
+              - cell "Does not gain Under fire or Suppression. Applies to Units Joined." [ref=f1e4529]
+              - cell [ref=f1e1964]:
+                - button [ref=f1e1965] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4530] [cursor=pointer]
+                - button [ref=f1e1971] [cursor=pointer]
+            - row [ref=f1e4531]:
+              - cell "2147483761" [ref=f1e4532]
+              - cell [ref=f1e4533]:
+                - strong [ref=f1e1977]: Passengers (12)
+              - cell "Dust 1947" [ref=f1e4534]
+              - cell "-" [ref=f1e4535]
+              - cell "Can carry twelve Infantry with Armour 1 or 2 or six Infantry with Armour 3 or 4." [ref=f1e4536]
+              - cell [ref=f1e1981]:
+                - button [ref=f1e1982] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4537] [cursor=pointer]
+                - button [ref=f1e1988] [cursor=pointer]
+            - row [ref=f1e4538]:
+              - cell "2147483762" [ref=f1e4539]
+              - cell [ref=f1e4540]:
+                - strong [ref=f1e1994]: Passengers (3)
+              - cell "Dust 1947" [ref=f1e4541]
+              - cell "-" [ref=f1e4542]
+              - cell "Can carry three Infantry with Armour 1 or 2 or one Infantry with Armour 3 or 4." [ref=f1e4543]
+              - cell [ref=f1e1998]:
+                - button [ref=f1e1999] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4544] [cursor=pointer]
+                - button [ref=f1e2005] [cursor=pointer]
+            - row [ref=f1e4545]:
+              - cell "2147483763" [ref=f1e4546]
+              - cell [ref=f1e4547]:
+                - strong [ref=f1e2011]: Passengers (6)
+              - cell "Dust 1947" [ref=f1e4548]
+              - cell "-" [ref=f1e4549]
+              - cell "Can carry six Infantry with Armour 1 or 2 or three Infantry with Armour 3 or 4." [ref=f1e4550]
+              - cell [ref=f1e2015]:
+                - button [ref=f1e2016] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4551] [cursor=pointer]
+                - button [ref=f1e2022] [cursor=pointer]
+            - row [ref=f1e4552]:
+              - cell "2147483764" [ref=f1e4553]
+              - cell [ref=f1e4554]:
+                - strong [ref=f1e2028]: Phaser
+              - cell "Dust 1947" [ref=f1e4555]
+              - cell "-" [ref=f1e4556]
+              - cell "Targets get no Cover Save from this weapon but still receive Infantry Save." [ref=f1e4557]
+              - cell [ref=f1e2032]:
+                - button [ref=f1e2033] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4558] [cursor=pointer]
+                - button [ref=f1e2039] [cursor=pointer]
+            - row [ref=f1e4559]:
+              - cell "2147483765" [ref=f1e4560]
+              - cell [ref=f1e4561]:
+                - strong [ref=f1e2045]: "Pilot: Bloody Baron"
+              - cell "Dust 1947" [ref=f1e4562]
+              - cell "-" [ref=f1e4563]
+              - cell "Only the Bloody Baron can pilot the Bloody Blitz, but it can be fielded without him. The Bloody Blitz is unique so only one may be fielded." [ref=f1e4564]
+              - cell [ref=f1e2049]:
+                - button [ref=f1e2050] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4565] [cursor=pointer]
+                - button [ref=f1e2056] [cursor=pointer]
+            - row [ref=f1e4566]:
+              - cell "2147483766" [ref=f1e4567]
+              - cell [ref=f1e4568]:
+                - strong [ref=f1e2062]: "Pilot: Demolisher"
+              - cell "Dust 1947" [ref=f1e4569]
+              - cell "-" [ref=f1e4570]
+              - cell "May pilot this vehicle, using her skills while mounted." [ref=f1e4571]
+              - cell [ref=f1e2066]:
+                - button [ref=f1e2067] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4572] [cursor=pointer]
+                - button [ref=f1e2073] [cursor=pointer]
+            - row [ref=f1e4573]:
+              - cell "2147483767" [ref=f1e4574]
+              - cell [ref=f1e4575]:
+                - strong [ref=f1e2079]: "Pilot: Koshka"
+              - cell "Dust 1947" [ref=f1e4576]
+              - cell "Only Koshka can pilot Grand'Ma, but it can be fielded without her. Grand'Ma is unique so only one may be fielded." [ref=f1e4577]
+              - cell "Only Koshka can pilot Grand'Ma, but it can be fielded without her. Grand'Ma is unique so only one may be fielded." [ref=f1e4578]
+              - cell [ref=f1e2083]:
+                - button [ref=f1e2084] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4579] [cursor=pointer]
+                - button [ref=f1e2090] [cursor=pointer]
+            - row [ref=f1e4580]:
+              - cell "2147483768" [ref=f1e4581]
+              - cell [ref=f1e4582]:
+                - strong [ref=f1e2096]: "Pilot: Luisa"
+              - cell "Dust 1947" [ref=f1e4583]
+              - cell "-" [ref=f1e4584]
+              - cell "Only Luisa can pilot the Demolisher, but it can be fielded without her. The Demolisher is unique so only one may be fielded." [ref=f1e4585]
+              - cell [ref=f1e2100]:
+                - button [ref=f1e2101] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4586] [cursor=pointer]
+                - button [ref=f1e2107] [cursor=pointer]
+            - row [ref=f1e4587]:
+              - cell "2147483769" [ref=f1e4588]
+              - cell [ref=f1e4589]:
+                - strong [ref=f1e2113]: "Pilot: Nikolai"
+              - cell "Dust 1947" [ref=f1e4590]
+              - cell "-" [ref=f1e4591]
+              - cell "Only Nikolai can pilot the Red Cossack, but it can be fielded without him. The Red Cossack is unique so only one may be fielded." [ref=f1e4592]
+              - cell [ref=f1e2117]:
+                - button [ref=f1e2118] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4593] [cursor=pointer]
+                - button [ref=f1e2124] [cursor=pointer]
+            - row [ref=f1e4594]:
+              - cell "2147483770" [ref=f1e4595]
+              - cell [ref=f1e4596]:
+                - strong [ref=f1e2130]: "Pilot: Red Ace"
+              - cell "Dust 1947" [ref=f1e4597]
+              - cell "-" [ref=f1e4598]
+              - cell "Eva is the only Hero that can pilot the Red Star, although it can be fielded without a Hero pilot. The Red Star is unique, so only one may be fielded." [ref=f1e4599]
+              - cell [ref=f1e2134]:
+                - button [ref=f1e2135] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4600] [cursor=pointer]
+                - button [ref=f1e2141] [cursor=pointer]
+            - row [ref=f1e4601]:
+              - cell "2147483771" [ref=f1e4602]
+              - cell [ref=f1e4603]:
+                - strong [ref=f1e2147]: "Pilot: Sigrid"
+              - cell "Dust 1947" [ref=f1e4604]
+              - cell "-" [ref=f1e4605]
+              - cell "Only Sigrid can pilot the Snow Lynx and when it is the Snow Lynx gains the Expert Skill with it's Dual Anti-Tank Guns, but it can be fielded without her. The Snow Lynx is unique so only one may be fielded." [ref=f1e4606]
+              - cell [ref=f1e2151]:
+                - button [ref=f1e2152] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4607] [cursor=pointer]
+                - button [ref=f1e2158] [cursor=pointer]
+            - row [ref=f1e4608]:
+              - cell "2147483772" [ref=f1e4609]
+              - cell [ref=f1e4610]:
+                - strong [ref=f1e2164]: "Pilot: Snow Lynx"
+              - cell "Dust 1947" [ref=f1e4611]
+              - cell "-" [ref=f1e4612]
+              - cell "Sigrid can pilot this special JagdLuther and only this vehicle." [ref=f1e4613]
+              - cell [ref=f1e2168]:
+                - button [ref=f1e2169] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4614] [cursor=pointer]
+                - button [ref=f1e2175] [cursor=pointer]
+            - row [ref=f1e4615]:
+              - cell "2147483773" [ref=f1e4616]
+              - cell [ref=f1e4617]:
+                - strong [ref=f1e2181]: "Pilot: Tom"
+              - cell "Dust 1947" [ref=f1e4618]
+              - cell "-" [ref=f1e4619]
+              - cell "Only Tom can pilot the Rattlesnake, but it can be fielded without him. The Rattlesnake is unique so only one may be fielded." [ref=f1e4620]
+              - cell [ref=f1e2185]:
+                - button [ref=f1e2186] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4621] [cursor=pointer]
+                - button [ref=f1e2192] [cursor=pointer]
+            - row [ref=f1e4622]:
+              - cell "2147483774" [ref=f1e4623]
+              - cell [ref=f1e4624]:
+                - strong [ref=f1e2198]: Possessed
+              - cell "Dust 1947" [ref=f1e4625]
+              - cell "-" [ref=f1e4626]
+              - cell "When this Hero is at full Health she uses the Lilith profile. When she has lost at least one Health she uses the Possessed profile." [ref=f1e4627]
+              - cell [ref=f1e2202]:
+                - button [ref=f1e2203] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4628] [cursor=pointer]
+                - button [ref=f1e2209] [cursor=pointer]
+            - row [ref=f1e4629]:
+              - cell "2147483775" [ref=f1e4630]
+              - cell [ref=f1e4631]:
+                - strong [ref=f1e2215]: Power Scope
+              - cell "Dust 1947" [ref=f1e4632]
+              - cell "-" [ref=f1e4633]
+              - cell "Hits on [crosshair] as well as [bloc] when using ranged weapons when making a Sustained Attack. Does not appy to Units Joined." [ref=f1e4634]
+              - cell [ref=f1e2219]:
+                - button [ref=f1e2220] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4635] [cursor=pointer]
+                - button [ref=f1e2226] [cursor=pointer]
+            - row [ref=f1e4636]:
+              - cell "2147483776" [ref=f1e4637]
+              - cell [ref=f1e4638]:
+                - strong [ref=f1e2232]: Quick Recovery
+              - cell "Dust 1947" [ref=f1e4639]
+              - cell "-" [ref=f1e4640]
+              - cell "Unit does not need to take a Nothing Action after using Airborne skill. A Unit share this skill with a Squad but not a Vehicle." [ref=f1e4641]
+              - cell [ref=f1e2236]:
+                - button [ref=f1e2237] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4642] [cursor=pointer]
+                - button [ref=f1e2243] [cursor=pointer]
+            - row [ref=f1e4643]:
+              - cell "2147483777" [ref=f1e4644]
+              - cell [ref=f1e4645]:
+                - strong [ref=f1e2249]: Radar
+              - cell "Dust 1947" [ref=f1e4646]
+              - cell "-" [ref=f1e4647]
+              - cell "A vehicle with this equipment can reroll once any failed dice when making an Attack or Sustained Attack Action against an Aircraft." [ref=f1e4648]
+              - cell [ref=f1e2253]:
+                - button [ref=f1e2254] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4649] [cursor=pointer]
+                - button [ref=f1e2260] [cursor=pointer]
+            - row [ref=f1e4650]:
+              - cell "2147483778" [ref=f1e4651]
+              - cell [ref=f1e4652]:
+                - strong [ref=f1e2266]: Reload
+              - cell "Dust 1947" [ref=f1e4653]
+              - cell "When this weapon performs an Attack Action, remove its Reload Token. The Unit may not perform another Attack Action until a Reload Action is performed." [ref=f1e4654]
+              - cell "When this weapon performs an Attack Action, remove its Reload Token. The Unit may not perform another Attack Action until a Reload Action is performed." [ref=f1e4655]
+              - cell [ref=f1e2270]:
+                - button [ref=f1e2271] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4656] [cursor=pointer]
+                - button [ref=f1e2277] [cursor=pointer]
+            - row [ref=f1e4657]:
+              - cell "2147483779" [ref=f1e4658]
+              - cell [ref=f1e4659]:
+                - strong [ref=f1e2283]: Salvo
+              - cell "Dust 1947" [ref=f1e4660]
+              - cell "-" [ref=f1e4661]
+              - cell "May double number of attack dice in an Attack but must be reloaded with a Reload Action prior to next use." [ref=f1e4662]
+              - cell [ref=f1e2287]:
+                - button [ref=f1e2288] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4663] [cursor=pointer]
+                - button [ref=f1e2294] [cursor=pointer]
+            - row [ref=f1e4664]:
+              - cell "2147483780" [ref=f1e4665]
+              - cell [ref=f1e4666]:
+                - strong [ref=f1e2300]: SCOUT
+              - cell "Dust 1947" [ref=f1e4667]
+              - cell "Take March Move Action as first Action of the game leaving one further Action for that Activation." [ref=f1e4668]
+              - cell "Take March Move Action as first Action of game and recieve one extra Action for that Activation." [ref=f1e4669]
+              - cell [ref=f1e2304]:
+                - button [ref=f1e2305] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4670] [cursor=pointer]
+                - button [ref=f1e2311] [cursor=pointer]
+            - row [ref=f1e4671]:
+              - cell "2147483781" [ref=f1e4672]
+              - cell [ref=f1e4673]:
+                - strong [ref=f1e2317]: "Sibling: The Dragon"
+              - cell "Dust 1947" [ref=f1e4674]
+              - cell "-" [ref=f1e4675]
+              - cell "The Phoenix can join the same Unit as The Dragon or form one with her. When Joined in the same Unit, they gain Expert with all weapons." [ref=f1e4676]
+              - cell [ref=f1e2321]:
+                - button [ref=f1e2322] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4677] [cursor=pointer]
+                - button [ref=f1e2328] [cursor=pointer]
+            - row [ref=f1e4678]:
+              - cell "2147483782" [ref=f1e4679]
+              - cell [ref=f1e4680]:
+                - strong [ref=f1e2334]: "Sibling: The Phoenix"
+              - cell "Dust 1947" [ref=f1e4681]
+              - cell "-" [ref=f1e4682]
+              - cell "The Dragon can join the same Unit as The Phoenix or form one with her. When Joined in the same Unit, they gain Expert with all weapons." [ref=f1e4683]
+              - cell [ref=f1e2338]:
+                - button [ref=f1e2339] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4684] [cursor=pointer]
+                - button [ref=f1e2345] [cursor=pointer]
+            - row [ref=f1e4685]:
+              - cell "2147483783" [ref=f1e4686]
+              - cell [ref=f1e4687]:
+                - strong [ref=f1e2351]: Small Vehicle
+              - cell "Dust 1947" [ref=f1e4688]
+              - cell "-" [ref=f1e4689]
+              - cell "Always has Cover save. Determines and affects Line of Sight as an Infantry Unit, but blocks LoS for other Small Vehicles." [ref=f1e4690]
+              - cell [ref=f1e2355]:
+                - button [ref=f1e2356] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4691] [cursor=pointer]
+                - button [ref=f1e2362] [cursor=pointer]
+            - row [ref=f1e4692]:
+              - cell "2147483784" [ref=f1e4693]
+              - cell [ref=f1e4694]:
+                - strong [ref=f1e2368]: SNIPER
+              - cell "Dust 1947" [ref=f1e4695]
+              - cell "Choose the enemy soldiers hit with this weapon. It Ignores Infantry and Cover saves." [ref=f1e4696]
+              - cell "Choose the enemy soldiers hit with this weapon. It Ignores Infantry and Cover saves." [ref=f1e4697]
+              - cell [ref=f1e2372]:
+                - button [ref=f1e2373] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4698] [cursor=pointer]
+                - button [ref=f1e2379] [cursor=pointer]
+            - row [ref=f1e4699]:
+              - cell "2147483785" [ref=f1e4700]
+              - cell [ref=f1e4701]:
+                - strong [ref=f1e2385]: Spotter
+              - cell "Dust 1947" [ref=f1e4702]
+              - cell "-" [ref=f1e4703]
+              - cell "If Spotter does not use a weapon, each Sniper weapon making a Sustained Attack hits on rolls of [crosshair] as well as [bloc]." [ref=f1e4704]
+              - cell [ref=f1e2389]:
+                - button [ref=f1e2390] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4705] [cursor=pointer]
+                - button [ref=f1e2396] [cursor=pointer]
+            - row [ref=f1e4706]:
+              - cell "2147483786" [ref=f1e4707]
+              - cell [ref=f1e4708]:
+                - strong [ref=f1e2402]: Stealth
+              - cell "Dust 1947" [ref=f1e4709]
+              - cell "-" [ref=f1e4710]
+              - cell "Attacking with this weapon does not remove Camouflage." [ref=f1e4711]
+              - cell [ref=f1e2406]:
+                - button [ref=f1e2407] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4712] [cursor=pointer]
+                - button [ref=f1e2413] [cursor=pointer]
+            - row [ref=f1e4713]:
+              - cell "2147483787" [ref=f1e4714]
+              - cell [ref=f1e4715]:
+                - strong [ref=f1e2419]: Super Human
+              - cell "Dust 1947" [ref=f1e4716]
+              - cell "-" [ref=f1e4717]
+              - cell "Passes Infantry Save on [shield] as well as [bloc] and can benefit from Cover, but not at the same time. May not Join a Unit." [ref=f1e4718]
+              - cell [ref=f1e2423]:
+                - button [ref=f1e2424] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4719] [cursor=pointer]
+                - button [ref=f1e2430] [cursor=pointer]
+            - row [ref=f1e4720]:
+              - cell "2147483788" [ref=f1e4721]
+              - cell [ref=f1e4722]:
+                - strong [ref=f1e2436]: Trail Blazer
+              - cell "Dust 1947" [ref=f1e4723]
+              - cell "-" [ref=f1e4724]
+              - cell "Can Move through enemy Units. Applies to Units Joined." [ref=f1e4725]
+              - cell [ref=f1e2440]:
+                - button [ref=f1e2441] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4726] [cursor=pointer]
+                - button [ref=f1e2447] [cursor=pointer]
+            - row [ref=f1e4727]:
+              - cell "2147483789" [ref=f1e4728]
+              - cell [ref=f1e4729]:
+                - strong [ref=f1e2453]: Volley
+              - cell "Dust 1947" [ref=f1e4730]
+              - cell "-" [ref=f1e4731]
+              - cell "Weapon may fire all remaining ammunition at the same target in a Single Attack or Sustained Attack Action." [ref=f1e4732]
+              - cell [ref=f1e2457]:
+                - button [ref=f1e2458] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4733] [cursor=pointer]
+                - button [ref=f1e2464] [cursor=pointer]
+            - row [ref=f1e4734]:
+              - cell "2147483790" [ref=f1e4735]
+              - cell [ref=f1e4736]:
+                - strong [ref=f1e2470]: Wire Guided
+              - cell "Dust 1947" [ref=f1e4737]
+              - cell "-" [ref=f1e4738]
+              - cell "If unit Attacks with one Missile and no other weapons, it re-rolls misses for that missile as if making a Sustained Attack." [ref=f1e4739]
+              - cell [ref=f1e2474]:
+                - button [ref=f1e2475] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4740] [cursor=pointer]
+                - button [ref=f1e2481] [cursor=pointer]
+            - row [ref=f1e4741]:
+              - cell "2147483791" [ref=f1e4742]
+              - cell [ref=f1e4743]:
+                - strong [ref=f1e2487]: REPULSOR
+              - cell "Star Wars" [ref=f1e4744]
+              - cell "This Unit ignores terrain penalties that would normally affect ground vehicles, but does not ignore terrain entirely." [ref=f1e4745]
+              - cell "This Unit ignores terrain penalties that would normally affect ground vehicles, but does not ignore terrain entirely." [ref=f1e4746]
+              - cell [ref=f1e2491]:
+                - button [ref=f1e2492] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4747] [cursor=pointer]
+                - button [ref=f1e2498] [cursor=pointer]
+            - row [ref=f1e4748]:
+              - cell "2147483792" [ref=f1e4749]
+              - cell [ref=f1e4750]:
+                - strong [ref=f1e2504]: "EXPERT: DC-15S Blaster Carbine"
+              - cell "Star Wars" [ref=f1e4751]
+              - cell "Hits on [TARGET] as well as [SHIELD]." [ref=f1e4752]
+              - cell "Hits on [TARGET] as well as [SHIELD]." [ref=f1e4753]
+              - cell [ref=f1e2508]:
+                - button [ref=f1e2509] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4754] [cursor=pointer]
+                - button [ref=f1e2515] [cursor=pointer]
+            - row [ref=f1e4755]:
+              - cell "2147483793" [ref=f1e4756]
+              - cell [ref=f1e4757]:
+                - strong [ref=f1e2521]: "EXPERT: DC-17 Blaster Pistol"
+              - cell "Star Wars" [ref=f1e4758]
+              - cell "Hits on [TARGET] as well as [SHIELD]." [ref=f1e4759]
+              - cell "Hits on [TARGET] as well as [SHIELD]." [ref=f1e4760]
+              - cell [ref=f1e2525]:
+                - button [ref=f1e2526] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4761] [cursor=pointer]
+                - button [ref=f1e2532] [cursor=pointer]
+            - row [ref=f1e4762]:
+              - cell "2147483794" [ref=f1e4763]
+              - cell [ref=f1e4764]:
+                - strong [ref=f1e2538]: "EXPERT: Lightsaber"
+              - cell "Alle" [ref=f1e4765]
+              - cell "Hits on [TARGET] as well as [SHIELD]." [ref=f1e4766]
+              - cell "Hits on [TARGET] as well as [SHIELD]." [ref=f1e4767]
+              - cell [ref=f1e2542]:
+                - button [ref=f1e2543] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4768] [cursor=pointer]
+                - button [ref=f1e2549] [cursor=pointer]
+            - row [ref=f1e4769]:
+              - cell "2147483795" [ref=f1e4770]
+              - cell [ref=f1e4771]:
+                - strong [ref=f1e2555]: Smoke Granades
+              - cell "Dust 1947" [ref=f1e4772]
+              - cell "Once per game, Free Action to place Smoke on Unit." [ref=f1e4773]
+              - cell "-" [ref=f1e4774]
+              - cell [ref=f1e2559]:
+                - button [ref=f1e2560] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4775] [cursor=pointer]
+                - button [ref=f1e2566] [cursor=pointer]
+            - row [ref=f1e4776]:
+              - cell "2147483796" [ref=f1e4777]
+              - cell [ref=f1e4778]:
+                - strong [ref=f1e2572]: ROCKET PACK
+              - cell "Dust 1947" [ref=f1e4779]
+              - cell "Once per game gain Fly, Charge and double Move and March values." [ref=f1e4780]
+              - cell "-" [ref=f1e4781]
+              - cell [ref=f1e2576]:
+                - button [ref=f1e2577] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4782] [cursor=pointer]
+                - button [ref=f1e2583] [cursor=pointer]
+            - row [ref=f1e4783]:
+              - cell "2147483797" [ref=f1e4784]
+              - cell [ref=f1e4785]:
+                - strong [ref=f1e2589]: RAID
+              - cell "Alle" [ref=f1e4786]
+              - 'cell "RAID: The Vehicle can spend all its Actions to do a Raid Special Action. It can do MOVE + ATTACK + MOVE in this Activation, but can''t be reactivated for this turn." [ref=f1e4787]'
+              - cell "-" [ref=f1e4788]
+              - cell [ref=f1e2593]:
+                - button [ref=f1e2594] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4789] [cursor=pointer]
+                - button [ref=f1e2600] [cursor=pointer]
+            - row [ref=f1e4790]:
+              - cell "2147483798" [ref=f1e4791]
+              - cell [ref=f1e4792]:
+                - strong [ref=f1e2606]: VEHICLE SQUADRON
+              - cell "Alle" [ref=f1e4793]
+              - cell "Vehicle Unit made of several miniatures. Apply damage and Critical Hits to miniatures one by one. When a Vehicle is lost, so are all associated weapons." [ref=f1e4794]
+              - cell "-" [ref=f1e4795]
+              - cell [ref=f1e2610]:
+                - button [ref=f1e2611] [cursor=pointer]
+                - button "Regel klonen" [ref=f1e4796] [cursor=pointer]
+                - button [ref=f1e2617] [cursor=pointer]

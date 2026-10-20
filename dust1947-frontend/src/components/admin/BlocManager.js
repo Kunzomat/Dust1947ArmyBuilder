@@ -26,6 +26,7 @@ import {
 } from '@mui/material';
 import { Edit, Delete, Add } from '@mui/icons-material';
 import { getImageUrl } from '../../imageHelper';
+import useSessionStorageState from '../../hooks/useSessionStorageState';
 
 // Admin API uses different base URL than army_api
 const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
@@ -106,7 +107,20 @@ export default function BlocManager() {
   const [sortBy, setSortBy] = useState('name');
   const [sortDirection, setSortDirection] = useState('asc');
   const [gameSystems, setGameSystems] = useState([]);
-  const [selectedGameSystemId, setSelectedGameSystemId] = useState('');
+  const [filters, setFilters] = useSessionStorageState(
+    'dust1947.filters.v1.admin.blocs',
+    { selectedGameSystemId: '' }
+  );
+  const { selectedGameSystemId } = filters;
+  const setSelectedGameSystemId = (value) =>
+    setFilters((previous) => ({ ...previous, selectedGameSystemId: value }));
+
+  useEffect(() => {
+    if (selectedGameSystemId && gameSystems.length > 0
+      && !gameSystems.some((system) => String(system.id) === String(selectedGameSystemId))) {
+      setFilters((previous) => ({ ...previous, selectedGameSystemId: '' }));
+    }
+  }, [gameSystems, selectedGameSystemId, setFilters]);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingBloc, setEditingBloc] = useState(null);
   const [loading, setLoading] = useState(false);

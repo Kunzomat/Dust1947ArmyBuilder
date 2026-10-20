@@ -1,0 +1,76 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e5170]
+      - group [ref=e7]:
+        - button "Army Builder" [ref=e5171] [cursor=pointer]
+        - button "Admin" [pressed] [ref=e5172] [cursor=pointer]
+  - generic [ref=e129]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=e5173]
+    - paragraph [ref=e131]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+    - tablist [ref=e135]:
+      - tab "🎮 Game Systems" [ref=e5174] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=e5175] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=e5176] [cursor=pointer]
+      - tab "⚔️ Units" [ref=e5177] [cursor=pointer]
+      - tab "🔫 Weapons" [ref=e5178] [cursor=pointer]
+      - tab "📜 Rules" [selected] [ref=e5179] [cursor=pointer]
+      - tab "🪖 Platoons" [ref=e5180] [cursor=pointer]
+    - tabpanel [ref=e219]:
+      - generic [ref=e221]:
+        - generic [ref=e222]:
+          - heading "Rules (3)" [level=6] [ref=e5181]
+          - generic [ref=e224]:
+            - generic [ref=e225]:
+              - generic [ref=e4247]: Game System
+              - generic [ref=e226]:
+                - combobox "Game System" [active] [ref=e5182] [cursor=pointer]: Star Wars
+                - textbox [aria-hidden]: "3"
+                - group [aria-hidden]:
+                  - generic: Game System
+            - button [ref=e5183] [cursor=pointer]
+        - table [ref=e233]:
+          - rowgroup [ref=e234]:
+            - row [ref=e5184]:
+              - columnheader [ref=e5185]:
+                - button "ID" [ref=e5186] [cursor=pointer]
+              - columnheader [ref=e5187]:
+                - button "Name" [ref=e5188] [cursor=pointer]
+              - columnheader [ref=e5189]:
+                - button "Game System" [ref=e5190] [cursor=pointer]
+              - columnheader [ref=e5191]:
+                - button "Kurzbeschreibung" [ref=e5192] [cursor=pointer]
+              - columnheader [ref=e5193]:
+                - button "Volltext" [ref=e5194] [cursor=pointer]
+              - columnheader "Aktionen" [ref=e5195]
+          - rowgroup [ref=e257]:
+            - row [ref=e5196]:
+              - cell "2147483791" [ref=e5197]
+              - cell [ref=e5198]:
+                - strong [ref=e2249]: REPULSOR
+              - cell "Star Wars" [ref=e5199]
+              - cell "This Unit ignores terrain penalties that would normally affect ground vehicles, but does not ignore terrain entirely." [ref=e5200]
+              - cell "This Unit ignores terrain penalties that would normally affect ground vehicles, but does not ignore terrain entirely." [ref=e5201]
+              - cell [ref=e2253]:
+                - button [ref=e2254] [cursor=pointer]
+                - button [ref=e2257] [cursor=pointer]
+            - row [ref=e5202]:
+              - cell "2147483792" [ref=e5203]
+              - cell [ref=e5204]:
+                - strong [ref=e2263]: "EXPERT: DC-15S Blaster Carbine"
+              - cell "Star Wars" [ref=e5205]
+              - cell "Hits on [TARGET] as well as [SHIELD]." [ref=e5206]
+              - cell "Hits on [TARGET] as well as [SHIELD]." [ref=e5207]
+              - cell [ref=e2267]:
+                - button [ref=e2268] [cursor=pointer]
+                - button [ref=e2271] [cursor=pointer]
+            - row [ref=e5208]:
+              - cell "2147483793" [ref=e5209]
+              - cell [ref=e5210]:
+                - strong [ref=e2277]: "EXPERT: DC-17 Blaster Pistol"
+              - cell "Star Wars" [ref=e5211]
+              - cell "Hits on [TARGET] as well as [SHIELD]." [ref=e5212]
+              - cell "Hits on [TARGET] as well as [SHIELD]." [ref=e5213]
+              - cell [ref=e2281]:
+                - button [ref=e2282] [cursor=pointer]
+                - button [ref=e2285] [cursor=pointer]

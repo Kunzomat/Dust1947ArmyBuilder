@@ -1,9 +1,46 @@
-import React from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { Box } from "@mui/material";
 
 import iconInfanterie from "../assets/icons/infanterie.png";
 import iconVehicle from "../assets/icons/vehicle_tank.png";
 import iconAircraft from "../assets/icons/aircraft_jet.png";
+
+const TABLE_WIDTH = 860;
+const CARD_BORDER = 8;
+const FALLBACK_SCALE = 1;
+
+export function calculateCardBackScale(
+  availableWidth,
+  availableHeight,
+  logicalTableHeight
+) {
+  if (
+    !Number.isFinite(availableWidth) ||
+    !Number.isFinite(availableHeight) ||
+    !Number.isFinite(logicalTableHeight) ||
+    availableWidth <= 0 ||
+    availableHeight <= 0 ||
+    logicalTableHeight <= 0
+  ) {
+    return null;
+  }
+  return Math.min(
+    availableWidth / logicalTableHeight,
+    availableHeight / TABLE_WIDTH
+  );
+}
+
+// ResizeObserver can report a zero-sized box while a card side is mounting or
+// becoming visible. Keep the last usable scale instead of turning the table
+// into a zero-scale element during that transient state.
+export function retainCardBackScale(currentScale, measuredScale) {
+  if (Number.isFinite(measuredScale) && measuredScale > 0) {
+    return measuredScale;
+  }
+  return Number.isFinite(currentScale) && currentScale > 0
+    ? currentScale
+    : FALLBACK_SCALE;
+}
 
 function CardBack({
   weapons = [],
@@ -17,11 +54,63 @@ function CardBack({
   marchSpeed,
   points,
 }) {
-
-  const TABLE_WIDTH = 860;
-  const AVAILABLE_AFTER_ROTATION = 657;
-  const SCALE = (AVAILABLE_AFTER_ROTATION - 0) / TABLE_WIDTH;
   const MAX_ROWS = 8;
+  const containerRef = useRef(null);
+  const logicalTableRef = useRef(null);
+  const [scale, setScale] = useState(null);
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      const container = containerRef.current;
+      const logicalTable = logicalTableRef.current;
+      if (!container || !logicalTable) return;
+
+      // The inner table is landscape in its own coordinates, then rotated
+      // into the portrait card. Its natural height can vary with its content.
+      const logicalHeight = logicalTable.offsetHeight;
+      const containerBounds = container.getBoundingClientRect();
+
+      const nextScale = calculateCardBackScale(
+        containerBounds.width - 2 * CARD_BORDER,
+        containerBounds.height - 2 * CARD_BORDER,
+        logicalHeight
+      );
+
+      setScale((currentScale) =>
+        retainCardBackScale(currentScale, nextScale)
+      );
+    };
+
+    // Measure synchronously in the layout effect so the first painted back
+    // already fits its portrait frame (without a transient oversized table).
+    measure();
+
+    const resizeObserver =
+      typeof window.ResizeObserver === "function"
+        ? new window.ResizeObserver(measure)
+        : null;
+    if (resizeObserver) {
+      resizeObserver.observe(containerRef.current);
+      resizeObserver.observe(logicalTableRef.current);
+    } else {
+      window.addEventListener("resize", measure);
+    }
+
+    return () => {
+      resizeObserver?.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [
+    weapons,
+    specialRules,
+    unitName,
+    type,
+    level,
+    speed,
+    health,
+    marchSpeed,
+  ]);
+
   // Map für Typen
   const TYPE_ICONS = {
     I: iconInfanterie,
@@ -67,28 +156,33 @@ function CardBack({
 
   return (
     <Box
+      ref={containerRef}
       sx={{
         width: "100%",
         height: "100%",
         background: bgColor,
         position: "relative",
-        overflow: "visible",
-        border: "8px solid #FFFFFF",       // ⚪ separater Rand
+        overflow: "hidden",
+        border: `${CARD_BORDER}px solid #FFFFFF`, // ⚪ separater Rand
         //padding: "50px",
         boxSizing: "border-box",
         borderRadius: "12px",              // optional: Rundung
       }}
     >
       <Box
+        ref={logicalTableRef}
         sx={{
           position: "absolute",
           top: "50%",
           left: "50%",
-          transform: `translate(-50%, -50%) rotate(90deg) scale(${SCALE})`,
-          transformOrigin: "center",
-          high: "100%",
+          // Rotation changes the visual bounds to logicalHeight x TABLE_WIDTH.
+          // Center on the card before uniformly scaling to fit those bounds.
+          transform: `translate(-50%, -50%) rotate(90deg) scale(${retainCardBackScale(
+            scale,
+            null
+          )})`,
+          transformOrigin: "center center",
           width: `${TABLE_WIDTH}px`,
-          /*width: `${TABLE_WIDTH}px`,*/
           background: bgColor,
         }}
       >
@@ -103,12 +197,11 @@ function CardBack({
 			display: "flex",
 			justifyContent: "space-between",
 			alignItems: "flex-start",   // 🟢 Inhalt bleibt oben
-			height: "200px",
+			minHeight: "200px",
 			boxSizing: "border-box",    // 🟢 Padding wird in die Höhe eingerechnet
 			gap: 2,
 			padding: "10px 16px 8px 16px",
 			mb: 1,                      // etwas Abstand zur Tabelle
-			overflow: "hidden",         // 🟢 optional: verhindert Überlaufen bei zu viel Inhalt
           }}
         >
           {/* 🆕 linker Teil: Titel */}

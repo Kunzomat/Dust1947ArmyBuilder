@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   Box,
   Button,
@@ -30,6 +30,8 @@ import {
   Tooltip
 } from '@mui/material';
 import { Edit, Delete, Add, Link as LinkIcon, ContentCopy } from '@mui/icons-material';
+import { ADMIN_CLONE_BUTTON_COLOR } from './adminStyles';
+import useSessionStorageState from '../../hooks/useSessionStorageState';
 
 function TabPanel({ children, value, index }) {
   return (
@@ -38,6 +40,12 @@ function TabPanel({ children, value, index }) {
     </div>
   );
 }
+
+const WEAPON_TARGET_TYPE_LEVELS = {
+  I: [1, 2, 3, 4],
+  V: [1, 2, 3, 4, 5, 6, 7],
+  A: [1, 2, 3]
+};
 
 // Admin API uses different base URL than army_api
 const API_BASE = (process.env.REACT_APP_API_BASE || "/backend/army_api.php")
@@ -70,19 +78,35 @@ export default function WeaponManager() {
   const [relationDialogOpen, setRelationDialogOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState(0);
   const [editingWeapon, setEditingWeapon] = useState(null);
+  const [cloneSourceWeapon, setCloneSourceWeapon] = useState(null);
+  const [cloneTab, setCloneTab] = useState(0);
+  const [cloneWeaponStats, setCloneWeaponStats] = useState({});
+  const [cloneWeaponRules, setCloneWeaponRules] = useState([]);
+  const [cloneRelationsReady, setCloneRelationsReady] = useState(false);
+  const cloneRelationsLoadToken = useRef(0);
   const [selectedWeapon, setSelectedWeapon] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     range: '',
     disposable: false,
-    game_system_id: ''
+    game_system_id: '',
+    faction_id: ''
   });
   const [weaponStats, setWeaponStats] = useState({});
   const [weaponRules, setWeaponRules] = useState([]);
   const [availableRules, setAvailableRules] = useState([]);
   const [gameSystems, setGameSystems] = useState([]);
-  const [filterGameSystemId, setFilterGameSystemId] = useState('');
-  const [nameFilter, setNameFilter] = useState('');
+  const [factions, setFactions] = useState([]);
+  const [filters, setFilters] = useSessionStorageState(
+    'dust1947.filters.v1.admin.weapons',
+    { filterGameSystemId: '', filterFactionId: '', nameFilter: '' }
+  );
+  const { filterGameSystemId, filterFactionId, nameFilter } = filters;
+  const setFilter = (field, value) =>
+    setFilters((previous) => ({ ...previous, [field]: value }));
+  const setFilterGameSystemId = (value) => setFilter('filterGameSystemId', value);
+  const setFilterFactionId = (value) => setFilter('filterFactionId', value);
+  const setNameFilter = (value) => setFilter('nameFilter', value);
   const [sortBy, setSortBy] = useState('id');
   const [sortDirection, setSortDirection] = useState('asc');
   const [weaponUnitsById, setWeaponUnitsById] = useState({});
@@ -93,6 +117,7 @@ export default function WeaponManager() {
     loadWeapons();
     loadRules();
     loadGameSystems();
+    loadFactions();
   }, []);
 
   const getSortValue = (weapon, column) => {
@@ -119,6 +144,9 @@ export default function WeaponManager() {
       const gameSystemMatch = !filterGameSystemId || String(weapon.game_system_id || '') === String(filterGameSystemId);
       if (!gameSystemMatch) return false;
 
+      const factionMatch = !filterFactionId || String(weapon.faction_id || '') === String(filterFactionId);
+      if (!factionMatch) return false;
+
       if (!normalizedNameFilter) return true;
       return String(weapon.name || '').toLowerCase().includes(normalizedNameFilter);
     });
@@ -133,7 +161,28 @@ export default function WeaponManager() {
     });
 
     return sorted;
-  }, [weapons, filterGameSystemId, nameFilter, sortBy, sortDirection]);
+  }, [weapons, filterGameSystemId, filterFactionId, nameFilter, sortBy, sortDirection]);
+
+  const availableFactionsForFilter = useMemo(() => {
+    if (!filterGameSystemId) {
+      return factions;
+    }
+
+    return factions.filter(
+      (faction) => String(faction.game_system_id || '') === String(filterGameSystemId)
+    );
+  }, [factions, filterGameSystemId]);
+
+  useEffect(() => {
+    if (filterGameSystemId && gameSystems.length > 0
+      && !gameSystems.some((system) => String(system.id) === String(filterGameSystemId))) {
+      setFilters((previous) => ({ ...previous, filterGameSystemId: '' }));
+    }
+    if (filterFactionId && factions.length > 0
+      && !availableFactionsForFilter.some((faction) => String(faction.id) === String(filterFactionId))) {
+      setFilters((previous) => ({ ...previous, filterFactionId: '' }));
+    }
+  }, [availableFactionsForFilter, factions.length, filterFactionId, filterGameSystemId, gameSystems, setFilters]);
 
   const handleSort = (column) => {
     if (sortBy === column) {
@@ -155,6 +204,16 @@ export default function WeaponManager() {
     } catch (error) {
       console.error('Error loading game systems:', error);
       setGameSystems([]);
+    }
+  };
+
+  const loadFactions = async () => {
+    try {
+      const data = await adminApiCall('admin_api.php?action=factions.list');
+      setFactions(Array.isArray(data) ? data : []);
+    } catch (error) {
+      console.error('Error loading factions:', error);
+      setFactions([]);
     }
   };
 
@@ -189,20 +248,71 @@ export default function WeaponManager() {
     }
   };
 
-  const handleOpenDialog = (weapon = null) => {
+  const availableFactionsForForm = useMemo(() => {
+    if (!formData.game_system_id) {
+      return factions;
+    }
+
+    return factions.filter(
+      (faction) => String(faction.game_system_id || '') === String(formData.game_system_id)
+    );
+  }, [factions, formData.game_system_id]);
+
+  const handleOpenDialog = (weapon = null, options = {}) => {
+    const { clone = false } = options;
+
     if (weapon) {
       const disposableValue = Boolean(weapon.disposable === 1 || weapon.disposable === '1' || weapon.disposable === true);
 
-      setEditingWeapon(weapon);
+      setEditingWeapon(clone ? null : weapon);
+      setCloneSourceWeapon(clone ? weapon : null);
       setFormData({
-        name: weapon.name || '',
+        name: clone ? `${weapon.name} (Kopie)` : (weapon.name || ''),
         range: weapon.range || '',
         disposable: disposableValue,
-        game_system_id: weapon.game_system_id || ''
+        game_system_id: weapon.game_system_id || '',
+        faction_id: weapon.faction_id || ''
       });
+
+      if (clone) {
+        setCloneTab(0);
+        setCloneWeaponStats({});
+        setCloneWeaponRules([]);
+        setCloneRelationsReady(false);
+        const loadToken = ++cloneRelationsLoadToken.current;
+        // Opening the clone dialog is read-only. The POST that creates the
+        // weapon is deliberately deferred until the user saves the draft.
+        Promise.all([
+          adminApiCall(`admin_api.php?action=weapon_stats.list&weapon_id=${weapon.id}`),
+          adminApiCall(`admin_api.php?action=weapon_rules.list&weapon_id=${weapon.id}`)
+        ]).then(([stats, rules]) => {
+          if (loadToken !== cloneRelationsLoadToken.current) return;
+          const statsMap = {};
+          (Array.isArray(stats) ? stats : []).forEach((stat) => {
+            statsMap[`${stat.target_type}-${stat.target_level}`] = {
+              dice: stat.dice ?? '',
+              damage: stat.damage ?? ''
+            };
+          });
+          setCloneWeaponStats(statsMap);
+          setCloneWeaponRules(
+            (Array.isArray(rules) ? rules : []).map((rule) => Number(rule.rule_id))
+          );
+          setCloneRelationsReady(true);
+        }).catch((error) => {
+          if (loadToken !== cloneRelationsLoadToken.current) return;
+          console.error('Error loading clone weapon relations:', error);
+          alert('Stats oder Regeln der Quellwaffe konnten nicht geladen werden: ' + error.message);
+        });
+      }
     } else {
       setEditingWeapon(null);
-      setFormData({ name: '', range: '', disposable: false, game_system_id: '' });
+      setCloneSourceWeapon(null);
+      setFormData({ name: '', range: '', disposable: false, game_system_id: '', faction_id: '' });
+      setCloneWeaponStats({});
+      setCloneWeaponRules([]);
+      setCloneRelationsReady(false);
+      cloneRelationsLoadToken.current += 1;
     }
     setDialogOpen(true);
   };
@@ -210,6 +320,10 @@ export default function WeaponManager() {
   const handleCloseDialog = () => {
     setDialogOpen(false);
     setEditingWeapon(null);
+    setCloneSourceWeapon(null);
+    setCloneWeaponStats({});
+    setCloneWeaponRules([]);
+    setCloneRelationsReady(false);
   };
 
   const handleOpenRelationDialog = async (weapon) => {
@@ -244,17 +358,33 @@ export default function WeaponManager() {
 
   const handleSave = async () => {
     try {
-      const action = editingWeapon ? 'weapons.update' : 'weapons.create';
+      const isClone = !editingWeapon && Boolean(cloneSourceWeapon?.id);
+      const action = editingWeapon ? 'weapons.update' : (isClone ? 'weapons.clone' : 'weapons.create');
       const disposableValue = formData.disposable ? 1 : 0;
 
       const payload = {
         ...formData,
         disposable: disposableValue,
-        game_system_id: formData.game_system_id ? parseInt(formData.game_system_id, 10) : null
+        game_system_id: formData.game_system_id ? parseInt(formData.game_system_id, 10) : null,
+        faction_id: formData.faction_id ? parseInt(formData.faction_id, 10) : null
       };
       
       if (editingWeapon) {
         payload.id = editingWeapon.id;
+      } else if (isClone) {
+        payload.id = cloneSourceWeapon.id;
+        payload.stats = Object.entries(cloneWeaponStats)
+          .map(([key, stat]) => {
+            const [target_type, target_level] = key.split('-');
+            return {
+              target_type,
+              target_level: Number(target_level),
+              dice: stat.dice,
+              damage: stat.damage
+            };
+          })
+          .filter((stat) => stat.dice !== '' || stat.damage !== '');
+        payload.rule_ids = cloneWeaponRules;
       }
 
       await adminApiCall(`admin_api.php?action=${action}`, {
@@ -275,14 +405,8 @@ export default function WeaponManager() {
   const handleSaveStats = async () => {
     try {
       const statsArray = [];
-      const targetTypeLevels = {
-        'I': [1, 2, 3, 4],          // Infantry: 1-4
-        'V': [1, 2, 3, 4, 5, 6, 7], // Vehicle: 1-7
-        'A': [1, 2, 3]              // Aircraft: 1-3
-      };
-
-      Object.keys(targetTypeLevels).forEach(type => {
-        targetTypeLevels[type].forEach(level => {
+      Object.keys(WEAPON_TARGET_TYPE_LEVELS).forEach(type => {
+        WEAPON_TARGET_TYPE_LEVELS[type].forEach(level => {
           const key = `${type}-${level}`;
           const stat = weaponStats[key];
           if (stat && (stat.dice || stat.damage)) {
@@ -415,23 +539,6 @@ export default function WeaponManager() {
     );
   };
 
-  const handleClone = async (weapon) => {
-    if (!weapon?.id) return;
-
-    try {
-      await adminApiCall('admin_api.php?action=weapons.clone', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: weapon.id })
-      });
-
-      await loadWeapons();
-    } catch (error) {
-      console.error('Error cloning weapon:', error);
-      alert('Fehler beim Klonen: ' + error.message);
-    }
-  };
-
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, gap: 2, flexWrap: 'wrap' }}>
@@ -451,12 +558,31 @@ export default function WeaponManager() {
               labelId="weapons-game-system-filter-label"
               value={filterGameSystemId}
               label="Game System"
-              onChange={(e) => setFilterGameSystemId(e.target.value)}
+              onChange={(e) => {
+                setFilterGameSystemId(e.target.value);
+                setFilterFactionId('');
+              }}
             >
               <MenuItem value="">Alle Systeme</MenuItem>
               {gameSystems.map((system) => (
                 <MenuItem key={system.id} value={String(system.id)}>
                   {system.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <FormControl size="small" sx={{ minWidth: 220 }}>
+            <InputLabel id="weapons-faction-filter-label">Faction</InputLabel>
+            <Select
+              labelId="weapons-faction-filter-label"
+              value={filterFactionId}
+              label="Faction"
+              onChange={(e) => setFilterFactionId(e.target.value)}
+            >
+              <MenuItem value="">Alle Fraktionen</MenuItem>
+              {availableFactionsForFilter.map((faction) => (
+                <MenuItem key={faction.id} value={String(faction.id)}>
+                  {faction.name}
                 </MenuItem>
               ))}
             </Select>
@@ -547,7 +673,8 @@ export default function WeaponManager() {
                     </IconButton>
                     <IconButton
                       size="small"
-                      onClick={() => handleClone(weapon)}
+                      color={ADMIN_CLONE_BUTTON_COLOR}
+                      onClick={() => handleOpenDialog(weapon, { clone: true })}
                       title="Waffe klonen"
                     >
                       <ContentCopy fontSize="small" />
@@ -568,10 +695,10 @@ export default function WeaponManager() {
         </Table>
       </TableContainer>
 
-      {/* Create/Edit Dialog - NUR Basis-Felder */}
-      <Dialog open={dialogOpen} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
+      {/* Create/Edit dialog; clones additionally carry an editable relations draft. */}
+      <Dialog open={dialogOpen} onClose={handleCloseDialog} maxWidth={cloneSourceWeapon ? 'lg' : 'sm'} fullWidth>
         <DialogTitle>
-          {editingWeapon ? 'Waffe bearbeiten' : 'Neue Waffe'}
+          {editingWeapon ? 'Waffe bearbeiten' : (cloneSourceWeapon ? 'Waffe klonen' : 'Neue Waffe')}
         </DialogTitle>
         <DialogContent>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 2 }}>
@@ -588,12 +715,33 @@ export default function WeaponManager() {
               select
               label="Game System (optional)"
               value={formData.game_system_id || ''}
-              onChange={(e) => setFormData({ ...formData, game_system_id: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, game_system_id: e.target.value, faction_id: '' })}
             >
               <MenuItem value="">Alle Systeme</MenuItem>
               {gameSystems.map((system) => (
                 <MenuItem key={system.id} value={system.id}>
                   {system.name}
+                </MenuItem>
+              ))}
+            </TextField>
+
+            <TextField
+              fullWidth
+              select
+              label="Faction (optional)"
+              value={formData.faction_id || ''}
+              disabled={Boolean(formData.game_system_id) && availableFactionsForForm.length === 0}
+              onChange={(e) => setFormData({ ...formData, faction_id: e.target.value })}
+            >
+              <MenuItem value="">Alle Fraktionen</MenuItem>
+              {availableFactionsForForm.length === 0 && formData.game_system_id && (
+                <MenuItem value="" disabled>
+                  Keine Fraktionen für dieses Game System
+                </MenuItem>
+              )}
+              {availableFactionsForForm.map((faction) => (
+                <MenuItem key={faction.id} value={faction.id}>
+                  {faction.name}
                 </MenuItem>
               ))}
             </TextField>
@@ -621,11 +769,135 @@ export default function WeaponManager() {
                 💡 Tipp: Stats & Regeln können über das 🔗-Icon in der Tabelle verwaltet werden
               </Typography>
             )}
+
+            {cloneSourceWeapon && (
+              <>
+                {!cloneRelationsReady && (
+                  <Typography variant="body2" color="text.secondary">
+                    Stats und Regeln der Quellwaffe werden geladen…
+                  </Typography>
+                )}
+                <Tabs value={cloneTab} onChange={(e, value) => setCloneTab(value)} sx={{ mt: 1 }}>
+                  <Tab label="🎯 Stats" />
+                  <Tab label="📜 Regeln" />
+                </Tabs>
+
+                <TabPanel value={cloneTab} index={0}>
+                  <Typography variant="subtitle2" sx={{ mb: 2 }}>
+                    Weapon Stats (Nur nicht-leere Werte werden gespeichert)
+                  </Typography>
+                  <TableContainer component={Paper} variant="outlined">
+                    <Table size="small">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>Target Type</TableCell>
+                          {[1, 2, 3, 4, 5, 6, 7].map((level) => (
+                            <TableCell key={level}>Level {level}</TableCell>
+                          ))}
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {[
+                          { type: 'I', label: 'Infantry' },
+                          { type: 'V', label: 'Vehicle' },
+                          { type: 'A', label: 'Aircraft' }
+                        ].map(({ type: targetType, label }) => (
+                          <TableRow key={targetType}>
+                            <TableCell>
+                              <strong>{targetType}</strong>
+                              <Typography variant="caption" display="block" color="text.secondary">
+                                {label}
+                              </Typography>
+                            </TableCell>
+                            {[1, 2, 3, 4, 5, 6, 7].map((level) => {
+                              if (!WEAPON_TARGET_TYPE_LEVELS[targetType].includes(level)) {
+                                return <TableCell key={level} sx={{ bgcolor: 'grey.100' }} />;
+                              }
+                              const key = `${targetType}-${level}`;
+                              const stat = cloneWeaponStats[key] || { dice: '', damage: '' };
+                              return (
+                                <TableCell key={level}>
+                                  <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
+                                    <TextField
+                                      size="small"
+                                      placeholder="D"
+                                      value={stat.dice}
+                                      onChange={(e) => setCloneWeaponStats({
+                                        ...cloneWeaponStats,
+                                        [key]: { ...stat, dice: e.target.value }
+                                      })}
+                                      sx={{ width: 50 }}
+                                      inputProps={{ style: { textAlign: 'center' } }}
+                                    />
+                                    <Typography variant="caption">/</Typography>
+                                    <TextField
+                                      size="small"
+                                      placeholder="DMG"
+                                      value={stat.damage}
+                                      onChange={(e) => setCloneWeaponStats({
+                                        ...cloneWeaponStats,
+                                        [key]: { ...stat, damage: e.target.value }
+                                      })}
+                                      sx={{ width: 50 }}
+                                      inputProps={{ style: { textAlign: 'center' } }}
+                                    />
+                                  </Box>
+                                </TableCell>
+                              );
+                            })}
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                  <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: 'block' }}>
+                    Format: Dice / Damage (z.B. &quot;3&quot; / &quot;2&quot; für 3 Würfel mit 2 Schaden)
+                  </Typography>
+                </TabPanel>
+
+                <TabPanel value={cloneTab} index={1}>
+                  <Typography variant="subtitle2" sx={{ mb: 2 }}>
+                    Zugewiesene Regeln:
+                  </Typography>
+                  <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ mb: 3 }}>
+                    {cloneWeaponRules.map((ruleId) => {
+                      const rule = availableRules.find((item) => Number(item.id) === Number(ruleId));
+                      return (
+                        <Chip
+                          key={ruleId}
+                          label={rule?.name || ruleId}
+                          onDelete={() => setCloneWeaponRules(cloneWeaponRules.filter((id) => id !== ruleId))}
+                          color="secondary"
+                        />
+                      );
+                    })}
+                    {cloneWeaponRules.length === 0 && (
+                      <Typography variant="body2" color="text.secondary">Keine Regeln zugewiesen</Typography>
+                    )}
+                  </Stack>
+                  <Typography variant="subtitle2" sx={{ mb: 2 }}>
+                    Verfügbare Regeln hinzufügen:
+                  </Typography>
+                  <Stack direction="row" spacing={1} flexWrap="wrap">
+                    {availableRules
+                      .filter((rule) => !cloneWeaponRules.some((id) => Number(id) === Number(rule.id)))
+                      .map((rule) => (
+                        <Chip
+                          key={rule.id}
+                          label={rule.name}
+                          onClick={() => setCloneWeaponRules([...cloneWeaponRules, Number(rule.id)])}
+                          variant="outlined"
+                        />
+                      ))}
+                  </Stack>
+                </TabPanel>
+              </>
+            )}
           </Box>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog}>Abbrechen</Button>
-          <Button onClick={handleSave} variant="contained">
+          <Button onClick={handleSave} variant="contained" disabled={Boolean(cloneSourceWeapon) && !cloneRelationsReady}>
             Speichern
           </Button>
         </DialogActions>
@@ -783,4 +1055,3 @@ export default function WeaponManager() {
     </Box>
   );
 }
-

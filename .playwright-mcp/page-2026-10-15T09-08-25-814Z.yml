@@ -1,0 +1,588 @@
+- generic [ref=f4e3]:
+  - banner [ref=f4e4]:
+    - generic [ref=f4e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f4e8726]
+      - group [ref=f4e7]:
+        - button "Army Builder" [ref=f4e8727] [cursor=pointer]
+        - button "Admin" [pressed] [ref=f4e8728] [cursor=pointer]
+  - generic [ref=f4e15]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=f4e8729]
+    - paragraph [ref=f4e17]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln und Platoons"
+    - tablist [ref=f4e21]:
+      - tab "🎮 Game Systems" [ref=f4e8730] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=f4e8731] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=f4e8732] [cursor=pointer]
+      - tab "⚔️ Units" [ref=f4e8733] [cursor=pointer]
+      - tab "🔫 Weapons" [selected] [ref=f4e8734] [cursor=pointer]
+      - tab "📜 Rules" [ref=f4e8735] [cursor=pointer]
+      - tab "🪖 Platoons" [ref=f4e8736] [cursor=pointer]
+    - tabpanel [ref=f4e30]:
+      - generic [ref=f4e32]:
+        - generic [ref=f4e33]:
+          - heading "Weapons (44)" [level=6] [ref=f4e8737]
+          - generic [ref=f4e35]:
+            - generic [ref=f4e36]:
+              - generic: Waffe suchen
+              - generic [ref=f4e37]:
+                - textbox "Waffe suchen" [ref=f4e8738]:
+                  - /placeholder: Contains (ab 1 Zeichen)
+                - group [aria-hidden]:
+                  - generic: Waffe suchen
+            - generic [ref=f4e39]:
+              - generic [ref=f4e6092]: Game System
+              - generic [ref=f4e40]:
+                - combobox "Game System" [active] [ref=f4e8739] [cursor=pointer]: Warhammer 40k
+                - textbox [aria-hidden]: "2"
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=f4e42]:
+              - generic: Faction
+              - generic [ref=f4e43]:
+                - combobox "Faction" [ref=f4e8740] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Faction
+            - button [ref=f4e8741] [cursor=pointer]
+        - table [ref=f4e50]:
+          - rowgroup [ref=f4e51]:
+            - row [ref=f4e8742]:
+              - columnheader [ref=f4e8743]:
+                - button "ID" [ref=f4e8744] [cursor=pointer]
+              - columnheader [ref=f4e8745]:
+                - button "Name" [ref=f4e8746] [cursor=pointer]
+              - columnheader [ref=f4e8747]:
+                - button "Game System" [ref=f4e8748] [cursor=pointer]
+              - columnheader [ref=f4e8749]:
+                - button "Reichweite" [ref=f4e8750] [cursor=pointer]
+              - columnheader [ref=f4e8751]:
+                - button "Einmalwaffe" [ref=f4e8752] [cursor=pointer]
+              - columnheader "Aktionen" [ref=f4e8753]
+          - rowgroup [ref=f4e75]:
+            - row [ref=f4e8754]:
+              - cell "1" [ref=f4e8755]
+              - cell [ref=f4e8756]:
+                - strong [ref=f4e80]: Bolt Pistol
+              - cell "Warhammer 40k" [ref=f4e8757]
+              - cell "2" [ref=f4e8758]
+              - cell "Nein" [ref=f4e8759]
+              - cell [ref=f4e86]:
+                - button "Stats & Regeln verwalten" [ref=f4e8760] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8761] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8762] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8763] [cursor=pointer]
+            - row [ref=f4e8764]:
+              - cell "2" [ref=f4e8765]
+              - cell [ref=f4e8766]:
+                - strong [ref=f4e103]: Energie Fist
+              - cell "Warhammer 40k" [ref=f4e8767]
+              - cell "C" [ref=f4e8768]
+              - cell "Nein" [ref=f4e8769]
+              - cell [ref=f4e109]:
+                - button "Stats & Regeln verwalten" [ref=f4e8770] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8771] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8772] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8773] [cursor=pointer]
+            - row [ref=f4e8774]:
+              - cell "3" [ref=f4e8775]
+              - cell [ref=f4e8776]:
+                - strong [ref=f4e126]: Boltgun
+              - cell "Warhammer 40k" [ref=f4e8777]
+              - cell "4" [ref=f4e8778]
+              - cell "Nein" [ref=f4e8779]
+              - cell [ref=f4e132]:
+                - button "Stats & Regeln verwalten" [ref=f4e8780] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8781] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8782] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8783] [cursor=pointer]
+            - row [ref=f4e8784]:
+              - cell "4" [ref=f4e8785]
+              - cell [ref=f4e8786]:
+                - strong [ref=f4e149]: Plasma Pistol
+              - cell "Warhammer 40k" [ref=f4e8787]
+              - cell "2" [ref=f4e8788]
+              - cell "Nein" [ref=f4e8789]
+              - cell [ref=f4e155]:
+                - button "Stats & Regeln verwalten" [ref=f4e8790] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8791] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8792] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8793] [cursor=pointer]
+            - row [ref=f4e8794]:
+              - cell "5" [ref=f4e8795]
+              - cell [ref=f4e8796]:
+                - strong [ref=f4e172]: Energie Sword
+              - cell "Warhammer 40k" [ref=f4e8797]
+              - cell "C" [ref=f4e8798]
+              - cell "Nein" [ref=f4e8799]
+              - cell [ref=f4e178]:
+                - button "Stats & Regeln verwalten" [ref=f4e8800] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8801] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8802] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8803] [cursor=pointer]
+            - row [ref=f4e8804]:
+              - cell "6" [ref=f4e8805]
+              - cell [ref=f4e8806]:
+                - strong [ref=f4e195]: Flamer
+              - cell "Warhammer 40k" [ref=f4e8807]
+              - cell "1" [ref=f4e8808]
+              - cell "Nein" [ref=f4e8809]
+              - cell [ref=f4e201]:
+                - button "Stats & Regeln verwalten" [ref=f4e8810] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8811] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8812] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8813] [cursor=pointer]
+            - row [ref=f4e8814]:
+              - cell "7" [ref=f4e8815]
+              - cell [ref=f4e8816]:
+                - strong [ref=f4e218]: Meltagun
+              - cell "Warhammer 40k" [ref=f4e8817]
+              - cell "3" [ref=f4e8818]
+              - cell "Nein" [ref=f4e8819]
+              - cell [ref=f4e224]:
+                - button "Stats & Regeln verwalten" [ref=f4e8820] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8821] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8822] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8823] [cursor=pointer]
+            - row [ref=f4e8824]:
+              - cell "8" [ref=f4e8825]
+              - cell [ref=f4e8826]:
+                - strong [ref=f4e241]: Chainsword
+              - cell "Warhammer 40k" [ref=f4e8827]
+              - cell "C" [ref=f4e8828]
+              - cell "Nein" [ref=f4e8829]
+              - cell [ref=f4e247]:
+                - button "Stats & Regeln verwalten" [ref=f4e8830] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8831] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8832] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8833] [cursor=pointer]
+            - row [ref=f4e8834]:
+              - cell "9" [ref=f4e8835]
+              - cell [ref=f4e8836]:
+                - strong [ref=f4e264]: Missile Launcher
+              - cell "Warhammer 40k" [ref=f4e8837]
+              - cell "8" [ref=f4e8838]
+              - cell "Nein" [ref=f4e8839]
+              - cell [ref=f4e270]:
+                - button "Stats & Regeln verwalten" [ref=f4e8840] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8841] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8842] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8843] [cursor=pointer]
+            - row [ref=f4e8844]:
+              - cell "10" [ref=f4e8845]
+              - cell [ref=f4e8846]:
+                - strong [ref=f4e287]: Twin Lascannon
+              - cell "Warhammer 40k" [ref=f4e8847]
+              - cell "12" [ref=f4e8848]
+              - cell "Nein" [ref=f4e8849]
+              - cell [ref=f4e293]:
+                - button "Stats & Regeln verwalten" [ref=f4e8850] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8851] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8852] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8853] [cursor=pointer]
+            - row [ref=f4e8854]:
+              - cell "11" [ref=f4e8855]
+              - cell [ref=f4e8856]:
+                - strong [ref=f4e310]: Lascannon
+              - cell "Warhammer 40k" [ref=f4e8857]
+              - cell "12" [ref=f4e8858]
+              - cell "Nein" [ref=f4e8859]
+              - cell [ref=f4e316]:
+                - button "Stats & Regeln verwalten" [ref=f4e8860] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8861] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8862] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8863] [cursor=pointer]
+            - row [ref=f4e8864]:
+              - cell "44" [ref=f4e8865]
+              - cell [ref=f4e8866]:
+                - strong [ref=f4e333]: Predator Autocannon
+              - cell "Warhammer 40k" [ref=f4e8867]
+              - cell "12" [ref=f4e8868]
+              - cell "Nein" [ref=f4e8869]
+              - cell [ref=f4e339]:
+                - button "Stats & Regeln verwalten" [ref=f4e8870] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8871] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8872] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8873] [cursor=pointer]
+            - row [ref=f4e8874]:
+              - cell "45" [ref=f4e8875]
+              - cell [ref=f4e8876]:
+                - strong [ref=f4e356]: Heavy Bolter
+              - cell "Warhammer 40k" [ref=f4e8877]
+              - cell "9" [ref=f4e8878]
+              - cell "Nein" [ref=f4e8879]
+              - cell [ref=f4e362]:
+                - button "Stats & Regeln verwalten" [ref=f4e8880] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8881] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8882] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8883] [cursor=pointer]
+            - row [ref=f4e8884]:
+              - cell "100" [ref=f4e8885]
+              - cell [ref=f4e8886]:
+                - strong [ref=f4e379]: Singing spear
+              - cell "Warhammer 40k" [ref=f4e8887]
+              - cell "C" [ref=f4e8888]
+              - cell "Nein" [ref=f4e8889]
+              - cell [ref=f4e385]:
+                - button "Stats & Regeln verwalten" [ref=f4e8890] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8891] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8892] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8893] [cursor=pointer]
+            - row [ref=f4e8894]:
+              - cell "101" [ref=f4e8895]
+              - cell [ref=f4e8896]:
+                - strong [ref=f4e402]: Star Glaive
+              - cell "Warhammer 40k" [ref=f4e8897]
+              - cell "C" [ref=f4e8898]
+              - cell "Nein" [ref=f4e8899]
+              - cell [ref=f4e408]:
+                - button "Stats & Regeln verwalten" [ref=f4e8900] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8901] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8902] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8903] [cursor=pointer]
+            - row [ref=f4e8904]:
+              - cell "102" [ref=f4e8905]
+              - cell [ref=f4e8906]:
+                - strong [ref=f4e425]: Shuriken cannon
+              - cell "Warhammer 40k" [ref=f4e8907]
+              - cell "8" [ref=f4e8908]
+              - cell "Nein" [ref=f4e8909]
+              - cell [ref=f4e431]:
+                - button "Stats & Regeln verwalten" [ref=f4e8910] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8911] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8912] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8913] [cursor=pointer]
+            - row [ref=f4e8914]:
+              - cell "103" [ref=f4e8915]
+              - cell [ref=f4e8916]:
+                - strong [ref=f4e448]: Bright lance
+              - cell "Warhammer 40k" [ref=f4e8917]
+              - cell "12" [ref=f4e8918]
+              - cell "Nein" [ref=f4e8919]
+              - cell [ref=f4e454]:
+                - button "Stats & Regeln verwalten" [ref=f4e8920] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8921] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8922] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8923] [cursor=pointer]
+            - row [ref=f4e8924]:
+              - cell "104" [ref=f4e8925]
+              - cell [ref=f4e8926]:
+                - strong [ref=f4e471]: Reaper Launcher
+              - cell "Warhammer 40k" [ref=f4e8927]
+              - cell "12" [ref=f4e8928]
+              - cell "Nein" [ref=f4e8929]
+              - cell [ref=f4e477]:
+                - button "Stats & Regeln verwalten" [ref=f4e8930] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8931] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8932] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8933] [cursor=pointer]
+            - row [ref=f4e8934]:
+              - cell "105" [ref=f4e8935]
+              - cell [ref=f4e8936]:
+                - strong [ref=f4e494]: Tempest Launcher
+              - cell "Warhammer 40k" [ref=f4e8937]
+              - cell "12" [ref=f4e8938]
+              - cell "Nein" [ref=f4e8939]
+              - cell [ref=f4e500]:
+                - button "Stats & Regeln verwalten" [ref=f4e8940] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8941] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8942] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8943] [cursor=pointer]
+            - row [ref=f4e8944]:
+              - cell "106" [ref=f4e8945]
+              - cell [ref=f4e8946]:
+                - strong [ref=f4e517]: Twin Shuriken Catapult
+              - cell "Warhammer 40k" [ref=f4e8947]
+              - cell "4" [ref=f4e8948]
+              - cell "Nein" [ref=f4e8949]
+              - cell [ref=f4e523]:
+                - button "Stats & Regeln verwalten" [ref=f4e8950] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8951] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8952] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8953] [cursor=pointer]
+            - row [ref=f4e8954]:
+              - cell "107" [ref=f4e8955]
+              - cell [ref=f4e8956]:
+                - strong [ref=f4e540]: Dual Bright Lance
+              - cell "Warhammer 40k" [ref=f4e8957]
+              - cell "12" [ref=f4e8958]
+              - cell "Nein" [ref=f4e8959]
+              - cell [ref=f4e546]:
+                - button "Stats & Regeln verwalten" [ref=f4e8960] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8961] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8962] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8963] [cursor=pointer]
+            - row [ref=f4e8964]:
+              - cell "108" [ref=f4e8965]
+              - cell [ref=f4e8966]:
+                - strong [ref=f4e563]: Shuriken Catapult
+              - cell "Warhammer 40k" [ref=f4e8967]
+              - cell "4" [ref=f4e8968]
+              - cell "Nein" [ref=f4e8969]
+              - cell [ref=f4e569]:
+                - button "Stats & Regeln verwalten" [ref=f4e8970] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8971] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8972] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8973] [cursor=pointer]
+            - row [ref=f4e8974]:
+              - cell "109" [ref=f4e8975]
+              - cell [ref=f4e8976]:
+                - strong [ref=f4e586]: Plasma Grenades
+              - cell "Warhammer 40k" [ref=f4e8977]
+              - cell "C" [ref=f4e8978]
+              - cell "Ja" [ref=f4e8979]
+              - cell [ref=f4e592]:
+                - button "Stats & Regeln verwalten" [ref=f4e8980] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8981] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8982] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8983] [cursor=pointer]
+            - row [ref=f4e8984]:
+              - cell "110" [ref=f4e8985]
+              - cell [ref=f4e8986]:
+                - strong [ref=f4e609]: Shuriken Pistol
+              - cell "Warhammer 40k" [ref=f4e8987]
+              - cell "2" [ref=f4e8988]
+              - cell "Nein" [ref=f4e8989]
+              - cell [ref=f4e615]:
+                - button "Stats & Regeln verwalten" [ref=f4e8990] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e8991] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e8992] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e8993] [cursor=pointer]
+            - row [ref=f4e8994]:
+              - cell "111" [ref=f4e8995]
+              - cell [ref=f4e8996]:
+                - strong [ref=f4e632]: Witchblade
+              - cell "Warhammer 40k" [ref=f4e8997]
+              - cell "C" [ref=f4e8998]
+              - cell "Nein" [ref=f4e8999]
+              - cell [ref=f4e638]:
+                - button "Stats & Regeln verwalten" [ref=f4e9000] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9001] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9002] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9003] [cursor=pointer]
+            - row [ref=f4e9004]:
+              - cell "112" [ref=f4e9005]
+              - cell [ref=f4e9006]:
+                - strong [ref=f4e655]: Scorpion chainsword
+              - cell "Warhammer 40k" [ref=f4e9007]
+              - cell "C" [ref=f4e9008]
+              - cell "Nein" [ref=f4e9009]
+              - cell [ref=f4e661]:
+                - button "Stats & Regeln verwalten" [ref=f4e9010] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9011] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9012] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9013] [cursor=pointer]
+            - row [ref=f4e9014]:
+              - cell "113" [ref=f4e9015]
+              - cell [ref=f4e9016]:
+                - strong [ref=f4e678]: Biting Blade
+              - cell "Warhammer 40k" [ref=f4e9017]
+              - cell "C" [ref=f4e9018]
+              - cell "Nein" [ref=f4e9019]
+              - cell [ref=f4e684]:
+                - button "Stats & Regeln verwalten" [ref=f4e9020] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9021] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9022] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9023] [cursor=pointer]
+            - row [ref=f4e9024]:
+              - cell "114" [ref=f4e9025]
+              - cell [ref=f4e9026]:
+                - strong [ref=f4e701]: Banshee blade
+              - cell "Warhammer 40k" [ref=f4e9027]
+              - cell "C" [ref=f4e9028]
+              - cell "Nein" [ref=f4e9029]
+              - cell [ref=f4e707]:
+                - button "Stats & Regeln verwalten" [ref=f4e9030] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9031] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9032] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9033] [cursor=pointer]
+            - row [ref=f4e9034]:
+              - cell "115" [ref=f4e9035]
+              - cell [ref=f4e9036]:
+                - strong [ref=f4e724]: Dual Banshee blade
+              - cell "Warhammer 40k" [ref=f4e9037]
+              - cell "C" [ref=f4e9038]
+              - cell "Nein" [ref=f4e9039]
+              - cell [ref=f4e730]:
+                - button "Stats & Regeln verwalten" [ref=f4e9040] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9041] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9042] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9043] [cursor=pointer]
+            - row [ref=f4e9044]:
+              - cell "200" [ref=f4e9045]
+              - cell [ref=f4e9046]:
+                - strong [ref=f4e747]: Laspistol
+              - cell "Warhammer 40k" [ref=f4e9047]
+              - cell "2" [ref=f4e9048]
+              - cell "Nein" [ref=f4e9049]
+              - cell [ref=f4e753]:
+                - button "Stats & Regeln verwalten" [ref=f4e9050] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9051] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9052] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9053] [cursor=pointer]
+            - row [ref=f4e9054]:
+              - cell "201" [ref=f4e9055]
+              - cell [ref=f4e9056]:
+                - strong [ref=f4e770]: Lasgun
+              - cell "Warhammer 40k" [ref=f4e9057]
+              - cell "5" [ref=f4e9058]
+              - cell "Nein" [ref=f4e9059]
+              - cell [ref=f4e776]:
+                - button "Stats & Regeln verwalten" [ref=f4e9060] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9061] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9062] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9063] [cursor=pointer]
+            - row [ref=f4e9064]:
+              - cell "202" [ref=f4e9065]
+              - cell [ref=f4e9066]:
+                - strong [ref=f4e793]: Force stave
+              - cell "Warhammer 40k" [ref=f4e9067]
+              - cell "C" [ref=f4e9068]
+              - cell "Nein" [ref=f4e9069]
+              - cell [ref=f4e799]:
+                - button "Stats & Regeln verwalten" [ref=f4e9070] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9071] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9072] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9073] [cursor=pointer]
+            - row [ref=f4e9074]:
+              - cell "203" [ref=f4e9075]
+              - cell [ref=f4e9076]:
+                - strong [ref=f4e816]: Autocannon
+              - cell "Warhammer 40k" [ref=f4e9077]
+              - cell "12" [ref=f4e9078]
+              - cell "Nein" [ref=f4e9079]
+              - cell [ref=f4e822]:
+                - button "Stats & Regeln verwalten" [ref=f4e9080] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9081] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9082] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9083] [cursor=pointer]
+            - row [ref=f4e9084]:
+              - cell "204" [ref=f4e9085]
+              - cell [ref=f4e9086]:
+                - strong [ref=f4e839]: Mortar
+              - cell "Warhammer 40k" [ref=f4e9087]
+              - cell "12" [ref=f4e9088]
+              - cell "Nein" [ref=f4e9089]
+              - cell [ref=f4e845]:
+                - button "Stats & Regeln verwalten" [ref=f4e9090] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9091] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9092] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9093] [cursor=pointer]
+            - row [ref=f4e9094]:
+              - cell "206" [ref=f4e9095]
+              - cell [ref=f4e9096]:
+                - strong [ref=f4e862]: Demolisher cannon
+              - cell "Warhammer 40k" [ref=f4e9097]
+              - cell "6" [ref=f4e9098]
+              - cell "Nein" [ref=f4e9099]
+              - cell [ref=f4e868]:
+                - button "Stats & Regeln verwalten" [ref=f4e9100] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9101] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9102] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9103] [cursor=pointer]
+            - row [ref=f4e9104]:
+              - cell "207" [ref=f4e9105]
+              - cell [ref=f4e9106]:
+                - strong [ref=f4e885]: Vanquisher Cannon
+              - cell "Warhammer 40k" [ref=f4e9107]
+              - cell "18" [ref=f4e9108]
+              - cell "Nein" [ref=f4e9109]
+              - cell [ref=f4e891]:
+                - button "Stats & Regeln verwalten" [ref=f4e9110] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9111] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9112] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9113] [cursor=pointer]
+            - row [ref=f4e9114]:
+              - cell "501" [ref=f4e9115]
+              - cell [ref=f4e9116]:
+                - strong [ref=f4e5899]: Plasma Cannon
+              - cell "Warhammer 40k" [ref=f4e9117]
+              - cell "6" [ref=f4e9118]
+              - cell "Nein" [ref=f4e9119]
+              - cell [ref=f4e5905]:
+                - button "Stats & Regeln verwalten" [ref=f4e9120] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9121] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9122] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9123] [cursor=pointer]
+            - row [ref=f4e9124]:
+              - cell "502" [ref=f4e9125]
+              - cell [ref=f4e9126]:
+                - strong [ref=f4e5922]: Assault Cannon
+              - cell "Warhammer 40k" [ref=f4e9127]
+              - cell "4" [ref=f4e9128]
+              - cell "Nein" [ref=f4e9129]
+              - cell [ref=f4e5928]:
+                - button "Stats & Regeln verwalten" [ref=f4e9130] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9131] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9132] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9133] [cursor=pointer]
+            - row [ref=f4e9134]:
+              - cell "503" [ref=f4e9135]
+              - cell [ref=f4e9136]:
+                - strong [ref=f4e5945]: Storm Bolter
+              - cell "Warhammer 40k" [ref=f4e9137]
+              - cell "4" [ref=f4e9138]
+              - cell "Nein" [ref=f4e9139]
+              - cell [ref=f4e5951]:
+                - button "Stats & Regeln verwalten" [ref=f4e9140] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9141] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9142] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9143] [cursor=pointer]
+            - row [ref=f4e9144]:
+              - cell "504" [ref=f4e9145]
+              - cell [ref=f4e9146]:
+                - strong [ref=f4e5968]: Power Fist
+              - cell "Warhammer 40k" [ref=f4e9147]
+              - cell "C" [ref=f4e9148]
+              - cell "Nein" [ref=f4e9149]
+              - cell [ref=f4e5974]:
+                - button "Stats & Regeln verwalten" [ref=f4e9150] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9151] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9152] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9153] [cursor=pointer]
+            - row [ref=f4e9154]:
+              - cell "505" [ref=f4e9155]
+              - cell [ref=f4e9156]:
+                - strong [ref=f4e5991]: Twin Boltgun
+              - cell "Warhammer 40k" [ref=f4e9157]
+              - cell "4" [ref=f4e9158]
+              - cell "Nein" [ref=f4e9159]
+              - cell [ref=f4e5997]:
+                - button "Stats & Regeln verwalten" [ref=f4e9160] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9161] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9162] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9163] [cursor=pointer]
+            - row [ref=f4e9164]:
+              - cell "506" [ref=f4e9165]
+              - cell [ref=f4e9166]:
+                - strong [ref=f4e6014]: Plasma Gun
+              - cell "Warhammer 40k" [ref=f4e9167]
+              - cell "4" [ref=f4e9168]
+              - cell "Nein" [ref=f4e9169]
+              - cell [ref=f4e6020]:
+                - button "Stats & Regeln verwalten" [ref=f4e9170] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9171] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9172] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9173] [cursor=pointer]
+            - row [ref=f4e9174]:
+              - cell "507" [ref=f4e9175]
+              - cell [ref=f4e9176]:
+                - strong [ref=f4e6037]: Twin Plasma Gun
+              - cell "Warhammer 40k" [ref=f4e9177]
+              - cell "4" [ref=f4e9178]
+              - cell "Nein" [ref=f4e9179]
+              - cell [ref=f4e6043]:
+                - button "Stats & Regeln verwalten" [ref=f4e9180] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9181] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9182] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9183] [cursor=pointer]
+            - row [ref=f4e9184]:
+              - cell "508" [ref=f4e9185]
+              - cell [ref=f4e9186]:
+                - strong [ref=f4e6060]: Death spinner
+              - cell "Warhammer 40k" [ref=f4e9187]
+              - cell "2" [ref=f4e9188]
+              - cell "Nein" [ref=f4e9189]
+              - cell [ref=f4e6066]:
+                - button "Stats & Regeln verwalten" [ref=f4e9190] [cursor=pointer]
+                - button "Waffe bearbeiten" [ref=f4e9191] [cursor=pointer]
+                - button "Waffe klonen" [ref=f4e9192] [cursor=pointer]
+                - button "Waffe löschen" [ref=f4e9193] [cursor=pointer]
