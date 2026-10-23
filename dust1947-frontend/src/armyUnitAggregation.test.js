@@ -2,7 +2,17 @@ import {
   aggregateArmyUnits,
   getArmyUnitAggregationKey,
   getRemovalRequest,
+  expandArmyUnitsByQuantity,
 } from "./armyUnitAggregation";
+
+test("expandArmyUnitsByQuantity repeats each row by its quantity", () => {
+  const out = expandArmyUnitsByQuantity([
+    { unit_id: 1, quantity: 3 },
+    { unit_id: 2 },
+    { unit_id: 3, quantity: 2, army_platoon_id: 5 },
+  ]);
+  expect(out.map((u) => u.unit_id)).toEqual([1, 1, 1, 2, 3, 3]);
+});
 
 const clone = (overrides = {}) => ({
   army_unit_id: 1,

@@ -1,0 +1,499 @@
+- generic [ref=f3e1]:
+  - generic [ref=f3e3]:
+    - banner [ref=f3e4]:
+      - generic [ref=f3e5]:
+        - heading [level=6] [ref=f3e116]: Dust 1947 – Army Builder
+        - group [ref=f3e7]:
+          - button [pressed] [ref=f3e117] [cursor=pointer]: Army Builder
+          - button [ref=f3e118] [cursor=pointer]: Admin
+        - generic [ref=f3e59]: 52/110 Punkte
+    - generic [ref=f3e14]:
+      - alert [ref=f3e15]:
+        - generic [ref=f3e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+      - generic [ref=f3e20]:
+        - generic [ref=f3e21]:
+          - heading [level=6] [ref=f3e119]: Armeen
+          - separator [ref=f3e24]
+          - generic [ref=f3e25]:
+            - generic [ref=f3e26]:
+              - generic [ref=f3e27]:
+                - generic: Game System
+                - generic [ref=f3e28]:
+                  - combobox [ref=f3e120] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Game System
+              - generic [ref=f3e30]:
+                - generic: Bloc
+                - generic [ref=f3e31]:
+                  - combobox [ref=f3e121] [cursor=pointer]
+                  - textbox [aria-hidden]
+                  - group [aria-hidden]:
+                    - generic: Bloc
+              - generic [ref=f3e33]:
+                - button [ref=f3e122] [cursor=pointer]: Aktualisieren
+                - button [ref=f3e123] [cursor=pointer]: Neue Armee
+                - button [ref=f3e124] [cursor=pointer]: Löschen
+            - list [ref=f3e62]:
+              - button [ref=f3e125] [cursor=pointer]:
+                - generic [ref=f3e64]:
+                  - generic [ref=f3e65]: Star Wars Droiden Armee
+                  - paragraph [ref=f3e66]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+              - button [ref=f3e126] [cursor=pointer]:
+                - generic [ref=f3e68]:
+                  - generic [ref=f3e69]: Star Wars Clone Army
+                  - paragraph [ref=f3e70]: 52/110 Punkte • Star Wars Republik (Star Wars)
+              - button [ref=f3e127] [cursor=pointer]:
+                - generic [ref=f3e72]:
+                  - generic [ref=f3e73]: next stepp
+                  - paragraph [ref=f3e74]: 107/100 Punkte • Imperium (Warhammer 40k)
+              - button [ref=f3e128] [cursor=pointer]:
+                - generic [ref=f3e76]:
+                  - generic [ref=f3e77]: Friezillas
+                  - paragraph [ref=f3e78]: 0/100 Punkte • Imperium (Warhammer 40k)
+              - button [ref=f3e129] [cursor=pointer]:
+                - generic [ref=f3e80]:
+                  - generic [ref=f3e81]: Friedas Rache
+                  - paragraph [ref=f3e82]: 114/100 Punkte • Imperium (Warhammer 40k)
+              - button [ref=f3e130] [cursor=pointer]:
+                - generic [ref=f3e84]:
+                  - generic [ref=f3e85]: Dust SSU
+                  - paragraph [ref=f3e86]: 38/100 Punkte • SSU (Dust 1947)
+              - button [ref=f3e131] [cursor=pointer]:
+                - generic [ref=f3e88]:
+                  - generic [ref=f3e89]: Andreas Verteidiger
+                  - paragraph [ref=f3e90]: 102/100 Punkte • Aeldari (Warhammer 40k)
+        - generic [ref=f3e39]:
+          - heading [level=6] [ref=f3e132]: "Armee: Star Wars Clone Army (Star Wars Republik • Star Wars)"
+          - separator [ref=f3e42]
+          - generic [ref=f3e43]:
+            - generic [ref=f3e44]:
+              - button [ref=f3e133] [cursor=pointer]: Bearbeiten
+              - button [ref=f3e134] [cursor=pointer]: Klonen
+              - button [ref=f3e135] [cursor=pointer]: Platoon hinzufügen
+              - button [ref=f3e136] [cursor=pointer]: Einheit hinzufügen
+            - paragraph [ref=f3e49]: Platoons
+            - generic [ref=f3e92]:
+              - alert [ref=f3e93]:
+                - generic [ref=f3e97]:
+                  - strong [ref=f3e98]: Faction Force
+                  - text: "• 52/110 AP • Bonus: 0/10 AP"
+              - alert [ref=f3e137]:
+                - generic [ref=f3e141]: "Regel 30: Platoon-Vorteile gelten nur für zugewiesene Platoon-/Support-Einheiten; diese Regel wird als Hinweis ausgegeben, beeinflusst aber nicht die AP-Gültigkeit."
+            - generic [ref=f3e142]:
+              - generic [ref=f3e143]:
+                - paragraph [ref=f3e144]: Clone Trooper Platoon
+                - button [ref=f3e145] [cursor=pointer]: Entfernen
+              - generic [ref=f3e146]:
+                - generic [ref=f3e147]:
+                  - button [disabled]: COMMAND_1 (belegt)
+                  - list [ref=f3e148]:
+                    - listitem [ref=f3e149]:
+                      - button [ref=f3e150] [cursor=pointer]:
+                        - generic [ref=f3e151]:
+                          - generic [ref=f3e152]: 1× Clone Trooper Command Squad
+                          - paragraph [ref=f3e153]: 1 × 11 AP = 11 AP
+                      - button [ref=f3e155] [cursor=pointer]: Entfernen
+                - generic [ref=f3e156]:
+                  - button [disabled]: COMBAT_1 (belegt)
+                  - list [ref=f3e157]:
+                    - listitem [ref=f3e158]:
+                      - button [ref=f3e159] [cursor=pointer]:
+                        - generic [ref=f3e160]:
+                          - generic [ref=f3e161]: 1× Clone Trooper Combat Squad
+                          - paragraph [ref=f3e162]: 1 × 13 AP = 13 AP
+                      - button [ref=f3e164] [cursor=pointer]: Entfernen
+                - generic [ref=f3e165]:
+                  - button [disabled]: COMBAT_2 (belegt)
+                  - list [ref=f3e166]:
+                    - listitem [ref=f3e167]:
+                      - button [ref=f3e168] [cursor=pointer]:
+                        - generic [ref=f3e169]:
+                          - generic [ref=f3e170]: 1× Clone Trooper Rifle Squad
+                          - paragraph [ref=f3e171]: 1 × 8 AP = 8 AP
+                      - button [ref=f3e173] [cursor=pointer]: Entfernen
+                - generic [ref=f3e174]:
+                  - button [disabled]: COMBAT_3 (belegt)
+                  - list [ref=f3e175]:
+                    - listitem [ref=f3e176]:
+                      - button [ref=f3e177] [cursor=pointer]:
+                        - generic [ref=f3e178]:
+                          - generic [ref=f3e179]: 1× Clone Trooper Anti Tank Squad
+                          - paragraph [ref=f3e180]: 1 × 9 AP = 9 AP
+                      - button [ref=f3e182] [cursor=pointer]: Entfernen
+                - generic [ref=f3e183]:
+                  - button [disabled]: COMBAT_4 (belegt)
+                  - list [ref=f3e184]:
+                    - listitem [ref=f3e185]:
+                      - button [ref=f3e186] [cursor=pointer]:
+                        - generic [ref=f3e187]:
+                          - generic [ref=f3e188]: 1× Clone Trooper Battle Squad
+                          - paragraph [ref=f3e189]: 1 × 11 AP = 11 AP
+                      - button [ref=f3e191] [cursor=pointer]: Entfernen
+              - button [ref=f3e192] [cursor=pointer]: + Support-Einheit hinzufügen
+              - list [ref=f3e193]
+            - generic [ref=f3e194]:
+              - paragraph [ref=f3e195]: Freie Einheiten
+              - list [ref=f3e196]
+        - generic [ref=f3e53]:
+          - heading [level=6] [ref=f3e197]: Details
+          - separator [ref=f3e56]
+          - paragraph [ref=f3e58]: Einheit auswählen…
+  - dialog [ref=f3e200]:
+    - heading "Einheit hinzufügen" [level=2] [ref=f3e201]
+    - generic [ref=f3e202]:
+      - generic [ref=f3e203]:
+        - generic [ref=f3e204]:
+          - generic: Faction
+          - generic [ref=f3e205]:
+            - combobox "Faction" [ref=f3e206] [cursor=pointer]
+            - textbox [aria-hidden]
+            - group [aria-hidden]:
+              - generic: Faction
+        - generic [ref=f3e207]:
+          - generic: Einheitstyp
+          - generic [ref=f3e208]:
+            - combobox "Einheitstyp" [ref=f3e209] [cursor=pointer]
+            - textbox [aria-hidden]
+            - group [aria-hidden]:
+              - generic: Einheitstyp
+      - list [ref=f3e210]:
+        - listitem [ref=f3e211]:
+          - generic [ref=f3e212]:
+            - generic [ref=f3e213]:
+              - text: AAT – Armored Assault Tank
+              - generic [ref=f3e214]: (Droid Army)
+            - paragraph [ref=f3e215]: V - Vehicle • 16 Punkte
+          - generic [ref=f3e217]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e219]:
+              - spinbutton [ref=f3e220]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e221] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e224] [cursor=pointer]
+        - listitem [ref=f3e225]:
+          - generic [ref=f3e226]:
+            - generic [ref=f3e227]:
+              - text: B1 Battle Droid Anti Tank Squad
+              - generic [ref=f3e228]: (Droid Army)
+            - paragraph [ref=f3e229]: I - Infantry • 7 Punkte
+          - generic [ref=f3e231]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e233]:
+              - spinbutton [ref=f3e234]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e235] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e238] [cursor=pointer]
+        - listitem [ref=f3e239]:
+          - generic [ref=f3e240]:
+            - generic [ref=f3e241]:
+              - text: B1 Battle Droid Battle Squad
+              - generic [ref=f3e242]: (Droid Army)
+            - paragraph [ref=f3e243]: I - Infantry • 7 Punkte
+          - generic [ref=f3e245]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e247]:
+              - spinbutton [ref=f3e248]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e249] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e252] [cursor=pointer]
+        - listitem [ref=f3e253]:
+          - generic [ref=f3e254]:
+            - generic [ref=f3e255]:
+              - text: B1 Battle Droid Combat Squad
+              - generic [ref=f3e256]: (Droid Army)
+            - paragraph [ref=f3e257]: I - Infantry • 4 Punkte
+          - generic [ref=f3e259]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e261]:
+              - spinbutton [ref=f3e262]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e263] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e266] [cursor=pointer]
+        - listitem [ref=f3e267]:
+          - generic [ref=f3e268]:
+            - generic [ref=f3e269]:
+              - text: B1 Commander
+              - generic [ref=f3e270]: (Droid Army)
+            - paragraph [ref=f3e271]: H - Hero • 4 Punkte
+          - generic [ref=f3e273]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e275]:
+              - spinbutton [ref=f3e276]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e277] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e280] [cursor=pointer]
+        - listitem [ref=f3e281]:
+          - generic [ref=f3e282]:
+            - generic [ref=f3e283]:
+              - text: B2 Super Battle Droid
+              - generic [ref=f3e284]: (Droid Army)
+            - paragraph [ref=f3e285]: I - Infantry • 7 Punkte
+          - generic [ref=f3e287]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e289]:
+              - spinbutton [ref=f3e290]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e291] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e294] [cursor=pointer]
+        - listitem [ref=f3e295]:
+          - generic [ref=f3e296]:
+            - generic [ref=f3e297]:
+              - text: Droideka
+              - generic [ref=f3e298]: (Droid Army)
+            - paragraph [ref=f3e299]: I - Infantry • 13 Punkte
+          - generic [ref=f3e301]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e303]:
+              - spinbutton [ref=f3e304]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e305] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e308] [cursor=pointer]
+        - listitem [ref=f3e309]:
+          - generic [ref=f3e310]:
+            - generic [ref=f3e311]:
+              - text: DSD1 Dwarf Spider Droids
+              - generic [ref=f3e312]: (Droid Army)
+            - paragraph [ref=f3e313]: V - Vehicle • 5 Punkte
+          - generic [ref=f3e315]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e317]:
+              - spinbutton [ref=f3e318]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e319] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e322] [cursor=pointer]
+        - listitem [ref=f3e323]:
+          - generic [ref=f3e324]:
+            - generic [ref=f3e325]:
+              - text: Emma
+              - generic [ref=f3e326]: (Neutral Medical Corps)
+            - paragraph [ref=f3e327]: H - Hero • 0 Punkte
+          - generic [ref=f3e329]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e331]:
+              - spinbutton [ref=f3e332]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e333] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e336] [cursor=pointer]
+        - listitem [ref=f3e337]:
+          - generic [ref=f3e338]:
+            - generic [ref=f3e339]:
+              - text: General Grievous
+              - generic [ref=f3e340]: (Droid Army)
+            - paragraph [ref=f3e341]: H - Hero • 18 Punkte
+          - generic [ref=f3e343]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e345]:
+              - spinbutton [ref=f3e346]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e347] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e350] [cursor=pointer]
+        - listitem [ref=f3e351]:
+          - generic [ref=f3e352]:
+            - generic [ref=f3e353]:
+              - text: IG-100 MagnaGuard
+              - generic [ref=f3e354]: (Droid Army)
+            - paragraph [ref=f3e355]: I - Infantry • 10 Punkte
+          - generic [ref=f3e357]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e359]:
+              - spinbutton [ref=f3e360]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e361] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e364] [cursor=pointer]
+        - listitem [ref=f3e365]:
+          - generic [ref=f3e366]:
+            - generic [ref=f3e367]:
+              - text: IG-100 MagnaGuard Anti Tank Squad
+              - generic [ref=f3e368]: (Droid Army)
+            - paragraph [ref=f3e369]: I - Infantry • 10 Punkte
+          - generic [ref=f3e371]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e373]:
+              - spinbutton [ref=f3e374]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e375] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e378] [cursor=pointer]
+        - listitem [ref=f3e379]:
+          - generic [ref=f3e380]:
+            - generic [ref=f3e381]:
+              - text: IG-227 Hailfire-class Droid Tank
+              - generic [ref=f3e382]: (Droid Army)
+            - paragraph [ref=f3e383]: V - Vehicle • 12 Punkte
+          - generic [ref=f3e385]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e387]:
+              - spinbutton [ref=f3e388]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e389] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e392] [cursor=pointer]
+        - listitem [ref=f3e393]:
+          - generic [ref=f3e394]:
+            - generic [ref=f3e395]:
+              - text: Justine & Co
+              - generic [ref=f3e396]: (Mercenaries)
+            - paragraph [ref=f3e397]: I - Infantry • 0 Punkte
+          - generic [ref=f3e399]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e401]:
+              - spinbutton [ref=f3e402]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e403] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e406] [cursor=pointer]
+        - listitem [ref=f3e407]:
+          - generic [ref=f3e408]:
+            - generic [ref=f3e409]:
+              - text: Luisa
+              - generic [ref=f3e410]: (Mercenaries)
+            - paragraph [ref=f3e411]: H - Hero • 0 Punkte
+          - generic [ref=f3e413]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e415]:
+              - spinbutton [ref=f3e416]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e417] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e420] [cursor=pointer]
+        - listitem [ref=f3e421]:
+          - generic [ref=f3e422]:
+            - generic [ref=f3e423]:
+              - text: Meatgrinder
+              - generic [ref=f3e424]: (Mercenaries)
+            - paragraph [ref=f3e425]: V - Vehicle • 0 Punkte
+          - generic [ref=f3e427]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e429]:
+              - spinbutton [ref=f3e430]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e431] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e434] [cursor=pointer]
+        - listitem [ref=f3e435]:
+          - generic [ref=f3e436]:
+            - generic [ref=f3e437]:
+              - text: Mercenary Cleaning Team
+              - generic [ref=f3e438]: (Mercenaries)
+            - paragraph [ref=f3e439]: I - Infantry • 0 Punkte
+          - generic [ref=f3e441]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e443]:
+              - spinbutton [ref=f3e444]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e445] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e448] [cursor=pointer]
+        - listitem [ref=f3e449]:
+          - generic [ref=f3e450]:
+            - generic [ref=f3e451]:
+              - text: Mercenary Heavy Machine Gun Squad
+              - generic [ref=f3e452]: (Mercenaries)
+            - paragraph [ref=f3e453]: V - Vehicle • 0 Punkte
+          - generic [ref=f3e455]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e457]:
+              - spinbutton [ref=f3e458]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e459] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e462] [cursor=pointer]
+        - listitem [ref=f3e463]:
+          - generic [ref=f3e464]:
+            - generic [ref=f3e465]:
+              - text: Mercenary Heavy Machine Gun Squad II
+              - generic [ref=f3e466]: (Mercenaries)
+            - paragraph [ref=f3e467]: V - Vehicle • 0 Punkte
+          - generic [ref=f3e469]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e471]:
+              - spinbutton [ref=f3e472]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e473] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e476] [cursor=pointer]
+        - listitem [ref=f3e477]:
+          - generic [ref=f3e478]:
+            - generic [ref=f3e479]:
+              - text: Militzsquad
+              - generic [ref=f3e480]: (Free Sector Forces )
+            - paragraph [ref=f3e481]: I - Infantry • 5 Punkte
+          - generic [ref=f3e483]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e485]:
+              - spinbutton [ref=f3e486]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e487] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e490] [cursor=pointer]
+        - listitem [ref=f3e491]:
+          - generic [ref=f3e492]:
+            - generic [ref=f3e493]:
+              - text: Pulverizer
+              - generic [ref=f3e494]: (Mercenaries)
+            - paragraph [ref=f3e495]: V - Vehicle • 0 Punkte
+          - generic [ref=f3e497]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e499]:
+              - spinbutton [ref=f3e500]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e501] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e504] [cursor=pointer]
+        - listitem [ref=f3e505]:
+          - generic [ref=f3e506]:
+            - generic [ref=f3e507]:
+              - text: Silence
+              - generic [ref=f3e508]: (Mercenaries)
+            - paragraph [ref=f3e509]: H - Hero • 0 Punkte
+          - generic [ref=f3e511]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e513]:
+              - spinbutton [ref=f3e514]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e515] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e518] [cursor=pointer]
+        - listitem [ref=f3e519]:
+          - generic [ref=f3e520]:
+            - generic [ref=f3e521]:
+              - text: Super Tactical Droid
+              - generic [ref=f3e522]: (Droid Army)
+            - paragraph [ref=f3e523]: H - Hero • 10 Punkte
+          - generic [ref=f3e525]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e527]:
+              - spinbutton [ref=f3e528]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e529] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e532] [cursor=pointer]
+        - listitem [ref=f3e533]:
+          - generic [ref=f3e534]:
+            - generic [ref=f3e535]:
+              - text: Tactical Droid
+              - generic [ref=f3e536]: (Droid Army)
+            - paragraph [ref=f3e537]: H - Hero • 4 Punkte
+          - generic [ref=f3e539]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e541]:
+              - spinbutton [ref=f3e542]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e543] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e546] [cursor=pointer]
+        - listitem [ref=f3e547]:
+          - generic [ref=f3e548]:
+            - generic [ref=f3e549]:
+              - text: Tanya
+              - generic [ref=f3e550]: (Mercenaries)
+            - paragraph [ref=f3e551]: H - Hero • 0 Punkte
+          - generic [ref=f3e553]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e555]:
+              - spinbutton [ref=f3e556]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e557] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e560] [cursor=pointer]
+        - listitem [ref=f3e561]:
+          - generic [ref=f3e562]:
+            - generic [ref=f3e563]:
+              - text: Wrecker
+              - generic [ref=f3e564]: (Mercenaries)
+            - paragraph [ref=f3e565]: V - Vehicle • 0 Punkte
+          - generic [ref=f3e567]:
+            - button "Menge verringern" [disabled]
+            - generic [ref=f3e569]:
+              - spinbutton [ref=f3e570]: "1"
+              - group [aria-hidden]
+            - button "Menge erhöhen" [ref=f3e571] [cursor=pointer]
+            - button "Hinzufügen" [ref=f3e574] [cursor=pointer]
+    - button "Abbrechen" [ref=f3e575] [cursor=pointer]

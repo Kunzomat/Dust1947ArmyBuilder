@@ -34,6 +34,7 @@ import AdminPanel from "./components/AdminPanel";
 import { getImageUrl, getPlaceholderImage } from "./imageHelper";
 import { validateArmyComposition } from "./armyValidation";
 import { aggregateArmyUnits, getRemovalRequest } from "./armyUnitAggregation";
+import { exportArmyCardsPdf } from "./utils/armyPdfExport";
 import {
   filterArmies,
   getBlocsForGameSystem,
@@ -93,6 +94,7 @@ export default function App() {
   const [loadingArmies, setLoadingArmies] = useState(false);
   const [loadingArmy, setLoadingArmy] = useState(false);
   const [error, setError] = useState("");
+  const [pdfProgress, setPdfProgress] = useState(null); // null = idle, else {done,total}
   const [confirmDeleteArmyId, setConfirmDeleteArmyId] = useState(null);
   
   const [armyFormOpen, setArmyFormOpen] = useState(false);
@@ -174,6 +176,19 @@ export default function App() {
       setError(String(e.message || e));
     } finally {
       setLoadingArmy(false);
+    }
+  }
+
+  async function handleExportArmyPdf() {
+    if (!armyDetail || pdfProgress !== null) return;
+    setError("");
+    setPdfProgress({ done: 0, total: 0 });
+    try {
+      await exportArmyCardsPdf(armyDetail, armyName, (done, total) => setPdfProgress({ done, total }));
+    } catch (e) {
+      setError(`PDF-Export fehlgeschlagen: ${String(e.message || e)}`);
+    } finally {
+      setPdfProgress(null);
     }
   }
 
@@ -662,6 +677,14 @@ function groupSlots(platoonUnits) {
 			  </Button>
 			  <Button size="small" variant="outlined" onClick={openAddFreeUnit} >
 				Einheit hinzufügen
+			  </Button>
+			  <Button
+				size="small"
+				variant="outlined"
+				onClick={handleExportArmyPdf}
+				disabled={!armyDetail || pdfProgress !== null}
+			  >
+				{pdfProgress ? `Erzeuge PDF… ${pdfProgress.done}/${pdfProgress.total}` : "Armeekarten als PDF exportieren"}
 			  </Button>
             </Stack>
 			

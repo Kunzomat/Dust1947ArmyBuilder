@@ -1,0 +1,87 @@
+- generic [ref=f3e3]:
+  - banner [ref=f3e4]:
+    - generic [ref=f3e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=f3e576]
+      - group [ref=f3e7]:
+        - button "Army Builder" [ref=f3e577] [cursor=pointer]
+        - button "Admin" [pressed] [ref=f3e578] [cursor=pointer]
+  - generic [ref=f3e580]:
+    - heading "⚙️ Admin Panel - Daten Verwaltung" [level=4] [ref=f3e581]
+    - paragraph [ref=f3e582]: "Verwalte alle Basis-Daten: Game Systems, Blocs, Fraktionen, Einheiten, Waffen, Regeln, Platoons und Actions"
+    - tablist [ref=f3e586]:
+      - tab "🎮 Game Systems" [ref=f3e587] [cursor=pointer]
+      - tab "🏴 Blocs" [ref=f3e588] [cursor=pointer]
+      - tab "🎖️ Factions" [ref=f3e589] [cursor=pointer]
+      - tab "⚔️ Units" [ref=f3e590] [cursor=pointer]
+      - tab "🔫 Weapons" [ref=f3e591] [cursor=pointer]
+      - tab "📜 Rules" [ref=f3e592] [cursor=pointer]
+      - tab "🪖 Platoons" [ref=f3e593] [cursor=pointer]
+      - tab "Actions" [active] [selected] [ref=f3e594] [cursor=pointer]
+    - tabpanel [ref=f3e671]:
+      - generic [ref=f3e673]:
+        - generic [ref=f3e674]:
+          - heading "Actions (3)" [level=6] [ref=f3e675]
+          - generic [ref=f3e676]:
+            - generic [ref=f3e677]:
+              - generic: Filter by type
+              - generic [ref=f3e678]:
+                - combobox "Filter by type" [ref=f3e679] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Filter by type
+            - generic [ref=f3e680]:
+              - generic: Filter by name
+              - generic [ref=f3e681]:
+                - textbox "Filter by name" [ref=f3e682]
+                - group [aria-hidden]:
+                  - generic: Filter by name
+            - button "Manage Action Types" [ref=f3e683] [cursor=pointer]
+            - button [ref=f3e684] [cursor=pointer]
+        - table [ref=f3e689]:
+          - rowgroup [ref=f3e690]:
+            - row [ref=f3e691]:
+              - columnheader "ID" [ref=f3e692]
+              - columnheader "Name" [ref=f3e693]
+              - columnheader "Type" [ref=f3e694]
+              - columnheader "Description" [ref=f3e695]
+              - columnheader "Dice" [ref=f3e696]
+              - columnheader "Success Symbols" [ref=f3e697]
+              - columnheader "Sort Order" [ref=f3e698]
+              - columnheader "Operations" [ref=f3e699]
+          - rowgroup [ref=f3e700]:
+            - row [ref=f3e701]:
+              - cell "1" [ref=f3e702]
+              - cell "PSYCHIC VEIL" [ref=f3e703]
+              - cell "Psyker Special Action" [ref=f3e704]
+              - 'cell "A Unit with a Psyker may take a Psychic Veil Special Action. Roll one die. On a roll of the Faction Symbol, select one friendly Unit within Line of Sight and Range 2 of the Psyker. The target Unit gains the effects of Camouflage: it cannot be attacked at Range 3 or higher. This protection ends if the target Unit takes any Action other than a Move or Nothing Action." [ref=f3e705]'
+              - cell "1" [ref=f3e706]
+              - cell "Faction Symbol" [ref=f3e707]
+              - cell "0" [ref=f3e708]
+              - cell [ref=f3e709]:
+                - button "Edit PSYCHIC VEIL" [ref=f3e710] [cursor=pointer]
+                - button "Clone PSYCHIC VEIL" [ref=f3e713] [cursor=pointer]
+                - button "Delete PSYCHIC VEIL" [ref=f3e716] [cursor=pointer]
+            - row [ref=f3e719]:
+              - cell "2" [ref=f3e720]
+              - cell "PSYCHIC TELEPORTATION" [ref=f3e721]
+              - cell "Psyker Special Action" [ref=f3e722]
+              - cell "A Unit with a Psyker may take a Psychic Teleportation Special Action. Roll one die. On a roll of the Faction Symbol, select one friendly ground Unit within Line of Sight and Range 2 of the Psyker. Immediately place the selected Unit anywhere in the play area where it can legally be placed. The teleported Unit counts as Activated for this Turn." [ref=f3e723]
+              - cell "1" [ref=f3e724]
+              - cell "Faction Symbol" [ref=f3e725]
+              - cell "1" [ref=f3e726]
+              - cell [ref=f3e727]:
+                - button "Edit PSYCHIC TELEPORTATION" [ref=f3e728] [cursor=pointer]
+                - button "Clone PSYCHIC TELEPORTATION" [ref=f3e731] [cursor=pointer]
+                - button "Delete PSYCHIC TELEPORTATION" [ref=f3e734] [cursor=pointer]
+            - row [ref=f3e737]:
+              - cell "3" [ref=f3e738]
+              - cell "PSYCHIC EMPOWERMENT" [ref=f3e739]
+              - cell "Psyker Special Action" [ref=f3e740]
+              - cell "A Unit with a Psyker may take a Psychic Empowerment Special Action. Roll one die. On a roll of the Faction Symbol, select one friendly Unit within Range 2 and Line of Sight of the Psyker. During its next Sustained Attack Action with Ranged weapons, the target Unit Hits on rolls of its Faction Symbol as well as the Hit Symbol." [ref=f3e741]
+              - cell "1" [ref=f3e742]
+              - cell "Faction Symbol" [ref=f3e743]
+              - cell "2" [ref=f3e744]
+              - cell [ref=f3e745]:
+                - button "Edit PSYCHIC EMPOWERMENT" [ref=f3e746] [cursor=pointer]
+                - button "Clone PSYCHIC EMPOWERMENT" [ref=f3e749] [cursor=pointer]
+                - button "Delete PSYCHIC EMPOWERMENT" [ref=f3e752] [cursor=pointer]

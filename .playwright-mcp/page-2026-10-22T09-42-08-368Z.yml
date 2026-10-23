@@ -1,0 +1,185 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e6]
+      - group [ref=e7]:
+        - button "Army Builder" [pressed] [ref=e8] [cursor=pointer]
+        - button "Admin" [ref=e11] [cursor=pointer]
+      - generic [ref=e86]: 102/110 Punkte
+  - generic [ref=e14]:
+    - alert [ref=e15]:
+      - generic [ref=e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Armeen" [level=6] [ref=e23]
+        - separator [ref=e24]
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic: Game System
+              - generic [ref=e28]:
+                - combobox "Game System" [ref=e29] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=e30]:
+              - generic: Bloc
+              - generic [ref=e31]:
+                - combobox "Bloc" [ref=e32] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=e33]:
+              - button "Aktualisieren" [ref=e34] [cursor=pointer]
+              - button "Neue Armee" [ref=e35] [cursor=pointer]
+              - button "Löschen" [ref=e36] [cursor=pointer]
+          - list [ref=e37]:
+            - button "Star Wars Droiden Armee 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=e114] [cursor=pointer]:
+              - generic [ref=e39]:
+                - generic [ref=e40]: Star Wars Droiden Armee
+                - paragraph [ref=e41]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=e42] [cursor=pointer]:
+              - generic [ref=e43]:
+                - generic [ref=e44]: Star Wars Clone Army
+                - paragraph [ref=e45]: 52/100 Punkte • Star Wars Republik (Star Wars)
+            - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=e46] [cursor=pointer]:
+              - generic [ref=e47]:
+                - generic [ref=e48]: next stepp
+                - paragraph [ref=e49]: 107/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friezillas 0/100 Punkte • Imperium (Warhammer 40k)" [ref=e50] [cursor=pointer]:
+              - generic [ref=e51]:
+                - generic [ref=e52]: Friezillas
+                - paragraph [ref=e53]: 0/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friedas Rache 114/100 Punkte • Imperium (Warhammer 40k)" [ref=e54] [cursor=pointer]:
+              - generic [ref=e55]:
+                - generic [ref=e56]: Friedas Rache
+                - paragraph [ref=e57]: 114/100 Punkte • Imperium (Warhammer 40k)
+            - button "Dust SSU 38/100 Punkte • SSU (Dust 1947)" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]:
+                - generic [ref=e60]: Dust SSU
+                - paragraph [ref=e61]: 38/100 Punkte • SSU (Dust 1947)
+            - button "Andreas Verteidiger 102/110 Punkte • Aeldari (Warhammer 40k)" [active] [ref=e115] [cursor=pointer]:
+              - generic [ref=e63]:
+                - generic [ref=e64]: Andreas Verteidiger
+                - paragraph [ref=e65]: 102/110 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=e66]:
+        - 'heading "Armee: Andreas Verteidiger (Aeldari • Warhammer 40k)" [level=6] [ref=e116]'
+        - separator [ref=e69]
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - button "Bearbeiten" [ref=e72] [cursor=pointer]
+            - button "Klonen" [ref=e73] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=e74] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=e75] [cursor=pointer]
+          - paragraph [ref=e76]: Platoons
+          - alert [ref=e91]:
+            - generic [ref=e95]:
+              - strong [ref=e96]: Faction Force
+              - text: "• 102/110 AP • Bonus: 2/10 AP"
+          - generic [ref=e117]:
+            - paragraph [ref=e118]: Freie Einheiten
+            - list [ref=e119]:
+              - listitem [ref=e120]:
+                - button "1× Autarch 1 × 6 AP = 6 AP" [ref=e121] [cursor=pointer]:
+                  - generic [ref=e122]:
+                    - generic [ref=e123]: 1× Autarch
+                    - paragraph [ref=e124]: 1 × 6 AP = 6 AP
+                - button "Entfernen" [ref=e126] [cursor=pointer]
+              - listitem [ref=e127]:
+                - button "1× Autarch Wayleaper 1 × 7 AP = 7 AP" [ref=e128] [cursor=pointer]:
+                  - generic [ref=e129]:
+                    - generic [ref=e130]: 1× Autarch Wayleaper
+                    - paragraph [ref=e131]: 1 × 7 AP = 7 AP
+                - button "Entfernen" [ref=e133] [cursor=pointer]
+              - listitem [ref=e134]:
+                - button "2× Guardian Defender (Shuriken Cannon) 2 × 13 AP = 26 AP" [ref=e135] [cursor=pointer]:
+                  - generic [ref=e136]:
+                    - generic [ref=e137]: 2× Guardian Defender (Shuriken Cannon)
+                    - paragraph [ref=e138]: 2 × 13 AP = 26 AP
+                - button "Entfernen" [ref=e140] [cursor=pointer]
+              - listitem [ref=e141]:
+                - button "2× Guardian Defender (Bright Lance) 2 × 16 AP = 32 AP" [ref=e142] [cursor=pointer]:
+                  - generic [ref=e143]:
+                    - generic [ref=e144]: 2× Guardian Defender (Bright Lance)
+                    - paragraph [ref=e145]: 2 × 16 AP = 32 AP
+                - button "Entfernen" [ref=e147] [cursor=pointer]
+              - listitem [ref=e148]:
+                - button "1× Dark Reaper 1 × 10 AP = 10 AP" [ref=e149] [cursor=pointer]:
+                  - generic [ref=e150]:
+                    - generic [ref=e151]: 1× Dark Reaper
+                    - paragraph [ref=e152]: 1 × 10 AP = 10 AP
+                - button "Entfernen" [ref=e154] [cursor=pointer]
+              - listitem [ref=e155]:
+                - button "1× Striking Scorpions 1 × 11 AP = 11 AP" [ref=e156] [cursor=pointer]:
+                  - generic [ref=e157]:
+                    - generic [ref=e158]: 1× Striking Scorpions
+                    - paragraph [ref=e159]: 1 × 11 AP = 11 AP
+                - button "Entfernen" [ref=e161] [cursor=pointer]
+              - listitem [ref=e162]:
+                - button "1× Howling Banshee 1 × 10 AP = 10 AP" [ref=e163] [cursor=pointer]:
+                  - generic [ref=e164]:
+                    - generic [ref=e165]: 1× Howling Banshee
+                    - paragraph [ref=e166]: 1 × 10 AP = 10 AP
+                - button "Entfernen" [ref=e168] [cursor=pointer]
+      - generic [ref=e80]:
+        - heading "Details" [level=6] [ref=e82]
+        - separator [ref=e83]
+        - generic [ref=e169]:
+          - generic [ref=e170]:
+            - button "Rückseite anzeigen" [ref=e171] [cursor=pointer]
+            - button "Karte als Bild exportieren" [ref=e172] [cursor=pointer]
+          - generic [ref=e175]:
+            - generic [ref=e176]:
+              - generic "Droid Army" [ref=e177]:
+                - img "Droid Army" [ref=e178]
+              - generic [ref=e179]:
+                - generic [ref=e180]: Droideka
+                - generic [ref=e181]: Droid Army · Infantry
+            - generic [ref=e182]:
+              - generic [ref=e183]:
+                - img "Droideka" [ref=e184]
+                - generic "Army Points" [ref=e185]:
+                  - generic [ref=e186]: AP
+                  - generic [ref=e187]: "13"
+              - generic [ref=e189]:
+                - strong [ref=e190]: "DAMAGE RESILIENT:"
+                - text: Roll one die for each point of Damage the Unit Takes, negating one point for each [symbol] rolled. Does not apply to Units Joined.
+            - generic [ref=e191]:
+              - generic [ref=e192]:
+                - generic [ref=e193]: Weapon
+                - generic [ref=e194]: Rng
+                - generic [ref=e195]: Arc
+                - generic [ref=e196]: Inf
+                - generic [ref=e197]: Veh
+                - generic [ref=e198]: Air
+              - generic [ref=e199]:
+                - generic [ref=e203]: "1"
+                - generic [ref=e204]: "2"
+                - generic [ref=e205]: "3"
+                - generic [ref=e206]: "4"
+                - generic [ref=e207]: "1"
+                - generic [ref=e208]: "2"
+                - generic [ref=e209]: "3"
+                - generic [ref=e210]: "4"
+                - generic [ref=e211]: "1"
+                - generic [ref=e212]: "2"
+              - generic [ref=e213]:
+                - generic [ref=e214]: 3x Twin Blaster Cannon
+                - generic [ref=e216]: "6"
+                - generic [ref=e217]: Turret
+                - generic [ref=e218]: 7/1
+                - generic [ref=e219]: 6/1
+                - generic [ref=e220]: 5/1
+                - generic [ref=e221]: 4/1
+                - generic [ref=e222]: 4/1
+                - generic [ref=e223]: 3/1
+                - generic [ref=e224]: 2/1
+                - generic [ref=e225]: 1/1
+                - generic [ref=e226]: 2/1
+                - generic [ref=e227]: 1/1
+            - generic [ref=e228]:
+              - generic [ref=e229]: ➜ 2 ⇛ 6
+              - generic "Infantry" [ref=e230]:
+                - img "I icon" [ref=e231]
+                - generic [ref=e232]: "4"
+              - generic "Health" [ref=e233]: "1"

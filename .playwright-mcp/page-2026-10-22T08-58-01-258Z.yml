@@ -1,0 +1,1083 @@
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - banner [ref=f3e3]:
+      - link "DUST 194∞ Builder" [ref=f3e4] [cursor=pointer]:
+        - /url: "#/"
+        - generic [ref=f3e5]: DUST 194∞
+        - generic [ref=f3e6]: Builder
+      - navigation [ref=f3e7]:
+        - link "Mes listes" [ref=f3e8] [cursor=pointer]:
+          - /url: "#/"
+        - link "Ma collection" [ref=f3e9] [cursor=pointer]:
+          - /url: "#/collection"
+        - link "Shot Format" [ref=f3e10] [cursor=pointer]:
+          - /url: shot.html
+        - link "Atelier" [ref=f3e11] [cursor=pointer]:
+          - /url: atelier.html
+        - link "Aide" [ref=f3e12] [cursor=pointer]:
+          - /url: aide.html
+        - link "Donner mon avis" [ref=f3e13] [cursor=pointer]:
+          - /url: https://discord.gg/h3xfZKeNvU
+        - button "EN" [ref=f3e14] [cursor=pointer]
+        - button "Thème" [ref=f3e15] [cursor=pointer]
+    - main [ref=f3e16]:
+      - generic [ref=f3e18]:
+        - link "← Listes" [ref=f3e19] [cursor=pointer]:
+          - /url: "#/"
+        - textbox "Nom de l'armée" [ref=f3e20]: Testarmee
+        - generic [ref=f3e21]: Alliés
+        - generic [ref=f3e23]:
+          - text: Format
+          - spinbutton "Limite de points" [ref=f3e24]: "100"
+          - text: pts
+      - region "Résumé de l'armée" [ref=f3e25]:
+        - generic [ref=f3e26]: 11 / 100 pts
+        - generic [ref=f3e27]:
+          - generic "Points comptés" [ref=f3e28]
+          - generic [ref=f3e30]:
+            - generic [ref=f3e31]: Armée de bloc Alliés
+            - generic [ref=f3e32]:
+              - text: Bonus héros
+              - generic [ref=f3e33]: 10/10
+            - generic [ref=f3e34]:
+              - text: Total dépensé
+              - generic [ref=f3e35]: "21"
+            - generic [ref=f3e36]: Liste valide
+            - generic [ref=f3e37]: 1 avertissement
+        - generic [ref=f3e38]:
+          - button "Partager" [ref=f3e39] [cursor=pointer]
+          - button "Texte" [ref=f3e40] [cursor=pointer]
+          - button "Imprimer" [ref=f3e41] [cursor=pointer]
+          - button "PDF" [ref=f3e42] [cursor=pointer]
+      - generic [ref=f3e43]:
+        - button "Ajouter des unités" [ref=f3e44] [cursor=pointer]
+        - button "Ma liste (2)" [ref=f3e45] [cursor=pointer]
+      - generic [ref=f3e46]:
+        - complementary [ref=f3e47]:
+          - tablist [ref=f3e48]:
+            - tab "Unités" [ref=f3e49] [cursor=pointer]
+            - tab "Mercenaires" [ref=f3e50] [cursor=pointer]
+            - tab "Pelotons" [ref=f3e51] [cursor=pointer]
+            - tab "Capturés" [ref=f3e52] [cursor=pointer]
+          - generic [ref=f3e53]:
+            - button "Tous" [ref=f3e54] [cursor=pointer]
+            - button "Héros" [ref=f3e55] [cursor=pointer]
+            - button "Infanterie" [ref=f3e56] [cursor=pointer]
+            - button "Véhicule" [ref=f3e57] [cursor=pointer]
+            - button "Aéronef" [ref=f3e58] [cursor=pointer]
+            - button "Objet" [ref=f3e59] [cursor=pointer]
+          - group "Trier la liste" [ref=f3e60]:
+            - generic [ref=f3e61]: Trier par
+            - button "Ordre alphabétique" [ref=f3e62] [cursor=pointer]
+            - button "Coût en points" [ref=f3e63] [cursor=pointer]
+          - generic [ref=f3e64]:
+            - searchbox "Rechercher (nom, compétence…)" [ref=f3e65]
+            - combobox "Filtrer par faction" [ref=f3e66]:
+              - option "Toutes les factions" [selected]
+              - option "Bloc (sans faction)"
+              - option "Desert Scorpions"
+              - option "USMC"
+          - generic [ref=f3e67]:
+            - generic [ref=f3e68]: Héros · 29
+            - generic [ref=f3e69]:
+              - button "Voir la carte Action Jackson" [ref=f3e70] [cursor=pointer]:
+                - generic [ref=f3e71]: Action Jackson
+                - generic [ref=f3e72]: Major Jackson Clayborne, Allied Heavy Commando
+                - generic [ref=f3e73]: Arm. 3
+              - generic [ref=f3e75]: "12"
+              - button "Ajouter Action Jackson" [ref=f3e76] [cursor=pointer]: +
+            - generic [ref=f3e77]:
+              - button "Voir la carte Action Jackson (DS)" [ref=f3e78] [cursor=pointer]:
+                - generic [ref=f3e79]: Action Jackson (DS)
+                - generic [ref=f3e80]: Major Jackson Clayborne, Allied Heavy Commando
+                - generic [ref=f3e81]:
+                  - generic [ref=f3e82]: Desert Scorpions
+                  - generic [ref=f3e83]: Arm. 3
+              - generic [ref=f3e84]: "12"
+              - button "Ajouter Action Jackson (DS)" [ref=f3e85] [cursor=pointer]: +
+            - generic [ref=f3e86]:
+              - button "Voir la carte Bazooka Joe" [ref=f3e87] [cursor=pointer]:
+                - generic [ref=f3e88]: Bazooka Joe
+                - generic [ref=f3e89]: Lieutenant Colonel Joseph Brown, Allied Ranger
+                - generic [ref=f3e90]: Arm. 2
+              - generic [ref=f3e92]: "9"
+              - button "Ajouter Bazooka Joe" [ref=f3e93] [cursor=pointer]: +
+            - generic [ref=f3e94]:
+              - button "Voir la carte Bull's Eye" [ref=f3e95] [cursor=pointer]:
+                - generic [ref=f3e96]: Bull's Eye
+                - generic [ref=f3e97]: Roger Appleby, MI6 Agent
+                - generic [ref=f3e98]:
+                  - generic [ref=f3e99]: Desert Scorpions
+                  - generic [ref=f3e100]: Arm. 1
+              - generic [ref=f3e101]: "7"
+              - button "Ajouter Bull's Eye" [ref=f3e102] [cursor=pointer]: +
+            - generic [ref=f3e103]:
+              - button "Voir la carte Captain Ledger" [ref=f3e104] [cursor=pointer]:
+                - generic [ref=f3e105]: Captain Ledger
+                - generic [ref=f3e106]: Captain Leo Ledger, Allied Ranger
+                - generic [ref=f3e107]: Arm. 2
+              - generic [ref=f3e109]: "8"
+              - button "Ajouter Captain Ledger" [ref=f3e110] [cursor=pointer]: +
+            - generic [ref=f3e111]:
+              - button "Voir la carte Costa" [ref=f3e112] [cursor=pointer]:
+                - generic [ref=f3e113]: Costa
+                - generic [ref=f3e114]: Corporal Maggie Costa
+                - generic [ref=f3e115]: Arm. 2
+              - generic [ref=f3e117]: "6"
+              - button "Ajouter Costa" [ref=f3e118] [cursor=pointer]: +
+            - generic [ref=f3e119]:
+              - button "Voir la carte Crazy Jimmy" [ref=f3e120] [cursor=pointer]:
+                - generic [ref=f3e121]: Crazy Jimmy
+                - generic [ref=f3e122]: First Sergeant James T Murphy, USMC
+                - generic [ref=f3e123]:
+                  - generic [ref=f3e124]: USMC
+                  - generic [ref=f3e125]: Arm. 1
+              - generic [ref=f3e126]: "8"
+              - button "Ajouter Crazy Jimmy" [ref=f3e127] [cursor=pointer]: +
+            - generic [ref=f3e128]:
+              - button "Voir la carte Di Giorgio" [ref=f3e129] [cursor=pointer]:
+                - generic [ref=f3e130]: Di Giorgio
+                - generic [ref=f3e131]: Sergeant Santo Di Giorgio, Allied Ranger
+                - generic [ref=f3e132]: Arm. 2
+              - generic [ref=f3e134]: "6"
+              - button "Ajouter Di Giorgio" [ref=f3e135] [cursor=pointer]: +
+            - generic [ref=f3e136]:
+              - button "Voir la carte Diver (DS)" [ref=f3e137] [cursor=pointer]:
+                - generic [ref=f3e138]: Diver (DS)
+                - generic [ref=f3e139]: Lieutenant Tom Derrick, Desert Scorpions
+                - generic [ref=f3e140]:
+                  - generic [ref=f3e141]: Desert Scorpions
+                  - generic [ref=f3e142]: Arm. 1
+              - generic [ref=f3e143]: "9"
+              - button "Ajouter Diver (DS)" [ref=f3e144] [cursor=pointer]: +
+            - generic [ref=f3e145]:
+              - button "Voir la carte Diver (USMC)" [ref=f3e146] [cursor=pointer]:
+                - generic [ref=f3e147]: Diver (USMC)
+                - generic [ref=f3e148]: Lieutenant Tom Derrick, USMC
+                - generic [ref=f3e149]:
+                  - generic [ref=f3e150]: USMC
+                  - generic [ref=f3e151]: Arm. 1
+              - generic [ref=f3e152]: "9"
+              - button "Ajouter Diver (USMC)" [ref=f3e153] [cursor=pointer]: +
+            - generic [ref=f3e154]:
+              - button "Voir la carte Frank" [ref=f3e155] [cursor=pointer]:
+                - generic [ref=f3e156]: Frank
+                - generic [ref=f3e157]: Master Sergeant Franck Stone, USMC
+                - generic [ref=f3e158]:
+                  - generic [ref=f3e159]: USMC
+                  - generic [ref=f3e160]: Arm. 1
+              - generic [ref=f3e161]: "7"
+              - button "Ajouter Frank" [ref=f3e162] [cursor=pointer]: +
+            - generic [ref=f3e163]:
+              - button "Voir la carte Gilmore" [ref=f3e164] [cursor=pointer]:
+                - generic [ref=f3e165]: Gilmore
+                - generic [ref=f3e166]: Corporal Ben Gilmore
+                - generic [ref=f3e167]: Arm. 2
+              - generic [ref=f3e169]: "4"
+              - button "Ajouter Gilmore" [ref=f3e170] [cursor=pointer]: +
+            - generic [ref=f3e171]:
+              - button "Voir la carte Gregory and Izzy" [ref=f3e172] [cursor=pointer]:
+                - generic [ref=f3e173]: Gregory and Izzy
+                - generic [ref=f3e174]: Sergeant Gregory Withrow, Desert Scorpions
+                - generic [ref=f3e175]:
+                  - generic [ref=f3e176]: Desert Scorpions
+                  - generic [ref=f3e177]: Arm. 1
+              - generic [ref=f3e178]: "6"
+              - button "Ajouter Gregory and Izzy" [ref=f3e179] [cursor=pointer]: +
+            - generic [ref=f3e180]:
+              - button "Voir la carte Jack" [ref=f3e181] [cursor=pointer]:
+                - generic [ref=f3e182]: Jack
+                - generic [ref=f3e183]: Prviate Jack Armbruster, Allied Ranger
+                - generic [ref=f3e184]: Arm. 2
+              - generic [ref=f3e186]: "7"
+              - button "Ajouter Jack" [ref=f3e187] [cursor=pointer]: +
+            - generic [ref=f3e188]:
+              - button "Voir la carte Johnny One-Eye" [ref=f3e189] [cursor=pointer]:
+                - generic [ref=f3e190]: Johnny One-Eye
+                - generic [ref=f3e191]: Lieutenant John Coviello, Allied Ranger
+                - generic [ref=f3e192]: Arm. 2
+              - generic [ref=f3e194]: "6"
+              - button "Ajouter Johnny One-Eye" [ref=f3e195] [cursor=pointer]: +
+            - generic [ref=f3e196]:
+              - button "Voir la carte Machete Mack" [ref=f3e197] [cursor=pointer]:
+                - generic [ref=f3e198]: Machete Mack
+                - generic [ref=f3e199]: Gunnery Sergeant Q "Mack" Macdonald, USMC
+                - generic [ref=f3e200]:
+                  - generic [ref=f3e201]: USMC
+                  - generic [ref=f3e202]: Arm. 1
+              - generic [ref=f3e203]: "9"
+              - button "Ajouter Machete Mack" [ref=f3e204] [cursor=pointer]: +
+            - generic [ref=f3e205]:
+              - button "Voir la carte Machete Mack (Pistol)" [ref=f3e206] [cursor=pointer]:
+                - generic [ref=f3e207]: Machete Mack (Pistol)
+                - generic [ref=f3e208]: Gunnery Sergeant Q "Mack" Macdonald, USMC
+                - generic [ref=f3e209]:
+                  - generic [ref=f3e210]: USMC
+                  - generic [ref=f3e211]: Arm. 1
+              - generic [ref=f3e212]: "7"
+              - button "Ajouter Machete Mack (Pistol)" [ref=f3e213] [cursor=pointer]: +
+            - generic [ref=f3e214]:
+              - button "Voir la carte Maggie" [ref=f3e215] [cursor=pointer]:
+                - generic [ref=f3e216]: Maggie
+                - generic [ref=f3e217]: Sergeant Margaret Marks, Desert Scorpions
+                - generic [ref=f3e218]:
+                  - generic [ref=f3e219]: Desert Scorpions
+                  - generic [ref=f3e220]: Arm. 1
+              - generic [ref=f3e221]: "6"
+              - button "Ajouter Maggie" [ref=f3e222] [cursor=pointer]: +
+            - generic [ref=f3e223]:
+              - button "Voir la carte Marek" [ref=f3e224] [cursor=pointer]:
+                - generic [ref=f3e225]: Marek
+                - generic [ref=f3e226]: Lieutenant Marek Laskowski, Desert Scorpions
+                - generic [ref=f3e227]:
+                  - generic [ref=f3e228]: Desert Scorpions
+                  - generic [ref=f3e229]: Arm. 1
+              - generic [ref=f3e230]: "9"
+              - button "Ajouter Marek" [ref=f3e231] [cursor=pointer]: +
+            - generic [ref=f3e232]:
+              - button "Voir la carte OZZ 117" [ref=f3e233] [cursor=pointer]:
+                - generic [ref=f3e234]: OZZ 117
+                - generic [ref=f3e235]: Real Name Erased From File, Heavy Ranger
+                - generic [ref=f3e236]: Arm. 3
+              - generic [ref=f3e238]: "8"
+              - button "Ajouter OZZ 117" [ref=f3e239] [cursor=pointer]: +
+            - generic [ref=f3e240]:
+              - button "Voir la carte Rhino" [ref=f3e241] [cursor=pointer]:
+                - generic [ref=f3e242]: Rhino
+                - generic [ref=f3e243]: Sergeant Major William Springfield, Heavy Ranger
+                - generic [ref=f3e244]: Arm. 3
+              - generic [ref=f3e246]: "12"
+              - button "Ajouter Rhino" [ref=f3e247] [cursor=pointer]: +
+            - generic [ref=f3e248]:
+              - button "Voir la carte Rosie" [ref=f3e249] [cursor=pointer]:
+                - generic [ref=f3e250]: Rosie
+                - generic [ref=f3e251]: Master Sergeant Rosie Donovan, Allied Ranger
+                - generic [ref=f3e252]: Arm. 2
+              - generic [ref=f3e254]: "5"
+              - button "Ajouter Rosie" [ref=f3e255] [cursor=pointer]: +
+            - generic [ref=f3e256]:
+              - button "Voir la carte Rosie (Sgt Major) I" [ref=f3e257] [cursor=pointer]:
+                - generic [ref=f3e258]: Rosie (Sgt Major) I
+                - generic [ref=f3e259]: Sergeant Major Rosie Donovan, Allied Ranger
+                - generic [ref=f3e260]: Arm. 1
+              - generic [ref=f3e262]: "6"
+              - button "Ajouter Rosie (Sgt Major) I" [ref=f3e263] [cursor=pointer]: +
+            - generic [ref=f3e264]:
+              - button "Voir la carte Rosie (Sgt Major) II" [ref=f3e265] [cursor=pointer]:
+                - generic [ref=f3e266]: Rosie (Sgt Major) II
+                - generic [ref=f3e267]: Sergeant Major Rosie Donovan, Allied Ranger
+                - generic [ref=f3e268]: Arm. 2
+              - generic [ref=f3e270]: "7"
+              - button "Ajouter Rosie (Sgt Major) II" [ref=f3e271] [cursor=pointer]: +
+            - generic [ref=f3e272]:
+              - button "Voir la carte Sergeant Victory" [ref=f3e273] [cursor=pointer]:
+                - generic [ref=f3e274]: Sergeant Victory
+                - generic [ref=f3e275]: Staff Sergeant Percy Washington, Allied Air Force
+                - generic [ref=f3e276]: Arm. 3
+              - generic [ref=f3e278]: "13"
+              - button "Ajouter Sergeant Victory" [ref=f3e279] [cursor=pointer]: +
+            - generic [ref=f3e280]:
+              - button "Voir la carte Shaun" [ref=f3e281] [cursor=pointer]:
+                - generic [ref=f3e282]: Shaun
+                - generic [ref=f3e283]: Lance Sergeant Shaun McDermus, Desert Scorpions
+                - generic [ref=f3e284]:
+                  - generic [ref=f3e285]: Desert Scorpions
+                  - generic [ref=f3e286]: Arm. 1
+              - generic [ref=f3e287]: "8"
+              - button "Ajouter Shaun" [ref=f3e288] [cursor=pointer]: +
+            - generic [ref=f3e289]:
+              - button "Voir la carte The Chef" [ref=f3e290] [cursor=pointer]:
+                - generic [ref=f3e291]: The Chef
+                - generic [ref=f3e292]: Guglielmo Zanicotti, SOE
+                - generic [ref=f3e293]: Arm. 1
+              - generic [ref=f3e295]: "5"
+              - button "Ajouter The Chef" [ref=f3e296] [cursor=pointer]: +
+            - generic [ref=f3e297]:
+              - button "Voir la carte The Priest" [ref=f3e298] [cursor=pointer]:
+                - generic [ref=f3e299]: The Priest
+                - generic [ref=f3e300]: Lieutenant David Bonner, SOE
+                - generic [ref=f3e301]: Arm. 2
+              - generic [ref=f3e303]: "5"
+              - button "Ajouter The Priest" [ref=f3e304] [cursor=pointer]: +
+            - generic [ref=f3e305]:
+              - button "Voir la carte Tom" [ref=f3e306] [cursor=pointer]:
+                - generic [ref=f3e307]: Tom
+                - generic [ref=f3e308]: Lieutenant Colonel Tom Jacobs, USMC
+                - generic [ref=f3e309]:
+                  - generic [ref=f3e310]: USMC
+                  - generic [ref=f3e311]: Arm. 1
+              - generic [ref=f3e312]: "11"
+              - button "Ajouter Tom" [ref=f3e313] [cursor=pointer]: +
+            - generic [ref=f3e314]: Infanterie · 44
+            - generic [ref=f3e315]:
+              - button "Voir la carte Allied Heavy Commando Battle Squad" [ref=f3e316] [cursor=pointer]:
+                - generic [ref=f3e317]: Allied Heavy Commando Battle Squad
+                - generic [ref=f3e318]: Arm. 3
+              - generic [ref=f3e320]: "11"
+              - button "Ajouter Allied Heavy Commando Battle Squad" [ref=f3e321] [cursor=pointer]: +
+            - generic [ref=f3e322]:
+              - button "Voir la carte Allied Heavy Commando Kill Squad" [ref=f3e323] [cursor=pointer]:
+                - generic [ref=f3e324]: Allied Heavy Commando Kill Squad
+                - generic [ref=f3e325]: Arm. 3
+              - generic [ref=f3e327]: "12"
+              - button "Ajouter Allied Heavy Commando Kill Squad" [ref=f3e328] [cursor=pointer]: +
+            - generic [ref=f3e329]:
+              - button "Voir la carte Bravo Company Ranger Command Squad" [ref=f3e330] [cursor=pointer]:
+                - generic [ref=f3e331]: Bravo Company Ranger Command Squad
+                - generic [ref=f3e332]: Arm. 2
+              - generic [ref=f3e334]: "13"
+              - button "Ajouter Bravo Company Ranger Command Squad" [ref=f3e335] [cursor=pointer]: +
+            - generic [ref=f3e336]:
+              - button "Voir la carte Desert Scorpions Assault Squad" [ref=f3e337] [cursor=pointer]:
+                - generic [ref=f3e338]: Desert Scorpions Assault Squad
+                - generic [ref=f3e339]:
+                  - generic [ref=f3e340]: Desert Scorpions
+                  - generic [ref=f3e341]: Arm. 1
+              - generic [ref=f3e342]: "6"
+              - button "Ajouter Desert Scorpions Assault Squad" [ref=f3e343] [cursor=pointer]: +
+            - generic [ref=f3e344]:
+              - button "Voir la carte Desert Scorpions Command Squad" [ref=f3e345] [cursor=pointer]:
+                - generic [ref=f3e346]: Desert Scorpions Command Squad
+                - generic [ref=f3e347]:
+                  - generic [ref=f3e348]: Desert Scorpions
+                  - generic [ref=f3e349]: Arm. 1
+              - generic [ref=f3e350]: "13"
+              - button "Ajouter Desert Scorpions Command Squad" [ref=f3e351] [cursor=pointer]: +
+            - generic [ref=f3e352]:
+              - button "Voir la carte Desert Scorpions Heavy Commando Battle Squad" [ref=f3e353] [cursor=pointer]:
+                - generic [ref=f3e354]: Desert Scorpions Heavy Commando Battle Squad
+                - generic [ref=f3e355]:
+                  - generic [ref=f3e356]: Desert Scorpions
+                  - generic [ref=f3e357]: Arm. 3
+              - generic [ref=f3e358]: "11"
+              - button "Ajouter Desert Scorpions Heavy Commando Battle Squad" [ref=f3e359] [cursor=pointer]: +
+            - generic [ref=f3e360]:
+              - button "Voir la carte Desert Scorpions Heavy Commando Kill Squad" [ref=f3e361] [cursor=pointer]:
+                - generic [ref=f3e362]: Desert Scorpions Heavy Commando Kill Squad
+                - generic [ref=f3e363]:
+                  - generic [ref=f3e364]: Desert Scorpions
+                  - generic [ref=f3e365]: Arm. 3
+              - generic [ref=f3e366]: "12"
+              - button "Ajouter Desert Scorpions Heavy Commando Kill Squad" [ref=f3e367] [cursor=pointer]: +
+            - generic [ref=f3e368]:
+              - button "Voir la carte Desert Scorpions Heavy Engineer Squad" [ref=f3e369] [cursor=pointer]:
+                - generic [ref=f3e370]: Desert Scorpions Heavy Engineer Squad
+                - generic [ref=f3e371]:
+                  - generic [ref=f3e372]: Desert Scorpions
+                  - generic [ref=f3e373]: Arm. 3
+              - generic [ref=f3e374]: "7"
+              - button "Ajouter Desert Scorpions Heavy Engineer Squad" [ref=f3e375] [cursor=pointer]: +
+            - generic [ref=f3e376]:
+              - button "Voir la carte Desert Scorpions Heavy Kill Squad" [ref=f3e377] [cursor=pointer]:
+                - generic [ref=f3e378]: Desert Scorpions Heavy Kill Squad
+                - generic [ref=f3e379]:
+                  - generic [ref=f3e380]: Desert Scorpions
+                  - generic [ref=f3e381]: Arm. 3
+              - generic [ref=f3e382]: "11"
+              - button "Ajouter Desert Scorpions Heavy Kill Squad" [ref=f3e383] [cursor=pointer]: +
+            - generic [ref=f3e384]:
+              - button "Voir la carte Desert Scorpions Kill Squad" [ref=f3e385] [cursor=pointer]:
+                - generic [ref=f3e386]: Desert Scorpions Kill Squad
+                - generic [ref=f3e387]:
+                  - generic [ref=f3e388]: Desert Scorpions
+                  - generic [ref=f3e389]: Arm. 1
+              - generic [ref=f3e390]: "10"
+              - button "Ajouter Desert Scorpions Kill Squad" [ref=f3e391] [cursor=pointer]: +
+            - generic [ref=f3e392]:
+              - button "Voir la carte Desert Scorpions Sniper Squad" [ref=f3e393] [cursor=pointer]:
+                - generic [ref=f3e394]: Desert Scorpions Sniper Squad
+                - generic [ref=f3e395]:
+                  - generic [ref=f3e396]: Desert Scorpions
+                  - generic [ref=f3e397]: Arm. 1
+              - generic [ref=f3e398]: "4"
+              - button "Ajouter Desert Scorpions Sniper Squad" [ref=f3e399] [cursor=pointer]: +
+            - generic [ref=f3e400]:
+              - button "Voir la carte Dual Field Phaser" [ref=f3e401] [cursor=pointer]:
+                - generic [ref=f3e402]: Dual Field Phaser
+                - generic [ref=f3e403]: Arm. 1
+              - generic [ref=f3e405]: "30"
+              - button "Ajouter Dual Field Phaser" [ref=f3e406] [cursor=pointer]: +
+            - generic [ref=f3e407]:
+              - button "Voir la carte Dual Field Phaser (Bunker)" [ref=f3e408] [cursor=pointer]:
+                - generic [ref=f3e409]: Dual Field Phaser (Bunker)
+                - generic [ref=f3e410]: Arm. 1
+              - generic [ref=f3e412]: "35"
+              - button "Ajouter Dual Field Phaser (Bunker)" [ref=f3e413] [cursor=pointer]: +
+            - generic [ref=f3e414]:
+              - button "Voir la carte Field Phaser" [ref=f3e415] [cursor=pointer]:
+                - generic [ref=f3e416]: Field Phaser
+                - generic [ref=f3e417]: Arm. 1
+              - generic [ref=f3e419]: "20"
+              - button "Ajouter Field Phaser" [ref=f3e420] [cursor=pointer]: +
+            - generic [ref=f3e421]:
+              - button "Voir la carte Field Phaser (Bunker)" [ref=f3e422] [cursor=pointer]:
+                - generic [ref=f3e423]: Field Phaser (Bunker)
+                - generic [ref=f3e424]: Arm. 1
+              - generic [ref=f3e426]: "25"
+              - button "Ajouter Field Phaser (Bunker)" [ref=f3e427] [cursor=pointer]: +
+            - generic [ref=f3e428]:
+              - button "Voir la carte Heavy Ranger Assault Squad" [ref=f3e429] [cursor=pointer]:
+                - generic [ref=f3e430]: Heavy Ranger Assault Squad
+                - generic [ref=f3e431]: Arm. 3
+              - generic [ref=f3e433]: "10"
+              - button "Ajouter Heavy Ranger Assault Squad" [ref=f3e434] [cursor=pointer]: +
+            - generic [ref=f3e435]:
+              - button "Voir la carte Heavy Ranger Attack Squad" [ref=f3e436] [cursor=pointer]:
+                - generic [ref=f3e437]: Heavy Ranger Attack Squad
+                - generic [ref=f3e438]: Arm. 3
+              - generic [ref=f3e440]: "13"
+              - button "Ajouter Heavy Ranger Attack Squad" [ref=f3e441] [cursor=pointer]: +
+            - generic [ref=f3e442]:
+              - button "Voir la carte Heavy Ranger Command Squad" [ref=f3e443] [cursor=pointer]:
+                - generic [ref=f3e444]: Heavy Ranger Command Squad
+                - generic [ref=f3e445]: Arm. 3
+              - generic [ref=f3e447]: "13"
+              - button "Ajouter Heavy Ranger Command Squad" [ref=f3e448] [cursor=pointer]: +
+            - generic [ref=f3e449]:
+              - button "Voir la carte Heavy Ranger Tank-Hunter Squad" [ref=f3e450] [cursor=pointer]:
+                - generic [ref=f3e451]: Heavy Ranger Tank-Hunter Squad
+                - generic [ref=f3e452]: Arm. 3
+              - generic [ref=f3e454]: "12"
+              - button "Ajouter Heavy Ranger Tank-Hunter Squad" [ref=f3e455] [cursor=pointer]: +
+            - generic [ref=f3e456]:
+              - button "Voir la carte Ranger Assault Squad" [ref=f3e457] [cursor=pointer]:
+                - generic [ref=f3e458]: Ranger Assault Squad
+                - generic [ref=f3e459]: Arm. 2
+              - generic [ref=f3e461]: "8"
+              - button "Ajouter Ranger Assault Squad" [ref=f3e462] [cursor=pointer]: +
+            - generic [ref=f3e463]:
+              - button "Voir la carte Ranger Attack Squad" [ref=f3e464] [cursor=pointer]:
+                - generic [ref=f3e465]: Ranger Attack Squad
+                - generic [ref=f3e466]: Arm. 2
+              - generic [ref=f3e468]: "9"
+              - button "Ajouter Ranger Attack Squad" [ref=f3e469] [cursor=pointer]: +
+            - generic [ref=f3e470]:
+              - button "Voir la carte Ranger Combat Squad" [ref=f3e471] [cursor=pointer]:
+                - generic [ref=f3e472]: Ranger Combat Squad
+                - generic [ref=f3e473]: Arm. 2
+              - generic [ref=f3e475]: "7"
+              - button "Ajouter Ranger Combat Squad" [ref=f3e476] [cursor=pointer]: +
+            - generic [ref=f3e477]:
+              - button "Voir la carte Ranger Command Squad" [ref=f3e478] [cursor=pointer]:
+                - generic [ref=f3e479]: Ranger Command Squad
+                - generic [ref=f3e480]: Arm. 2
+              - generic [ref=f3e482]: "11"
+              - button "Ajouter Ranger Command Squad" [ref=f3e483] [cursor=pointer]: +
+            - generic [ref=f3e484]:
+              - button "Voir la carte Ranger Heavy Mortar Squad" [ref=f3e485] [cursor=pointer]:
+                - generic [ref=f3e486]: Ranger Heavy Mortar Squad
+                - generic [ref=f3e487]: Arm. 1
+              - generic [ref=f3e489]: "8"
+              - button "Ajouter Ranger Heavy Mortar Squad" [ref=f3e490] [cursor=pointer]: +
+            - generic [ref=f3e491]:
+              - button "Voir la carte Ranger Heavy Weapon Squad" [ref=f3e492] [cursor=pointer]:
+                - generic [ref=f3e493]: Ranger Heavy Weapon Squad
+                - generic [ref=f3e494]: Arm. 2
+              - generic [ref=f3e496]: "8"
+              - button "Ajouter Ranger Heavy Weapon Squad" [ref=f3e497] [cursor=pointer]: +
+            - generic [ref=f3e498]:
+              - button "Voir la carte Ranger Observer Squad" [ref=f3e499] [cursor=pointer]:
+                - generic [ref=f3e500]: Ranger Observer Squad
+                - generic [ref=f3e501]: Arm. 2
+              - generic [ref=f3e503]: "3"
+              - button "Ajouter Ranger Observer Squad" [ref=f3e504] [cursor=pointer]: +
+            - generic [ref=f3e505]:
+              - button "Voir la carte Ranger Recon Squad" [ref=f3e506] [cursor=pointer]:
+                - generic [ref=f3e507]: Ranger Recon Squad
+                - generic [ref=f3e508]: Arm. 2
+              - generic [ref=f3e510]: "7"
+              - button "Ajouter Ranger Recon Squad" [ref=f3e511] [cursor=pointer]: +
+            - generic [ref=f3e512]:
+              - button "Voir la carte Ranger Sniper Squad" [ref=f3e513] [cursor=pointer]:
+                - generic [ref=f3e514]: Ranger Sniper Squad
+                - generic [ref=f3e515]: Arm. 2
+              - generic [ref=f3e517]: "4"
+              - button "Ajouter Ranger Sniper Squad" [ref=f3e518] [cursor=pointer]: +
+            - generic [ref=f3e519]:
+              - button "Voir la carte Ranger Weapon Squad" [ref=f3e520] [cursor=pointer]:
+                - generic [ref=f3e521]: Ranger Weapon Squad
+                - generic [ref=f3e522]: Arm. 2
+              - generic [ref=f3e524]: "8"
+              - button "Ajouter Ranger Weapon Squad" [ref=f3e525] [cursor=pointer]: +
+            - generic [ref=f3e526]:
+              - button "Voir la carte Rosie's Crew" [ref=f3e527] [cursor=pointer]:
+                - generic [ref=f3e528]: Rosie's Crew
+                - generic [ref=f3e529]: Arm. 1
+              - generic [ref=f3e531]: "4"
+              - button "Ajouter Rosie's Crew" [ref=f3e532] [cursor=pointer]: +
+            - generic [ref=f3e533]:
+              - button "Voir la carte USMC Anti-Tank Squad" [ref=f3e534] [cursor=pointer]:
+                - generic [ref=f3e535]: USMC Anti-Tank Squad
+                - generic [ref=f3e536]:
+                  - generic [ref=f3e537]: USMC
+                  - generic [ref=f3e538]: Arm. 1
+              - generic [ref=f3e539]: "9"
+              - button "Ajouter USMC Anti-Tank Squad" [ref=f3e540] [cursor=pointer]: +
+            - generic [ref=f3e541]:
+              - button "Voir la carte USMC Assault Squad" [ref=f3e542] [cursor=pointer]:
+                - generic [ref=f3e543]: USMC Assault Squad
+                - generic [ref=f3e544]:
+                  - generic [ref=f3e545]: USMC
+                  - generic [ref=f3e546]: Arm. 1
+              - generic [ref=f3e547]: "6"
+              - button "Ajouter USMC Assault Squad" [ref=f3e548] [cursor=pointer]: +
+            - generic [ref=f3e549]:
+              - button "Voir la carte USMC Close Assault Squad" [ref=f3e550] [cursor=pointer]:
+                - generic [ref=f3e551]: USMC Close Assault Squad
+                - generic [ref=f3e552]:
+                  - generic [ref=f3e553]: USMC
+                  - generic [ref=f3e554]: Arm. 1
+              - generic [ref=f3e555]: "7"
+              - button "Ajouter USMC Close Assault Squad" [ref=f3e556] [cursor=pointer]: +
+            - generic [ref=f3e557]:
+              - button "Voir la carte USMC Command Squad" [ref=f3e558] [cursor=pointer]:
+                - generic [ref=f3e559]: USMC Command Squad
+                - generic [ref=f3e560]:
+                  - generic [ref=f3e561]: USMC
+                  - generic [ref=f3e562]: Arm. 1
+              - generic [ref=f3e563]: "10"
+              - button "Ajouter USMC Command Squad" [ref=f3e564] [cursor=pointer]: +
+            - generic [ref=f3e565]:
+              - button "Voir la carte USMC Demolition Squad" [ref=f3e566] [cursor=pointer]:
+                - generic [ref=f3e567]: USMC Demolition Squad
+                - generic [ref=f3e568]:
+                  - generic [ref=f3e569]: USMC
+                  - generic [ref=f3e570]: Arm. 1
+              - generic [ref=f3e571]: "5"
+              - button "Ajouter USMC Demolition Squad" [ref=f3e572] [cursor=pointer]: +
+            - generic [ref=f3e573]:
+              - button "Voir la carte USMC Fire Squad" [ref=f3e574] [cursor=pointer]:
+                - generic [ref=f3e575]: USMC Fire Squad
+                - generic [ref=f3e576]:
+                  - generic [ref=f3e577]: USMC
+                  - generic [ref=f3e578]: Arm. 1
+              - generic [ref=f3e579]: "6"
+              - button "Ajouter USMC Fire Squad" [ref=f3e580] [cursor=pointer]: +
+            - generic [ref=f3e581]:
+              - button "Voir la carte USMC Heavy Engineer Squad" [ref=f3e582] [cursor=pointer]:
+                - generic [ref=f3e583]: USMC Heavy Engineer Squad
+                - generic [ref=f3e584]:
+                  - generic [ref=f3e585]: USMC
+                  - generic [ref=f3e586]: Arm. 3
+              - generic [ref=f3e587]: "7"
+              - button "Ajouter USMC Heavy Engineer Squad" [ref=f3e588] [cursor=pointer]: +
+            - generic [ref=f3e589]:
+              - button "Voir la carte USMC Heavy Machinegun Squad" [ref=f3e590] [cursor=pointer]:
+                - generic [ref=f3e591]: USMC Heavy Machinegun Squad
+                - generic [ref=f3e592]:
+                  - generic [ref=f3e593]: USMC
+                  - generic [ref=f3e594]: Arm. 1
+              - generic [ref=f3e595]: "5"
+              - button "Ajouter USMC Heavy Machinegun Squad" [ref=f3e596] [cursor=pointer]: +
+            - generic [ref=f3e597]:
+              - button "Voir la carte USMC Heavy Mortar Squad" [ref=f3e598] [cursor=pointer]:
+                - generic [ref=f3e599]: USMC Heavy Mortar Squad
+                - generic [ref=f3e600]:
+                  - generic [ref=f3e601]: USMC
+                  - generic [ref=f3e602]: Arm. 1
+              - generic [ref=f3e603]: "7"
+              - button "Ajouter USMC Heavy Mortar Squad" [ref=f3e604] [cursor=pointer]: +
+            - generic [ref=f3e605]:
+              - button "Voir la carte USMC Observer Squad" [ref=f3e606] [cursor=pointer]:
+                - generic [ref=f3e607]: USMC Observer Squad
+                - generic [ref=f3e608]:
+                  - generic [ref=f3e609]: USMC
+                  - generic [ref=f3e610]: Arm. 1
+              - generic [ref=f3e611]: "2"
+              - button "Ajouter USMC Observer Squad" [ref=f3e612] [cursor=pointer]: +
+            - generic [ref=f3e613]:
+              - button "Voir la carte USMC Reconnaissance Squad" [ref=f3e614] [cursor=pointer]:
+                - generic [ref=f3e615]: USMC Reconnaissance Squad
+                - generic [ref=f3e616]:
+                  - generic [ref=f3e617]: USMC
+                  - generic [ref=f3e618]: Arm. 1
+              - generic [ref=f3e619]: "7"
+              - button "Ajouter USMC Reconnaissance Squad" [ref=f3e620] [cursor=pointer]: +
+            - generic [ref=f3e621]:
+              - button "Voir la carte USMC Rifle Squad" [ref=f3e622] [cursor=pointer]:
+                - generic [ref=f3e623]: USMC Rifle Squad
+                - generic [ref=f3e624]:
+                  - generic [ref=f3e625]: USMC
+                  - generic [ref=f3e626]: Arm. 1
+              - generic [ref=f3e627]: "9"
+              - button "Ajouter USMC Rifle Squad" [ref=f3e628] [cursor=pointer]: +
+            - generic [ref=f3e629]:
+              - button "Voir la carte USMC Sniper Squad" [ref=f3e630] [cursor=pointer]:
+                - generic [ref=f3e631]: USMC Sniper Squad
+                - generic [ref=f3e632]:
+                  - generic [ref=f3e633]: USMC
+                  - generic [ref=f3e634]: Arm. 1
+              - generic [ref=f3e635]: "4"
+              - button "Ajouter USMC Sniper Squad" [ref=f3e636] [cursor=pointer]: +
+            - generic [ref=f3e637]:
+              - button "Voir la carte USMC War Dogs Recon Squad" [ref=f3e638] [cursor=pointer]:
+                - generic [ref=f3e639]: USMC War Dogs Recon Squad
+                - generic [ref=f3e640]:
+                  - generic [ref=f3e641]: USMC
+                  - generic [ref=f3e642]: Arm. 1
+              - generic [ref=f3e643]: "5"
+              - button "Ajouter USMC War Dogs Recon Squad" [ref=f3e644] [cursor=pointer]: +
+            - generic [ref=f3e645]: Véhicule · 52
+            - generic [ref=f3e646]:
+              - button "Voir la carte Alligator" [ref=f3e647] [cursor=pointer]:
+                - generic [ref=f3e648]: Alligator
+                - generic [ref=f3e649]: M3KL Medium Combat Walker, Armed Recon
+                - generic [ref=f3e650]:
+                  - generic [ref=f3e651]: USMC
+                  - generic [ref=f3e652]: Arm. 3
+              - generic [ref=f3e653]: "12"
+              - button "Ajouter Alligator" [ref=f3e654] [cursor=pointer]: +
+            - generic [ref=f3e655]:
+              - button "Voir la carte Assault Truck" [ref=f3e656] [cursor=pointer]:
+                - generic [ref=f3e657]: Assault Truck
+                - generic [ref=f3e658]: Dodge WC51, 3/4 Ton, Light Assault Truck
+                - generic [ref=f3e659]: Arm. 2
+              - generic [ref=f3e661]: "14"
+              - button "Ajouter Assault Truck" [ref=f3e662] [cursor=pointer]: +
+            - generic [ref=f3e663]:
+              - button "Voir la carte Assault Truck (DS)" [ref=f3e664] [cursor=pointer]:
+                - generic [ref=f3e665]: Assault Truck (DS)
+                - generic [ref=f3e666]: Dodge WC51, 3/4 Ton, Light Assault Truck
+                - generic [ref=f3e667]:
+                  - generic [ref=f3e668]: Desert Scorpions
+                  - generic [ref=f3e669]: Arm. 2
+              - generic [ref=f3e670]: "14"
+              - button "Ajouter Assault Truck (DS)" [ref=f3e671] [cursor=pointer]: +
+            - generic [ref=f3e672]:
+              - button "Voir la carte Barking Dog" [ref=f3e673] [cursor=pointer]:
+                - generic [ref=f3e674]: Barking Dog
+                - generic [ref=f3e675]: M3G Medium Combat Walker, Anti-Tank
+                - generic [ref=f3e676]: Arm. 4
+              - generic [ref=f3e678]: "16"
+              - button "Ajouter Barking Dog" [ref=f3e679] [cursor=pointer]: +
+            - generic [ref=f3e680]:
+              - button "Voir la carte Barking Dog (Light)" [ref=f3e681] [cursor=pointer]:
+                - generic [ref=f3e682]: Barking Dog (Light)
+                - generic [ref=f3e683]: M3G2 Medium Combat Walker, Anti-Tank
+                - generic [ref=f3e684]:
+                  - generic [ref=f3e685]: USMC
+                  - generic [ref=f3e686]: Arm. 3
+              - generic [ref=f3e687]: "14"
+              - button "Ajouter Barking Dog (Light)" [ref=f3e688] [cursor=pointer]: +
+            - generic [ref=f3e689]:
+              - button "Voir la carte BlackHawk" [ref=f3e690] [cursor=pointer]:
+                - generic [ref=f3e691]: BlackHawk
+                - generic [ref=f3e692]: M1B Light Assault Walker, Piat
+                - generic [ref=f3e693]: Arm. 3
+              - generic [ref=f3e695]: "7"
+              - button "Ajouter BlackHawk" [ref=f3e696] [cursor=pointer]: +
+            - generic [ref=f3e697]:
+              - button "Voir la carte Bulldog" [ref=f3e698] [cursor=pointer]:
+                - generic [ref=f3e699]: Bulldog
+                - generic [ref=f3e700]: M5A Heavy Destroyer Walker, Phaser
+                - generic [ref=f3e701]: Arm. 6
+              - generic [ref=f3e703]: "25"
+              - button "Ajouter Bulldog" [ref=f3e704] [cursor=pointer]: +
+            - generic [ref=f3e705]:
+              - button "Voir la carte Bushmaster" [ref=f3e706] [cursor=pointer]:
+                - generic [ref=f3e707]: Bushmaster
+                - generic [ref=f3e708]: M1D Light Assault Walker, Anti Tank
+                - generic [ref=f3e709]:
+                  - generic [ref=f3e710]: USMC
+                  - generic [ref=f3e711]: Arm. 2
+              - generic [ref=f3e712]: "7"
+              - button "Ajouter Bushmaster" [ref=f3e713] [cursor=pointer]: +
+            - generic [ref=f3e714]:
+              - button "Voir la carte Cobra" [ref=f3e715] [cursor=pointer]:
+                - generic [ref=f3e716]: Cobra
+                - generic [ref=f3e717]: M3D Medium Combat Walker, Phaser
+                - generic [ref=f3e718]: Arm. 4
+              - generic [ref=f3e720]: "17"
+              - button "Ajouter Cobra" [ref=f3e721] [cursor=pointer]: +
+            - generic [ref=f3e722]:
+              - button "Voir la carte Cobra (AMP)" [ref=f3e723] [cursor=pointer]:
+                - generic [ref=f3e724]: Cobra (AMP)
+                - generic [ref=f3e725]: M3D Medium Combat Walker, Phaser
+                - generic [ref=f3e726]: Arm. 4
+              - generic [ref=f3e728]: "18"
+              - button "Ajouter Cobra (AMP)" [ref=f3e729] [cursor=pointer]: +
+            - generic [ref=f3e730]:
+              - button "Voir la carte Command Truck" [ref=f3e731] [cursor=pointer]:
+                - generic [ref=f3e732]: Command Truck
+                - generic [ref=f3e733]: Dodge WC51, 3/4 Ton
+                - generic [ref=f3e734]: Arm. 2
+              - generic [ref=f3e736]: "8"
+              - button "Ajouter Command Truck" [ref=f3e737] [cursor=pointer]: +
+            - generic [ref=f3e738]:
+              - button "Voir la carte Command Truck (DS)" [ref=f3e739] [cursor=pointer]:
+                - generic [ref=f3e740]: Command Truck (DS)
+                - generic [ref=f3e741]: Dodge WC51, 3/4 Ton
+                - generic [ref=f3e742]:
+                  - generic [ref=f3e743]: Desert Scorpions
+                  - generic [ref=f3e744]: Arm. 2
+              - generic [ref=f3e745]: "8"
+              - button "Ajouter Command Truck (DS)" [ref=f3e746] [cursor=pointer]: +
+            - generic [ref=f3e747]:
+              - button "Voir la carte Devastator" [ref=f3e748] [cursor=pointer]:
+                - generic [ref=f3e749]: Devastator
+                - generic [ref=f3e750]: M7D Heavy Assault Walker, Phaser
+                - generic [ref=f3e751]: Arm. 7
+              - generic [ref=f3e753]: "31"
+              - button "Ajouter Devastator" [ref=f3e754] [cursor=pointer]: +
+            - generic [ref=f3e755]:
+              - button "Voir la carte Fireball" [ref=f3e756] [cursor=pointer]:
+                - generic [ref=f3e757]: Fireball
+                - generic [ref=f3e758]: M7B Heavy Assault Walker, Napalm
+                - generic [ref=f3e759]: Arm. 7
+              - generic [ref=f3e761]: "26"
+              - button "Ajouter Fireball" [ref=f3e762] [cursor=pointer]: +
+            - generic [ref=f3e763]:
+              - button "Voir la carte Gun Truck" [ref=f3e764] [cursor=pointer]:
+                - generic [ref=f3e765]: Gun Truck
+                - generic [ref=f3e766]: Dodge WC51, 3/4 Ton, Light Gun Truck
+                - generic [ref=f3e767]:
+                  - generic [ref=f3e768]: Desert Scorpions
+                  - generic [ref=f3e769]: Arm. 2
+              - generic [ref=f3e770]: "13"
+              - button "Ajouter Gun Truck" [ref=f3e771] [cursor=pointer]: +
+            - generic [ref=f3e772]:
+              - button "Voir la carte Honey" [ref=f3e773] [cursor=pointer]:
+                - generic [ref=f3e774]: Honey
+                - generic [ref=f3e775]: M1C Light Assault Walker, Phaser
+                - generic [ref=f3e776]: Arm. 2
+              - generic [ref=f3e778]: "9"
+              - button "Ajouter Honey" [ref=f3e779] [cursor=pointer]: +
+            - generic [ref=f3e780]:
+              - button "Voir la carte Hot Dog" [ref=f3e781] [cursor=pointer]:
+                - generic [ref=f3e782]: Hot Dog
+                - generic [ref=f3e783]: M3B Medium Combat Walker, Napalm
+                - generic [ref=f3e784]: Arm. 4
+              - generic [ref=f3e786]: "11"
+              - button "Ajouter Hot Dog" [ref=f3e787] [cursor=pointer]: +
+            - generic [ref=f3e788]:
+              - button "Voir la carte Humber MK V" [ref=f3e789] [cursor=pointer]:
+                - generic [ref=f3e790]: Humber MK V
+                - generic [ref=f3e791]: Phaser Armoured Car
+                - generic [ref=f3e792]:
+                  - generic [ref=f3e793]: Desert Scorpions
+                  - generic [ref=f3e794]: Arm. 3
+              - generic [ref=f3e795]: "7"
+              - button "Ajouter Humber MK V" [ref=f3e796] [cursor=pointer]: +
+            - generic [ref=f3e797]:
+              - button "Voir la carte LCM-46" [ref=f3e798] [cursor=pointer]:
+                - generic [ref=f3e799]: LCM-46
+                - generic [ref=f3e800]: Landing Craft, Medium 46
+                - generic [ref=f3e801]: Arm. 2
+              - generic [ref=f3e803]: "6"
+              - button "Ajouter LCM-46" [ref=f3e804] [cursor=pointer]: +
+            - generic [ref=f3e805]:
+              - button "Voir la carte Long Tom II" [ref=f3e806] [cursor=pointer]:
+                - generic [ref=f3e807]: Long Tom II
+                - generic [ref=f3e808]: M7C Support Walker, Artillery
+                - generic [ref=f3e809]: Arm. 5
+              - generic [ref=f3e811]: "16"
+              - button "Ajouter Long Tom II" [ref=f3e812] [cursor=pointer]: +
+            - generic [ref=f3e813]:
+              - button "Voir la carte M4A3E8(P) HVSS" [ref=f3e814] [cursor=pointer]:
+                - generic [ref=f3e815]: M4A3E8(P) HVSS
+                - generic [ref=f3e816]: M4A3E8 Medium Tank, Heavy Phaser
+                - generic [ref=f3e817]: Arm. 4
+              - generic [ref=f3e819]: "21"
+              - button "Ajouter M4A3E8(P) HVSS" [ref=f3e820] [cursor=pointer]: +
+            - generic [ref=f3e821]:
+              - button "Voir la carte Mickey" [ref=f3e822] [cursor=pointer]:
+                - generic [ref=f3e823]: Mickey
+                - generic [ref=f3e824]: M3A Medium Combat Walker, Close Support
+                - generic [ref=f3e825]: Arm. 4
+              - generic [ref=f3e827]: "13"
+              - button "Ajouter Mickey" [ref=f3e828] [cursor=pointer]: +
+            - generic [ref=f3e829]:
+              - button "Voir la carte Mickey (Light)" [ref=f3e830] [cursor=pointer]:
+                - generic [ref=f3e831]: Mickey (Light)
+                - generic [ref=f3e832]: M3A2 Medium Combat Walker, Close Support
+                - generic [ref=f3e833]:
+                  - generic [ref=f3e834]: USMC
+                  - generic [ref=f3e835]: Arm. 3
+              - generic [ref=f3e836]: "10"
+              - button "Ajouter Mickey (Light)" [ref=f3e837] [cursor=pointer]: +
+            - generic [ref=f3e838]:
+              - button "Voir la carte Mickey A.V.R.E" [ref=f3e839] [cursor=pointer]:
+                - generic [ref=f3e840]: Mickey A.V.R.E
+                - generic [ref=f3e841]: M3F3 Medium Combat Walker, Assault Engineer
+                - generic [ref=f3e842]: Arm. 4
+              - generic [ref=f3e844]: "12"
+              - button "Ajouter Mickey A.V.R.E" [ref=f3e845] [cursor=pointer]: +
+            - generic [ref=f3e846]:
+              - button "Voir la carte Mickey A.V.R.E (Light)" [ref=f3e847] [cursor=pointer]:
+                - generic [ref=f3e848]: Mickey A.V.R.E (Light)
+                - generic [ref=f3e849]: M3A2 Medium Combat Walker, Assault Engineer
+                - generic [ref=f3e850]:
+                  - generic [ref=f3e851]: USMC
+                  - generic [ref=f3e852]: Arm. 3
+              - generic [ref=f3e853]: "11"
+              - button "Ajouter Mickey A.V.R.E (Light)" [ref=f3e854] [cursor=pointer]: +
+            - generic [ref=f3e855]:
+              - button "Voir la carte Mickey ARV" [ref=f3e856] [cursor=pointer]:
+                - generic [ref=f3e857]: Mickey ARV
+                - generic [ref=f3e858]: M3RV Medium Recovery Vehicle
+                - generic [ref=f3e859]: Arm. 4
+              - generic [ref=f3e861]: "9"
+              - button "Ajouter Mickey ARV" [ref=f3e862] [cursor=pointer]: +
+            - generic [ref=f3e863]:
+              - button "Voir la carte Mobile HQ" [ref=f3e864] [cursor=pointer]:
+                - generic [ref=f3e865]: Mobile HQ
+                - generic [ref=f3e866]: M1 Heavy Command Walker
+                - generic [ref=f3e867]: Arm. 5
+              - generic [ref=f3e869]: "13"
+              - button "Ajouter Mobile HQ" [ref=f3e870] [cursor=pointer]: +
+            - generic [ref=f3e871]:
+              - button "Voir la carte Mortar Truck" [ref=f3e872] [cursor=pointer]:
+                - generic [ref=f3e873]: Mortar Truck
+                - generic [ref=f3e874]: Dodge WC51, 3/4 Ton, Light Mortar Truck
+                - generic [ref=f3e875]:
+                  - generic [ref=f3e876]: Desert Scorpions
+                  - generic [ref=f3e877]: Arm. 2
+              - generic [ref=f3e878]: "10"
+              - button "Ajouter Mortar Truck" [ref=f3e879] [cursor=pointer]: +
+            - generic [ref=f3e880]:
+              - button "Voir la carte Pershing II" [ref=f3e881] [cursor=pointer]:
+                - generic [ref=f3e882]: Pershing II
+                - generic [ref=f3e883]: M26A2 Heavy Tank, Phaser
+                - generic [ref=f3e884]: Arm. 5
+              - generic [ref=f3e886]: "24"
+              - button "Ajouter Pershing II" [ref=f3e887] [cursor=pointer]: +
+            - generic [ref=f3e888]:
+              - button "Voir la carte Pershing III" [ref=f3e889] [cursor=pointer]:
+                - generic [ref=f3e890]: Pershing III
+                - generic [ref=f3e891]: M26A3 Heavy Tank, Anti-Tank
+                - generic [ref=f3e892]: Arm. 5
+              - generic [ref=f3e894]: "19"
+              - button "Ajouter Pershing III" [ref=f3e895] [cursor=pointer]: +
+            - generic [ref=f3e896]:
+              - button "Voir la carte Pounder" [ref=f3e897] [cursor=pointer]:
+                - generic [ref=f3e898]: Pounder
+                - generic [ref=f3e899]: M3C Medium Combat Walker, Anti-Tank
+                - generic [ref=f3e900]: Arm. 4
+              - generic [ref=f3e902]: "13"
+              - button "Ajouter Pounder" [ref=f3e903] [cursor=pointer]: +
+            - generic [ref=f3e904]:
+              - button "Voir la carte Pounder (Light)" [ref=f3e905] [cursor=pointer]:
+                - generic [ref=f3e906]: Pounder (Light)
+                - generic [ref=f3e907]: M3C2 Medium Combat Walker, Anti-Tank
+                - generic [ref=f3e908]:
+                  - generic [ref=f3e909]: USMC
+                  - generic [ref=f3e910]: Arm. 3
+              - generic [ref=f3e911]: "11"
+              - button "Ajouter Pounder (Light)" [ref=f3e912] [cursor=pointer]: +
+            - generic [ref=f3e913]:
+              - button "Voir la carte Punisher" [ref=f3e914] [cursor=pointer]:
+                - generic [ref=f3e915]: Punisher
+                - generic [ref=f3e916]: M7A Heavy Assault Walker, Anti-Tank
+                - generic [ref=f3e917]: Arm. 7
+              - generic [ref=f3e919]: "26"
+              - button "Ajouter Punisher" [ref=f3e920] [cursor=pointer]: +
+            - generic [ref=f3e921]:
+              - button "Voir la carte Punisher II" [ref=f3e922] [cursor=pointer]:
+                - generic [ref=f3e923]: Punisher II
+                - generic [ref=f3e924]: M7E Heavy Assault Walker, Tank-Hunter
+                - generic [ref=f3e925]: Arm. 7
+              - generic [ref=f3e927]: "24"
+              - button "Ajouter Punisher II" [ref=f3e928] [cursor=pointer]: +
+            - generic [ref=f3e929]:
+              - button "Voir la carte Rattler" [ref=f3e930] [cursor=pointer]:
+                - generic [ref=f3e931]: Rattler
+                - generic [ref=f3e932]: M3E Medium Combat Walker, Anti-Aircraft
+                - generic [ref=f3e933]: Arm. 4
+              - generic [ref=f3e935]: "16"
+              - button "Ajouter Rattler" [ref=f3e936] [cursor=pointer]: +
+            - generic [ref=f3e937]:
+              - button "Voir la carte Rattler (AMP)" [ref=f3e938] [cursor=pointer]:
+                - generic [ref=f3e939]: Rattler (AMP)
+                - generic [ref=f3e940]: M3E Medium Combat Walker, Anti-Aircraft
+                - generic [ref=f3e941]: Arm. 4
+              - generic [ref=f3e943]: "17"
+              - button "Ajouter Rattler (AMP)" [ref=f3e944] [cursor=pointer]: +
+            - generic [ref=f3e945]:
+              - button "Voir la carte Rattlesnake" [ref=f3e946] [cursor=pointer]:
+                - generic [ref=f3e947]: Rattlesnake
+                - generic [ref=f3e948]: M1D Light Assault Walker, Anti Tank
+                - generic [ref=f3e949]:
+                  - generic [ref=f3e950]: USMC
+                  - generic [ref=f3e951]: Arm. 2
+              - generic [ref=f3e952]: "8"
+              - button "Ajouter Rattlesnake" [ref=f3e953] [cursor=pointer]: +
+            - generic [ref=f3e954]:
+              - button "Voir la carte Recon Mickey" [ref=f3e955] [cursor=pointer]:
+                - generic [ref=f3e956]: Recon Mickey
+                - generic [ref=f3e957]: M3H Medium Combat Walker, Reconnaissance
+                - generic [ref=f3e958]: Arm. 3
+              - generic [ref=f3e960]: "10"
+              - button "Ajouter Recon Mickey" [ref=f3e961] [cursor=pointer]: +
+            - generic [ref=f3e962]:
+              - button "Voir la carte Recon Mickey II" [ref=f3e963] [cursor=pointer]:
+                - generic [ref=f3e964]: Recon Mickey II
+                - generic [ref=f3e965]: M3J Medium Combat Walker, Armed Reconnaissance
+                - generic [ref=f3e966]: Arm. 3
+              - generic [ref=f3e968]: "10"
+              - button "Ajouter Recon Mickey II" [ref=f3e969] [cursor=pointer]: +
+            - generic [ref=f3e970]:
+              - button "Voir la carte Recon Mickey III" [ref=f3e971] [cursor=pointer]:
+                - generic [ref=f3e972]: Recon Mickey III
+                - generic [ref=f3e973]: M3K Medium Combat Walker, Armed Reconnaissance
+                - generic [ref=f3e974]: Arm. 3
+              - generic [ref=f3e976]: "11"
+              - button "Ajouter Recon Mickey III" [ref=f3e977] [cursor=pointer]: +
+            - generic [ref=f3e978]:
+              - button "Voir la carte Recon Mickey III (USMC)" [ref=f3e979] [cursor=pointer]:
+                - generic [ref=f3e980]: Recon Mickey III (USMC)
+                - generic [ref=f3e981]: M3K Medium Combat Walker, Armed Reconnaissance
+                - generic [ref=f3e982]:
+                  - generic [ref=f3e983]: USMC
+                  - generic [ref=f3e984]: Arm. 3
+              - generic [ref=f3e985]: "11"
+              - button "Ajouter Recon Mickey III (USMC)" [ref=f3e986] [cursor=pointer]: +
+            - generic [ref=f3e987]:
+              - button "Voir la carte Six Shooter" [ref=f3e988] [cursor=pointer]:
+                - generic [ref=f3e989]: Six Shooter
+                - generic [ref=f3e990]: M5B Heavy Destroyer Walker, Anti-Tank
+                - generic [ref=f3e991]: Arm. 6
+              - generic [ref=f3e993]: "19"
+              - button "Ajouter Six Shooter" [ref=f3e994] [cursor=pointer]: +
+            - generic [ref=f3e995]:
+              - button "Voir la carte Six Shooter (USMC)" [ref=f3e996] [cursor=pointer]:
+                - generic [ref=f3e997]: Six Shooter (USMC)
+                - generic [ref=f3e998]: M5B Heavy Destroyer Walker, Anti-Tank
+                - generic [ref=f3e999]:
+                  - generic [ref=f3e1000]: USMC
+                  - generic [ref=f3e1001]: Arm. 6
+              - generic [ref=f3e1002]: "19"
+              - button "Ajouter Six Shooter (USMC)" [ref=f3e1003] [cursor=pointer]: +
+            - generic [ref=f3e1004]:
+              - button "Voir la carte Skysweeper" [ref=f3e1005] [cursor=pointer]:
+                - generic [ref=f3e1006]: Skysweeper
+                - generic [ref=f3e1007]: M8 Heavy Support Walker, Anti-Aircraft
+                - generic [ref=f3e1008]: Arm. 5
+              - generic [ref=f3e1010]: "15"
+              - button "Ajouter Skysweeper" [ref=f3e1011] [cursor=pointer]: +
+            - generic [ref=f3e1012]:
+              - button "Voir la carte Steel Rain" [ref=f3e1013] [cursor=pointer]:
+                - generic [ref=f3e1014]: Steel Rain
+                - generic [ref=f3e1015]: M3F Medium Combat Walker, Assault Engineer
+                - generic [ref=f3e1016]: Arm. 4
+              - generic [ref=f3e1018]: "14"
+              - button "Ajouter Steel Rain" [ref=f3e1019] [cursor=pointer]: +
+            - generic [ref=f3e1020]:
+              - button "Voir la carte Super Pershing II" [ref=f3e1021] [cursor=pointer]:
+                - generic [ref=f3e1022]: Super Pershing II
+                - generic [ref=f3e1023]: M26A4 Heavy Tank, Phaser
+                - generic [ref=f3e1024]: Arm. 5
+              - generic [ref=f3e1026]: "23"
+              - button "Ajouter Super Pershing II" [ref=f3e1027] [cursor=pointer]: +
+            - generic [ref=f3e1028]:
+              - button "Voir la carte Tank-Hunter Truck" [ref=f3e1029] [cursor=pointer]:
+                - generic [ref=f3e1030]: Tank-Hunter Truck
+                - generic [ref=f3e1031]: Dodge WC51, 3/4 Ton, Light Recoiless Truck
+                - generic [ref=f3e1032]:
+                  - generic [ref=f3e1033]: Desert Scorpions
+                  - generic [ref=f3e1034]: Arm. 2
+              - generic [ref=f3e1035]: "12"
+              - button "Ajouter Tank-Hunter Truck" [ref=f3e1036] [cursor=pointer]: +
+            - generic [ref=f3e1037]:
+              - button "Voir la carte Transport Truck" [ref=f3e1038] [cursor=pointer]:
+                - generic [ref=f3e1039]: Transport Truck
+                - generic [ref=f3e1040]: Dodge WC51, 3/4 Ton, Light Assault Truck
+                - generic [ref=f3e1041]:
+                  - generic [ref=f3e1042]: Desert Scorpions
+                  - generic [ref=f3e1043]: Arm. 2
+              - generic [ref=f3e1044]: "8"
+              - button "Ajouter Transport Truck" [ref=f3e1045] [cursor=pointer]: +
+            - generic [ref=f3e1046]:
+              - button "Voir la carte Wildfire" [ref=f3e1047] [cursor=pointer]:
+                - generic [ref=f3e1048]: Wildfire
+                - generic [ref=f3e1049]: M1D Light Assault Walker, Machine Gun
+                - generic [ref=f3e1050]: Arm. 2
+              - generic [ref=f3e1052]: "7"
+              - button "Ajouter Wildfire" [ref=f3e1053] [cursor=pointer]: +
+            - generic [ref=f3e1054]:
+              - button "Voir la carte Wildfire (USMC)" [ref=f3e1055] [cursor=pointer]:
+                - generic [ref=f3e1056]: Wildfire (USMC)
+                - generic [ref=f3e1057]: M1D Light Assault Walker, Machine Gun
+                - generic [ref=f3e1058]:
+                  - generic [ref=f3e1059]: USMC
+                  - generic [ref=f3e1060]: Arm. 2
+              - generic [ref=f3e1061]: "7"
+              - button "Ajouter Wildfire (USMC)" [ref=f3e1062] [cursor=pointer]: +
+            - generic [ref=f3e1063]:
+              - button "Voir la carte Wolverine II" [ref=f3e1064] [cursor=pointer]:
+                - generic [ref=f3e1065]: Wolverine II
+                - generic [ref=f3e1066]: M10A2 Gun Motor Carrier, Phaser
+                - generic [ref=f3e1067]: Arm. 4
+              - generic [ref=f3e1069]: "19"
+              - button "Ajouter Wolverine II" [ref=f3e1070] [cursor=pointer]: +
+            - generic [ref=f3e1071]:
+              - button "Voir la carte Wolverine III" [ref=f3e1072] [cursor=pointer]:
+                - generic [ref=f3e1073]: Wolverine III
+                - generic [ref=f3e1074]: M10A3 Gun Motor Carrier, Anti-Tank
+                - generic [ref=f3e1075]: Arm. 4
+              - generic [ref=f3e1077]: "18"
+              - button "Ajouter Wolverine III" [ref=f3e1078] [cursor=pointer]: +
+            - generic [ref=f3e1079]: Aéronef · 7
+            - generic [ref=f3e1080]:
+              - button "Voir la carte Flying Banana" [ref=f3e1081] [cursor=pointer]:
+                - generic [ref=f3e1082]: Flying Banana
+                - generic [ref=f3e1083]: Piasecki H-21 Workhorse, Transport Helicopter
+                - generic [ref=f3e1084]: Arm. 1
+              - generic [ref=f3e1086]: "12"
+              - button "Ajouter Flying Banana" [ref=f3e1087] [cursor=pointer]: +
+            - generic [ref=f3e1088]:
+              - button "Voir la carte Seahorse" [ref=f3e1089] [cursor=pointer]:
+                - generic [ref=f3e1090]: Seahorse
+                - generic [ref=f3e1091]: Sikorsky H-34 Air Traffic Helicopter
+                - generic [ref=f3e1092]:
+                  - generic [ref=f3e1093]: USMC
+                  - generic [ref=f3e1094]: Arm. 1
+              - generic [ref=f3e1095]: "13"
+              - button "Ajouter Seahorse" [ref=f3e1096] [cursor=pointer]: +
+            - generic [ref=f3e1097]:
+              - button "Voir la carte Storm" [ref=f3e1098] [cursor=pointer]:
+                - generic [ref=f3e1099]: Storm
+                - generic [ref=f3e1100]: P-48C Pelican, Fighter Bomber
+                - generic [ref=f3e1101]: Arm. 2
+              - generic [ref=f3e1103]: "17"
+              - button "Ajouter Storm" [ref=f3e1104] [cursor=pointer]: +
+            - generic [ref=f3e1105]:
+              - button "Voir la carte Storm (USMC)" [ref=f3e1106] [cursor=pointer]:
+                - generic [ref=f3e1107]: Storm (USMC)
+                - generic [ref=f3e1108]: P-48C Pelican, Fighter Bomber
+                - generic [ref=f3e1109]:
+                  - generic [ref=f3e1110]: USMC
+                  - generic [ref=f3e1111]: Arm. 2
+              - generic [ref=f3e1112]: "17"
+              - button "Ajouter Storm (USMC)" [ref=f3e1113] [cursor=pointer]: +
+            - generic [ref=f3e1114]:
+              - button "Voir la carte Thunder" [ref=f3e1115] [cursor=pointer]:
+                - generic [ref=f3e1116]: Thunder
+                - generic [ref=f3e1117]: P-48X Pelican, Fighter Bomber, Rocket
+                - generic [ref=f3e1118]: Arm. 2
+              - generic [ref=f3e1120]: "18"
+              - button "Ajouter Thunder" [ref=f3e1121] [cursor=pointer]: +
+            - generic [ref=f3e1122]:
+              - button "Voir la carte Thunder (USMC)" [ref=f3e1123] [cursor=pointer]:
+                - generic [ref=f3e1124]: Thunder (USMC)
+                - generic [ref=f3e1125]: P-48X Pelican, Fighter Bomber, Rocket
+                - generic [ref=f3e1126]:
+                  - generic [ref=f3e1127]: USMC
+                  - generic [ref=f3e1128]: Arm. 2
+              - generic [ref=f3e1129]: "18"
+              - button "Ajouter Thunder (USMC)" [ref=f3e1130] [cursor=pointer]: +
+            - generic [ref=f3e1131]:
+              - button "Voir la carte Tornado" [ref=f3e1132] [cursor=pointer]:
+                - generic [ref=f3e1133]: Tornado
+                - generic [ref=f3e1134]: P-48k Pelican, Ground Attack Phaser
+                - generic [ref=f3e1135]: Arm. 2
+              - generic [ref=f3e1137]: "23"
+              - button "Ajouter Tornado" [ref=f3e1138] [cursor=pointer]: +
+            - generic [ref=f3e1139]: Objet · 1
+            - generic [ref=f3e1140]:
+              - button "Voir la carte VK Stash" [ref=f3e1141] [cursor=pointer]:
+                - generic [ref=f3e1142]: VK Stash
+              - generic [ref=f3e1143]: "2"
+              - button "Ajouter VK Stash" [ref=f3e1144] [cursor=pointer]: +
+        - text: "* * * *"
+  - contentinfo [ref=f3e1145]:
+    - generic [ref=f3e1146]: Créé par L'Heure du Loir

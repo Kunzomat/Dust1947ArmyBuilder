@@ -1,0 +1,212 @@
+- generic [active] [ref=f2e1]:
+  - generic [ref=f2e2]:
+    - banner [ref=f2e3856]:
+      - link "DUST 194∞ Builder" [ref=f2e3857] [cursor=pointer]:
+        - /url: "#/"
+        - generic [ref=f2e3858]: DUST 194∞
+        - generic [ref=f2e3859]: Builder
+      - navigation [ref=f2e3860]:
+        - link "My lists" [ref=f2e3861] [cursor=pointer]:
+          - /url: "#/"
+        - link "My collection" [ref=f2e3862] [cursor=pointer]:
+          - /url: "#/collection"
+        - link "Shot Format" [ref=f2e3863] [cursor=pointer]:
+          - /url: shot.html
+        - link "Workshop" [ref=f2e3864] [cursor=pointer]:
+          - /url: atelier.html
+        - link "Help" [ref=f2e3865] [cursor=pointer]:
+          - /url: aide.html
+        - link "Give feedback" [ref=f2e3866] [cursor=pointer]:
+          - /url: https://discord.gg/h3xfZKeNvU
+        - button "FR" [ref=f2e3867] [cursor=pointer]
+        - button "Theme" [ref=f2e3868] [cursor=pointer]
+    - main [ref=f2e3869]:
+      - generic [ref=f2e3871]:
+        - link "← Lists" [ref=f2e3872] [cursor=pointer]:
+          - /url: "#/"
+        - textbox "Army name" [ref=f2e3873]: Testarmee
+        - generic [ref=f2e3874]: Allies
+        - generic [ref=f2e3876]:
+          - text: Format
+          - spinbutton "Points limit" [ref=f2e3877]: "100"
+          - text: pts
+      - region "Army summary" [ref=f2e3878]:
+        - generic [ref=f2e3879]: 11 / 100 pts
+        - generic [ref=f2e3880]:
+          - generic "Points counted" [ref=f2e3881]
+          - generic [ref=f2e3883]:
+            - generic [ref=f2e3884]: Allies bloc army
+            - generic [ref=f2e3885]:
+              - text: Hero bonus
+              - generic [ref=f2e3886]: 10/10
+            - generic [ref=f2e3887]:
+              - text: Total spent
+              - generic [ref=f2e3888]: "21"
+            - generic [ref=f2e3889]: Valid list
+        - generic [ref=f2e3890]:
+          - button "Share" [ref=f2e3891] [cursor=pointer]
+          - button "Text" [ref=f2e3892] [cursor=pointer]
+          - button "Print" [ref=f2e3893] [cursor=pointer]
+          - button "PDF" [ref=f2e3894] [cursor=pointer]
+      - generic [ref=f2e3895]:
+        - complementary [ref=f2e3896]:
+          - tablist [ref=f2e3897]:
+            - tab "Units" [ref=f2e3898] [cursor=pointer]
+            - tab "Mercenaries" [ref=f2e3899] [cursor=pointer]
+            - tab "Platoons" [ref=f2e3900] [cursor=pointer]
+            - tab "Captured" [ref=f2e3901] [cursor=pointer]
+          - generic [ref=f2e3902]:
+            - generic [ref=f2e3903]:
+              - generic [ref=f2e3904]:
+                - generic [ref=f2e3905]: Allied Medium Combat Walker Platoon
+                - button "Add" [ref=f2e3906] [cursor=pointer]
+              - paragraph [ref=f2e3907]: Grab them by the nose
+              - paragraph [ref=f2e3908]: All M3 Medium Combat Walkers in or supporting the Platoon can use the Get Moving You Bunch of Monkeys Special action on any M3 Medium Combat Walker in the same Platoon.
+              - paragraph [ref=f2e3909]: 1 command · 2 combat required
+            - generic [ref=f2e3910]:
+              - generic [ref=f2e3911]:
+                - generic [ref=f2e3912]: Allied Ranger Platoon
+                - button "Add" [ref=f2e3913] [cursor=pointer]
+              - paragraph [ref=f2e3914]: Rangers lead the way
+              - paragraph [ref=f2e3915]: All Ranger (but not Heavy Ranger) Units in or supporting the Platoon gain the Scout Skill. In addition, if they are held in Reserve, the roll one extra die when rolling for one of these Units to arrive on the play area.
+              - paragraph [ref=f2e3916]: 1 command · 3 combat required
+            - generic [ref=f2e3917]:
+              - generic [ref=f2e3918]:
+                - generic [ref=f2e3919]: Allied Heavy Ranger Platoon
+                - button "Add" [ref=f2e3920] [cursor=pointer]
+              - paragraph [ref=f2e3921]: Lightning Strike
+              - paragraph [ref=f2e3922]: All heavy Ranger Units in or supporting a Heavy Ranger Platoon pass their Infantry Saves on scores of dice_shield as well as dice_block during the first Turn of the game. In addition, if they are held in Reserve, they roll one extra die when rolling to arrive on the play area.
+              - paragraph [ref=f2e3923]: 1 command · 2 combat required
+            - generic [ref=f2e3924]:
+              - generic [ref=f2e3925]:
+                - generic [ref=f2e3926]: Allied Taskforce Rhino Platoon
+                - button "Add" [ref=f2e3927] [cursor=pointer]
+              - paragraph [ref=f2e3928]: Knockout
+              - paragraph [ref=f2e3929]: When any Unit in or supporting this Platoon makes successful Close Combat Attack against an Unit, the player may select Rhino (individual or joined with a Unit) or any Heavy Ranger Assault Squad that is within Range 6 of the enemy Unit. This Unit Activates immediately after the Attacking Unit has completed its Activation. This Unit's first Action must be a March move Action towards the enemy Unit, followed by use of the Charge Skill. The resulting Close Combat Attack must also target the same Unit.
+              - paragraph [ref=f2e3930]: 1 command · 2 combat required
+            - generic [ref=f2e3931]:
+              - generic [ref=f2e3932]:
+                - generic [ref=f2e3933]: Heavy Commando Paratrooper Platoon
+                - button "Add" [ref=f2e3934] [cursor=pointer]
+              - paragraph [ref=f2e3935]: Air Drop
+              - paragraph [ref=f2e3936]: Every Allied Heavy Commando Unit in or supporting this Platoon gains the Airborne Skill.
+              - paragraph [ref=f2e3937]: 1 command · 2 combat required
+            - generic [ref=f2e3938]:
+              - generic [ref=f2e3939]:
+                - generic [ref=f2e3940]: Allied Heavy Destroyer Platoon
+                - button "Add" [ref=f2e3941] [cursor=pointer]
+              - paragraph [ref=f2e3942]: Seek, Strike, Destroy
+              - paragraph [ref=f2e3943]: "The Officer leading this Platoon gains the following Skill : An Officer performing a Seek, Strike, Destroy Special Action rolls a die. On a roll of dice_block or dice_sight, they may place a Move Stimulants token on an M5-series Heavy Destroyer Walker (such as an M5A Bulldog) or an M10A2 or M10A3 Medium Tank in its Platoon that does not already have one."
+              - paragraph [ref=f2e3944]: 1 command · 2 combat required
+            - generic [ref=f2e3945]:
+              - generic [ref=f2e3946]:
+                - generic [ref=f2e3947]: USMC Rifle Platoon
+                - button "Add" [ref=f2e3948] [cursor=pointer]
+              - paragraph [ref=f2e3949]: Semper Fi
+              - paragraph [ref=f2e3950]: All USMC Units and any open-topped M3 Medium Combat Walkers (such as an M3A2 Mickey (Light) or M3G2 Barking Dog (Light) Walker) in or supporting this Platoon gain the Brave Skill.
+              - paragraph [ref=f2e3951]: 1 command · 4 combat required
+            - generic [ref=f2e3952]:
+              - generic [ref=f2e3953]:
+                - generic [ref=f2e3954]: USMC Heavy Assault Walker Platoon
+                - button "Add" [ref=f2e3955] [cursor=pointer]
+              - paragraph [ref=f2e3956]: Close Cooperation
+              - paragraph [ref=f2e3957]: When an M7 Heavy Assault Walker (such as an M7D Devastator) in or supporting this Platoon Activates, the player may select a USMC Unit that has not been activated and any Heroes that join it within Range (2), or carried as passengers by, the Walker. This Unit will Activate immediately after the Walker completes its Activation. The Unit's first Action must be a Move/ Marche Move Action.
+              - paragraph [ref=f2e3958]: 1 command · 3 combat required
+            - generic [ref=f2e3959]:
+              - generic [ref=f2e3960]:
+                - generic [ref=f2e3961]: USMC Taskforce Diver Platoon
+                - button "Add" [ref=f2e3962] [cursor=pointer]
+              - paragraph [ref=f2e3963]: Unflappable
+              - paragraph [ref=f2e3964]: All USMC Units and any M1 Light Assault Walkers (suchh as an M1A Wildfire or M1D Bushmaster) in or supporting this Platoon gain the Brave Skill. Additionally, any Units in or supporting this Platoon that already possess the Brave Skill can never be Suppressed and do not receive Under Fire or Suppression tokens.
+              - paragraph [ref=f2e3965]: 1 command · 2 combat required
+            - generic [ref=f2e3966]:
+              - generic [ref=f2e3967]:
+                - generic [ref=f2e3968]: Desert Scorpions Patrol Diver Platoon
+                - button "Add" [ref=f2e3969] [cursor=pointer]
+              - paragraph [ref=f2e3970]: Unflappable
+              - paragraph [ref=f2e3971]: All Desert Scorpions Units in or supporting this Platoon gain the Brave Skill. Additionally, any Desert Scorpions Units in or supporting this Platoon that already possess the Brave Skill can never be Suppressed and do not receive Under Fire or Suppression tokens.
+              - paragraph [ref=f2e3972]: 1 command · 2 combat required
+            - generic [ref=f2e3973]:
+              - generic [ref=f2e3974]:
+                - generic [ref=f2e3975]: Desert Scorpions Patrol Paratrooper Platoon
+                - button "Add" [ref=f2e3976] [cursor=pointer]
+              - paragraph [ref=f2e3977]: Air Drop
+              - paragraph [ref=f2e3978]: Every Desert Scorpions Heavy Commando Unit in or supporting this Platoon gains the Airborne Skill.
+              - paragraph [ref=f2e3979]: 1 command · 2 combat required
+            - generic [ref=f2e3980]:
+              - generic [ref=f2e3981]:
+                - generic [ref=f2e3982]: Desert Scorpions Patrol Gregory and Izzy Platoon
+                - button "Add" [ref=f2e3983] [cursor=pointer]
+              - paragraph [ref=f2e3984]: Need for Speed
+              - paragraph [ref=f2e3985]: "From the start of the game until they activate during the second turn, all Desert Scorpions' Trucks in or supporting this platoon receive the following bonuses to their saves : if they are in Open Ground, they are considered in Cover, saving any hits on dice_block ; if they are already in Cover, they pass their Cover saves on dice_shield and dice_block."
+              - paragraph [ref=f2e3986]: 1 command · 3 combat required
+            - generic [ref=f2e3987]:
+              - generic [ref=f2e3988]:
+                - generic [ref=f2e3989]: Desert Scorpions Patrol Marek Platoon
+                - button "Add" [ref=f2e3990] [cursor=pointer]
+              - paragraph [ref=f2e3991]: Heavy Drinkers
+              - paragraph [ref=f2e3992]: "Once per game at the start of his Activation, Marek can issue a Bottoms Up Special Free Action : All Desert Scorpions Kill Squads, Heavy Kill Squads, Heavy Engineer Squads in or in support of this platoon(and Heroes joined) gain the Expert Skill with their Ranged Weapons until the end of the turn."
+              - paragraph [ref=f2e3993]: 1 command · 3 combat required
+            - generic [ref=f2e3994]:
+              - generic [ref=f2e3995]:
+                - generic [ref=f2e3996]: Desert Scorpions Patrol Shaun Platoon
+                - button "Add" [ref=f2e3997] [cursor=pointer]
+              - paragraph [ref=f2e3998]: Know No Fear
+              - paragraph [ref=f2e3999]: Shaun McDermus gains the Follow Me Skill. All Desert Scorpion Assault Squads in or supporting this Platoon gain the Charge skill as long as Shaun is alive. In addition, if any enemy Mythos Creature or Lesser Mythos Creature is on the table, all Desert Scorpions Units in or supporting this Platoon are Immune to Suppression and Under Fire.
+              - paragraph [ref=f2e4000]: 1 command · 2 combat required
+            - generic [ref=f2e4001]:
+              - generic [ref=f2e4002]:
+                - generic [ref=f2e4003]: Desert Scorpions Patrol Maggie Platoon
+                - button "Add" [ref=f2e4004] [cursor=pointer]
+              - paragraph [ref=f2e4005]: Advanced Infiltration
+              - paragraph [ref=f2e4006]: All Desert Scorpions Sniper Squads in or supporting the Desert Scorpions Patrol Maggie Platoon gain the Scout Skill.
+              - paragraph [ref=f2e4007]: 1 command · 2 combat required
+            - generic [ref=f2e4008]: Mercenary platoons
+            - generic [ref=f2e4009]:
+              - generic [ref=f2e4010]:
+                - generic [ref=f2e4011]: Sister's Luisa Mercenary Platoon
+                - button "Add" [ref=f2e4012] [cursor=pointer]
+              - paragraph [ref=f2e4013]: Go Get'Em Girls!
+              - paragraph [ref=f2e4014]: Mercenaries in or supporting this Platoon roll a die at the start of their Activation. On a dice_block or dice_sight, the Unit gains Brave for this Activation.
+              - paragraph [ref=f2e4015]: 1 command · 2 combat required
+            - generic [ref=f2e4016]:
+              - generic [ref=f2e4017]:
+                - generic [ref=f2e4018]: Task Force Tanya
+                - button "Add" [ref=f2e4019] [cursor=pointer]
+              - paragraph [ref=f2e4020]: Dig In Girls!
+              - paragraph [ref=f2e4021]: Mercenaries and Support Weapon Teams in or supporting this Platoon gain the Defensive Tactics Skill whenerver they are within Range 2 of Tanya. Additionally, once per game a Mercenary Unit within Range 2 of Tanya can force a successful Attack roll against that Unit to be rerolled. The Unit and successful Attack roll do not have to be declared until after the roll.
+              - paragraph [ref=f2e4022]: 1 command · 2 combat required
+        - generic [ref=f2e4024]:
+          - generic [ref=f2e4025]:
+            - generic [ref=f2e4026]:
+              - heading "Independent units" [level=3] [ref=f2e4027]
+              - generic [ref=f2e4028]: Outside platoons
+            - generic [ref=f2e4029]:
+              - generic [ref=f2e4030]: "21"
+              - text: pts
+          - generic [ref=f2e4031]:
+            - generic [ref=f2e4032]:
+              - button "Action Jackson Hero · Armor 3" [ref=f2e4033] [cursor=pointer]:
+                - generic [ref=f2e4034]: Action Jackson
+                - generic [ref=f2e4035]: Hero · Armor 3
+              - generic [ref=f2e4036]: "12"
+              - generic [ref=f2e4037]:
+                - combobox "Attach Action Jackson" [ref=f2e4038]:
+                  - option "Alone" [selected]
+                - button "Duplicate" [ref=f2e4039] [cursor=pointer]: ⧉
+                - button "Remove Action Jackson" [ref=f2e4040] [cursor=pointer]: ✕
+            - generic [ref=f2e4041]:
+              - button "Bazooka Joe Hero · Armor 2" [ref=f2e4042] [cursor=pointer]:
+                - generic [ref=f2e4043]: Bazooka Joe
+                - generic [ref=f2e4044]: Hero · Armor 2
+              - generic [ref=f2e4045]: "9"
+              - generic [ref=f2e4046]:
+                - combobox "Attach Bazooka Joe" [ref=f2e4047]:
+                  - option "Alone" [selected]
+                - button "Duplicate" [ref=f2e4048] [cursor=pointer]: ⧉
+                - button "Remove Bazooka Joe" [ref=f2e4049] [cursor=pointer]: ✕
+  - contentinfo [ref=f2e4]:
+    - generic [ref=f2e5]: Created by L'Heure du Loir
+  - status [ref=f2e2390]:
+    - text: Bazooka Joe removed
+    - button "Cancel" [ref=f2e4050] [cursor=pointer]

@@ -1,0 +1,228 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e6]
+      - group [ref=e7]:
+        - button "Army Builder" [pressed] [ref=e8] [cursor=pointer]
+        - button "Admin" [ref=e11] [cursor=pointer]
+      - generic [ref=e86]: 114/110 Punkte
+  - generic [ref=e14]:
+    - alert [ref=e15]:
+      - generic [ref=e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Armeen" [level=6] [ref=e23]
+        - separator [ref=e24]
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic: Game System
+              - generic [ref=e28]:
+                - combobox "Game System" [ref=e29] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=e30]:
+              - generic: Bloc
+              - generic [ref=e31]:
+                - combobox "Bloc" [ref=e32] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=e33]:
+              - button "Aktualisieren" [ref=e34] [cursor=pointer]
+              - button "Neue Armee" [ref=e35] [cursor=pointer]
+              - button "Löschen" [ref=e36] [cursor=pointer]
+          - list [ref=e37]:
+            - button "Star Wars Droiden Armee 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=e114] [cursor=pointer]:
+              - generic [ref=e39]:
+                - generic [ref=e40]: Star Wars Droiden Armee
+                - paragraph [ref=e41]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=e42] [cursor=pointer]:
+              - generic [ref=e43]:
+                - generic [ref=e44]: Star Wars Clone Army
+                - paragraph [ref=e45]: 52/100 Punkte • Star Wars Republik (Star Wars)
+            - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=e46] [cursor=pointer]:
+              - generic [ref=e47]:
+                - generic [ref=e48]: next stepp
+                - paragraph [ref=e49]: 107/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friezillas 0/100 Punkte • Imperium (Warhammer 40k)" [ref=e50] [cursor=pointer]:
+              - generic [ref=e51]:
+                - generic [ref=e52]: Friezillas
+                - paragraph [ref=e53]: 0/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friedas Rache 114/110 Punkte • Imperium (Warhammer 40k)" [ref=e115] [cursor=pointer]:
+              - generic [ref=e55]:
+                - generic [ref=e56]: Friedas Rache
+                - paragraph [ref=e57]: 114/110 Punkte • Imperium (Warhammer 40k)
+            - button "Dust SSU 38/100 Punkte • SSU (Dust 1947)" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]:
+                - generic [ref=e60]: Dust SSU
+                - paragraph [ref=e61]: 38/100 Punkte • SSU (Dust 1947)
+            - button "Andreas Verteidiger 102/100 Punkte • Aeldari (Warhammer 40k)" [ref=e62] [cursor=pointer]:
+              - generic [ref=e63]:
+                - generic [ref=e64]: Andreas Verteidiger
+                - paragraph [ref=e65]: 102/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=e66]:
+        - 'heading "Armee: Friedas Rache (Imperium • Warhammer 40k)" [level=6] [ref=e116]'
+        - separator [ref=e69]
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - button "Bearbeiten" [ref=e72] [cursor=pointer]
+            - button "Klonen" [ref=e73] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=e74] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=e75] [cursor=pointer]
+          - paragraph [ref=e76]: Platoons
+          - generic [ref=e90]:
+            - alert [ref=e91]:
+              - generic [ref=e95]:
+                - strong [ref=e96]: Faction Force
+                - text: "• 114/110 AP • Bonus: 14/10 AP"
+            - alert [ref=e119]:
+              - generic [ref=e123]: "Regel 6: Die Armee überschreitet selbst mit Faction-Bonus das maximale Limit von 110 AP."
+          - generic [ref=e124]:
+            - paragraph [ref=e125]: Freie Einheiten
+            - list [ref=e126]:
+              - listitem [ref=e127]:
+                - button "1× Chaplain (Jump Pack) 1 × 17 AP = 17 AP" [ref=e128] [cursor=pointer]:
+                  - generic [ref=e129]:
+                    - generic [ref=e130]: 1× Chaplain (Jump Pack)
+                    - paragraph [ref=e131]: 1 × 17 AP = 17 AP
+                - button "Entfernen" [ref=e133] [cursor=pointer]
+              - listitem [ref=e134]:
+                - button "1× Devastator Squad (2x ML) 1 × 14 AP = 14 AP" [ref=e135] [cursor=pointer]:
+                  - generic [ref=e136]:
+                    - generic [ref=e137]: 1× Devastator Squad (2x ML)
+                    - paragraph [ref=e138]: 1 × 14 AP = 14 AP
+                - button "Entfernen" [ref=e140] [cursor=pointer]
+              - listitem [ref=e141]:
+                - button "1× Assault Squad (Jump Pack + Flame + E-Fist) 1 × 16 AP = 16 AP" [ref=e142] [cursor=pointer]:
+                  - generic [ref=e143]:
+                    - generic [ref=e144]: 1× Assault Squad (Jump Pack + Flame + E-Fist)
+                    - paragraph [ref=e145]: 1 × 16 AP = 16 AP
+                - button "Entfernen" [ref=e147] [cursor=pointer]
+              - listitem [ref=e148]:
+                - button "1× Predator Annihilator Tank 1 × 26 AP = 26 AP" [ref=e149] [cursor=pointer]:
+                  - generic [ref=e150]:
+                    - generic [ref=e151]: 1× Predator Annihilator Tank
+                    - paragraph [ref=e152]: 1 × 26 AP = 26 AP
+                - button "Entfernen" [ref=e154] [cursor=pointer]
+              - listitem [ref=e155]:
+                - button "1× Predator Destructor Tank 1 × 29 AP = 29 AP" [ref=e156] [cursor=pointer]:
+                  - generic [ref=e157]:
+                    - generic [ref=e158]: 1× Predator Destructor Tank
+                    - paragraph [ref=e159]: 1 × 29 AP = 29 AP
+                - button "Entfernen" [ref=e161] [cursor=pointer]
+              - listitem [ref=e162]:
+                - button "1× Tactical Squad (Plasma Pistol & Energie Sword) 1 × 12 AP = 12 AP" [active] [ref=e163] [cursor=pointer]:
+                  - generic [ref=e164]:
+                    - generic [ref=e165]: 1× Tactical Squad (Plasma Pistol & Energie Sword)
+                    - paragraph [ref=e166]: 1 × 12 AP = 12 AP
+                - button "Entfernen" [ref=e168] [cursor=pointer]
+      - generic [ref=e80]:
+        - heading "Details" [level=6] [ref=e82]
+        - separator [ref=e83]
+        - generic [ref=e485]:
+          - button "Karte als Bild exportieren" [ref=e487] [cursor=pointer]
+          - generic [ref=e490]:
+            - generic [ref=e491]:
+              - generic "Space Marines" [ref=e492]:
+                - img "Space Marines" [ref=e493]
+              - generic [ref=e494]:
+                - generic [ref=e495]: Tactical Squad (Plasma Pistol & Energie Sword)
+                - generic [ref=e496]: Space Marines · Infantry
+            - generic [ref=e497]:
+              - generic [ref=e498]:
+                - img "Tactical Squad (Plasma Pistol & Energie Sword)" [ref=e499]
+                - generic "Army Points" [ref=e500]:
+                  - generic [ref=e501]: AP
+                  - generic [ref=e502]: "12"
+              - generic [ref=e503]:
+                - generic [ref=e504]:
+                  - strong [ref=e505]: "DAMAGE RESILIENT:"
+                  - text: Roll one die for each point of Damage the Unit Takes, negating one point for each [symbol] rolled. Does not apply to Units Joined.
+                - generic [ref=e506]:
+                  - strong [ref=e507]: "PHASER WEAPONS:"
+                  - text: Units hit by phaser weapons do not receive a cover save, but infantry units retain their infantry save.
+            - generic [ref=e508]:
+              - generic [ref=e509]:
+                - generic [ref=e510]: Weapon
+                - generic [ref=e511]: Range
+                - generic [ref=e512]: Arc
+                - generic [ref=e513]: Infantry
+                - generic [ref=e514]: Vehicle
+                - generic [ref=e515]: Aircraft / AA
+              - generic [ref=e516]:
+                - generic [ref=e520]: "1"
+                - generic [ref=e521]: "2"
+                - generic [ref=e522]: "3"
+                - generic [ref=e523]: "4"
+                - generic [ref=e524]: "1"
+                - generic [ref=e525]: "2"
+                - generic [ref=e526]: "3"
+                - generic [ref=e527]: "4"
+                - generic [ref=e528]: "5"
+                - generic [ref=e529]: "6"
+                - generic [ref=e530]: "7"
+                - generic [ref=e531]: "1"
+                - generic [ref=e532]: "2"
+                - generic [ref=e533]: "3"
+              - generic [ref=e534]:
+                - generic [ref=e535]: 4x Boltgun
+                - generic [ref=e537]: "4"
+                - generic [ref=e538]: –
+                - generic [ref=e539]: 1/1
+                - generic [ref=e540]: 3/1
+                - generic [ref=e541]: 3/1
+                - generic [ref=e542]: 3/1
+                - generic [ref=e543]: 1/2
+                - generic [ref=e544]: 1/1
+                - generic [ref=e545]: 1/1
+                - generic [ref=e546]: –
+                - generic [ref=e547]: –
+                - generic [ref=e548]: –
+                - generic [ref=e549]: –
+                - generic [ref=e550]: 2/1
+                - generic [ref=e551]: 1/1
+                - generic [ref=e552]: –
+              - generic [ref=e553]:
+                - generic [ref=e554]: 1x Plasma Pistol
+                - generic [ref=e556]: "2"
+                - generic [ref=e557]: –
+                - generic [ref=e558]: 2/1
+                - generic [ref=e559]: 2/1
+                - generic [ref=e560]: 2/1
+                - generic [ref=e561]: 2/1
+                - generic [ref=e562]: 1/#
+                - generic [ref=e563]: 1/4
+                - generic [ref=e564]: 1/3
+                - generic [ref=e565]: 1/2
+                - generic [ref=e566]: 1/2
+                - generic [ref=e567]: 1/1
+                - generic [ref=e568]: 1/1
+                - generic [ref=e569]: –
+                - generic [ref=e570]: –
+                - generic [ref=e571]: –
+              - generic [ref=e572]:
+                - generic [ref=e573]: 1x Energie Sword
+                - generic [ref=e575]: C
+                - generic [ref=e576]: –
+                - generic [ref=e577]: 1/1
+                - generic [ref=e578]: 1/1
+                - generic [ref=e579]: 1/1
+                - generic [ref=e580]: 1/1
+                - generic [ref=e581]: 1/2
+                - generic [ref=e582]: 1/2
+                - generic [ref=e583]: 1/2
+                - generic [ref=e584]: 1/2
+                - generic [ref=e585]: 1/2
+                - generic [ref=e586]: 1/2
+                - generic [ref=e587]: 1/2
+                - generic [ref=e588]: –
+                - generic [ref=e589]: –
+                - generic [ref=e590]: –
+            - generic [ref=e627]:
+              - generic [ref=e628]: ➜ 2 ⇛ 3
+              - generic "Infantry" [ref=e629]:
+                - img "I icon" [ref=e630]
+                - generic [ref=e631]: "3"
+              - generic "Health" [ref=e632]: "1"

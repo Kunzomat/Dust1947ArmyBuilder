@@ -1,0 +1,125 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e6]
+      - group [ref=e7]:
+        - button "Army Builder" [pressed] [ref=e8] [cursor=pointer]
+        - button "Admin" [ref=e11] [cursor=pointer]
+      - generic [ref=e59]: 114/110 Punkte
+  - generic [ref=e14]:
+    - alert [ref=e15]:
+      - generic [ref=e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Armeen" [level=6] [ref=e23]
+        - separator [ref=e24]
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic: Game System
+              - generic [ref=e28]:
+                - combobox "Game System" [ref=e29] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=e30]:
+              - generic: Bloc
+              - generic [ref=e31]:
+                - combobox "Bloc" [ref=e32] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=e33]:
+              - button "Aktualisieren" [ref=e34] [cursor=pointer]
+              - button "Neue Armee" [ref=e35] [cursor=pointer]
+              - button "Löschen" [ref=e61] [cursor=pointer]
+          - list [ref=e62]:
+            - button "Star Wars Droiden Armee 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=e117] [cursor=pointer]:
+              - generic [ref=e64]:
+                - generic [ref=e65]: Star Wars Droiden Armee
+                - paragraph [ref=e66]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=e67] [cursor=pointer]:
+              - generic [ref=e68]:
+                - generic [ref=e69]: Star Wars Clone Army
+                - paragraph [ref=e70]: 52/100 Punkte • Star Wars Republik (Star Wars)
+            - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=e71] [cursor=pointer]:
+              - generic [ref=e72]:
+                - generic [ref=e73]: next stepp
+                - paragraph [ref=e74]: 107/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friezillas 0/100 Punkte • Imperium (Warhammer 40k)" [ref=e75] [cursor=pointer]:
+              - generic [ref=e76]:
+                - generic [ref=e77]: Friezillas
+                - paragraph [ref=e78]: 0/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friedas Rache 114/110 Punkte • Imperium (Warhammer 40k)" [active] [ref=e118] [cursor=pointer]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: Friedas Rache
+                - paragraph [ref=e82]: 114/110 Punkte • Imperium (Warhammer 40k)
+            - button "Dust SSU 38/100 Punkte • SSU (Dust 1947)" [ref=e83] [cursor=pointer]:
+              - generic [ref=e84]:
+                - generic [ref=e85]: Dust SSU
+                - paragraph [ref=e86]: 38/100 Punkte • SSU (Dust 1947)
+            - button "Andreas Verteidiger 102/100 Punkte • Aeldari (Warhammer 40k)" [ref=e87] [cursor=pointer]:
+              - generic [ref=e88]:
+                - generic [ref=e89]: Andreas Verteidiger
+                - paragraph [ref=e90]: 102/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=e39]:
+        - 'heading "Armee: Friedas Rache (Imperium • Warhammer 40k)" [level=6] [ref=e119]'
+        - separator [ref=e42]
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - button "Bearbeiten" [ref=e45] [cursor=pointer]
+            - button "Klonen" [ref=e46] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=e47] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=e48] [cursor=pointer]
+            - button "Armeekarten als PDF exportieren" [ref=e92] [cursor=pointer]
+          - paragraph [ref=e49]: Platoons
+          - generic [ref=e93]:
+            - alert [ref=e94]:
+              - generic [ref=e98]:
+                - strong [ref=e99]: Faction Force
+                - text: "• 114/110 AP • Bonus: 14/10 AP"
+            - alert [ref=e122]:
+              - generic [ref=e126]: "Regel 6: Die Armee überschreitet selbst mit Faction-Bonus das maximale Limit von 110 AP."
+          - generic [ref=e127]:
+            - paragraph [ref=e128]: Freie Einheiten
+            - list [ref=e129]:
+              - listitem [ref=e130]:
+                - button "1× Chaplain (Jump Pack) 1 × 17 AP = 17 AP" [ref=e131] [cursor=pointer]:
+                  - generic [ref=e132]:
+                    - generic [ref=e133]: 1× Chaplain (Jump Pack)
+                    - paragraph [ref=e134]: 1 × 17 AP = 17 AP
+                - button "Entfernen" [ref=e136] [cursor=pointer]
+              - listitem [ref=e137]:
+                - button "1× Devastator Squad (2x ML) 1 × 14 AP = 14 AP" [ref=e138] [cursor=pointer]:
+                  - generic [ref=e139]:
+                    - generic [ref=e140]: 1× Devastator Squad (2x ML)
+                    - paragraph [ref=e141]: 1 × 14 AP = 14 AP
+                - button "Entfernen" [ref=e143] [cursor=pointer]
+              - listitem [ref=e144]:
+                - button "1× Assault Squad (Jump Pack + Flame + E-Fist) 1 × 16 AP = 16 AP" [ref=e145] [cursor=pointer]:
+                  - generic [ref=e146]:
+                    - generic [ref=e147]: 1× Assault Squad (Jump Pack + Flame + E-Fist)
+                    - paragraph [ref=e148]: 1 × 16 AP = 16 AP
+                - button "Entfernen" [ref=e150] [cursor=pointer]
+              - listitem [ref=e151]:
+                - button "1× Predator Annihilator Tank 1 × 26 AP = 26 AP" [ref=e152] [cursor=pointer]:
+                  - generic [ref=e153]:
+                    - generic [ref=e154]: 1× Predator Annihilator Tank
+                    - paragraph [ref=e155]: 1 × 26 AP = 26 AP
+                - button "Entfernen" [ref=e157] [cursor=pointer]
+              - listitem [ref=e158]:
+                - button "1× Predator Destructor Tank 1 × 29 AP = 29 AP" [ref=e159] [cursor=pointer]:
+                  - generic [ref=e160]:
+                    - generic [ref=e161]: 1× Predator Destructor Tank
+                    - paragraph [ref=e162]: 1 × 29 AP = 29 AP
+                - button "Entfernen" [ref=e164] [cursor=pointer]
+              - listitem [ref=e165]:
+                - button "1× Tactical Squad (Plasma Pistol & Energie Sword) 1 × 12 AP = 12 AP" [ref=e166] [cursor=pointer]:
+                  - generic [ref=e167]:
+                    - generic [ref=e168]: 1× Tactical Squad (Plasma Pistol & Energie Sword)
+                    - paragraph [ref=e169]: 1 × 12 AP = 12 AP
+                - button "Entfernen" [ref=e171] [cursor=pointer]
+      - generic [ref=e53]:
+        - heading "Details" [level=6] [ref=e55]
+        - separator [ref=e56]
+        - paragraph [ref=e58]: Einheit auswählen…

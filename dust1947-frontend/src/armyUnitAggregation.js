@@ -69,6 +69,17 @@ export function aggregateArmyUnits(units = []) {
   return [...groups.values()];
 }
 
+// One entry per physical unit: every army_units row (free, platoon and
+// support units alike) repeated `quantity` times, in army order.
+export function expandArmyUnitsByQuantity(units = []) {
+  const expanded = [];
+  for (const unit of units) {
+    const count = unitQuantity(unit);
+    for (let i = 0; i < count; i += 1) expanded.push(unit);
+  }
+  return expanded;
+}
+
 export function getRemovalRequest(group) {
   const unit = group?.units?.[0];
   if (!unit?.army_unit_id) {

@@ -1,12 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Paper, Typography, Stack, Button, Box, CircularProgress } from "@mui/material";
-import html2canvas from "html2canvas";
-import CardBack from "./CardBack";
-import CardFront from "./CardFront"; // ✅ neu
+import { Typography, Stack, Button, Box, CircularProgress } from "@mui/material";
+import CardFront from "./CardFront";
 import { apiCall } from "../apiClient";
-
-const CARD_WIDTH = 500;
-const CARD_HEIGHT = 676;
+import { CARD_WIDTH, CARD_HEIGHT, getFactionColor, renderCardElementToCanvas } from "../utils/cardExport";
 
 export function getUnitCardFrameStyle() {
   return {
@@ -18,130 +14,86 @@ export function getUnitCardFrameStyle() {
   };
 }
 
-function UnitCard({ unitId, onBack }) {
+function UnitCard({ unitId }) {
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [side, setSide] = useState("front");
   const cardRef = useRef();
 
-	useEffect(() => {
-	  if (!unitId) return;
+  useEffect(() => {
+    if (!unitId) return;
 
-	  let cancelled = false;
-	  setLoading(true);
+    let cancelled = false;
+    setLoading(true);
 
-	  async function load() {
-		try {
-		  const res = await apiCall("unit.get", { id: unitId });
+    async function load() {
+      try {
+        const res = await apiCall("unit.get", { id: unitId });
+        if (!cancelled) {
+          setDetails(res.unit);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    }
 
-		  if (!cancelled) {
-			setDetails(res.unit); // ← passt exakt zur API
-		  }
-		} catch (err) {
-		  console.error(err);
-		} finally {
-		  if (!cancelled) {
-			setLoading(false);
-		  }
-		}
-	  }
+    load();
 
-	  load();
+    return () => {
+      cancelled = true;
+    };
+  }, [unitId]);
 
-	  return () => {
-		cancelled = true;
-	  };
-	}, [unitId]);
+  const handleExportImage = async () => {
+    if (!details || !cardRef.current) return;
 
-	const handleExportImage = async () => {
-	  if (!details || !cardRef.current) return;
+    const canvas = await renderCardElementToCanvas(cardRef.current);
 
-	  // Warten, bis alle Bilder vollständig geladen sind
-	  const images = cardRef.current.querySelectorAll("img");
-	  await Promise.all(
-		Array.from(images).map(
-		  (img) =>
-			new Promise((resolve) => {
-			  if (img.complete) resolve();
-			  else img.onload = img.onerror = resolve;
-			})
-		)
-	  );
-
-	  const canvas = await html2canvas(cardRef.current, {
-		useCORS: true,                 // 🔧 wichtig für externe/public Bilder
-		allowTaint: false,
-		backgroundColor: null,         // 🔧 erhält transparente / farbige Hintergründe
-		width: 999,
-		height: 676,
-		scale: 2,                      // 🔧 doppelte Auflösung = gestochen scharf
-		logging: false,
-	  });
-
-	  const imgData = canvas.toDataURL("image/png");
-	  const win = window.open();
-	  win.document.write(`
-		<title>${details.name}</title>
-		<img src="${imgData}" width="999" height="676" style="border-radius:12px;"/>
-	  `);
-	};
+    const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+    if (!blob) return;
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    const safeName = String(details.name || "unit").replace(/[^\w-]+/g, "_");
+    link.href = url;
+    link.download = `${safeName}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
 
   if (loading) return <CircularProgress sx={{ m: 5 }} />;
   if (!details) return <Typography>Keine Details verfügbar</Typography>;
 
-  // 🎨 Fraktionsfarben dynamisch nach ID
-  const factionColorsById = {
-    1: "#3f6fb5", // Allies
-    2: "#FF4500", // Axis
-    3: "#FFB90F", // SSU
-    4: "#4a7845", // Mercenaries
-    5: "#744d96", // Mythos
-  };
-
-  const bgColor = factionColorsById[details.faction_id] || "#3f6fb5";
+  const bgColor = getFactionColor(details.faction_id);
 
   return (
-	<Box>
-	<Stack direction="row" spacing={1} sx={{ mb: 1 }}>
-		<Button size="small" variant="outlined"
-			onClick={() => setSide((prev) => (prev === "front" ? "back" : "front"))}
-		>
-			{side === "front" ? "Rückseite anzeigen" : "Vorderseite anzeigen"}
-		</Button>
-
-	</Stack>
-    <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
-		<Box
-		  ref={cardRef}
-		  sx={{
-			...getUnitCardFrameStyle(),
-			display: "flex",
-			background: "#FFFFFF",
-			border: "1px solid #000000",
-			boxSizing: "border-box",
-			overflow: "hidden",
-		  }}
-		>
-		  {side === "front" ? (
-			<CardFront details={details} bgColor={bgColor} />
-		  ) : (
-			<CardBack
-			  weapons={details.weapons}
-			  faction={details.faction}
-			  points={details.points}
-			  bgColor={bgColor}
-			  unitName={details.name}
-			  specialRules={details.special_rules}
-			  type={details.type}
-			  level={details.level}
-			  speed={details.speed}
-			  health={details.health}
-			  marchSpeed={details.march_speed}
-			/>
-		  )}
-		</Box>
-    </Stack>
-	</Box>
+    <Box>
+      <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
+        <Button size="small" variant="text" onClick={handleExportImage}>
+          Karte als Bild exportieren
+        </Button>
+      </Stack>
+      <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
+        <Box
+          ref={cardRef}
+          data-card-export-root="true"
+          sx={{
+            ...getUnitCardFrameStyle(),
+            display: "flex",
+            background: "#000000",
+            border: "1px solid #000000",
+            boxSizing: "border-box",
+            overflow: "hidden",
+          }}
+        >
+          <CardFront details={details} bgColor={bgColor} />
+        </Box>
+      </Stack>
+    </Box>
   );
 }
 

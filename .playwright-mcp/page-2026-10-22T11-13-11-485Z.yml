@@ -1,0 +1,210 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e6]
+      - group [ref=e7]:
+        - button "Army Builder" [pressed] [ref=e8] [cursor=pointer]
+        - button "Admin" [ref=e11] [cursor=pointer]
+      - generic [ref=e86]: 114/110 Punkte
+  - generic [ref=e14]:
+    - alert [ref=e15]:
+      - generic [ref=e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Armeen" [level=6] [ref=e23]
+        - separator [ref=e24]
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic: Game System
+              - generic [ref=e28]:
+                - combobox "Game System" [ref=e29] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=e30]:
+              - generic: Bloc
+              - generic [ref=e31]:
+                - combobox "Bloc" [ref=e32] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=e33]:
+              - button "Aktualisieren" [ref=e34] [cursor=pointer]
+              - button "Neue Armee" [ref=e35] [cursor=pointer]
+              - button "Löschen" [ref=e36] [cursor=pointer]
+          - list [ref=e37]:
+            - button "Star Wars Droiden Armee 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=e114] [cursor=pointer]:
+              - generic [ref=e39]:
+                - generic [ref=e40]: Star Wars Droiden Armee
+                - paragraph [ref=e41]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=e42] [cursor=pointer]:
+              - generic [ref=e43]:
+                - generic [ref=e44]: Star Wars Clone Army
+                - paragraph [ref=e45]: 52/100 Punkte • Star Wars Republik (Star Wars)
+            - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=e46] [cursor=pointer]:
+              - generic [ref=e47]:
+                - generic [ref=e48]: next stepp
+                - paragraph [ref=e49]: 107/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friezillas 0/100 Punkte • Imperium (Warhammer 40k)" [ref=e50] [cursor=pointer]:
+              - generic [ref=e51]:
+                - generic [ref=e52]: Friezillas
+                - paragraph [ref=e53]: 0/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friedas Rache 114/110 Punkte • Imperium (Warhammer 40k)" [ref=e115] [cursor=pointer]:
+              - generic [ref=e55]:
+                - generic [ref=e56]: Friedas Rache
+                - paragraph [ref=e57]: 114/110 Punkte • Imperium (Warhammer 40k)
+            - button "Dust SSU 38/100 Punkte • SSU (Dust 1947)" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]:
+                - generic [ref=e60]: Dust SSU
+                - paragraph [ref=e61]: 38/100 Punkte • SSU (Dust 1947)
+            - button "Andreas Verteidiger 102/100 Punkte • Aeldari (Warhammer 40k)" [ref=e62] [cursor=pointer]:
+              - generic [ref=e63]:
+                - generic [ref=e64]: Andreas Verteidiger
+                - paragraph [ref=e65]: 102/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=e66]:
+        - 'heading "Armee: Friedas Rache (Imperium • Warhammer 40k)" [level=6] [ref=e116]'
+        - separator [ref=e69]
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - button "Bearbeiten" [ref=e72] [cursor=pointer]
+            - button "Klonen" [ref=e73] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=e74] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=e75] [cursor=pointer]
+          - paragraph [ref=e76]: Platoons
+          - generic [ref=e90]:
+            - alert [ref=e91]:
+              - generic [ref=e95]:
+                - strong [ref=e96]: Faction Force
+                - text: "• 114/110 AP • Bonus: 14/10 AP"
+            - alert [ref=e119]:
+              - generic [ref=e123]: "Regel 6: Die Armee überschreitet selbst mit Faction-Bonus das maximale Limit von 110 AP."
+          - generic [ref=e124]:
+            - paragraph [ref=e125]: Freie Einheiten
+            - list [ref=e126]:
+              - listitem [ref=e127]:
+                - button "1× Chaplain (Jump Pack) 1 × 17 AP = 17 AP" [active] [ref=e128] [cursor=pointer]:
+                  - generic [ref=e129]:
+                    - generic [ref=e130]: 1× Chaplain (Jump Pack)
+                    - paragraph [ref=e131]: 1 × 17 AP = 17 AP
+                - button "Entfernen" [ref=e133] [cursor=pointer]
+              - listitem [ref=e134]:
+                - button "1× Devastator Squad (2x ML) 1 × 14 AP = 14 AP" [ref=e135] [cursor=pointer]:
+                  - generic [ref=e136]:
+                    - generic [ref=e137]: 1× Devastator Squad (2x ML)
+                    - paragraph [ref=e138]: 1 × 14 AP = 14 AP
+                - button "Entfernen" [ref=e140] [cursor=pointer]
+              - listitem [ref=e141]:
+                - button "1× Assault Squad (Jump Pack + Flame + E-Fist) 1 × 16 AP = 16 AP" [ref=e142] [cursor=pointer]:
+                  - generic [ref=e143]:
+                    - generic [ref=e144]: 1× Assault Squad (Jump Pack + Flame + E-Fist)
+                    - paragraph [ref=e145]: 1 × 16 AP = 16 AP
+                - button "Entfernen" [ref=e147] [cursor=pointer]
+              - listitem [ref=e148]:
+                - button "1× Predator Annihilator Tank 1 × 26 AP = 26 AP" [ref=e149] [cursor=pointer]:
+                  - generic [ref=e150]:
+                    - generic [ref=e151]: 1× Predator Annihilator Tank
+                    - paragraph [ref=e152]: 1 × 26 AP = 26 AP
+                - button "Entfernen" [ref=e154] [cursor=pointer]
+              - listitem [ref=e155]:
+                - button "1× Predator Destructor Tank 1 × 29 AP = 29 AP" [ref=e156] [cursor=pointer]:
+                  - generic [ref=e157]:
+                    - generic [ref=e158]: 1× Predator Destructor Tank
+                    - paragraph [ref=e159]: 1 × 29 AP = 29 AP
+                - button "Entfernen" [ref=e161] [cursor=pointer]
+              - listitem [ref=e162]:
+                - button "1× Tactical Squad (Plasma Pistol & Energie Sword) 1 × 12 AP = 12 AP" [ref=e163] [cursor=pointer]:
+                  - generic [ref=e164]:
+                    - generic [ref=e165]: 1× Tactical Squad (Plasma Pistol & Energie Sword)
+                    - paragraph [ref=e166]: 1 × 12 AP = 12 AP
+                - button "Entfernen" [ref=e168] [cursor=pointer]
+      - generic [ref=e80]:
+        - heading "Details" [level=6] [ref=e82]
+        - separator [ref=e83]
+        - generic [ref=e169]:
+          - button "Karte als Bild exportieren" [ref=e171] [cursor=pointer]
+          - generic [ref=e174]:
+            - generic [ref=e175]:
+              - generic "Space Marines" [ref=e176]:
+                - img "Space Marines" [ref=e177]
+              - generic [ref=e178]:
+                - generic [ref=e179]: Chaplain (Jump Pack)
+                - generic [ref=e180]: Space Marines · Hero
+            - generic [ref=e181]:
+              - generic [ref=e182]:
+                - img "Chaplain (Jump Pack)" [ref=e183]
+                - generic "Army Points" [ref=e184]:
+                  - generic [ref=e185]: AP
+                  - generic [ref=e186]: "17"
+                - generic [ref=e187]: ★ UNIQUE
+              - generic [ref=e188]:
+                - generic [ref=e189]:
+                  - strong [ref=e190]: "BERSERK:"
+                  - text: When hero hits with a close-combat weapon, roll again scoring another hit on [Symbol]. Continue rolling until fail to hit. Does not apply to units joined.
+                - generic [ref=e191]:
+                  - strong [ref=e192]: "CHARGE:"
+                  - text: May take a free Close-Combat Action after performing a March Move Action.
+                - generic [ref=e193]:
+                  - strong [ref=e194]: "DAMAGE RESILIENT:"
+                  - text: Roll one die for each point of Damage the Unit Takes, negating one point for each [symbol] rolled. Does not apply to Units Joined.
+                - generic [ref=e195]:
+                  - strong [ref=e196]: "EXPERT (Energie Fist):"
+                  - text: Hit more reliably with specific weapon
+                - generic [ref=e197]:
+                  - strong [ref=e198]: "FIRST STRIKE:"
+                  - text: Resolves Close-Combat Attacks before target resolves theirs.
+                - generic [ref=e199]:
+                  - strong [ref=e200]: "FLYING:"
+                  - text: Pass over units/terrain, only flying units can join
+            - generic [ref=e201]:
+              - generic [ref=e202]:
+                - generic [ref=e203]: Weapon
+                - generic [ref=e204]: Rng
+                - generic [ref=e205]: Arc
+                - generic [ref=e206]: Inf
+                - generic [ref=e207]: Veh
+              - generic [ref=e208]:
+                - generic [ref=e212]: "1"
+                - generic [ref=e213]: "2"
+                - generic [ref=e214]: "3"
+                - generic [ref=e215]: "4"
+                - generic [ref=e216]: "1"
+                - generic [ref=e217]: "2"
+                - generic [ref=e218]: "3"
+                - generic [ref=e219]: "4"
+                - generic [ref=e220]: "5"
+                - generic [ref=e221]: "6"
+                - generic [ref=e222]: "7"
+              - generic [ref=e223]:
+                - generic [ref=e224]: 1x Bolt Pistol
+                - generic [ref=e226]: "2"
+                - generic [ref=e227]: "-"
+                - generic [ref=e228]: 3/1
+                - generic [ref=e229]: 3/1
+                - generic [ref=e230]: 2/1
+                - generic [ref=e231]: 1/1
+                - generic [ref=e232]: 1/2
+                - generic [ref=e233]: 1/1
+                - generic [ref=e234]: 1/1
+              - generic [ref=e239]:
+                - generic [ref=e240]: 1x Energie Fist
+                - generic [ref=e242]: C
+                - generic [ref=e243]: "-"
+                - generic [ref=e244]: 1/1
+                - generic [ref=e245]: 1/1
+                - generic [ref=e246]: 1/1
+                - generic [ref=e247]: 1/1
+                - generic [ref=e248]: 1/3
+                - generic [ref=e249]: 1/3
+                - generic [ref=e250]: 1/3
+                - generic [ref=e251]: 1/3
+                - generic [ref=e252]: 1/3
+                - generic [ref=e253]: 1/3
+                - generic [ref=e254]: 1/3
+            - generic [ref=e255]:
+              - generic [ref=e256]: ➜ 3 ⇛ 6
+              - generic "Hero" [ref=e257]:
+                - img "H icon" [ref=e258]
+                - generic [ref=e259]: "3"
+              - generic "Health" [ref=e260]: "4"
+              - generic [ref=e269]: Hero

@@ -1,0 +1,256 @@
+- generic [ref=e3] [box=0,0,1585,1000]:
+  - banner [ref=e4] [box=0,0,1585,64]:
+    - generic [ref=e5] [box=0,0,1585,64]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e6] [box=24,16,1186,32]
+      - group [ref=e7] [box=1210,13,216,39]:
+        - button "Army Builder" [pressed] [ref=e8] [cursor=pointer] [box=1210,13,134,39]
+        - button "Admin" [ref=e11] [cursor=pointer] [box=1343,13,83,39]
+      - generic [ref=e86] [box=1442,16,119,32]: 114/110 Punkte
+  - generic [ref=e14] [box=0,64,1585,1014]:
+    - alert [ref=e15] [box=8,72,1569,70]:
+      - generic [ref=e19] [box=59,79,1501,56]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=e20] [box=8,150,1569,920]:
+      - generic [ref=e21] [box=8,150,444,920]:
+        - heading "Armeen" [level=6] [ref=e23] [box=24,162,412,32]
+        - separator [ref=e24] [box=8,206,444,1]
+        - generic [ref=e25] [box=8,207,444,863]:
+          - generic [ref=e26] [box=20,219,420,127]:
+            - generic [ref=e27] [box=20,219,420,40]:
+              - generic [box=34,228,101,23]: Game System
+              - generic [ref=e28] [box=20,219,420,40]:
+                - combobox "Game System" [ref=e29] [cursor=pointer] [box=20,219,420,40]
+                - textbox [aria-hidden] [box=20,238,420,21]
+                - group [aria-hidden] [box=20,214,420,45]:
+                  - generic [box=29,214,86,23]: Game System
+            - generic [ref=e30] [box=20,267,420,40]:
+              - generic [box=34,276,32,23]: Bloc
+              - generic [ref=e31] [box=20,267,420,40]:
+                - combobox "Bloc" [ref=e32] [cursor=pointer] [box=20,267,420,40]
+                - textbox [aria-hidden] [box=20,286,420,21]
+                - group [aria-hidden] [box=20,262,420,45]:
+                  - generic [box=29,262,34,23]: Bloc
+            - generic [ref=e33] [box=20,315,420,31]:
+              - button "Aktualisieren" [ref=e34] [cursor=pointer] [box=20,315,110,31]
+              - button "Neue Armee" [ref=e35] [cursor=pointer] [box=138,315,102,31]
+              - button "Löschen" [ref=e36] [cursor=pointer] [box=248,315,80,31]
+          - list [ref=e37] [box=20,354,420,456]:
+            - button "Star Wars Droiden Armee 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=e114] [cursor=pointer] [box=20,362,420,80]:
+              - generic [ref=e39] [box=36,372,388,60]:
+                - generic [ref=e40] [box=36,372,388,20]: Star Wars Droiden Armee
+                - paragraph [ref=e41] [box=36,392,388,40]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=e42] [cursor=pointer] [box=20,442,420,60]:
+              - generic [ref=e43] [box=36,452,388,40]:
+                - generic [ref=e44] [box=36,452,388,20]: Star Wars Clone Army
+                - paragraph [ref=e45] [box=36,472,388,20]: 52/100 Punkte • Star Wars Republik (Star Wars)
+            - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=e46] [cursor=pointer] [box=20,502,420,60]:
+              - generic [ref=e47] [box=36,512,388,40]:
+                - generic [ref=e48] [box=36,512,388,20]: next stepp
+                - paragraph [ref=e49] [box=36,532,388,20]: 107/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friezillas 0/100 Punkte • Imperium (Warhammer 40k)" [ref=e50] [cursor=pointer] [box=20,562,420,60]:
+              - generic [ref=e51] [box=36,572,388,40]:
+                - generic [ref=e52] [box=36,572,388,20]: Friezillas
+                - paragraph [ref=e53] [box=36,592,388,20]: 0/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friedas Rache 114/110 Punkte • Imperium (Warhammer 40k)" [ref=e115] [cursor=pointer] [box=20,622,420,60]:
+              - generic [ref=e55] [box=36,632,388,40]:
+                - generic [ref=e56] [box=36,632,388,20]: Friedas Rache
+                - paragraph [ref=e57] [box=36,652,388,20]: 114/110 Punkte • Imperium (Warhammer 40k)
+            - button "Dust SSU 38/100 Punkte • SSU (Dust 1947)" [ref=e58] [cursor=pointer] [box=20,682,420,60]:
+              - generic [ref=e59] [box=36,692,388,40]:
+                - generic [ref=e60] [box=36,692,388,20]: Dust SSU
+                - paragraph [ref=e61] [box=36,712,388,20]: 38/100 Punkte • SSU (Dust 1947)
+            - button "Andreas Verteidiger 102/100 Punkte • Aeldari (Warhammer 40k)" [ref=e62] [cursor=pointer] [box=20,742,420,60]:
+              - generic [ref=e63] [box=36,752,388,40]:
+                - generic [ref=e64] [box=36,752,388,20]: Andreas Verteidiger
+                - paragraph [ref=e65] [box=36,772,388,20]: 102/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=e66] [box=460,150,666,920]:
+        - 'heading "Armee: Friedas Rache (Imperium • Warhammer 40k)" [level=6] [ref=e116] [box=476,162,634,32]'
+        - separator [ref=e69] [box=460,206,666,1]
+        - generic [ref=e70] [box=460,207,666,863]:
+          - generic [ref=e71] [box=472,219,642,31]:
+            - button "Bearbeiten" [ref=e72] [cursor=pointer] [box=472,219,99,31]
+            - button "Klonen" [ref=e73] [cursor=pointer] [box=579,219,72,31]
+            - button "Platoon hinzufügen" [ref=e74] [cursor=pointer] [box=659,219,167,31]
+            - button "Einheit hinzufügen" [ref=e75] [cursor=pointer] [box=834,219,157,31]
+          - paragraph [ref=e76] [box=472,266,642,24]: Platoons
+          - generic [ref=e90] [box=472,306,642,126]:
+            - alert [ref=e91] [box=472,306,642,48]:
+              - generic [ref=e95] [box=522,312,295,36]:
+                - strong [ref=e96] [box=522,321,87,17]: Faction Force
+                - text: "• 114/110 AP • Bonus: 14/10 AP"
+            - alert [ref=e119] [box=472,362,642,70]:
+              - generic [ref=e123] [box=523,369,574,56]: "Regel 6: Die Armee überschreitet selbst mit Faction-Bonus das maximale Limit von 110 AP."
+          - generic [ref=e124] [box=472,448,642,400]:
+            - paragraph [ref=e125] [box=472,448,642,24]: Freie Einheiten
+            - list [ref=e126] [box=472,472,642,376]:
+              - listitem [ref=e127] [box=472,480,642,60]:
+                - button "1× Chaplain (Jump Pack) 1 × 17 AP = 17 AP" [ref=e128] [cursor=pointer] [box=472,480,642,60]:
+                  - generic [ref=e129] [box=488,490,578,40]:
+                    - generic [ref=e130] [box=488,490,578,20]: 1× Chaplain (Jump Pack)
+                    - paragraph [ref=e131] [box=488,510,578,20]: 1 × 17 AP = 17 AP
+                - button "Entfernen" [ref=e133] [cursor=pointer] [box=1011,494,86,31]
+              - listitem [ref=e134] [box=472,540,642,60]:
+                - button "1× Devastator Squad (2x ML) 1 × 14 AP = 14 AP" [ref=e135] [cursor=pointer] [box=472,540,642,60]:
+                  - generic [ref=e136] [box=488,550,578,40]:
+                    - generic [ref=e137] [box=488,550,578,20]: 1× Devastator Squad (2x ML)
+                    - paragraph [ref=e138] [box=488,570,578,20]: 1 × 14 AP = 14 AP
+                - button "Entfernen" [ref=e140] [cursor=pointer] [box=1011,555,86,31]
+              - listitem [ref=e141] [box=472,600,642,60]:
+                - button "1× Assault Squad (Jump Pack + Flame + E-Fist) 1 × 16 AP = 16 AP" [active] [ref=e142] [cursor=pointer] [box=472,600,642,60]:
+                  - generic [ref=e143] [box=488,610,578,40]:
+                    - generic [ref=e144] [box=488,610,578,20]: 1× Assault Squad (Jump Pack + Flame + E-Fist)
+                    - paragraph [ref=e145] [box=488,630,578,20]: 1 × 16 AP = 16 AP
+                - button "Entfernen" [ref=e147] [cursor=pointer] [box=1011,615,86,31]
+              - listitem [ref=e148] [box=472,660,642,60]:
+                - button "1× Predator Annihilator Tank 1 × 26 AP = 26 AP" [ref=e149] [cursor=pointer] [box=472,660,642,60]:
+                  - generic [ref=e150] [box=488,670,578,40]:
+                    - generic [ref=e151] [box=488,670,578,20]: 1× Predator Annihilator Tank
+                    - paragraph [ref=e152] [box=488,690,578,20]: 1 × 26 AP = 26 AP
+                - button "Entfernen" [ref=e154] [cursor=pointer] [box=1011,675,86,31]
+              - listitem [ref=e155] [box=472,720,642,60]:
+                - button "1× Predator Destructor Tank 1 × 29 AP = 29 AP" [ref=e156] [cursor=pointer] [box=472,720,642,60]:
+                  - generic [ref=e157] [box=488,730,578,40]:
+                    - generic [ref=e158] [box=488,730,578,20]: 1× Predator Destructor Tank
+                    - paragraph [ref=e159] [box=488,750,578,20]: 1 × 29 AP = 29 AP
+                - button "Entfernen" [ref=e161] [cursor=pointer] [box=1011,735,86,31]
+              - listitem [ref=e162] [box=472,780,642,60]:
+                - button "1× Tactical Squad (Plasma Pistol & Energie Sword) 1 × 12 AP = 12 AP" [ref=e163] [cursor=pointer] [box=472,780,642,60]:
+                  - generic [ref=e164] [box=488,790,578,40]:
+                    - generic [ref=e165] [box=488,790,578,20]: 1× Tactical Squad (Plasma Pistol & Energie Sword)
+                    - paragraph [ref=e166] [box=488,810,578,20]: 1 × 12 AP = 12 AP
+                - button "Entfernen" [ref=e168] [cursor=pointer] [box=1011,795,86,31]
+      - generic [ref=e80] [box=1133,150,444,920]:
+        - heading "Details" [level=6] [ref=e82] [box=1149,162,412,32]
+        - separator [ref=e83] [box=1133,206,444,1]
+        - generic [ref=e169] [box=1145,219,420,332]:
+          - button "Karte als Bild exportieren" [ref=e171] [cursor=pointer] [box=1145,219,203,31]
+          - generic [ref=e174] [box=1146,259,418,291]:
+            - generic [ref=e175] [box=1153,265,405,149]:
+              - generic [ref=e176] [box=1154,266,158,147]:
+                - img "Assault Squad (Jump Pack + Flame + E-Fist)" [ref=e177] [box=1154,266,157,147]
+                - generic "Army Points" [ref=e178] [box=1159,271,28,29]:
+                  - generic [ref=e179] [box=1168,274,9,7]: AP
+                  - generic [ref=e180] [box=1163,281,19,17]: "16"
+                - generic [ref=e181] [box=1154,392,157,22]:
+                  - generic "Space Marines" [ref=e182] [box=1158,394,18,18]:
+                    - img "Space Marines" [ref=e183] [box=1159,395,16,16]
+                  - generic [ref=e184] [box=1180,396,126,13]:
+                    - generic [ref=e185] [box=1180,396,126,6]: Assault Squad (Jump Pack + Flame + E-Fist)
+                    - generic [ref=e186] [box=1180,403,126,7]: Space Marines · Infantry
+              - generic [ref=e187] [box=1311,266,245,147]:
+                - generic [ref=e188] [box=1315,270,237,20]:
+                  - strong [ref=e189] [box=1315,269,36,10]: "CHARGE:"
+                  - text: May take a free Close-Combat Action after performing a March Move Action.
+                - generic [ref=e190] [box=1315,293,237,30]:
+                  - strong [ref=e191] [box=1315,292,81,10]: "DAMAGE RESILIENT:"
+                  - text: Roll one die for each point of Damage the Unit Takes, negating one point for each [symbol] rolled. Does not apply to Units Joined.
+                - generic [ref=e192] [box=1315,326,237,20]:
+                  - strong [ref=e193] [box=1315,325,57,10]: "FIRST STRIKE:"
+                  - text: Resolves Close-Combat Attacks before target resolves theirs.
+                - generic [ref=e194] [box=1315,349,237,10]:
+                  - strong [ref=e195] [box=1315,348,30,10]: "FLYING:"
+                  - text: Pass over units/terrain, only flying units can join
+                - generic [ref=e196] [box=1315,362,237,20]:
+                  - strong [ref=e197] [box=1315,361,59,10]: "FLAME BURST:"
+                  - text: Fireball damages ground units & applies suppression
+            - generic [ref=e198] [box=1153,417,405,97]:
+              - generic [ref=e199] [box=1154,418,403,9]:
+                - generic [ref=e200] [box=1154,418,134,9]: Weapon
+                - generic [ref=e201] [box=1288,418,22,9]: Range
+                - generic [ref=e202] [box=1309,418,27,9]: Arc
+                - generic [ref=e203] [box=1336,418,63,9]: Infantry
+                - generic [ref=e204] [box=1399,418,110,9]: Vehicle
+                - generic [ref=e205] [box=1509,418,47,9]: Aircraft / AA
+              - generic [ref=e206] [box=1154,427,403,9]:
+                - generic [ref=e210] [box=1336,427,16,8]: "1"
+                - generic [ref=e211] [box=1352,427,16,8]: "2"
+                - generic [ref=e212] [box=1368,427,16,8]: "3"
+                - generic [ref=e213] [box=1383,427,16,8]: "4"
+                - generic [ref=e214] [box=1399,427,16,8]: "1"
+                - generic [ref=e215] [box=1415,427,16,8]: "2"
+                - generic [ref=e216] [box=1431,427,16,8]: "3"
+                - generic [ref=e217] [box=1446,427,16,8]: "4"
+                - generic [ref=e218] [box=1462,427,16,8]: "5"
+                - generic [ref=e219] [box=1478,427,16,8]: "6"
+                - generic [ref=e220] [box=1494,427,16,8]: "7"
+                - generic [ref=e221] [box=1509,427,16,8]: "1"
+                - generic [ref=e222] [box=1525,427,16,8]: "2"
+                - generic [ref=e223] [box=1541,427,16,8]: "3"
+              - generic [ref=e224] [box=1154,436,403,16]:
+                - generic [ref=e225] [box=1154,436,134,15]: 4x Bolt Pistol
+                - generic [ref=e227] [box=1288,436,22,15]: "2"
+                - generic [ref=e228] [box=1309,436,27,15]: –
+                - generic [ref=e229] [box=1336,436,16,15]: 3/1
+                - generic [ref=e230] [box=1352,436,16,15]: 3/1
+                - generic [ref=e231] [box=1368,436,16,15]: 2/1
+                - generic [ref=e232] [box=1383,436,16,15]: 1/1
+                - generic [ref=e233] [box=1399,436,16,15]: 1/2
+                - generic [ref=e234] [box=1415,436,16,15]: 1/1
+                - generic [ref=e235] [box=1431,436,16,15]: 1/1
+                - generic [ref=e236] [box=1446,436,16,15]: –
+                - generic [ref=e237] [box=1462,436,16,15]: –
+                - generic [ref=e238] [box=1478,436,16,15]: –
+                - generic [ref=e239] [box=1494,436,16,15]: –
+                - generic [ref=e240] [box=1509,436,16,15]: –
+                - generic [ref=e241] [box=1525,436,16,15]: –
+                - generic [ref=e242] [box=1541,436,16,15]: –
+              - generic [ref=e243] [box=1154,452,403,16]:
+                - generic [ref=e244] [box=1154,452,134,15]: 1x Energie Fist
+                - generic [ref=e246] [box=1288,452,22,15]: C
+                - generic [ref=e247] [box=1309,452,27,15]: –
+                - generic [ref=e248] [box=1336,452,16,15]: 1/1
+                - generic [ref=e249] [box=1352,452,16,15]: 1/1
+                - generic [ref=e250] [box=1368,452,16,15]: 1/1
+                - generic [ref=e251] [box=1383,452,16,15]: 1/1
+                - generic [ref=e252] [box=1399,452,16,15]: 1/3
+                - generic [ref=e253] [box=1415,452,16,15]: 1/3
+                - generic [ref=e254] [box=1431,452,16,15]: 1/3
+                - generic [ref=e255] [box=1446,452,16,15]: 1/3
+                - generic [ref=e256] [box=1462,452,16,15]: 1/3
+                - generic [ref=e257] [box=1478,452,16,15]: 1/3
+                - generic [ref=e258] [box=1494,452,16,15]: 1/3
+                - generic [ref=e259] [box=1509,452,16,15]: –
+                - generic [ref=e260] [box=1525,452,16,15]: –
+                - generic [ref=e261] [box=1541,452,16,15]: –
+              - generic [ref=e262] [box=1154,468,403,16]:
+                - generic [ref=e263] [box=1154,468,134,15]: 1x Flamer
+                - generic [ref=e265] [box=1288,468,22,15]: "1"
+                - generic [ref=e266] [box=1309,468,27,15]: –
+                - generic [ref=e267] [box=1336,468,16,15]: "*/1"
+                - generic [ref=e268] [box=1352,468,16,15]: "*/1"
+                - generic [ref=e269] [box=1368,468,16,15]: "*/1"
+                - generic [ref=e270] [box=1383,468,16,15]: "*/1"
+                - generic [ref=e271] [box=1399,468,16,15]: 1/#
+                - generic [ref=e272] [box=1415,468,16,15]: 1/#
+                - generic [ref=e273] [box=1431,468,16,15]: 1/2
+                - generic [ref=e274] [box=1446,468,16,15]: 1/2
+                - generic [ref=e275] [box=1462,468,16,15]: 1/2
+                - generic [ref=e276] [box=1478,468,16,15]: 1/2
+                - generic [ref=e277] [box=1494,468,16,15]: 1/2
+                - generic [ref=e278] [box=1509,468,16,15]: –
+                - generic [ref=e279] [box=1525,468,16,15]: –
+                - generic [ref=e280] [box=1541,468,16,15]: –
+              - generic [ref=e281] [box=1154,483,403,16]:
+                - generic [ref=e282] [box=1154,483,134,15]: 3x Chainsword
+                - generic [ref=e284] [box=1288,483,22,15]: C
+                - generic [ref=e285] [box=1309,483,27,15]: –
+                - generic [ref=e286] [box=1336,483,16,15]: 2/1
+                - generic [ref=e287] [box=1352,483,16,15]: 2/1
+                - generic [ref=e288] [box=1368,483,16,15]: 2/1
+                - generic [ref=e289] [box=1383,483,16,15]: 2/1
+                - generic [ref=e290] [box=1399,483,16,15]: 1/1
+                - generic [ref=e291] [box=1415,483,16,15]: 1/1
+                - generic [ref=e292] [box=1431,483,16,15]: 1/1
+                - generic [ref=e293] [box=1446,483,16,15]: 1/1
+                - generic [ref=e294] [box=1462,483,16,15]: 1/1
+                - generic [ref=e295] [box=1478,483,16,15]: 1/1
+                - generic [ref=e296] [box=1494,483,16,15]: 1/1
+                - generic [ref=e297] [box=1509,483,16,15]: –
+                - generic [ref=e298] [box=1525,483,16,15]: –
+                - generic [ref=e299] [box=1541,483,16,15]: –
+            - generic [ref=e318] [box=1153,517,405,27]:
+              - generic "Health" [ref=e320] [box=1160,524,24,13]: "1"
+              - generic [ref=e324] [box=1363,520,186,20]:
+                - generic [ref=e325] [box=1467,520,51,20]: ➜ 3 ⇛ 6
+                - generic "Infantry" [ref=e326] [box=1526,524,24,13]:
+                  - img "I icon" [ref=e327] [box=1526,524,13,13]
+                  - generic [ref=e328] [box=1542,524,8,13]: "3"

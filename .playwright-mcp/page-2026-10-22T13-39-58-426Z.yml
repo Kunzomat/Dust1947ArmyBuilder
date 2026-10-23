@@ -1,0 +1,81 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e6]
+      - group [ref=e7]:
+        - button "Army Builder" [pressed] [ref=e8] [cursor=pointer]
+        - button "Admin" [ref=e11] [cursor=pointer]
+  - generic [ref=e14]:
+    - alert [ref=e15]:
+      - generic [ref=e19]: Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k, Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Armeen" [level=6] [ref=e23]
+        - separator [ref=e24]
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - generic: Game System
+              - generic [ref=e28]:
+                - combobox "Game System" [ref=e29] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Game System
+            - generic [ref=e30]:
+              - generic: Bloc
+              - generic [ref=e31]:
+                - combobox "Bloc" [ref=e32] [cursor=pointer]
+                - textbox [aria-hidden]
+                - group [aria-hidden]:
+                  - generic: Bloc
+            - generic [ref=e33]:
+              - button "Aktualisieren" [ref=e34] [cursor=pointer]
+              - button "Neue Armee" [ref=e35] [cursor=pointer]
+              - button "Löschen" [ref=e36] [cursor=pointer]
+          - list [ref=e37]:
+            - button "Star Wars Droiden Armee 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=e38] [cursor=pointer]:
+              - generic [ref=e39]:
+                - generic [ref=e40]: Star Wars Droiden Armee
+                - paragraph [ref=e41]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+            - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=e42] [cursor=pointer]:
+              - generic [ref=e43]:
+                - generic [ref=e44]: Star Wars Clone Army
+                - paragraph [ref=e45]: 52/100 Punkte • Star Wars Republik (Star Wars)
+            - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=e46] [cursor=pointer]:
+              - generic [ref=e47]:
+                - generic [ref=e48]: next stepp
+                - paragraph [ref=e49]: 107/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friezillas 0/100 Punkte • Imperium (Warhammer 40k)" [ref=e50] [cursor=pointer]:
+              - generic [ref=e51]:
+                - generic [ref=e52]: Friezillas
+                - paragraph [ref=e53]: 0/100 Punkte • Imperium (Warhammer 40k)
+            - button "Friedas Rache 114/100 Punkte • Imperium (Warhammer 40k)" [ref=e54] [cursor=pointer]:
+              - generic [ref=e55]:
+                - generic [ref=e56]: Friedas Rache
+                - paragraph [ref=e57]: 114/100 Punkte • Imperium (Warhammer 40k)
+            - button "Dust SSU 38/100 Punkte • SSU (Dust 1947)" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]:
+                - generic [ref=e60]: Dust SSU
+                - paragraph [ref=e61]: 38/100 Punkte • SSU (Dust 1947)
+            - button "Andreas Verteidiger 102/100 Punkte • Aeldari (Warhammer 40k)" [ref=e62] [cursor=pointer]:
+              - generic [ref=e63]:
+                - generic [ref=e64]: Andreas Verteidiger
+                - paragraph [ref=e65]: 102/100 Punkte • Aeldari (Warhammer 40k)
+      - generic [ref=e66]:
+        - heading "Armee" [level=6] [ref=e68]
+        - separator [ref=e69]
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - button "Bearbeiten" [ref=e72] [cursor=pointer]
+            - button "Klonen" [ref=e73] [cursor=pointer]
+            - button "Platoon hinzufügen" [ref=e74] [cursor=pointer]
+            - button "Einheit hinzufügen" [ref=e75] [cursor=pointer]
+            - button "Armeekarten als PDF exportieren" [disabled]
+          - paragraph [ref=e76]: Platoons
+          - generic [ref=e77]:
+            - paragraph [ref=e78]: Freie Einheiten
+            - list [ref=e79]
+      - generic [ref=e80]:
+        - heading "Details" [level=6] [ref=e82]
+        - separator [ref=e83]
+        - paragraph [ref=e85]: Einheit auswählen…
