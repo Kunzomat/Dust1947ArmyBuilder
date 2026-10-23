@@ -1,0 +1,63 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Dust 1947 – Army Builder" [level=6] [ref=e6]
+      - group [ref=e7]:
+        - button "Army Builder" [pressed] [ref=e8] [cursor=pointer]
+        - button "Admin" [ref=e11] [cursor=pointer]
+  - generic [ref=e16]:
+    - heading "Armeen" [level=6] [ref=e18]
+    - separator [ref=e19]
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic: Game System
+          - generic [ref=e23]:
+            - combobox "Game System" [ref=e24] [cursor=pointer]
+            - textbox [aria-hidden]
+            - group [aria-hidden]:
+              - generic: Game System
+        - generic [ref=e25]:
+          - generic: Bloc
+          - generic [ref=e26]:
+            - combobox "Bloc" [ref=e27] [cursor=pointer]
+            - textbox [aria-hidden]
+            - group [aria-hidden]:
+              - generic: Bloc
+        - generic [ref=e28]:
+          - button "Aktualisieren" [ref=e29] [cursor=pointer]
+          - button "Neue Armee" [ref=e30] [cursor=pointer]
+          - button "Löschen" [ref=e31] [cursor=pointer]
+      - list [ref=e32]:
+        - button "Star Wars Droiden Armee 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)" [ref=e33] [cursor=pointer]:
+          - generic [ref=e34]:
+            - generic [ref=e35]: Star Wars Droiden Armee
+            - paragraph [ref=e36]: 43/100 Punkte • Konföderation unabhängiger Systeme (Star Wars)
+        - button "Star Wars Clone Army 52/100 Punkte • Star Wars Republik (Star Wars)" [ref=e37] [cursor=pointer]:
+          - generic [ref=e38]:
+            - generic [ref=e39]: Star Wars Clone Army
+            - paragraph [ref=e40]: 52/100 Punkte • Star Wars Republik (Star Wars)
+        - button "next stepp 107/100 Punkte • Imperium (Warhammer 40k)" [ref=e41] [cursor=pointer]:
+          - generic [ref=e42]:
+            - generic [ref=e43]: next stepp
+            - paragraph [ref=e44]: 107/100 Punkte • Imperium (Warhammer 40k)
+        - button "Friezillas 0/100 Punkte • Imperium (Warhammer 40k)" [ref=e45] [cursor=pointer]:
+          - generic [ref=e46]:
+            - generic [ref=e47]: Friezillas
+            - paragraph [ref=e48]: 0/100 Punkte • Imperium (Warhammer 40k)
+        - button "Friedas Rache 97/100 Punkte • Imperium (Warhammer 40k)" [ref=e49] [cursor=pointer]:
+          - generic [ref=e50]:
+            - generic [ref=e51]: Friedas Rache
+            - paragraph [ref=e52]: 97/100 Punkte • Imperium (Warhammer 40k)
+        - button "Dust SSU 38/100 Punkte • SSU (Dust 1947)" [ref=e53] [cursor=pointer]:
+          - generic [ref=e54]:
+            - generic [ref=e55]: Dust SSU
+            - paragraph [ref=e56]: 38/100 Punkte • SSU (Dust 1947)
+        - button "Andreas Verteidiger 102/100 Punkte • Aeldari (Warhammer 40k)" [ref=e57] [cursor=pointer]:
+          - generic [ref=e58]:
+            - generic [ref=e59]: Andreas Verteidiger
+            - paragraph [ref=e60]: 102/100 Punkte • Aeldari (Warhammer 40k)
+  - generic [ref=e62]:
+    - button "Armeen" [ref=e63] [cursor=pointer]
+    - button "Armybuilder" [ref=e67] [cursor=pointer]
+    - button "Details" [ref=e71] [cursor=pointer]

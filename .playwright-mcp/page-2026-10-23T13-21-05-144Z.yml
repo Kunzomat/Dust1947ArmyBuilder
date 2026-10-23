@@ -1,0 +1,364 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading [level=6] [ref=e283]: Dust 1947 – Army Builder
+        - group [ref=e7]:
+          - button [pressed] [ref=e284] [cursor=pointer]: Army Builder
+          - button [ref=e285] [cursor=pointer]: Admin
+    - generic [ref=e199]:
+      - heading [level=6] [ref=e286]: "Armee: Friedas Rache (Imperium • Warhammer 40k)"
+      - separator [ref=e202]
+      - generic [ref=e203]:
+        - generic [ref=e204]:
+          - paragraph [ref=e205]: Platoons
+          - button [ref=e287] [cursor=pointer]
+        - alert [ref=e210]:
+          - generic [ref=e214]:
+            - strong [ref=e215]: Faction Force
+            - text: "• 97/110 AP • Bonus: 0/10 AP"
+        - generic [ref=e216]:
+          - generic [ref=e217]:
+            - paragraph [ref=e218]: Einheiten
+            - button [ref=e288] [cursor=pointer]
+          - list [ref=e222]:
+            - listitem [ref=e223]:
+              - button [ref=e289] [cursor=pointer]:
+                - generic [ref=e225]:
+                  - generic [ref=e226]: 1× Lieutenant
+                  - paragraph [ref=e227]: 1 × 10 AP = 10 AP
+              - generic [ref=e228]:
+                - button [ref=e290] [cursor=pointer]
+                - button [ref=e291] [cursor=pointer]
+            - listitem [ref=e235]:
+              - button [ref=e292] [cursor=pointer]:
+                - generic [ref=e237]:
+                  - generic [ref=e238]: 2× Assault Squad (Jump Pack + Flame + E-Fist)
+                  - paragraph [ref=e239]: 2 × 16 AP = 32 AP
+              - generic [ref=e240]:
+                - button [ref=e293] [cursor=pointer]
+                - button [ref=e294] [cursor=pointer]
+            - listitem [ref=e247]:
+              - button [ref=e295] [cursor=pointer]:
+                - generic [ref=e249]:
+                  - generic [ref=e250]: 1× Devastator Squad (2x ML)
+                  - paragraph [ref=e251]: 1 × 14 AP = 14 AP
+              - generic [ref=e252]:
+                - button [ref=e296] [cursor=pointer]
+                - button [ref=e297] [cursor=pointer]
+            - listitem [ref=e259]:
+              - button [ref=e298] [cursor=pointer]:
+                - generic [ref=e261]:
+                  - generic [ref=e262]: 1× Tactical Squad (Plasma Pistol & Energie Sword)
+                  - paragraph [ref=e263]: 1 × 12 AP = 12 AP
+              - generic [ref=e264]:
+                - button [ref=e299] [cursor=pointer]
+                - button [ref=e300] [cursor=pointer]
+            - listitem [ref=e271]:
+              - button [ref=e301] [cursor=pointer]:
+                - generic [ref=e273]:
+                  - generic [ref=e274]: 1× Predator Destructor Tank
+                  - paragraph [ref=e275]: 1 × 29 AP = 29 AP
+              - generic [ref=e276]:
+                - button [ref=e302] [cursor=pointer]
+                - button [ref=e303] [cursor=pointer]
+    - generic [ref=e33]:
+      - button [ref=e304] [cursor=pointer]:
+        - generic [ref=e37]: Armeen
+      - button [ref=e305] [cursor=pointer]:
+        - generic [ref=e41]: Armybuilder
+      - button [ref=e306] [cursor=pointer]:
+        - generic [ref=e45]: Details
+  - dialog [ref=e309]:
+    - heading [level=2] [ref=e310]:
+      - text: Einheit hinzufügen
+      - button "Schließen" [ref=e311] [cursor=pointer]
+    - generic [ref=e314]:
+      - generic [ref=e315]:
+        - generic: Suche
+        - generic [ref=e316]:
+          - textbox "Suche" [ref=e317]
+          - group [aria-hidden]:
+            - generic: Suche
+      - generic [ref=e318]:
+        - generic [ref=e319]:
+          - generic: Faction
+          - generic [ref=e320]:
+            - combobox "Faction" [ref=e321] [cursor=pointer]
+            - textbox [aria-hidden]
+            - group [aria-hidden]:
+              - generic: Faction
+        - generic [ref=e322]:
+          - generic: Einheitstyp
+          - generic [ref=e323]:
+            - combobox "Einheitstyp" [ref=e324] [cursor=pointer]
+            - textbox [aria-hidden]
+            - group [aria-hidden]:
+              - generic: Einheitstyp
+      - list [ref=e325]:
+        - listitem [ref=e326]:
+          - generic [ref=e327]:
+            - paragraph [ref=e328]: Assault Squad (Jump Pack + Flame + E-Fist)
+            - paragraph [ref=e329]: Space Marines • I - Infantry
+          - generic [ref=e330]:
+            - paragraph [ref=e331]: 16 AP
+            - generic "Hinzufügen" [ref=e332]:
+              - button "Hinzufügen" [ref=e333] [cursor=pointer]
+        - listitem [ref=e336]:
+          - generic [ref=e337]:
+            - paragraph [ref=e338]: Assault Squad (Jump Pack + Flame)
+            - paragraph [ref=e339]: Space Marines • I - Infantry
+          - generic [ref=e340]:
+            - paragraph [ref=e341]: 16 AP
+            - generic "Hinzufügen" [ref=e342]:
+              - button "Hinzufügen" [ref=e343] [cursor=pointer]
+        - listitem [ref=e346]:
+          - generic [ref=e347]:
+            - paragraph [ref=e348]: Assault Squad (Jump Pack E-Fist)
+            - paragraph [ref=e349]: Space Marines • I - Infantry
+          - generic [ref=e350]:
+            - paragraph [ref=e351]: 13 AP
+            - generic "Hinzufügen" [ref=e352]:
+              - button "Hinzufügen" [ref=e353] [cursor=pointer]
+        - listitem [ref=e356]:
+          - generic [ref=e357]:
+            - paragraph [ref=e358]: Assault Squad (Jump Pack)
+            - paragraph [ref=e359]: Space Marines • I - Infantry
+          - generic [ref=e360]:
+            - paragraph [ref=e361]: 14 AP
+            - generic "Hinzufügen" [ref=e362]:
+              - button "Hinzufügen" [ref=e363] [cursor=pointer]
+        - listitem [ref=e366]:
+          - generic [ref=e367]:
+            - paragraph [ref=e368]: Chaplain (Jump Pack)
+            - paragraph [ref=e369]: Space Marines • H - Hero
+          - generic [ref=e370]:
+            - paragraph [ref=e371]: 17 AP
+            - generic "Hinzufügen" [ref=e372]:
+              - button "Hinzufügen" [ref=e373] [cursor=pointer]
+        - listitem [ref=e376]:
+          - generic [ref=e377]:
+            - paragraph [ref=e378]: Devastator Squad (2x ML)
+            - paragraph [ref=e379]: Space Marines • I - Infantry
+          - generic [ref=e380]:
+            - paragraph [ref=e381]: 14 AP
+            - generic "Hinzufügen" [ref=e382]:
+              - button "Hinzufügen" [ref=e383] [cursor=pointer]
+        - listitem [ref=e386]:
+          - generic [ref=e387]:
+            - paragraph [ref=e388]: Emma
+            - paragraph [ref=e389]: Neutral Medical Corps • H - Hero
+          - generic [ref=e390]:
+            - paragraph [ref=e391]: 0 AP
+            - generic "Hinzufügen" [ref=e392]:
+              - button "Hinzufügen" [ref=e393] [cursor=pointer]
+        - listitem [ref=e396]:
+          - generic [ref=e397]:
+            - paragraph [ref=e398]: Heavy Weapons Team (Autocannon)
+            - paragraph [ref=e399]: Steel Legion • I - Infantry
+          - generic [ref=e400]:
+            - paragraph [ref=e401]: 7 AP
+            - generic "Hinzufügen" [ref=e402]:
+              - button "Hinzufügen" [ref=e403] [cursor=pointer]
+        - listitem [ref=e406]:
+          - generic [ref=e407]:
+            - paragraph [ref=e408]: Heavy Weapons Team (Lascannon)
+            - paragraph [ref=e409]: Steel Legion • I - Infantry
+          - generic [ref=e410]:
+            - paragraph [ref=e411]: 7 AP
+            - generic "Hinzufügen" [ref=e412]:
+              - button "Hinzufügen" [ref=e413] [cursor=pointer]
+        - listitem [ref=e416]:
+          - generic [ref=e417]:
+            - paragraph [ref=e418]: Heavy Weapons Team (Mortar)
+            - paragraph [ref=e419]: Steel Legion • I - Infantry
+          - generic [ref=e420]:
+            - paragraph [ref=e421]: 8 AP
+            - generic "Hinzufügen" [ref=e422]:
+              - button "Hinzufügen" [ref=e423] [cursor=pointer]
+        - listitem [ref=e426]:
+          - generic [ref=e427]:
+            - paragraph [ref=e428]: Infantry Squad
+            - paragraph [ref=e429]: Steel Legion • I - Infantry
+          - generic [ref=e430]:
+            - paragraph [ref=e431]: 6 AP
+            - generic "Hinzufügen" [ref=e432]:
+              - button "Hinzufügen" [ref=e433] [cursor=pointer]
+        - listitem [ref=e436]:
+          - generic [ref=e437]:
+            - paragraph [ref=e438]: Infantry Squad (Sergeant)
+            - paragraph [ref=e439]: Steel Legion • I - Infantry
+          - generic [ref=e440]:
+            - paragraph [ref=e441]: 6 AP
+            - generic "Hinzufügen" [ref=e442]:
+              - button "Hinzufügen" [ref=e443] [cursor=pointer]
+        - listitem [ref=e446]:
+          - generic [ref=e447]:
+            - paragraph [ref=e448]: Justine & Co
+            - paragraph [ref=e449]: Mercenaries • I - Infantry
+          - generic [ref=e450]:
+            - paragraph [ref=e451]: 0 AP
+            - generic "Hinzufügen" [ref=e452]:
+              - button "Hinzufügen" [ref=e453] [cursor=pointer]
+        - listitem [ref=e456]:
+          - generic [ref=e457]:
+            - paragraph [ref=e458]: Leman Russ Demolisher
+            - paragraph [ref=e459]: Steel Legion • V - Vehicle
+          - generic [ref=e460]:
+            - paragraph [ref=e461]: 26 AP
+            - generic "Hinzufügen" [ref=e462]:
+              - button "Hinzufügen" [ref=e463] [cursor=pointer]
+        - listitem [ref=e466]:
+          - generic [ref=e467]:
+            - paragraph [ref=e468]: Leman Russ Vanquisher
+            - paragraph [ref=e469]: Steel Legion • V - Vehicle
+          - generic [ref=e470]:
+            - paragraph [ref=e471]: 28 AP
+            - generic "Hinzufügen" [ref=e472]:
+              - button "Hinzufügen" [ref=e473] [cursor=pointer]
+        - listitem [ref=e476]:
+          - generic [ref=e477]:
+            - paragraph [ref=e478]: Lieutenant
+            - paragraph [ref=e479]: Space Marines • H - Hero
+          - generic [ref=e480]:
+            - paragraph [ref=e481]: 10 AP
+            - generic "Hinzufügen" [ref=e482]:
+              - button "Hinzufügen" [ref=e483] [cursor=pointer]
+        - listitem [ref=e486]:
+          - generic [ref=e487]:
+            - paragraph [ref=e488]: Luisa
+            - paragraph [ref=e489]: Mercenaries • H - Hero
+          - generic [ref=e490]:
+            - paragraph [ref=e491]: 0 AP
+            - generic "Hinzufügen" [ref=e492]:
+              - button "Hinzufügen" [ref=e493] [cursor=pointer]
+        - listitem [ref=e496]:
+          - generic [ref=e497]:
+            - paragraph [ref=e498]: Marshal
+            - paragraph [ref=e499]: Steel Legion • I - Infantry
+          - generic [ref=e500]:
+            - paragraph [ref=e501]: 6 AP
+            - generic "Hinzufügen" [ref=e502]:
+              - button "Hinzufügen" [ref=e503] [cursor=pointer]
+        - listitem [ref=e506]:
+          - generic [ref=e507]:
+            - paragraph [ref=e508]: Meatgrinder
+            - paragraph [ref=e509]: Mercenaries • V - Vehicle
+          - generic [ref=e510]:
+            - paragraph [ref=e511]: 0 AP
+            - generic "Hinzufügen" [ref=e512]:
+              - button "Hinzufügen" [ref=e513] [cursor=pointer]
+        - listitem [ref=e516]:
+          - generic [ref=e517]:
+            - paragraph [ref=e518]: Mercenary Cleaning Team
+            - paragraph [ref=e519]: Mercenaries • I - Infantry
+          - generic [ref=e520]:
+            - paragraph [ref=e521]: 0 AP
+            - generic "Hinzufügen" [ref=e522]:
+              - button "Hinzufügen" [ref=e523] [cursor=pointer]
+        - listitem [ref=e526]:
+          - generic [ref=e527]:
+            - paragraph [ref=e528]: Mercenary Heavy Machine Gun Squad
+            - paragraph [ref=e529]: Mercenaries • V - Vehicle
+          - generic [ref=e530]:
+            - paragraph [ref=e531]: 0 AP
+            - generic "Hinzufügen" [ref=e532]:
+              - button "Hinzufügen" [ref=e533] [cursor=pointer]
+        - listitem [ref=e536]:
+          - generic [ref=e537]:
+            - paragraph [ref=e538]: Mercenary Heavy Machine Gun Squad II
+            - paragraph [ref=e539]: Mercenaries • V - Vehicle
+          - generic [ref=e540]:
+            - paragraph [ref=e541]: 0 AP
+            - generic "Hinzufügen" [ref=e542]:
+              - button "Hinzufügen" [ref=e543] [cursor=pointer]
+        - listitem [ref=e546]:
+          - generic [ref=e547]:
+            - paragraph [ref=e548]: Militzsquad
+            - paragraph [ref=e549]: Free Sector Forces • I - Infantry
+          - generic [ref=e550]:
+            - paragraph [ref=e551]: 5 AP
+            - generic "Hinzufügen" [ref=e552]:
+              - button "Hinzufügen" [ref=e553] [cursor=pointer]
+        - listitem [ref=e556]:
+          - generic [ref=e557]:
+            - paragraph [ref=e558]: Predator Annihilator Tank
+            - paragraph [ref=e559]: Space Marines • V - Vehicle
+          - generic [ref=e560]:
+            - paragraph [ref=e561]: 26 AP
+            - generic "Hinzufügen" [ref=e562]:
+              - button "Hinzufügen" [ref=e563] [cursor=pointer]
+        - listitem [ref=e566]:
+          - generic [ref=e567]:
+            - paragraph [ref=e568]: Predator Destructor Tank
+            - paragraph [ref=e569]: Space Marines • V - Vehicle
+          - generic [ref=e570]:
+            - paragraph [ref=e571]: 29 AP
+            - generic "Hinzufügen" [ref=e572]:
+              - button "Hinzufügen" [ref=e573] [cursor=pointer]
+        - listitem [ref=e576]:
+          - generic [ref=e577]:
+            - paragraph [ref=e578]: Primaris Psyker
+            - paragraph [ref=e579]: Steel Legion • I - Infantry
+          - generic [ref=e580]:
+            - paragraph [ref=e581]: 3 AP
+            - generic "Hinzufügen" [ref=e582]:
+              - button "Hinzufügen" [ref=e583] [cursor=pointer]
+        - listitem [ref=e586]:
+          - generic [ref=e587]:
+            - paragraph [ref=e588]: Pulverizer
+            - paragraph [ref=e589]: Mercenaries • V - Vehicle
+          - generic [ref=e590]:
+            - paragraph [ref=e591]: 0 AP
+            - generic "Hinzufügen" [ref=e592]:
+              - button "Hinzufügen" [ref=e593] [cursor=pointer]
+        - listitem [ref=e596]:
+          - generic [ref=e597]:
+            - paragraph [ref=e598]: Silence
+            - paragraph [ref=e599]: Mercenaries • H - Hero
+          - generic [ref=e600]:
+            - paragraph [ref=e601]: 0 AP
+            - generic "Hinzufügen" [ref=e602]:
+              - button "Hinzufügen" [ref=e603] [cursor=pointer]
+        - listitem [ref=e606]:
+          - generic [ref=e607]:
+            - paragraph [ref=e608]: Tactical Squad (Boltguns)
+            - paragraph [ref=e609]: Space Marines • I - Infantry
+          - generic [ref=e610]:
+            - paragraph [ref=e611]: 11 AP
+            - generic "Hinzufügen" [ref=e612]:
+              - button "Hinzufügen" [ref=e613] [cursor=pointer]
+        - listitem [ref=e616]:
+          - generic [ref=e617]:
+            - paragraph [ref=e618]: Tactical Squad (Missile launcher)
+            - paragraph [ref=e619]: Space Marines • I - Infantry
+          - generic [ref=e620]:
+            - paragraph [ref=e621]: 12 AP
+            - generic "Hinzufügen" [ref=e622]:
+              - button "Hinzufügen" [ref=e623] [cursor=pointer]
+        - listitem [ref=e626]:
+          - generic [ref=e627]:
+            - paragraph [ref=e628]: Tactical Squad (Plasma Pistol & Energie Sword)
+            - paragraph [ref=e629]: Space Marines • I - Infantry
+          - generic [ref=e630]:
+            - paragraph [ref=e631]: 12 AP
+            - generic "Hinzufügen" [ref=e632]:
+              - button "Hinzufügen" [ref=e633] [cursor=pointer]
+        - listitem [ref=e636]:
+          - generic [ref=e637]:
+            - paragraph [ref=e638]: Tanya
+            - paragraph [ref=e639]: Mercenaries • H - Hero
+          - generic [ref=e640]:
+            - paragraph [ref=e641]: 0 AP
+            - generic "Hinzufügen" [ref=e642]:
+              - button "Hinzufügen" [ref=e643] [cursor=pointer]
+        - listitem [ref=e646]:
+          - generic [ref=e647]:
+            - paragraph [ref=e648]: Wrecker
+            - paragraph [ref=e649]: Mercenaries • V - Vehicle
+          - generic [ref=e650]:
+            - paragraph [ref=e651]: 0 AP
+            - generic "Hinzufügen" [ref=e652]:
+              - button "Hinzufügen" [ref=e653] [cursor=pointer]
+    - button "Schließen" [ref=e657] [cursor=pointer]
+  - tooltip "Hinzufügen" [ref=e658]

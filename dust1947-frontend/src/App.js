@@ -23,8 +23,13 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  useMediaQuery,
+  BottomNavigation,
+  BottomNavigationAction,
+  IconButton,
+  Tooltip,
 } from "@mui/material";
-import { Settings, Build } from "@mui/icons-material";
+import { Settings, Build, List as ListIcon, Groups, Description, ContentCopy, Edit, Delete, Add, PictureAsPdf } from "@mui/icons-material";
 import ConfirmDialog from "./components/ConfirmDialog";
 import ArmyFormDialog from "./components/ArmyFormDialog";
 import AddPlatoonDialog from "./components/AddPlatoonDialog";
@@ -42,22 +47,23 @@ import {
 } from "./armyFilters";
 import useSessionStorageState from "./hooks/useSessionStorageState";
 
-function ColumnPaper({ title, children, sx }) {
+function ColumnPaper({ title, children, sx, hidden, mobile, action }) {
   return (
     <Paper
       elevation={2}
       sx={{
-        height: "calc(100vh - 64px - 16px)",
-        display: "flex",
+        height: mobile ? "auto" : "calc(100vh - 64px - 16px)",
+        display: hidden ? "none" : "flex",
         flexDirection: "column",
         overflow: "hidden",
         ...sx,
       }}
     >
-      <Box sx={{ px: 2, py: 1.5 }}>
+      <Box sx={{ px: 2, py: 1.5, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 1 }}>
         <Typography variant="h6" fontWeight={700}>
           {title}
         </Typography>
+        {action}
       </Box>
       <Divider />
       <Box sx={{ p: 1.5, overflow: "auto", flex: 1 }}>{children}</Box>
@@ -66,6 +72,8 @@ function ColumnPaper({ title, children, sx }) {
 }
 
 export default function App() {
+  const isMobile = useMediaQuery("(max-width: 899.95px)");
+  const [activePane, setActivePane] = useState("armies");
   const isDesktop = useMemo(
     () => window.matchMedia("(min-width: 900px)").matches,
     []
@@ -179,12 +187,14 @@ export default function App() {
     }
   }
 
-  async function handleExportArmyPdf() {
-    if (!armyDetail || pdfProgress !== null) return;
+  async function handleExportArmyPdf(id) {
+    if (!id || pdfProgress !== null) return;
     setError("");
-    setPdfProgress({ done: 0, total: 0 });
+    setPdfProgress({ armyId: id, done: 0, total: 0 });
     try {
-      await exportArmyCardsPdf(armyDetail, armyName, (done, total) => setPdfProgress({ done, total }));
+      const detail = await apiCall("armies.get", { id });
+      const name = (detail.army || detail).name || "";
+      await exportArmyCardsPdf(detail, name, (done, total) => setPdfProgress({ armyId: id, done, total }));
     } catch (e) {
       setError(`PDF-Export fehlgeschlagen: ${String(e.message || e)}`);
     } finally {
@@ -309,10 +319,10 @@ export default function App() {
 	}
   }
 
-  async function handleCloneArmy() {
-    if (!selectedArmyId) return;
+  async function handleCloneArmy(armyId = selectedArmyId) {
+    if (!armyId) return;
     try {
-      const created = await apiCall("armies.clone", { id: selectedArmyId }, "POST");
+      const created = await apiCall("armies.clone", { id: armyId }, "POST");
       await loadArmies();
       setSelectedArmyId(created.id);
     } catch (e) {
@@ -390,11 +400,25 @@ export default function App() {
 
 	  console.log("ADD UNIT PAYLOAD", payload); // 🔍 Debug – sehr empfehlenswert
 
-	  await apiCall("army.units.add", payload, "POST");
+	  try {
+		await apiCall("army.units.add", payload, "POST");
+	  } catch (e) {
+		return { ok: false, message: String(e.message || e) };
+	  }
 
+	  // Dialog stays open (context kept, so further units go to the same slot);
+	  // only the army is refreshed. Refresh errors are reported via setError.
+	  try {
+		await refreshSelectedArmy();
+	  } catch (e) {
+		setError(String(e.message || e));
+	  }
+	  return { ok: true };
+	}
+
+	function handleCloseAddUnit() {
 	  setAddUnitOpen(false);
 	  setAddUnitContext(null);
-    await refreshSelectedArmy();
 	}
 
   async function handleRemoveOneUnit(group) {
@@ -416,6 +440,57 @@ export default function App() {
     } catch (e) {
       setError(String(e.message || e));
     }
+  }
+
+  // Clone = reverse of getRemovalRequest: increment the quantity of the
+  // group's first persisted row (keeps platoon/slot/variant/equipment).
+  async function handleCloneOneUnit(group) {
+    try {
+      const first = group.units[0];
+      const quantity = Math.max(1, Number.parseInt(first.quantity, 10) || 1);
+      await apiCall("army.units.update", { id: first.army_unit_id, quantity: quantity + 1 }, "POST");
+      await refreshSelectedArmy();
+    } catch (e) {
+      setError(String(e.message || e));
+    }
+  }
+
+  function renderUnitGroupRow(group) {
+    return (
+      <ListItem
+        key={group.key}
+        disablePadding
+        sx={{ display: "flex", alignItems: "stretch" }}
+      >
+        <ListItemButton
+          selected={selectedArmyUnitId === group.unit.army_unit_id}
+          sx={{ flex: 1, minWidth: 0 }}
+          onClick={() => {
+            setSelectedArmyUnitId(group.unit.army_unit_id);
+            setSelectedUnitId(group.unit.unit_id);
+            if (isMobile) setActivePane('details');
+          }}
+        >
+          <ListItemText
+            sx={{ minWidth: 0, whiteSpace: "normal", overflowWrap: "anywhere", wordBreak: "break-word" }}
+            primary={`${group.quantity}× ${group.unit.unit_name}`}
+            secondary={`${group.quantity} × ${group.unitPoints} AP = ${group.groupPoints} AP`}
+          />
+        </ListItemButton>
+        <Box sx={{ display: "flex", flexShrink: 0, alignItems: "center", justifyContent: "flex-end", gap: 0.5, pl: 0.5 }}>
+          <Tooltip title="Einheit klonen">
+            <IconButton size="small" aria-label="Einheit klonen" onClick={(e) => { e.stopPropagation(); handleCloneOneUnit(group); }}>
+              <ContentCopy fontSize="small" />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Entfernen">
+            <IconButton size="small" color="error" aria-label="Entfernen" onClick={(e) => { e.stopPropagation(); handleRemoveOneUnit(group); }}>
+              <Delete fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      </ListItem>
+    );
   }
 
 	function isSlotUsed(platoonId, platoonUnitId) {
@@ -522,8 +597,32 @@ function groupSlots(platoonUnits) {
   const pointsLimit = armyValidation?.effectivePointsLimit ?? armyDetail?.army?.points_limit ?? 0;
 
   return (
-    <Box sx={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+    <Box sx={{ height: isMobile ? "auto" : "100vh", minHeight: isMobile ? "100vh" : undefined, maxWidth: "100vw", overflowX: "hidden", pb: isMobile && mode === 'builder' ? "72px" : 0, display: "flex", flexDirection: "column" }}>
       <AppBar position="static">
+        {isMobile ? (
+          <Box sx={{ px: 1.5, py: 1, display: "flex", flexDirection: "column", gap: 1 }}>
+            <Typography variant="h6" fontWeight={800} noWrap sx={{ width: "100%", fontSize: "clamp(0.95rem, 5vw, 1.25rem)" }}>
+              Dust 1947 – Army Builder
+            </Typography>
+            <ToggleButtonGroup
+              value={mode}
+              exclusive
+              fullWidth
+              onChange={(e, newMode) => newMode && setMode(newMode)}
+              size="small"
+            >
+              <ToggleButton value="builder" sx={{ color: 'white', '&.Mui-selected': { bgcolor: 'rgba(255,255,255,0.2)' } }}>
+                <Build sx={{ mr: 0.5 }} fontSize="small" />
+                Army Builder
+              </ToggleButton>
+              <ToggleButton value="admin" sx={{ color: 'white', '&.Mui-selected': { bgcolor: 'rgba(255,255,255,0.2)' } }}>
+                <Settings sx={{ mr: 0.5 }} fontSize="small" />
+                Admin
+              </ToggleButton>
+            </ToggleButtonGroup>
+            <Stack direction="row" spacing={1} sx={{ width: "100%", flexWrap: "wrap", alignItems: "center", "&:empty": { display: "none" } }} />
+          </Box>
+        ) : (
         <Toolbar>
           <Typography variant="h6" fontWeight={800} sx={{ flex: 1 }}>
             Dust 1947 – Army Builder
@@ -553,6 +652,7 @@ function groupSlots(platoonUnits) {
             />
           )}
         </Toolbar>
+        )}
       </AppBar>
 
       {/* Admin Panel Mode */}
@@ -563,11 +663,6 @@ function groupSlots(platoonUnits) {
         <>
           <Box sx={{ p: 1 }}>
             {error && <Alert severity="error">{error}</Alert>}
-            <Alert severity="info" variant="outlined" sx={{ mb: 1 }}>
-              Dieser Army Builder unterstützt mehrere Spielsysteme (z.B. Dust 1947, Warhammer 40k,
-              Star Wars) parallel. Jede Armee gehört zu einem Bloc, und jeder Bloc gehört zu genau
-              einem Spielsystem – daher ist das Spielsystem jeweils in Klammern hinter dem Bloc-Namen angegeben.
-            </Alert>
 
         <Box
           sx={{
@@ -576,7 +671,16 @@ function groupSlots(platoonUnits) {
             gap: 1,
           }}
         >
-          <ColumnPaper title="Armeen">
+          <ColumnPaper
+            title="Armeen"
+            mobile={isMobile}
+            hidden={isMobile && activePane !== 'armies'}
+            action={
+              <Button size="small" variant="contained" onClick={() => {setArmyFormArmy(null); setArmyFormOpen(true);}}>
+                Neue Armee
+              </Button>
+            }
+          >
             <Stack spacing={1} sx={{ mb: 1 }}>
               <FormControl size="small" fullWidth>
                 <InputLabel id="game-system-filter-label">Game System</InputLabel>
@@ -616,17 +720,6 @@ function groupSlots(platoonUnits) {
                   ))}
                 </Select>
               </FormControl>
-            <Stack direction="row" spacing={1}>
-              <Button size="small" onClick={loadArmies}>
-                Aktualisieren
-              </Button>
-			  <Button size="small" variant="contained" onClick={() => {setArmyFormArmy(null); setArmyFormOpen(true);}}>
-				Neue Armee
-			  </Button>
-              {selectedArmyId && (
-				<Button size="small" color="error" variant="outlined" onClick={() => setConfirmDeleteArmyId(selectedArmyId)}>Löschen</Button>
-              )}
-            </Stack>
             </Stack>
 
             {loadingArmies ? (
@@ -642,16 +735,51 @@ function groupSlots(platoonUnits) {
                     ? `${armyValidation.pointsUsed}/${armyValidation.effectivePointsLimit}`
                     : `${a.points_current}/${a.points_limit}`;
                   return (
-                    <ListItemButton
+                    <ListItem
                       key={a.id}
-                      selected={isSelected}
-                      onClick={() => setSelectedArmyId(a.id)}
+                      disablePadding
+                      sx={{ display: "flex", alignItems: "stretch", bgcolor: isSelected ? "action.selected" : undefined }}
                     >
-                      <ListItemText
-                        primary={a.name}
-                        secondary={`${secondaryLimit} Punkte • ${a.bloc_name}${blocGameSystemById[a.bloc_id] ? ` (${blocGameSystemById[a.bloc_id]})` : ""}`}
-                      />
-                    </ListItemButton>
+                      <ListItemButton
+                        selected={isSelected}
+                        sx={{ flex: 1, minWidth: 0, "&.Mui-selected, &.Mui-selected:hover": { bgcolor: "transparent" } }}
+                        onClick={() => { setSelectedArmyId(a.id); if (isMobile) setActivePane('builder'); }}
+                      >
+                        <ListItemText
+                          sx={{ minWidth: 0, whiteSpace: "normal", overflowWrap: "anywhere", wordBreak: "break-word" }}
+                          primaryTypographyProps={{ noWrap: false, sx: { whiteSpace: "normal", overflowWrap: "anywhere" } }}
+                          secondaryTypographyProps={{ noWrap: false, sx: { whiteSpace: "normal", overflowWrap: "anywhere" } }}
+                          primary={a.name}
+                          secondary={`${secondaryLimit} Punkte • ${a.bloc_name}${blocGameSystemById[a.bloc_id] ? ` (${blocGameSystemById[a.bloc_id]})` : ""}`}
+                        />
+                      </ListItemButton>
+                      <Box sx={{ display: "flex", flexShrink: 0, alignItems: "center", gap: 0.5, pr: 1 }}>
+                          <Tooltip title={pdfProgress?.armyId === a.id ? `Erzeuge PDF… ${pdfProgress.done}/${pdfProgress.total}` : "Armeekarten als PDF exportieren"}>
+                            <span>
+                              <IconButton size="small" aria-label="Armeekarten als PDF exportieren" disabled={pdfProgress !== null} onClick={(e) => { e.stopPropagation(); handleExportArmyPdf(a.id); }}>
+                                {pdfProgress?.armyId === a.id
+                                  ? <CircularProgress size={20} variant={pdfProgress.total ? "determinate" : "indeterminate"} value={pdfProgress.total ? (100 * pdfProgress.done) / pdfProgress.total : 0} />
+                                  : <PictureAsPdf fontSize="small" />}
+                              </IconButton>
+                            </span>
+                          </Tooltip>
+                          <Tooltip title="Armee clonen">
+                            <IconButton size="small" aria-label="Armee clonen" onClick={(e) => { e.stopPropagation(); handleCloneArmy(a.id); }}>
+                              <ContentCopy fontSize="small" />
+                            </IconButton>
+                          </Tooltip>
+                          <Tooltip title="Armee bearbeiten">
+                            <IconButton size="small" aria-label="Armee bearbeiten" onClick={(e) => { e.stopPropagation(); setArmyFormArmy(isSelected ? (armyDetail?.army || armyDetail || a) : a); setArmyFormOpen(true); }}>
+                              <Edit fontSize="small" />
+                            </IconButton>
+                          </Tooltip>
+                          <Tooltip title="Armee löschen">
+                            <IconButton size="small" color="error" aria-label="Armee löschen" onClick={(e) => { e.stopPropagation(); setConfirmDeleteArmyId(a.id); }}>
+                              <Delete fontSize="small" />
+                            </IconButton>
+                          </Tooltip>
+                      </Box>
+                    </ListItem>
                   );
                 })}
               </List>
@@ -659,38 +787,22 @@ function groupSlots(platoonUnits) {
           </ColumnPaper>
 
           <ColumnPaper
+            mobile={isMobile}
+            hidden={isMobile && activePane !== 'builder'}
             title={
               armyDetail
                 ? `Armee: ${armyName} (${blocName}${gameSystemName ? ` • ${gameSystemName}` : ""})`
                 : "Armee"
             }
           >
-            <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
-			  <Button size="small" variant="outlined" onClick={() => { setArmyFormArmy(armyDetail?.army || armyDetail); setArmyFormOpen(true); }}>
-				Bearbeiten
-			  </Button>
-			  <Button size="small" variant="outlined" onClick={handleCloneArmy}>
-				Klonen
-			  </Button>
-			  <Button size="small" variant="outlined" onClick={() => setAddPlatoonOpen(true)}>
-			    Platoon hinzufügen
-			  </Button>
-			  <Button size="small" variant="outlined" onClick={openAddFreeUnit} >
-				Einheit hinzufügen
-			  </Button>
-			  <Button
-				size="small"
-				variant="outlined"
-				onClick={handleExportArmyPdf}
-				disabled={!armyDetail || pdfProgress !== null}
-			  >
-				{pdfProgress ? `Erzeuge PDF… ${pdfProgress.done}/${pdfProgress.total}` : "Armeekarten als PDF exportieren"}
-			  </Button>
-            </Stack>
-			
-			<Typography fontWeight={700} sx={{ mt: 2 }}>
-			  Platoons
-			</Typography>
+			<Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mt: 2 }}>
+			  <Typography fontWeight={700}>Platoons</Typography>
+			  <Tooltip title="Platoon hinzufügen">
+			    <IconButton size="small" aria-label="Platoon hinzufügen" onClick={() => setAddPlatoonOpen(true)}>
+			      <Add fontSize="small" />
+			    </IconButton>
+			  </Tooltip>
+			</Box>
 
       {armyValidation && (
         <Stack spacing={1} sx={{ mt: 2, mb: 2 }}>
@@ -778,34 +890,7 @@ function groupSlots(platoonUnits) {
 
 							{assignedGroup && (
   <List dense sx={{ mt: 1 }}>
-    <ListItem
-      disablePadding
-      secondaryAction={
-        <Button
-          size="small"
-          color="error"
-          onClick={(e) => {
-            e.stopPropagation();
-            handleRemoveOneUnit(assignedGroup);
-          }}
-        >
-          Entfernen
-        </Button>
-      }
-    >
-      <ListItemButton
-        selected={selectedArmyUnitId === assignedGroup.unit.army_unit_id}
-        onClick={() => {
-          setSelectedArmyUnitId(assignedGroup.unit.army_unit_id);
-          setSelectedUnitId(assignedGroup.unit.unit_id);
-        }}
-      >
-        <ListItemText
-          primary={`${assignedGroup.quantity}× ${assignedGroup.unit.unit_name}`}
-          secondary={`${assignedGroup.quantity} × ${assignedGroup.unitPoints} AP = ${assignedGroup.groupPoints} AP`}
-        />
-      </ListItemButton>
-    </ListItem>
+    {renderUnitGroupRow(assignedGroup)}
   </List>
 )}
 
@@ -835,41 +920,7 @@ function groupSlots(platoonUnits) {
 </Button>
 
 <List dense>
-  {supportUnitGroups.map((group) => {
-    const selected = selectedArmyUnitId === group.unit.army_unit_id;
-
-    return (
-      <ListItem
-        key={group.key}
-        disablePadding
-        secondaryAction={
-          <Button
-            size="small"
-            color="error"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleRemoveOneUnit(group);
-            }}
-          >
-            Entfernen
-          </Button>
-        }
-      >
-        <ListItemButton
-          selected={selected}
-          onClick={() => {
-            setSelectedArmyUnitId(group.unit.army_unit_id);
-            setSelectedUnitId(group.unit.unit_id);
-          }}
-        >
-          <ListItemText
-            primary={`${group.quantity}× ${group.unit.unit_name}`}
-            secondary={`${group.quantity} × ${group.unitPoints} AP = ${group.groupPoints} AP`}
-          />
-        </ListItemButton>
-      </ListItem>
-    );
-  })}
+  {supportUnitGroups.map((group) => renderUnitGroupRow(group))}
 </List>
 
 
@@ -880,50 +931,23 @@ function groupSlots(platoonUnits) {
               <CircularProgress />
             ) : (
 <Box sx={{ mb: 1 }}>
-  <Typography fontWeight={700}>Freie Einheiten</Typography>
+  <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+    <Typography fontWeight={700}>Einheiten</Typography>
+    <Tooltip title="Einheit hinzufügen">
+      <IconButton size="small" aria-label="Einheit hinzufügen" onClick={openAddFreeUnit}>
+        <Add fontSize="small" />
+      </IconButton>
+    </Tooltip>
+  </Box>
 
   <List dense>
-    {freeUnitGroups.map((group) => {
-      const selected = group.unit.army_unit_id === selectedArmyUnitId;
-
-      return (
-        <ListItem
-          key={group.key}
-          disablePadding
-          secondaryAction={
-            <Button
-              size="small"
-              color="error"
-              onClick={(e) => {
-                e.stopPropagation();
-                handleRemoveOneUnit(group);
-              }}
-            >
-              Entfernen
-            </Button>
-          }
-        >
-          <ListItemButton
-            selected={selected}
-            onClick={() => {
-              setSelectedArmyUnitId(group.unit.army_unit_id);
-              setSelectedUnitId(group.unit.unit_id);
-            }}
-          >
-            <ListItemText
-              primary={`${group.quantity}× ${group.unit.unit_name}`}
-              secondary={`${group.quantity} × ${group.unitPoints} AP = ${group.groupPoints} AP`}
-            />
-          </ListItemButton>
-        </ListItem>
-      );
-    })}
+    {freeUnitGroups.map((group) =>     renderUnitGroupRow(group))}
   </List>
 </Box>
             )}
           </ColumnPaper>
 
-			<ColumnPaper title="Details">
+			<ColumnPaper title="Details" mobile={isMobile} hidden={isMobile && activePane !== 'details'}>
 			    {selectedUnitId ? (
 					<UnitCard unitId={selectedUnitId} onBack={() => setSelectedUnitId(null)} />
 			  ) : (
@@ -936,6 +960,16 @@ function groupSlots(platoonUnits) {
         </Box>
       </Box>
       </>
+      )}
+
+      {isMobile && mode === 'builder' && (
+        <Paper elevation={8} sx={{ position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 1200 }}>
+          <BottomNavigation showLabels value={activePane} onChange={(e, v) => setActivePane(v)}>
+            <BottomNavigationAction value="armies" label="Armeen" icon={<ListIcon />} />
+            <BottomNavigationAction value="builder" label="Armybuilder" icon={<Groups />} />
+            <BottomNavigationAction value="details" label="Details" icon={<Description />} />
+          </BottomNavigation>
+        </Paper>
       )}
 
       {/* Dialogs (used in Army Builder mode) */}
@@ -969,7 +1003,7 @@ function groupSlots(platoonUnits) {
 	  <AddUnitDialog
         open={addUnitOpen}
 		units={availableUnits}
-		onClose={() => setAddUnitOpen(false)}
+		onClose={handleCloseAddUnit}
 		onAdd={handleAddUnit}
 		/>
     </Box>

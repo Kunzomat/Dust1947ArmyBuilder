@@ -66,7 +66,24 @@ export function aggregateArmyUnits(units = []) {
     }
   }
 
-  return [...groups.values()];
+  return [...groups.values()].sort(compareArmyUnitGroups);
+}
+
+// Display order: Hero (H), Infantry (I), Vehicle (V), Aircraft (A), unknown
+// last; then by unit name A-Z (case-insensitive). Display only.
+const TYPE_ORDER = { H: 0, I: 1, V: 2, A: 3 };
+
+function typeRank(unit) {
+  const type = String(unit?.type ?? unit?.unit_type ?? "").trim().toUpperCase();
+  return type in TYPE_ORDER ? TYPE_ORDER[type] : 4;
+}
+
+export function compareArmyUnitGroups(a, b) {
+  const diff = typeRank(a?.unit) - typeRank(b?.unit);
+  if (diff !== 0) return diff;
+  return String(a?.unit?.unit_name ?? a?.unit?.name ?? "").localeCompare(String(b?.unit?.unit_name ?? b?.unit?.name ?? ""), undefined, {
+    sensitivity: "base",
+  });
 }
 
 // One entry per physical unit: every army_units row (free, platoon and

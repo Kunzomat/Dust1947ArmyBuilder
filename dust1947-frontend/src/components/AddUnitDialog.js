@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
+  Alert,
   Dialog,
   DialogTitle,
   DialogContent,
+  DialogActions,
   List,
   ListItem,
-  ListItemText,
   Button,
   Box,
   Stack,
@@ -16,9 +17,13 @@ import {
   Typography,
   IconButton,
   TextField,
+  Tooltip,
+  Snackbar,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
-import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
+import CloseIcon from "@mui/icons-material/Close";
 import useSessionStorageState from "../hooks/useSessionStorageState";
 
 const TYPE_LABELS = {
@@ -43,20 +48,36 @@ export default function AddUnitDialog({
     setFilters((previous) => ({ ...previous, selectedFaction: value }));
   const setSelectedType = (value) =>
     setFilters((previous) => ({ ...previous, selectedType: value }));
-  const [quantities, setQuantities] = useState({});
+  const [search, setSearch] = useState("");
+  const [pendingKeys, setPendingKeys] = useState([]);
+  const pendingRef = useRef(new Set());
+  const [notice, setNotice] = useState(null); // { severity, message }
+  const [noticeOpen, setNoticeOpen] = useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  useEffect(() => {
-    if (!open) return;
-    setQuantities({});
-  }, [open]);
-
-  function getQuantity(key) {
-    return quantities[key] ?? 1;
-  }
-
-  function setQuantity(key, value) {
-    const qty = Math.max(1, Number(value) || 1);
-    setQuantities((prev) => ({ ...prev, [key]: qty }));
+  async function handleAdd(unit, key) {
+    if (pendingRef.current.has(key)) return;
+    pendingRef.current.add(key);
+    setPendingKeys(Array.from(pendingRef.current));
+    const name = unit.name || unit.unit_name || "Einheit";
+    let result;
+    try {
+      result = await onAdd(unit, 1);
+    } catch (e) {
+      result = { ok: false, message: String(e?.message || e) };
+    }
+    pendingRef.current.delete(key);
+    setPendingKeys(Array.from(pendingRef.current));
+    if (result?.ok === false) {
+      setNotice({
+        severity: "error",
+        message: `${name} konnte nicht hinzugefügt werden: ${result.message || "Unbekannter Fehler"}`,
+      });
+    } else {
+      setNotice({ severity: "success", message: `${name} wurde hinzugefügt.` });
+    }
+    setNoticeOpen(true);
   }
 
   const factionOptions = useMemo(
@@ -91,7 +112,10 @@ export default function AddUnitDialog({
         const unitType = u.type || u.unit_type || "";
         const factionMatch = !selectedFaction || u.faction_name === selectedFaction;
         const typeMatch = !selectedType || String(unitType) === selectedType;
-        return factionMatch && typeMatch;
+        const term = search.trim().toLowerCase();
+        const searchMatch =
+          !term || String(u.name || u.unit_name || "").toLowerCase().includes(term);
+        return factionMatch && typeMatch && searchMatch;
       }).sort((a, b) =>
         (a.name || a.unit_name || "").localeCompare(
           b.name || b.unit_name || "",
@@ -99,14 +123,38 @@ export default function AddUnitDialog({
           { sensitivity: "base" }
         )
       ),
-    [units, selectedFaction, selectedType]
+    [units, selectedFaction, selectedType, search]
   );
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle>Einheit hinzufügen</DialogTitle>
+    <>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth="sm"
+      fullWidth
+      fullScreen={fullScreen}
+    >
+      <DialogTitle sx={{ pr: 6 }}>
+        Einheit hinzufügen
+        <IconButton
+          aria-label="Schließen"
+          onClick={onClose}
+          sx={{ position: "absolute", right: 8, top: 8 }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </DialogTitle>
 
-      <DialogContent>
+      <DialogContent dividers sx={{ px: { xs: 1.5, sm: 3 } }}>
+        <TextField
+          size="small"
+          fullWidth
+          label="Suche"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          sx={{ mt: 1, mb: 1.5 }}
+        />
         <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mb: 1.5 }}>
           <FormControl size="small" fullWidth>
             <InputLabel id="add-unit-faction-filter-label">Faction</InputLabel>
@@ -153,61 +201,54 @@ export default function AddUnitDialog({
               : "Kein Typ";
             const points = u.points ?? u.unit_points;
             const key = u.id || u.unit_id;
-            const quantity = getQuantity(key);
+            const name = u.name || u.unit_name;
+            const pending = pendingKeys.includes(key);
 
             return (
               <ListItem
                 key={key}
                 divider
-                secondaryAction={
-                  <Stack direction="row" spacing={0.5} alignItems="center">
-                    <IconButton
-                      size="small"
-                      aria-label="Menge verringern"
-                      onClick={() => setQuantity(key, quantity - 1)}
-                      disabled={quantity <= 1}
-                    >
-                      <RemoveIcon fontSize="small" />
-                    </IconButton>
-                    <TextField
-                      size="small"
-                      type="number"
-                      value={quantity}
-                      onChange={(e) => setQuantity(key, e.target.value)}
-                      inputProps={{ min: 1, style: { width: 36, textAlign: "center" } }}
-                    />
-                    <IconButton
-                      size="small"
-                      aria-label="Menge erhöhen"
-                      onClick={() => setQuantity(key, quantity + 1)}
-                    >
-                      <AddIcon fontSize="small" />
-                    </IconButton>
-                    <Button
-                      size="small"
-                      variant="contained"
-                      sx={{ ml: 1 }}
-                      onClick={() => onAdd(u, quantity)}
-                    >
-                      Hinzufügen
-                    </Button>
-                  </Stack>
-                }
+                disableGutters
+                sx={{ display: "flex", alignItems: "center", gap: 1.5, py: 1 }}
               >
-                <ListItemText
-                  primary={
-                    <>
-                      {u.name || u.unit_name}
-                      {u.faction_name && (
-                        <span style={{ color: "#666", marginLeft: 6 }}>
-                          ({u.faction_name})
-                        </span>
-                      )}
-                    </>
-                  }
-                  secondary={`${typeLabel} • ${points ?? "undefined"} Punkte`}
-                  sx={{ pr: 20 }}
-                />
+                <Box sx={{ flex: 1, minWidth: 0 }}>
+                  <Typography
+                    variant="body1"
+                    sx={{ fontWeight: 700, overflowWrap: "anywhere" }}
+                  >
+                    {name}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ overflowWrap: "anywhere" }}
+                  >
+                    {[u.faction_name, typeLabel].filter(Boolean).join(" • ")}
+                  </Typography>
+                </Box>
+
+                <Stack
+                  direction="row"
+                  spacing={0.5}
+                  alignItems="center"
+                  sx={{ flexShrink: 0 }}
+                >
+                  <Typography variant="body2" sx={{ whiteSpace: "nowrap" }}>
+                    {points ?? "?"} AP
+                  </Typography>
+                  <Tooltip title="Hinzufügen">
+                    <span>
+                      <IconButton
+                        color="primary"
+                        aria-label="Hinzufügen"
+                        disabled={pending}
+                        onClick={() => handleAdd(u, key)}
+                      >
+                        <AddIcon />
+                      </IconButton>
+                    </span>
+                  </Tooltip>
+                </Stack>
               </ListItem>
             );
           })}
@@ -222,7 +263,30 @@ export default function AddUnitDialog({
         )}
       </DialogContent>
 
-      <Button onClick={onClose}>Abbrechen</Button>
+      <DialogActions>
+        <Button onClick={onClose}>Schließen</Button>
+      </DialogActions>
     </Dialog>
+
+    <Snackbar
+      open={open && noticeOpen}
+      autoHideDuration={noticeOpen && notice?.severity === "error" ? 6000 : 2000}
+      onClose={(event, reason) => {
+        if (reason === "clickaway") return;
+        setNoticeOpen(false);
+      }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      sx={{ zIndex: (t) => t.zIndex.modal + 100 }}
+    >
+      <Alert
+        severity={notice?.severity || "success"}
+        variant="filled"
+        onClose={() => setNoticeOpen(false)}
+        sx={{ width: "100%" }}
+      >
+        {notice?.message}
+      </Alert>
+    </Snackbar>
+    </>
   );
 }
