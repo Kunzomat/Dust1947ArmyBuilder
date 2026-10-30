@@ -1,8 +1,7 @@
 import { apiCall } from "../apiClient";
-import { expandArmyUnitsByQuantity } from "../armyUnitAggregation";
 import { renderUnitCardToCanvas, EXPORT_SCALE } from "./cardExport";
 
-// CardFront frame border-radius: u(10) = 10 logical px (x2.5 = 25 px at 1000x1000).
+// CardFront frame border-radius: u(10) = 10 logical px (x4 = 40 px at 1600x1600).
 const CARD_CORNER_RADIUS_LOGICAL = 10;
 
 function roundedRectPath(ctx, x, y, w, h, r) {
@@ -37,14 +36,20 @@ export function getArmyPdfFileName(armyName) {
 }
 
 /**
- * Generates and downloads a PDF with one card per unit of the army
- * (units with quantity N appear N times).
+ * Generates and downloads a PDF with one card per distinct unit (unit_id)
+ * of the army (quantity is ignored).
  * @param {object} armyDetail result of armies.get
  * @param {string} armyName
  * @param {(done:number,total:number)=>void} onProgress
  */
 export async function exportArmyCardsPdf(armyDetail, armyName, onProgress = () => {}) {
-  const entries = expandArmyUnitsByQuantity(armyDetail?.units || []);
+  // One card per distinct unit (units.id), regardless of quantity/rows.
+  const seenUnitIds = new Set();
+  const entries = (armyDetail?.units || []).filter((u) => {
+    if (seenUnitIds.has(u.unit_id)) return false;
+    seenUnitIds.add(u.unit_id);
+    return true;
+  });
   if (!entries.length) throw new Error("Die Armee enthält keine Einheiten.");
 
   const { jsPDF } = await import("jspdf");
@@ -81,14 +86,14 @@ export async function exportArmyCardsPdf(armyDetail, armyName, onProgress = () =
       ctx.clip();
       ctx.drawImage(canvas, 0, 0);
       ctx.restore();
-      cache.set(unitId, flat.toDataURL("image/jpeg", 0.92));
+      cache.set(unitId, flat.toDataURL("image/jpeg", 1.0));
     }
 
     const slot = i % perPage;
     if (i > 0 && slot === 0) pdf.addPage("a4", "portrait");
     const x = marginX + (slot % COLUMNS) * PDF_CARD_WIDTH_MM;
     const y = marginY + Math.floor(slot / COLUMNS) * PDF_CARD_HEIGHT_MM;
-    pdf.addImage(cache.get(unitId), "JPEG", x, y, PDF_CARD_WIDTH_MM, PDF_CARD_HEIGHT_MM, `unit-${unitId}`);
+    pdf.addImage(cache.get(unitId), "JPEG", x, y, PDF_CARD_WIDTH_MM, PDF_CARD_HEIGHT_MM, `unit-${unitId}`, "NONE");
     onProgress(i + 1, total);
   }
 

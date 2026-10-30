@@ -8,8 +8,8 @@ import CardFront, { LOGICAL_WIDTH, LOGICAL_HEIGHT } from "../components/CardFron
 // Single SQUARE card: 80 x 80 mm (1 logical px = 0.2 mm).
 export const CARD_WIDTH = LOGICAL_WIDTH; // 400
 export const CARD_HEIGHT = LOGICAL_HEIGHT; // 400
-// 400*2.5 x 400*2.5 = 1000 x 1000 px (exact square, ~317 dpi at 80 mm)
-export const EXPORT_SCALE = 2.5;
+// 400*4 x 400*4 = 1600 x 1600 px (exact square, ~508 dpi at 80 mm)
+export const EXPORT_SCALE = 4;
 
 // Faction colors by id
 const FACTION_COLORS_BY_ID = {
@@ -42,6 +42,16 @@ export async function renderCardElementToCanvas(cardEl) {
   );
 
   // Let fonts settle and image fade-ins/state updates paint before capture.
+  if (document.fonts?.load) {
+    try {
+      await Promise.all([
+        document.fonts.load("400 10px Oswald"),
+        document.fonts.load("700 10px Oswald"),
+      ]);
+    } catch (e) {
+      /* fall back to the font stack */
+    }
+  }
   if (document.fonts?.ready) await document.fonts.ready;
   await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
 
@@ -90,12 +100,118 @@ export async function renderCardElementToCanvas(cardEl) {
       box.setAttribute("role", "img");
       box.setAttribute("aria-label", img.alt || "");
       box.style.cssText = img.style.cssText;
-      box.style.backgroundImage = `url("${img.currentSrc || img.src}")`;
+      box.style.backgroundImage = `url("${img.getAttribute("src") || img.currentSrc}")`;
       box.style.backgroundSize = "cover";
       box.style.backgroundRepeat = "no-repeat";
       box.style.backgroundPosition = cs.objectPosition || "50% 50%";
       box.style.opacity = "1";
       img.parentNode.replaceChild(box, img);
+    });
+  };
+
+  // html2canvas draws bitmaps with a single drawImage() call (no mip-maps),
+  // so a 1024-1536 px source drawn into e.g. 64 px (type icon) or 88 px
+  // (faction symbol) aliases/blurs. Pre-resample every <img> to its exact
+  // physical size (stepwise halving, smoothing "high", lossless PNG) and let
+  // the clone use that data URL, so html2canvas only draws ~1:1.
+  const presampled = new Map(); // index in cardEl.querySelectorAll("img") -> dataURL
+  await Promise.all(
+    Array.from(cardEl.querySelectorAll("img")).map(async (img, idx) => {
+      try {
+        const cs = window.getComputedStyle(img);
+        const r = img.getBoundingClientRect();
+        const nw = img.naturalWidth;
+        const nh = img.naturalHeight;
+        if (!nw || !nh || !r.width || !r.height) return;
+        const src = img.currentSrc || img.src;
+        if (!src || src.startsWith("data:image/svg")) return;
+        let f;
+        let dw;
+        let dh;
+        let tw = 0; // cover: full (uncropped) scaled size
+        let th = 0;
+        const isCover = cs.objectFit === "cover";
+        if (isCover) {
+          f = Math.max(r.width / nw, r.height / nh) * captureScale;
+          tw = Math.max(1, Math.round(nw * f));
+          th = Math.max(1, Math.round(nh * f));
+          // Final bitmap = the visible box in physical pixels (cover-cropped).
+          dw = Math.max(1, Math.round(r.width * captureScale));
+          dh = Math.max(1, Math.round(r.height * captureScale));
+        } else {
+          dw = Math.round(r.width * captureScale);
+          dh = Math.round(r.height * captureScale);
+          f = Math.max(dw / nw, dh / nh);
+        }
+        if (f >= 0.75) return; // not a real downscale
+        const source = new Image();
+        source.crossOrigin = "anonymous";
+        source.src = src;
+        await source.decode();
+        let cur = source;
+        let cw = nw;
+        let ch = nh;
+        const stepW = isCover ? tw : dw;
+        const stepH = isCover ? th : dh;
+        while (cw / 2 > stepW || ch / 2 > stepH) {
+          cw = Math.max(stepW, Math.round(cw / 2));
+          ch = Math.max(stepH, Math.round(ch / 2));
+          const step = document.createElement("canvas");
+          step.width = cw;
+          step.height = ch;
+          const sctx = step.getContext("2d");
+          sctx.imageSmoothingEnabled = true;
+          sctx.imageSmoothingQuality = "high";
+          sctx.drawImage(cur, 0, 0, cw, ch);
+          cur = step;
+        }
+        const out = document.createElement("canvas");
+        out.width = dw;
+        out.height = dh;
+        const octx = out.getContext("2d");
+        octx.imageSmoothingEnabled = true;
+        octx.imageSmoothingQuality = "high";
+        if (isCover) {
+          // Crop to the visible box using object-position (default 50% 50%).
+          const pos = (cs.objectPosition || "50% 50%").split(/\s+/);
+          const frac = (s) => (s && s.endsWith("%") ? parseFloat(s) / 100 : 0.5);
+          const px = frac(pos[0]);
+          const py = frac(pos[1]);
+          const vw = Math.min(cur.width, (cur.width * dw) / tw);
+          const vh = Math.min(cur.height, (cur.height * dh) / th);
+          octx.drawImage(
+            cur,
+            (cur.width - vw) * px,
+            (cur.height - vh) * py,
+            vw,
+            vh,
+            0,
+            0,
+            dw,
+            dh
+          );
+        } else {
+          octx.drawImage(cur, 0, 0, dw, dh);
+        }
+        presampled.set(idx, { url: out.toDataURL("image/png"), cover: isCover });
+      } catch (e) {
+        /* keep the original image (e.g. CORS failure) */
+      }
+    })
+  );
+
+  const applyPresampled = (doc) => {
+    doc.querySelectorAll("img").forEach((img, idx) => {
+      const entry = presampled.get(idx);
+      if (!entry) return;
+      img.src = entry.url;
+      // Already cropped to the box at physical size: draw it as a plain
+      // <img> stretched 1:1 (html2canvas' background-image path would
+      // re-resize it to CSS px and upscale it again, blurring it).
+      if (entry.cover) {
+        img.style.objectFit = "fill";
+        img.style.opacity = "1";
+      }
     });
   };
 
@@ -115,6 +231,7 @@ export async function renderCardElementToCanvas(cardEl) {
     scale: captureScale,
     onclone: (doc) => {
       pinCardInClone(doc);
+      applyPresampled(doc);
       swapCoverImages(doc);
     },
   });

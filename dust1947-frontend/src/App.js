@@ -247,8 +247,8 @@ export default function App() {
   }
   
 	async function loadFreeUnits() {
-		const data = await apiCall("unit.list");
 		const bloc_id = armyDetail?.army?.bloc_id;
+		const data = await apiCall("unit.list", { bloc_id });
 
     return (data.units || []).filter(
       (u) => Number(u.bloc_id) === Number(bloc_id) || Boolean(Number(u.is_mercenary ?? 0))

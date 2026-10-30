@@ -256,32 +256,30 @@ if ($action === 'unit.list') {
                 SELECT u.*, f.bloc_id AS bloc_id, f.name AS faction_name
                 FROM units u
                 JOIN factions f ON f.id = u.faction_id
+                LEFT JOIN blocs fb ON fb.id = f.bloc_id
                 WHERE (
                     f.bloc_id = ?
-                    OR EXISTS (
+                    AND (u.game_system_id IS NULL OR u.game_system_id = ?)
+                )
+                OR (
+                    EXISTS (
                         SELECT 1
                         FROM unit_rules ur2
                         JOIN rules r2 ON r2.id = ur2.unit_rule_id
                         WHERE ur2.unit_id = u.id
                           AND UPPER(r2.name) = 'MERCENARY'
                     )
+                    AND COALESCE(u.game_system_id, fb.sytem_id) = ?
                 )
-                  AND (u.game_system_id IS NULL OR u.game_system_id = ?)
             ");
-            $stmt->bind_param("ii", $blocId, $selectedSystemId);
+            $stmt->bind_param("iii", $blocId, $selectedSystemId, $selectedSystemId);
         } else {
+            // Unknown army system: mercenary system cannot be matched, so hide them.
             $stmt = $conn->prepare("
                 SELECT u.*, f.bloc_id AS bloc_id, f.name AS faction_name
                 FROM units u
                 JOIN factions f ON f.id = u.faction_id
                 WHERE f.bloc_id = ?
-                   OR EXISTS (
-                        SELECT 1
-                        FROM unit_rules ur2
-                        JOIN rules r2 ON r2.id = ur2.unit_rule_id
-                        WHERE ur2.unit_id = u.id
-                          AND UPPER(r2.name) = 'MERCENARY'
-                    )
             ");
             $stmt->bind_param("i", $blocId);
         }

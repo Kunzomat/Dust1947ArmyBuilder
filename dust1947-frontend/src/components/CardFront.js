@@ -70,6 +70,92 @@ export function getWeaponCell(weapon, type, level) {
   return match ? `${match.dice}/${match.damage}` : "";
 }
 
+// Display only: '*' -> black blast icon, '#' -> black skull icon, '**' -> double
+// blast (inline SVG, ~0.72em high = digit height, on the text baseline).
+const STAT_ICON_STYLE = {
+  display: "inline-block",
+  width: "0.81em",
+  height: "0.81em",
+  verticalAlign: "baseline",
+  fill: "#000",
+};
+const STAT_ICON_PATHS = {
+  // 12-point blast star
+  "#": "M12 0.5 L14.6 6.6 L20.5 3.5 L17.4 9.4 L23.5 12 L17.4 14.6 L20.5 20.5 L14.6 17.4 L12 23.5 L9.4 17.4 L3.5 20.5 L6.6 14.6 L0.5 12 L6.6 9.4 L3.5 3.5 L9.4 6.6 Z",
+  // skull: cranium + jaw, eye sockets/nose cut out (evenodd)
+  "*": "M12 1 C6.5 1 3 4.8 3 9.8 C3 13 4.6 15.2 7 16.4 L7 20 C7 20.6 7.4 21 8 21 L16 21 C16.6 21 17 20.6 17 20 L17 16.4 C19.4 15.2 21 13 21 9.8 C21 4.8 17.5 1 12 1 Z M8.2 8.2 C6.9 8.2 6 9.2 6 10.4 C6 11.6 6.9 12.6 8.2 12.6 C9.5 12.6 10.4 11.6 10.4 10.4 C10.4 9.2 9.5 8.2 8.2 8.2 Z M15.8 8.2 C14.5 8.2 13.6 9.2 13.6 10.4 C13.6 11.6 14.5 12.6 15.8 12.6 C17.1 12.6 18 11.6 18 10.4 C18 9.2 17.1 8.2 15.8 8.2 Z M12 13 L10.6 16 L13.4 16 Z",
+};
+
+function renderStatSymbols(value) {
+  const text = String(value ?? "");
+  if (!/[#*]/.test(text)) return value;
+  // '**' must be tokenized before '*'.
+  return text.split(/(\*\*|\*|#)/).map((part, idx) => {
+    if (part === "**") {
+      return (
+        <svg
+          key={idx}
+          // blast spans x 0.5..23.5 (23 wide); 2nd shifted 8 (~35%) => 0.5..31.5
+          viewBox="0.5 0.5 31 23"
+          preserveAspectRatio="xMidYMid meet"
+          width="1.092em"
+          height="0.81em"
+          style={{
+            ...STAT_ICON_STYLE,
+            // exact aspect: 0.81em * 31/23 = 1.092em (Oswald digit height 0.81em)
+            width: "1.092em",
+            height: "0.81em",
+            minWidth: "1.092em",
+            flexShrink: 0,
+            marginInline: 0,
+          }}
+          fill="#000"
+          aria-label="double blast"
+          role="img"
+        >
+          <path d={STAT_ICON_PATHS["#"]} fill="#000" />
+          <path
+            d={STAT_ICON_PATHS["#"]}
+            fill="#000"
+            stroke="#fff"
+            strokeWidth="1.2"
+            strokeLinejoin="miter"
+            paintOrder="stroke"
+            transform="translate(8 0)"
+          />
+        </svg>
+      );
+    }
+    if (part === "*" || part === "#") {
+      // '*' -> blast, '#' -> skull
+      const isBlast = part === "*";
+      return (
+        <svg
+          key={idx}
+          viewBox={isBlast ? "0.5 0.5 23 23" : "3 1 18 20"}
+          preserveAspectRatio="none"
+          width={isBlast ? "0.81em" : "0.729em"}
+          height="0.81em"
+          style={{
+            ...STAT_ICON_STYLE,
+            width: isBlast ? "0.81em" : "0.729em",
+          }}
+          fill="#000"
+          aria-label={isBlast ? "blast" : "skull"}
+          role="img"
+        >
+          <path
+            d={STAT_ICON_PATHS[isBlast ? "#" : "*"]}
+            fill="#000"
+            fillRule="evenodd"
+          />
+        </svg>
+      );
+    }
+    return part;
+  });
+}
+
 // The weapon table has a FIXED column structure (Inf 1-4, Veh 1-7, Air 1-3)
 // for every unit, independent of the weapon data.
 export function buildStatColumns() {
@@ -84,9 +170,14 @@ const TABLE_BORDER = 2;
 const HEADER_ROW_HEIGHT = 11;
 // 14 stat columns + range + arc = 286 of the 378 px table width; the rest is
 // the weapon name column (square card: full width, fixed narrow columns).
-const COL_RANGE = 22;
-const COL_ARC = 26;
-const COL_STAT = 17;
+const COL_RANGE = 21;
+const COL_ARC = 24;
+const COL_STAT = 18;
+// Single card font (Oswald is bundled via @fontsource, see index.js); set on
+// the card root so all card text inherits it.
+const CARD_FONT =
+  "Oswald, 'Roboto Condensed', 'Arial Narrow', 'DejaVu Sans Condensed', 'Liberation Sans Narrow', Impact, sans-serif";
+const TABLE_INK = "#231f1a";
 
 // Unit rules first (sorted), then weapon rules (sorted, de-duplicated).
 export function buildRuleEntries(specialRules, weapons) {
@@ -144,10 +235,10 @@ function CardFront({ details = {}, bgColor }) {
   const subRef = useRef(null);
   const notesRef = useRef(null);
   const weaponsRef = useRef(null);
-  const imageBoxRef = useRef(null);
   const rulesRef = useRef(null);
   const [unit, setUnit] = useState(FALLBACK_UNIT);
   const [clipped, setClipped] = useState(false);
+  const [fontTick, setFontTick] = useState(0);
 
   const weapons = asList(details.weapons);
   const specialRules = asList(details.special_rules);
@@ -190,38 +281,40 @@ function CardFront({ details = {}, bgColor }) {
     };
   }, []);
 
+  // Re-run the fit pass once Oswald is available (measurements depend on it).
+  useLayoutEffect(() => {
+    const fonts = typeof document !== "undefined" ? document.fonts : null;
+    if (!fonts) return undefined;
+    let active = true;
+    const bump = () => active && setFontTick((t) => t + 1);
+    if (fonts.load) {
+      fonts.load("400 10px Oswald").then(bump, () => {});
+      fonts.load("700 10px Oswald").then(bump, () => {});
+    }
+    if (fonts.ready) fonts.ready.then(bump);
+    fonts.addEventListener?.("loadingdone", bump);
+    return () => {
+      active = false;
+      fonts.removeEventListener?.("loadingdone", bump);
+    };
+  }, []);
+
   // Fit pass. Order matters: header text and the weapon table settle first,
   // because they decide how much height is left for the image/rules row.
   useLayoutEffect(() => {
     fitFont(nameRef.current, 12, 7);
     fitFont(subRef.current, 7, 5);
     fitFont(notesRef.current, 9, 6);
-    // Weapon table has fixed geometry; only weapon names shrink to fit
-    // their (nowrap, ellipsis) cell.
-    weaponsRef.current
-      ?.querySelectorAll("[data-weapon-name]")
-      .forEach((el) => fitFont(el, 9, 5.5));
+    // Weapon names use a fixed font size (same as stat values); no fitting.
 
+    // Rules panel: FIXED font size (no shrinking); only detect clipping.
     const panel = rulesRef.current;
-    const imageBox = imageBoxRef.current;
-    if (!panel || !imageBox) return;
-    const stages = [
-      { image: 160, max: 10, min: 7 },
-      { image: 120, max: 7, min: 5.5 },
-    ];
-    let fitted = false;
-    for (const stage of stages) {
-      imageBox.style.width = u(stage.image);
-      if (fitFont(panel, stage.max, stage.min)) {
-        fitted = true;
-        break;
-      }
-    }
-    setClipped(!fitted);
+    if (!panel) return;
+    setClipped(panel.scrollHeight > panel.clientHeight + 1);
     // Overlay width depends on the final image width: re-fit its texts.
     fitFont(nameRef.current, 12, 7);
     fitFont(subRef.current, 7, 5);
-  }, [unit, details]);
+  }, [unit, details, fontTick]);
 
   const imgFill = {
     width: "100%",
@@ -244,12 +337,26 @@ function CardFront({ details = {}, bgColor }) {
     groupStart.add(offset);
     offset += g.levels.length;
   });
+  // Header labels of different font sizes share one baseline: Oswald's
+  // baseline sits 0.452em below the centre of a 1em line box; compensate the
+  // difference to a common target with padding (units).
+  const HDR_BASELINE = 2.8;
+  const hdrPad = (size) => {
+    const off = 0.452 * size - HDR_BASELINE;
+    return off >= 0
+      ? { paddingBottom: u(2 * off), paddingTop: 0 }
+      : { paddingTop: u(-2 * off), paddingBottom: 0 };
+  };
   const cell = (i, extra = {}) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: i === 0 ? "flex-start" : "center",
     textAlign: i === 0 ? "left" : "center",
     paddingLeft: i === 0 ? u(4) : 0,
+    // Oswald digits (cap height 0.81em) sit ~0.047em below the centre of a
+    // 1em line box; lift them so they're optically centred.
+    paddingBottom: i === 0 ? 0 : "0.09em",
+    lineHeight: 1,
     borderLeft: groupStart.has(i)
       ? `${u(2)} solid #222`
       : i > 0
@@ -279,6 +386,7 @@ function CardFront({ details = {}, bgColor }) {
         gap: u(3),
         padding: u(3),
         color: "#111",
+        fontFamily: CARD_FONT,
       }}
     >
       {/* ===== Image + rules row ===== */}
@@ -294,7 +402,6 @@ function CardFront({ details = {}, bgColor }) {
         }}
       >
         <Box
-          ref={imageBoxRef}
           sx={{
             flex: "none",
             width: u(160),
@@ -429,14 +536,26 @@ function CardFront({ details = {}, bgColor }) {
                 </Box>
               )}
             </Box>
-            <Box sx={{ flex: 1, minWidth: 0 }}>
+            <Box
+              sx={{
+                flex: 1,
+                minWidth: 0,
+                // Oswald line boxes are tall: let the text block use the
+                // overlay's vertical padding so the overlay size is unchanged
+                margin: `${u(-2.5)} 0`,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
               <Box
                 ref={nameRef}
                 data-testid="card-name"
                 sx={{
                   fontWeight: 900,
                   fontSize: u(12),
-                  lineHeight: 1.1,
+                  // line box >= ink incl. descenders (Oswald 1.48em content area)
+                  lineHeight: 1.35,
                   whiteSpace: "nowrap",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
@@ -449,7 +568,9 @@ function CardFront({ details = {}, bgColor }) {
                 sx={{
                   fontWeight: 700,
                   fontSize: u(7),
-                  lineHeight: 1.2,
+                  // extra room below baseline so 'y'/'p' descenders are not
+                  // clipped (also in html2canvas export)
+                  lineHeight: 1.5,
                   whiteSpace: "nowrap",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
@@ -505,9 +626,16 @@ function CardFront({ details = {}, bgColor }) {
             color: "#000",
           }}
         >
-          {ruleEntries.map((r) => (
-            <Box key={r.key} sx={{ marginBottom: "0.4em" }}>
-              <Box component="strong" sx={{ fontWeight: 800 }}>
+          {ruleEntries.map((r, ri) => (
+            <Box
+              key={r.key}
+              sx={{
+                marginBottom: ri < ruleEntries.length - 1 ? "0.4em" : 0,
+                lineHeight: 1.2,
+                fontWeight: 400,
+              }}
+            >
+              <Box component="strong" sx={{ fontWeight: 700 }}>
                 {r.name}
                 {r.note ? ` (${r.note})` : ""}
                 {r.desc ? ":" : ""}
@@ -547,10 +675,11 @@ function CardFront({ details = {}, bgColor }) {
           flexDirection: "column",
           overflow: "hidden",
           background: "#fff",
-          color: "#000",
+          color: TABLE_INK,
           border: `${u(TABLE_BORDER)} solid #000`,
           borderRadius: u(6),
           boxSizing: "border-box",
+          fontWeight: 700,
           fontSize: u(9),
           lineHeight: 1,
         }}
@@ -561,24 +690,26 @@ function CardFront({ details = {}, bgColor }) {
             flex: "none",
             height: u(HEADER_ROW_HEIGHT),
             background: "#fff",
-            color: "#000",
-            fontWeight: 800,
-            fontSize: u(7),
+            color: TABLE_INK,
+            fontWeight: 700,
+            fontSize: u(6),
           }}
         >
-          <Box sx={cell(0)}>Weapon</Box>
-          <Box sx={cell(1)}>Range</Box>
-          <Box sx={cell(2)}>Arc</Box>
+          <Box sx={cell(0, hdrPad(6))}>Weapon</Box>
+          <Box sx={cell(1, { fontSize: u(6), ...hdrPad(6) })}>Range</Box>
+          <Box sx={cell(2, hdrPad(6))}>Arc</Box>
           {statColumns.map((g) => (
             <Box
               key={g.type}
               data-testid={`card-weapons-group-${g.type}`}
               sx={{
                 gridColumn: `span ${g.levels.length}`,
-                fontSize: g.levels.length < 4 ? u(5.5) : undefined,
+                fontSize: u(6),
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                lineHeight: 1,
+                ...hdrPad(6),
                 overflow: "hidden",
                 whiteSpace: "nowrap",
                 borderLeft: `${u(2)} solid #222`,
@@ -594,9 +725,9 @@ function CardFront({ details = {}, bgColor }) {
             flex: "none",
             height: u(HEADER_ROW_HEIGHT),
             background: "#fff",
-            color: "#000",
+            color: TABLE_INK,
             fontWeight: 700,
-            fontSize: u(7.5),
+            fontSize: u(9),
             borderBottom: `${u(2)} solid #222`,
           }}
         >
@@ -607,7 +738,7 @@ function CardFront({ details = {}, bgColor }) {
             <Box
               key={`${c.type}${c.level}`}
               data-testid="card-weapons-level"
-              sx={cell(3 + ci)}
+              sx={cell(3 + ci, { fontSize: u(8), paddingBottom: u(0.75) })}
             >
               {c.level}
             </Box>
@@ -620,7 +751,7 @@ function CardFront({ details = {}, bgColor }) {
             flex: "1 1 0",
             minHeight: 0,
             background: "#fff",
-            color: "#000",
+            color: TABLE_INK,
             borderBottom:
               rowIndex < WEAPON_ROWS - 1 ? `${u(1)} solid #ccc` : "none",
           };
@@ -641,7 +772,9 @@ function CardFront({ details = {}, bgColor }) {
           const cells = [
             null,
             w.range === 0 ? "C" : w.range || "–",
-            ARC_LABELS[w.arc] || "–",
+            ["I", "H", "S"].includes(details.type)
+              ? "–"
+              : ARC_LABELS[w.arc] || "–",
             ...flatColumns.map((c) => getWeaponCell(w, c.type, c.level) || "–"),
           ];
           return (
@@ -654,20 +787,27 @@ function CardFront({ details = {}, bgColor }) {
                 <Box
                   key={i}
                   sx={cell(i, {
-                    fontWeight: i === 0 ? 700 : 400,
-                    fontSize: i === 0 ? undefined : i === 2 ? u(6.5) : u(7),
+                    fontWeight: 700,
+                    ...(i >= 3 ? { letterSpacing: "-0.03em", padding: 0, paddingBottom: "0.09em" } : {}),
+                    // stat cells: Oswald 700, fixed size (no auto-fit);
+                    // 9 keeps '10/3' (1.87em) inside the 18-unit column
+                    fontSize:
+                      i === 0 ? undefined : i === 1 ? u(11.2) : i === 2 ? u(8) : u(9),
                     background: "none",
-                    color: "#000",
+                    color: TABLE_INK,
                   })}
                 >
                   {i === 0 ? (
                     <Box
                       data-weapon-name
                       sx={{
-                        width: "100%",
+                        // safety margin so the name never touches the clip edge
+                        width: `calc(100% - ${u(3)})`,
                         whiteSpace: "nowrap",
                         overflow: "hidden",
                         textOverflow: "ellipsis",
+                        textTransform: "uppercase",
+                        fontSize: u(7.5),
                         lineHeight: 1.3,
                       }}
                     >
@@ -700,6 +840,8 @@ function CardFront({ details = {}, bgColor }) {
                         </Box>
                       )}
                     </Box>
+                  ) : i >= 3 ? (
+                    renderStatSymbols(value)
                   ) : (
                     value
                   )}
