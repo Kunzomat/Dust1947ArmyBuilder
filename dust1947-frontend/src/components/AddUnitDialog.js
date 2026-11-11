@@ -33,12 +33,35 @@ const TYPE_LABELS = {
   H: "Hero",
 };
 
+const isUniqueFlag = (value) => [true, 1, "1"].includes(value);
+const getUnitKey = (unit) => {
+  const id = unit?.unit_id ?? unit?.id;
+  return id == null ? null : String(id);
+};
+
+// Removes UNIQUE units (units.is_unique) that are already part of the army.
+// Compared by unit ID across the whole army, regardless of platoon.
+export function filterOutUsedUniqueUnits(units, armyUnits) {
+  const usedUniqueIds = new Set();
+  for (const armyUnit of armyUnits || []) {
+    const key = getUnitKey(armyUnit);
+    if (key !== null && isUniqueFlag(armyUnit.is_unique)) usedUniqueIds.add(key);
+  }
+  if (usedUniqueIds.size === 0) return units || [];
+  return (units || []).filter((unit) => !usedUniqueIds.has(getUnitKey(unit)));
+}
+
 export default function AddUnitDialog({
   open,
-  units,
+  units: allUnits,
+  armyUnits,
   onClose,
   onAdd,
 }) {
+  const units = useMemo(
+    () => filterOutUsedUniqueUnits(allUnits, armyUnits),
+    [allUnits, armyUnits]
+  );
   const [filters, setFilters] = useSessionStorageState(
     "dust1947.filters.v1.add-unit-dialog",
     { selectedFaction: "", selectedType: "" }

@@ -108,8 +108,8 @@ CREATE TABLE IF NOT EXISTS weapon_stats (
     weapon_id INT NOT NULL,
     target_type VARCHAR(50),
     target_level VARCHAR(10),
-    dice INT,
-    damage INT,
+    dice VARCHAR(16) NOT NULL,
+    damage VARCHAR(16) NOT NULL,
     FOREIGN KEY (weapon_id) REFERENCES weapons(id) ON DELETE CASCADE
 );
 

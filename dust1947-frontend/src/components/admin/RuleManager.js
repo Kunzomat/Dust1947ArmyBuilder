@@ -59,9 +59,11 @@ export default function RuleManager() {
   const [cloneSourceRule, setCloneSourceRule] = useState(null);
   const [filters, setFilters] = useSessionStorageState(
     'dust1947.filters.v1.admin.rules',
-    { filterGameSystemId: '' }
+    { filterGameSystemId: '', nameFilter: '' }
   );
-  const { filterGameSystemId } = filters;
+  const { filterGameSystemId, nameFilter = '' } = filters;
+  const setNameFilter = (value) =>
+    setFilters((previous) => ({ ...previous, nameFilter: value }));
   const setFilterGameSystemId = (value) =>
     setFilters((previous) => ({ ...previous, filterGameSystemId: value }));
 
@@ -103,9 +105,15 @@ export default function RuleManager() {
   };
 
   const filteredAndSortedRules = useMemo(() => {
+    const normalizedNameFilter = String(nameFilter || '').trim().toLowerCase();
+
     const filtered = rules.filter((rule) => {
-      if (!filterGameSystemId) return true;
-      return String(rule.game_system_id || '') === String(filterGameSystemId);
+      if (filterGameSystemId && String(rule.game_system_id || '') !== String(filterGameSystemId)) {
+        return false;
+      }
+
+      if (!normalizedNameFilter) return true;
+      return String(rule.name || '').toLowerCase().includes(normalizedNameFilter);
     });
 
     const sorted = [...filtered].sort((a, b) => {
@@ -118,7 +126,7 @@ export default function RuleManager() {
     });
 
     return sorted;
-  }, [rules, filterGameSystemId, sortBy, sortDirection]);
+  }, [rules, filterGameSystemId, nameFilter, sortBy, sortDirection]);
 
   const handleSort = (column) => {
     if (sortBy === column) {
@@ -226,6 +234,14 @@ export default function RuleManager() {
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, gap: 2, flexWrap: 'wrap' }}>
         <Typography variant="h6">Rules ({filteredAndSortedRules.length})</Typography>
         <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', flexWrap: 'wrap' }}>
+          <TextField
+            size="small"
+            label="Regel suchen"
+            value={nameFilter}
+            onChange={(e) => setNameFilter(e.target.value)}
+            placeholder="Contains (ab 1 Zeichen)"
+            sx={{ minWidth: 220 }}
+          />
           <FormControl size="small" sx={{ minWidth: 220 }}>
             <InputLabel id="rules-game-system-filter-label">Game System</InputLabel>
             <Select

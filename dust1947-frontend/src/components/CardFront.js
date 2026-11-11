@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { Box } from "@mui/material";
 import SmartImage from "./SmartImage";
+import { DICE_SYMBOL_PATHS } from "./diceSymbolPaths";
 
 import iconInfanterie from "../assets/icons/infanterie.png";
 import iconVehicle from "../assets/icons/vehicle_tank.png";
@@ -156,6 +157,45 @@ function renderStatSymbols(value) {
   });
 }
 
+// Display only: [TARGET] / [BLOCK] (alias [BLOC]) / [SHIELD] (case-insensitive)
+// in rule texts -> original black dice symbols as inline SVG (1em, on the text
+// baseline, flows with line wrapping, html2canvas/PDF-safe; stored data is
+// unchanged).
+const DICE_PLACEHOLDER_RE = /(\[(?:target|block?|shield)\])/i;
+const DICE_PLACEHOLDER_ALIASES = { BLOC: "BLOCK" };
+export function renderRuleText(value) {
+  const text = String(value ?? "");
+  if (!DICE_PLACEHOLDER_RE.test(text)) return text;
+  return text.split(DICE_PLACEHOLDER_RE).map((part, idx) => {
+    const rawKey = part.slice(1, -1).toUpperCase();
+    const key = DICE_PLACEHOLDER_ALIASES[rawKey] || rawKey;
+    if (part.startsWith("[") && DICE_SYMBOL_PATHS[key]) {
+      return (
+        <svg
+          key={idx}
+          data-testid={`dice-symbol-${key.toLowerCase()}`}
+          viewBox="0 0 1002 1000"
+          width="1em"
+          height="1em"
+          style={{
+            display: "inline-block",
+            width: "1em",
+            height: "1em",
+            verticalAlign: "-0.15em",
+            fill: "#000",
+          }}
+          fill="#000"
+          aria-label={key.toLowerCase()}
+          role="img"
+        >
+          <path d={DICE_SYMBOL_PATHS[key]} fill="#000" />
+        </svg>
+      );
+    }
+    return part;
+  });
+}
+
 // The weapon table has a FIXED column structure (Inf 1-4, Veh 1-7, Air 1-3)
 // for every unit, independent of the weapon data.
 export function buildStatColumns() {
@@ -165,7 +205,7 @@ export function buildStatColumns() {
 // The weapon table always has exactly this many weapon rows (empty-padded).
 export const WEAPON_ROWS = 5;
 // Weapon block = exactly 1/3 of the card height (incl. its header rows).
-export const WEAPON_BLOCK_HEIGHT = LOGICAL_HEIGHT / 3;
+export const WEAPON_BLOC_HEIGHT = LOGICAL_HEIGHT / 3;
 const TABLE_BORDER = 2;
 const HEADER_ROW_HEIGHT = 11;
 // 14 stat columns + range + arc = 286 of the 378 px table width; the rest is
@@ -640,7 +680,7 @@ function CardFront({ details = {}, bgColor }) {
                 {r.note ? ` (${r.note})` : ""}
                 {r.desc ? ":" : ""}
               </Box>
-              {r.desc ? ` ${r.desc}` : ""}
+              {r.desc ? <> {renderRuleText(r.desc)}</> : ""}
             </Box>
           ))}
           {clipped && (
@@ -670,7 +710,7 @@ function CardFront({ details = {}, bgColor }) {
         data-testid="card-weapons"
         sx={{
           flex: "none",
-          height: u(WEAPON_BLOCK_HEIGHT),
+          height: u(WEAPON_BLOC_HEIGHT),
           display: "flex",
           flexDirection: "column",
           overflow: "hidden",

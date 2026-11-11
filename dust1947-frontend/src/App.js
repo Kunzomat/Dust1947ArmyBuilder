@@ -1003,6 +1003,7 @@ function groupSlots(platoonUnits) {
 	  <AddUnitDialog
         open={addUnitOpen}
 		units={availableUnits}
+		armyUnits={armyDetail?.units}
 		onClose={handleCloseAddUnit}
 		onAdd={handleAddUnit}
 		/>

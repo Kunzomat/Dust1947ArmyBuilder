@@ -4,7 +4,27 @@ import CardFront, {
   buildRuleEntries,
   buildStatColumns,
   getWeaponCell,
+  renderRuleText,
 } from "./CardFront";
+
+describe("renderRuleText dice symbols", () => {
+  it("replaces [TARGET], [block], [Shield] with inline svgs and keeps text", () => {
+    const src = "Roll [TARGET] then [block] or [Shield]; [other] stays.";
+    const { container } = render(<p>{renderRuleText(src)}</p>);
+    expect(container.querySelectorAll("svg")).toHaveLength(3);
+    expect(container.querySelector('[data-testid="dice-symbol-target"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="dice-symbol-block"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="dice-symbol-shield"]')).toBeTruthy();
+    expect(container.textContent).toBe("Roll  then  or ; [other] stays.");
+    expect(renderRuleText("plain")).toBe("plain");
+  });
+
+  it("renders the [BLOC] alias identically to [BLOCK]", () => {
+    const html = (s) => render(<p>{renderRuleText(s)}</p>).container.innerHTML;
+    expect(html("A [BLOC] B")).toBe(html("A [BLOCK] B"));
+    expect(html("A [bloc] B")).toContain('data-testid="dice-symbol-block"');
+  });
+});
 
 const weapon = (id, name, extra = {}) => ({
   id,
